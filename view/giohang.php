@@ -102,28 +102,24 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         let quantityInputs = document.querySelectorAll('input[name="tang_so_luong"]');
-        let subtotalElement = document.getElementById('subtotal');
+        let subtotalElement = document.getElementById('subtotal');// theo id
 
         quantityInputs.forEach(function(input) {
             input.addEventListener("change", function(event) {
                 let newValue = event.target.value;
                 let row = event.target.closest("tr");
-                let priceElement = row.querySelector(".price-col[data-type='gia_ca']");
+                let priceElement = row.querySelector(".price-col[data-type='gia_ca']"); // theo class
                 let color = row.querySelector(".price-col[data-type='mau']").textContent;
                 let size = row.querySelector(".price-col[data-type='size']").textContent;
                 let productName = row.querySelector(".product-title a").textContent;
                 let price = parseFloat(priceElement.textContent);
                 let total = newValue * price;
                 let productId = input.classList[1].substring(3);
-                console.log('Product ID:', productName);
-                console.log('Product ID:', size);
-                console.log('Product ID:', color);
-                console.log('Product ID:', price);
-                console.log('Product ID:', newValue);
                 if (productId) {
                     $.ajax({
                         type: "POST",
-                        url: "../model/giohang.php",
+                        url: "index.php?act=themsl",
+                        // url: "../model/giohang.php",
                         data: {
                             action: "update_giohang",
                             quantity: newValue,

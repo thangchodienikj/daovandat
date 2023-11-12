@@ -158,6 +158,26 @@ if (isset($_GET['aht'])){
                 include("giaodien/header1.php");
                 include("giohang.php");
                 break;
+            case 'themsl':
+                if (isset($_POST['action']) && $_POST['action'] === 'update_giohang') {
+                    $ten_sach = $_POST['ten_sach'];
+                    $so_luong = $_POST['quantity'];
+                    $selected_color = $_POST['mau'];
+                    $selected_size = $_POST['size'];
+                    $gia_ca = $_POST['price'];
+                    echo "
+                        <script>
+                        console.log('$ten_sach');
+                        console.log('$gia_ca');
+                        console.log('$selected_color');
+                        console.log('$selected_size');
+                        console.log('$so_luong');
+                        console.log('true');
+                    </script>
+                    ";
+                    update($ten_sach, $selected_color, $selected_size, '', $gia_ca, '', $so_luong);
+                }
+                break;
                  default;
         }
     } else {
