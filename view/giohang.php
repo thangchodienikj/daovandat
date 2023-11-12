@@ -58,7 +58,6 @@
                                 <td class="total-col pd-'.$id.'">'.$thanhtien.' </td>
                                 <td class="remove-col"><a href="index.php?act=xoaspgh&id='.$id.'"><i class="icon-close"></i></a></td>
                             </tr>
-                           
                             ';
                                 $tong = $tong+ $thanhtien;
                             }

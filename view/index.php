@@ -158,37 +158,6 @@ if (isset($_GET['aht'])){
                 include("giaodien/header1.php");
                 include("giohang.php");
                 break;
-//            case 'gh':
-//                if (isset($_POST['giohang']) && $_POST['giohang']) {
-//                    $ten_sach = $_POST['name'];
-//                    $gia_ca = $_POST['giaca'];
-//                    $mo_ta = $_POST['mota'];
-//                    $hinhload = $_POST['hinh'];
-//                    $so_luong = $_POST['soluong'];
-//                    $selected_size = $_POST['selected_size'];
-//                    $selected_color = $_POST['selected_color'];
-//                    $thanhtien = $gia_ca * $so_luong;
-//                    $check = checkgiohang($ten_sach, $selected_color, $selected_size);
-//                    if (is_array($check)) {
-//                        extract($check);
-//                        $ten_sach1 =  $check['ten_sach'] ;
-//                        $selected_color1 =  $check['mau'] ;
-//                        $selected_size1 =  $check['sizesp'] ;
-//                        $so_luong1 = ($so_luong + ($check['so_luong'])) ;
-//                        $thanhtien1 = $gia_ca * $so_luong1;
-//                        update_giohang($ten_sach1, $selected_color1, $selected_size1, $so_luong1, $thanhtien1);
-//                        header("Location: index.php?act=gh");
-//
-//                        echo 'ok';
-//                    } else {
-//                        insert_giohang($ten_sach, $selected_color, $selected_size, $mo_ta, $gia_ca, $hinhload, $so_luong, $thanhtien);
-//                        header("Location: index.php?act=gh");
-//                    }
-//                }
-//                $listgh = loadall_giohang();
-//                include("giaodien/header1.php");
-//                include("giohang.php");
-//                break;
                  default;
         }
     } else {
