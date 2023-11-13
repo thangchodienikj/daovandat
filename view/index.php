@@ -41,6 +41,7 @@ if (isset($_GET['aht'])){
                 include ("sanpham.php");
                 break;
             case 'thanhtoan' :
+                $listgh = loadall_giohang();
                 include("giaodien/header1.php");
                 include ("thanhtoan.php");
                 break;
