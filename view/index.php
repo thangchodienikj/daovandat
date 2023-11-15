@@ -180,12 +180,6 @@ if (isset($_GET['aht'])){
                     update($ten_sach, $selected_color, $selected_size, '', $gia_ca, '', $so_luong);
                 }
                 break;
-<<<<<<< HEAD
-
-
-
-                default;
-=======
             case 'tim':
                 if (isset($_POST['timkiem'])) {
                     $timkiem = $_POST['tim1'];
@@ -198,7 +192,7 @@ if (isset($_GET['aht'])){
                 }
                 break;
                  default;
->>>>>>> 313d8a28f5cca95e46b306d74999661b9f1efd1b
+
         }
     } else {
         include("giaodien/header1.php");
