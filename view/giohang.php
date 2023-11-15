@@ -60,8 +60,8 @@
                             </tr>
                             ';
                                 $tong = $tong+ $thanhtien;
-                            }
-                            echo '</tbody>
+                            };?>
+                            </tbody>
                         </table><!-- End .table table-wishlist -->
                         <div class="cart-bottom">
                             <div class="cart-discount">
@@ -83,11 +83,10 @@
                                 <tbody>
                                 <tr class="summary-subtotal">
                                     <td>Tổng phụ:</td>
-                                    <td id="subtotal">'.$tong.' </td>
+                                    <td id="subtotal"><?=$tong?> </td>
                                 </tr><!-- End .summary-subtotal -->
-                                ';
-                            ?>
-                                </tr><!-- End .summary-subtotal -->
+
+
                                 </tbody>
                             </table><!-- End .table table-summary -->
 
@@ -99,6 +98,10 @@
         </div><!-- End .cart -->
     </div><!-- End .page-content -->
 </main><!-- End .main -->
+
+
+
+<!--lắng nghe thay đổi trên đơn hàng và sau đó thay đổi trên db-->
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         let quantityInputs = document.querySelectorAll('input[name="tang_so_luong"]');

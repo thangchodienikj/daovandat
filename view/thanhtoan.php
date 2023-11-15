@@ -17,80 +17,75 @@
     <div class="page-content">
         <div class="checkout">
             <div class="container">
-                <div class="checkout-discount">
-                    <form action="#">
-                        <input type="text" class="form-control" required id="checkout-discount-input">
-                        <label for="checkout-discount-input" class="text-truncate">Have a coupon? <span>Click here to enter your code</span></label>
-                    </form>
-                </div><!-- End .checkout-discount -->
-                <form action="#">
-                    <div class="row">
+                <div class="row">
                         <div class="col-lg-8">
-                            <h2 class="checkout-title">Billing Details</h2><!-- End .checkout-title -->
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label>First Name *</label>
-                                    <input type="text" class="form-control" required>
-                                </div><!-- End .col-sm-6 -->
+                            <form action="">
+                                <h2 class="checkout-title">Billing Details</h2><!-- End .checkout-title -->
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label>First Name *</label>
+                                        <input type="text" class="form-control">
+                                    </div><!-- End .col-sm-6 -->
 
-                                <div class="col-sm-6">
-                                    <label>Last Name *</label>
-                                    <input type="text" class="form-control" required>
-                                </div><!-- End .col-sm-6 -->
-                            </div><!-- End .row -->
+                                    <div class="col-sm-6">
+                                        <label>Last Name *</label>
+                                        <input type="text" class="form-control">
+                                    </div><!-- End .col-sm-6 -->
+                                </div><!-- End .row -->
 
-                            <label>Company Name (Optional)</label>
-                            <input type="text" class="form-control">
+                                <label>Company Name (Optional)</label>
+                                <input type="text" class="form-control">
 
-                            <label>Country *</label>
-                            <input type="text" class="form-control" required>
+                                <label>Country *</label>
+                                <input type="text" class="form-control" >
 
-                            <label>Street address *</label>
-                            <input type="text" class="form-control" placeholder="House number and Street name" required>
-                            <input type="text" class="form-control" placeholder="Appartments, suite, unit etc ..." required>
+                                <label>Street address *</label>
+                                <input type="text" class="form-control" placeholder="House number and Street name" >
+                                <input type="text" class="form-control" placeholder="Appartments, suite, unit etc ..." >
 
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label>Town / City *</label>
-                                    <input type="text" class="form-control" required>
-                                </div><!-- End .col-sm-6 -->
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label>Town / City *</label>
+                                        <input type="text" class="form-control" >
+                                    </div><!-- End .col-sm-6 -->
 
-                                <div class="col-sm-6">
-                                    <label>State / County *</label>
-                                    <input type="text" class="form-control" required>
-                                </div><!-- End .col-sm-6 -->
-                            </div><!-- End .row -->
+                                    <div class="col-sm-6">
+                                        <label>State / County *</label>
+                                        <input type="text" class="form-control">
+                                    </div><!-- End .col-sm-6 -->
+                                </div><!-- End .row -->
 
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label>Postcode / ZIP *</label>
-                                    <input type="text" class="form-control" required>
-                                </div><!-- End .col-sm-6 -->
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label>Postcode / ZIP *</label>
+                                        <input type="text" class="form-control" >
+                                    </div><!-- End .col-sm-6 -->
 
-                                <div class="col-sm-6">
-                                    <label>Phone *</label>
-                                    <input type="tel" class="form-control" required>
-                                </div><!-- End .col-sm-6 -->
-                            </div><!-- End .row -->
+                                    <div class="col-sm-6">
+                                        <label>Phone *</label>
+                                        <input type="tel" class="form-control" >
+                                    </div><!-- End .col-sm-6 -->
+                                </div><!-- End .row -->
 
-                            <label>Email address *</label>
-                            <input type="email" class="form-control" required>
+                                <label>Email address *</label>
+                                <input type="email" class="form-control" >
 
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="checkout-create-acc">
-                                <label class="custom-control-label" for="checkout-create-acc">Create an account?</label>
-                            </div><!-- End .custom-checkbox -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="checkout-create-acc">
+                                    <label class="custom-control-label" for="checkout-create-acc">Create an account?</label>
+                                </div><!-- End .custom-checkbox -->
 
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="checkout-diff-address">
-                                <label class="custom-control-label" for="checkout-diff-address">Ship to a different address?</label>
-                            </div><!-- End .custom-checkbox -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="checkout-diff-address">
+                                    <label class="custom-control-label" for="checkout-diff-address">Ship to a different address?</label>
+                                </div><!-- End .custom-checkbox -->
 
-                            <label>Order notes (optional)</label>
-                            <textarea class="form-control" cols="30" rows="4" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
+                                <label>Order notes (optional)</label>
+                                <textarea class="form-control" cols="30" rows="4" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
+                            </form>
                         </div><!-- End .col-lg-9 -->
                         <aside class="col-lg-4">
-                            <div class="summary">
+                            <form action="">
                                 <h3 class="summary-title">Your Order</h3><!-- End .summary-title -->
 
                                 <table class="table table-summary">
@@ -102,130 +97,109 @@
                                     </thead>
 
                                     <tbody>
-                                    <tr>
-                                        <td><a href="#">Beige knitted elastic runner shoes</a></td>
-                                        <td>$84.00</td>
-                                    </tr>
+                                    <?php $tong=0 ; foreach ($listgh as $gh) {
+                                        extract($gh);
+                                        echo '
+                            <tr id="'.$id.'">
+                                <td class="product-col">
+                                        <h3 class="product-title">
+                                            <a >'.$ten_sach.'</a>
+                                        </h3><!-- End .product-title -->
+                                </td>
+                                <td class="price-col" data-type="gia_ca">$'.$gia_ca.'</td>
+                            </tr>
+                            ';
+                                        $tong = $tong+ $thanhtien;
+                                    };?>
 
-                                    <tr>
-                                        <td><a href="#">Blue utility pinafore denimdress</a></td>
-                                        <td>$76,00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>PHTC:</td>
-                                        <td >
-                                            <div class="form-group" style="margin-top: 35px; width: 180px">
-                                                <select class="custom-select form-control" id="customSelect">
-                                                    <option value="1">Vận chuyển nhanh</option>
-                                                    <option value="2">Vận chuyển chậm</option>
-                                                </select>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="summary-subtotal">
-                                        <td>Subtotal:</td>
-                                        <td>$160.00</td>
-                                    </tr><!-- End .summary-subtotal -->
-                                    <tr class="summary-subtotal">
-                                        <td>Phí vận chuyển:</td>
-                                        <td>$30.00</td>
-                                    </tr><!-- End .summary-subtotal -->
+
                                     <tr>
                                     <tr>
 
                                     </tr>
                                     <tr class="summary-total">
                                         <td>Total:</td>
-                                        <td>$160.00</td>
+                                        <td>$<?=$tong?></td>
                                     </tr><!-- End .summary-total -->
                                     </tbody>
                                 </table><!-- End .table table-summary -->
 
                                 <div class="accordion-summary" id="accordion-payment">
-                                    <div class="card">
-                                        <div class="card-header" id="heading-1">
-                                            <h2 class="card-title">
-                                                <a role="button" data-toggle="collapse" href="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
-                                                    Direct bank transfer
-                                                </a>
-                                            </h2>
-                                        </div><!-- End .card-header -->
-                                        <div id="collapse-1" class="collapse show" aria-labelledby="heading-1" data-parent="#accordion-payment">
-                                            <div class="card-body">
-                                                Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
-                                            </div><!-- End .card-body -->
-                                        </div><!-- End .collapse -->
-                                    </div><!-- End .card -->
 
-                                    <div class="card">
-                                        <div class="card-header" id="heading-2">
-                                            <h2 class="card-title">
-                                                <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
-                                                    Check payments
-                                                </a>
-                                            </h2>
-                                        </div><!-- End .card-header -->
-                                        <div id="collapse-2" class="collapse" aria-labelledby="heading-2" data-parent="#accordion-payment">
-                                            <div class="card-body">
-                                                Ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-                                            </div><!-- End .card-body -->
-                                        </div><!-- End .collapse -->
-                                    </div><!-- End .card -->
+                                        <div class="card">
+                                            <div class="card-header" id="heading-2">
+                                                <h2 class="card-title">
+                                                    <a id="momo-link" class="collapsed" role="button" data-toggle="collapse" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+                                                        Payment by MoMo
+                                                    </a>
+                                                </h2>
+                                            </div><!-- End .card-header -->
+                                            <div id="collapse-2" class="collapse" aria-labelledby="heading-2" data-parent="#accordion-payment">
+                                                <div class="card-body">Quisque volutpat mattis eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.
+                                                </div><!-- End .card-body -->
+                                            </div><!-- End .collapse -->
+                                        </div><!-- End .card -->
+                                        <div class="card">
+                                            <div class="card-header" id="heading-3">
+                                                <h2 class="card-title">
+                                                    <a id="vnpay-link" class="collapsed" role="button" data-toggle="collapse" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
+                                                       Payment by VNPay
+                                                    </a>
+                                                </h2>
+                                            </div><!-- End .card-header -->
+                                            <div id="collapse-3" class="collapse" aria-labelledby="heading-3" data-parent="#accordion-payment">
+                                                <div class="card-body">Quisque volutpat mattis eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.
+                                                </div><!-- End .card-body -->
+                                            </div><!-- End .collapse -->
+                                        </div><!-- End .card -->
 
-                                    <div class="card">
-                                        <div class="card-header" id="heading-3">
-                                            <h2 class="card-title">
-                                                <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
-                                                    Cash on delivery
-                                                </a>
-                                            </h2>
-                                        </div><!-- End .card-header -->
-                                        <div id="collapse-3" class="collapse" aria-labelledby="heading-3" data-parent="#accordion-payment">
-                                            <div class="card-body">Quisque volutpat mattis eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.
-                                            </div><!-- End .card-body -->
-                                        </div><!-- End .collapse -->
-                                    </div><!-- End .card -->
+                                        <div class="card">
+                                            <div class="card-header" id="heading-4">
+                                                <h2 class="card-title">
+                                                    <a id="cod" class="collapsed" role="button" data-toggle="collapse" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
+                                                        COD
+                                                    </a>
+                                                </h2>
+                                            </div><!-- End .card-header -->
+                                            <div id="collapse-4" class="collapse" aria-labelledby="heading-4" data-parent="#accordion-payment">
+                                                <div class="card-body">
+                                                    Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum.
+                                                </div><!-- End .card-body -->
+                                            </div><!-- End .collapse -->
+                                        </div><!-- End .card -->
 
-                                    <div class="card">
-                                        <div class="card-header" id="heading-4">
-                                            <h2 class="card-title">
-                                                <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
-                                                    PayPal <small class="float-right paypal-link">What is PayPal?</small>
-                                                </a>
-                                            </h2>
-                                        </div><!-- End .card-header -->
-                                        <div id="collapse-4" class="collapse" aria-labelledby="heading-4" data-parent="#accordion-payment">
-                                            <div class="card-body">
-                                                Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum.
-                                            </div><!-- End .card-body -->
-                                        </div><!-- End .collapse -->
-                                    </div><!-- End .card -->
+                            </form>
 
-                                    <div class="card">
-                                        <div class="card-header" id="heading-5">
-                                            <h2 class="card-title">
-                                                <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
-                                                    Credit Card (Stripe)
-                                                    <img src="assets/images/payments-summary.png" alt="payments cards">
-                                                </a>
-                                            </h2>
-                                        </div><!-- End .card-header -->
-                                        <div id="collapse-5" class="collapse" aria-labelledby="heading-5" data-parent="#accordion-payment">
-                                            <div class="card-body"> Donec nec justo eget felis facilisis fermentum.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Lorem ipsum dolor sit ame.
-                                            </div><!-- End .card-body -->
-                                        </div><!-- End .collapse -->
-                                    </div><!-- End .card -->
-                                </div><!-- End .accordion -->
-
-                                <button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
-                                    <span class="btn-text">Place Order</span>
-                                    <span class="btn-hover-text">Proceed to Checkout</span>
-                                </button>
+                                    <form class="card" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="init_payment_momo.php">
+                                        <input type="submit" value="thanh toan momo">
+                                    </form>
+                                    
                             </div><!-- End .summary -->
                         </aside><!-- End .col-lg-3 -->
                     </div><!-- End .row -->
-                </form>
+
             </div><!-- End .container -->
         </div><!-- End .checkout -->
     </div><!-- End .page-content -->
 </main><!-- End .main -->
+
+<!--<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>-->
+<!--<script>-->
+<!--    $(document).ready(function () {-->
+<!--        $(".btn-order").on("click", function () {-->
+<!--            // Lấy ID của thẻ <a> đã được chọn-->
+<!--            var selectedLinkId = $(".accordion-summary a[aria-expanded='true']").attr("id");-->
+<!---->
+<!--            // Kiểm tra ID và điều hướng đến địa chỉ mong muốn-->
+<!--            switch (selectedLinkId) {-->
+<!--                case "momo-link":-->
+<!--                    window.location.href = "link-to-momo-page.html";-->
+<!--                    break;-->
+<!--                case "vnpay-link":-->
+<!--                    window.location.href = "link-to-vnpay-page.html";-->
+<!--                    break;-->
+<!--                // Thêm các trường hợp khác nếu cần-->
+<!--            }-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
