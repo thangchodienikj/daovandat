@@ -7,28 +7,43 @@ if (is_file($loadhinh)){
     $hinh = "<img src='$loadhinh' height='80' width='80'>";
 }
 ?>
-<div class="mb">
-    <div class="box_title">Cập nhập sản phẩm mới </div>
-    <div class="box_content form_account">
-        <form action="index.php?act=update" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="id" value="<?=$id?>"><br>
+<main class="main" style="width: 77%; margin: 0 auto;">
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-12">
+                <div class="mb">
+                    <div class="box_title" style="font-size: 25px">Cập nhật sản phẩm mới</div>
+                    <div class="box_content form_account">
+                        <form action="index.php?act=update" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="id" value="<?=$id?>">
 
-            <label for="tenloai">Tên Loại:</label><br>
-            <input type="text" name="tenloai" id="tenloai" value="<?=$ten_danh_muc?>"><br>
+                            <div class="mb-3">
+                                <label for="tenloai" class="form-label">Tên Loại:</label>
+                                <input type="text" class="form-control" name="tenloai" id="tenloai" value="<?=$ten_danh_muc?>">
+                            </div>
 
-            <label for="hinh">Ảnh sản phẩm:</label><br>
-            <input type="file" name="hinh" id="hinh"><?php if(isset($hinh)){echo $hinh;} else$hinh=''; ?><br>
+                            <div class="mb-3">
+                                <label for="hinh" class="form-label">Ảnh sản phẩm:</label>
+                                <input type="file" class="form-control" name="hinh" id="hinh">
+                                <?php if(isset($hinh)) { echo $hinh; } ?>
+                            </div>
 
-            <input type="submit" name="capnhat" value="Cập nhật">
-            <input type="reset" value="Nhập lại">
-            <a href="index.php?act=listdm"><input type="button" class="menu-button" value="Danh Sách"></a>
-        </form>
-        <p>
-            <?php
-            if(isset($thongbao) && ($thongbao !="")){
-                echo $thongbao;
-            }
-            ?>
-            </p>
+                            <button type="submit" class="btn btn-primary" name="capnhat">Cập nhật</button>
+                            <button type="reset" class="btn btn-secondary">Nhập lại</button>
+                            <a href="index.php?act=listdm" class="btn btn-info">Danh Sách</a>
+                        </form>
+
+                        <p>
+                            <?php
+                            if(isset($thongbao) && ($thongbao !="")){
+                                echo $thongbao;
+                            }
+                            ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+
+</main>

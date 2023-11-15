@@ -11,7 +11,7 @@
                             }
                         }
                     }'>
-            <div class="intro-slide" style="background-image: url(assets/images/anh4.png);">
+            <div class="intro-slide" style="background-image: url(assets/images/anh3.jpg);">
                 <div class="container intro-content">
                     <div class="row justify-content-end">
                         <div class="col-auto col-sm-7 col-md-6 col-lg-5">
@@ -35,7 +35,51 @@
                 </div><!-- End .intro-content -->
             </div><!-- End .intro-slide -->
 
-            <div class="intro-slide" style="background-image: url(assets/images/anh5.png);">
+            <div class="intro-slide" style="background-image: url(assets/images/anh2.jpg);">
+                <div class="container intro-content">
+                    <div class="row justify-content-end">
+                        <div class="col-auto col-sm-7 col-md-6 col-lg-5">
+                            <h3 class="intro-subtitle text-primary">New Arrival</h3><!-- End .h3 intro-subtitle -->
+                            <h1 class="intro-title">Apple iPad Pro <br>12.9 Inch, 64GB </h1><!-- End .intro-title -->
+
+                            <div class="intro-price">
+                                <sup>Today:</sup>
+                                <span class="text-primary">
+                                            $999<sup>.99</sup>
+                                        </span>
+                            </div><!-- End .intro-price -->
+
+                            <a href="category.html" class="btn btn-primary btn-round">
+                                <span>Shop More</span>
+                                <i class="icon-long-arrow-right"></i>
+                            </a>
+                        </div><!-- End .col-md-6 offset-md-6 -->
+                    </div><!-- End .row -->
+                </div><!-- End .intro-content -->
+            </div><!-- End .intro-slide -->
+            <div class="intro-slide" style="background-image: url(assets/images/anh1.jpg);">
+                <div class="container intro-content">
+                    <div class="row justify-content-end">
+                        <div class="col-auto col-sm-7 col-md-6 col-lg-5">
+                            <h3 class="intro-subtitle text-primary">New Arrival</h3><!-- End .h3 intro-subtitle -->
+                            <h1 class="intro-title">Apple iPad Pro <br>12.9 Inch, 64GB </h1><!-- End .intro-title -->
+
+                            <div class="intro-price">
+                                <sup>Today:</sup>
+                                <span class="text-primary">
+                                            $999<sup>.99</sup>
+                                        </span>
+                            </div><!-- End .intro-price -->
+
+                            <a href="category.html" class="btn btn-primary btn-round">
+                                <span>Shop More</span>
+                                <i class="icon-long-arrow-right"></i>
+                            </a>
+                        </div><!-- End .col-md-6 offset-md-6 -->
+                    </div><!-- End .row -->
+                </div><!-- End .intro-content -->
+            </div><!-- End .intro-slide -->
+            <div class="intro-slide" style="background-image: url(assets/images/anh4.jpg);">
                 <div class="container intro-content">
                     <div class="row justify-content-end">
                         <div class="col-auto col-sm-7 col-md-6 col-lg-5">
@@ -257,13 +301,13 @@
 
         <div class="products">
             <div class="row ">
-                <?php foreach ($listsp as $sp) {
+                <?php foreach ($list8sp as $sp) {
                     extract($sp);
                     echo ' <div class="col-6 col-md-4 col-lg-3">
                     <div class="product product-2">
                         <figure class="product-media">
                             <span class="product-label label-circle label-sale">Sale</span>
-                            <a href="product.html">
+                            <a href="index.php?act=sanphamct&idpro='.$id.'">
                                 <img src="' . $img . '" alt="Product image" class="product-image">
                             </a>
 
@@ -272,8 +316,7 @@
                             </div><!-- End .product-action -->
 
                             <div class="product-action">
-                                <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                                <a href="popup/quickView.html" class="btn-product btn-quickview" title="Quick view"><span>quick view</span></a>
+                                <a href="#" class="btn-product" ><span>Xem chi tiết</span></a>
                             </div><!-- End .product-action -->
                         </figure><!-- End .product-media -->
                          <div class="product-body">

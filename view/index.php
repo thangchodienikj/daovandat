@@ -9,6 +9,7 @@ include ("../model/binhluan.php");
 $list3sp = list3sp();
 $list6dm = list6dm();
 $list1dm = list2dm();
+$list8sp=load8_sanpham();
 $listsp=loadall_sanpham(0);
 $listdm = loadAll_danhmuc();
 $loadgh = loadall_giohang();
@@ -50,12 +51,17 @@ if (isset($_GET['aht'])){
                 include ("thanhtoan.php");
                 break;
             case 'sanphamct' :
-                if (isset($_GET['idpro'])){
-                    $loadsp= loadone_sanpham($_GET['idpro']);
+                if(isset($_SESSION['userxuong'])){
+                    if (isset($_GET['idpro'])) {
+                        $loadsp = loadone_sanpham($_GET['idpro']);
+                        $soluongsp = soluong_sanpham($_GET['idpro']);
+                    }
+                    include("giaodien/header1.php");
+                    $binhluan=binhluan($_GET['idpro']);
+                    include ("chitietsp.php");
+                }else{
+                    header('Location:index.php?aht=dndk');
                 }
-                include("giaodien/header1.php");
-                $binhluan=binhluan($_GET['idpro']);
-                include ("chitietsp.php");
                 break;
             case 'binhluan':
                 if (isset($_POST['gui']) && $_POST['gui']) {
@@ -70,6 +76,7 @@ if (isset($_GET['aht'])){
                 $binhluan=binhluan($_GET['idpro']);
                 include("giaodien/header1.php");
                 include ("chitietsp.php");
+                include ("binhluan1.php");
                 break;
             case 'dangky' :
                 if ($_SERVER["REQUEST_METHOD"] == "POST" ){
@@ -170,23 +177,28 @@ if (isset($_GET['aht'])){
                     $selected_color = $_POST['mau'];
                     $selected_size = $_POST['size'];
                     $gia_ca = $_POST['price'];
-                    echo "
-                        <script>
-                        console.log('$ten_sach');
-                        console.log('$gia_ca');
-                        console.log('$selected_color');
-                        console.log('$selected_size');
-                        console.log('$so_luong');
-                        console.log('true');
-                    </script>
-                    ";
                     update($ten_sach, $selected_color, $selected_size, '', $gia_ca, '', $so_luong);
                 }
                 break;
+<<<<<<< HEAD
 
 
 
                 default;
+=======
+            case 'tim':
+                if (isset($_POST['timkiem'])) {
+                    $timkiem = $_POST['tim1'];
+                    $listsp = timkiem($timkiem);
+                    include("giaodien/header1.php");
+                    include ("sanpham.php");
+                } else {
+                    include("header1.php");
+                    include("home.php");
+                }
+                break;
+                 default;
+>>>>>>> 313d8a28f5cca95e46b306d74999661b9f1efd1b
         }
     } else {
         include("giaodien/header1.php");

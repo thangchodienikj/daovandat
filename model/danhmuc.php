@@ -4,7 +4,7 @@ function insert_danhmuc($tendanhmuc,$hinh){
     pdo_execute($sql);
 }
 function loadAll_danhmuc(){
-    $sql = "select * from danh_muc";
+    $sql = "select * from danh_muc ";
     $listdanhmuc = pdo_query($sql);
     return $listdanhmuc;
 }

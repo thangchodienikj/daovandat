@@ -1,4 +1,53 @@
 <?php
+function update_sp($id,$ten_sach,$gia_ca,$hinh_anh,$mo_ta,$id_danh_muc){
+    if ($hinh_anh != '') {
+        $sql = "update product set name='$ten_sach',price='$gia_ca',img='$hinh_anh',mieuta='$mo_ta',loai='$id_danh_muc' where id = '$id' ";
+    }else{
+        $sql="update product set name='$ten_sach',price='$gia_ca',mieuta='$mo_ta',loai='$id_danh_muc' where id = '$id' ";
+    }
+    pdo_execute($sql);
+}
+function xoa_sp($id){
+    pdo_execute("DELETE FROM product WHERE id = '$id';");
+}
+function mau($mau){
+    $sql = "INSERT INTO productp_color(color_name) VALUES ('$mau')";
+    pdo_execute($sql);
+}
+function size($size){
+    $sql = "INSERT INTO productpro_size(name_size) VALUES ('$size')";
+    pdo_execute($sql);
+}
+function loatAll_sanpham($kyw,$iddm){
+    $sql="select * from product where 1";
+    if($kyw!=''){
+        $sql.=" and name like '%".$kyw."%'";
+    }
+    if($iddm>0){
+        $sql.=" and loai = '".$iddm."'";
+    }
+    $sql.= " order by id ";
+    $listsanpham = pdo_query($sql);
+    return $listsanpham;
+}
+function productp_color(){
+    $sql = "select * from productp_color";
+    $listsp = pdo_query($sql);
+    return $listsp ;
+}
+function productpro_size(){
+    $sql = "select * from productpro_size";
+    $listsp = pdo_query($sql);
+    return $listsp ;
+}
+function anh($id,$anh){
+    $sql = "INSERT INTO productpro_image(idpro,img) VALUES ('$id','$anh')";
+    pdo_execute($sql);
+}
+function spbt($id,$id1,$id2,$soluong){
+    $sql = "INSERT INTO productp_variant(id_pro,id_size,id_color,soluong) VALUES ('$id','$id1','$id2','$soluong')";
+    pdo_execute($sql);
+}
 function loadall_sanpham($id){
     if ($id != 0){
  $sql = "
@@ -43,7 +92,28 @@ GROUP BY
     return $listsp ;
 
 }
+function load8_sanpham(){
+            $sql = "
+SELECT 
+    sp.id AS id,
+    sp.name AS name,
+    sp.img AS image,
+    sp.mieuta AS mieuta,
+    sp.price AS gia,
+    sp.loai AS loai,
+    GROUP_CONCAT(ip.img) AS imagesphu
+FROM 
+    product AS sp
+LEFT JOIN 
+    productpro_image AS ip ON sp.id = ip.idpro
 
+GROUP BY 
+    sp.id
+ LIMIT 8
+";
+    $listsp = pdo_query($sql);
+    return $listsp ;
+}
 function loadone_sanpham($id){
     $sql = "
     SELECT  *,
@@ -104,17 +174,56 @@ ORDER  BY
     return $giam;
 }
 
-function timkiem($ten){
-    $sql = "SELECT * FROM product WHERE ten_sach LIKE '%" . $ten . "%'";
+function insert_product($ten_sach,$hinh_anh,$mo_ta,$gia_ca,$id_danh_muc){
+    $sql = "INSERT INTO product(name,img,mieuta,price,loai) VALUES ('$ten_sach','$hinh_anh','$mo_ta','$gia_ca','$id_danh_muc')";
+    pdo_execute($sql);
+}
+function loadone_product($id){
+    return pdo_query_one("select * from product where id = '$id';");
+}
+function timkiem($timkiem){
+    $sql = "SELECT 
+    sp.id AS id,
+    sp.name AS name,
+    sp.img AS image,
+    sp.mieuta AS mieuta,
+    sp.price AS gia,
+    sp.loai AS loai,
+    GROUP_CONCAT(ip.img) AS imagesphu
+FROM 
+    product AS sp
+LEFT JOIN 
+    productpro_image AS ip ON sp.id = ip.idpro
+WHERE 
+    sp.name LIKE '%$timkiem%'
+GROUP BY 
+    sp.id;";
     $result = pdo_query($sql);
     return $result;
 }
 
+function soluong_sanpham($idpro){
+    $sql = "SELECT
+    id_pro,
+    SUM(soluong) AS sl
+FROM
+    productp_variant
+WHERE
+    id_pro = '.$idpro.'
+GROUP BY
+    id_pro;";
+    $soluongsp = pdo_query_one($sql);
+    return $soluongsp;
+}
+function product(){
+    return pdo_query("select * from product ");
+}
 function list3sp(){
     $sql = "SELECT * FROM product  LIMIT 3  ";
     $listdanhmuc = pdo_query($sql);
     return $listdanhmuc;
 }
+
 
 ?>
 
