@@ -40,6 +40,10 @@ if (isset($_GET['aht'])){
                 include("giaodien/header1.php");
                 include ("sanpham.php");
                 break;
+            case 'checkout':
+                include("giaodien/header1.php");
+                include "checkout.php";
+                break;
             case 'thanhtoan' :
                 $listgh = loadall_giohang();
                 include("giaodien/header1.php");
@@ -179,7 +183,10 @@ if (isset($_GET['aht'])){
                     update($ten_sach, $selected_color, $selected_size, '', $gia_ca, '', $so_luong);
                 }
                 break;
-                 default;
+
+
+
+                default;
         }
     } else {
         include("giaodien/header1.php");

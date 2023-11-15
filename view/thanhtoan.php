@@ -85,7 +85,7 @@
                             </form>
                         </div><!-- End .col-lg-9 -->
                         <aside class="col-lg-4">
-                            <form action="">
+
                                 <h3 class="summary-title">Your Order</h3><!-- End .summary-title -->
 
                                 <table class="table table-summary">
@@ -167,12 +167,12 @@
                                                 </div><!-- End .card-body -->
                                             </div><!-- End .collapse -->
                                         </div><!-- End .card -->
+                                    <button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
+                                        Place Order
+                                    </button>
 
-                            </form>
 
-                                    <form class="card" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="init_payment_momo.php">
-                                        <input type="submit" value="thanh toan momo">
-                                    </form>
+
                                     
                             </div><!-- End .summary -->
                         </aside><!-- End .col-lg-3 -->
@@ -183,23 +183,26 @@
     </div><!-- End .page-content -->
 </main><!-- End .main -->
 
-<!--<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>-->
-<!--<script>-->
-<!--    $(document).ready(function () {-->
-<!--        $(".btn-order").on("click", function () {-->
-<!--            // Lấy ID của thẻ <a> đã được chọn-->
-<!--            var selectedLinkId = $(".accordion-summary a[aria-expanded='true']").attr("id");-->
-<!---->
-<!--            // Kiểm tra ID và điều hướng đến địa chỉ mong muốn-->
-<!--            switch (selectedLinkId) {-->
-<!--                case "momo-link":-->
-<!--                    window.location.href = "link-to-momo-page.html";-->
-<!--                    break;-->
-<!--                case "vnpay-link":-->
-<!--                    window.location.href = "link-to-vnpay-page.html";-->
-<!--                    break;-->
-<!--                // Thêm các trường hợp khác nếu cần-->
-<!--            }-->
-<!--        });-->
-<!--    });-->
-<!--</script>-->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".btn-order").on("click", function () {
+            // Lấy ID của thẻ <a> đã được chọn
+            var selectedLinkId = $(".accordion-summary a[aria-expanded='true']").attr("id");
+
+            // Kiểm tra ID và điều hướng đến địa chỉ mong muốn
+            switch (selectedLinkId) {
+                case "momo-link":
+                    window.location.href = "link-to-momo-page.html";
+                    break;
+                case "vnpay-link":
+                    window.location.href = "link-to-vnpay-page.html";
+                    break;
+                case "cod":
+                    window.location.href = "?act=checkout"
+                    break;
+                // Thêm các trường hợp khác nếu cần
+            }
+        });
+    });
+</script>
