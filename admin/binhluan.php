@@ -1,33 +1,40 @@
-<!--<div class="row2">-->
-<!--         <div class="row2 font_title">-->
-<!--          <h1>BÌNH LUẬN</h1>-->
-<!--         </div>-->
-<!--         <div class="row2 form_content ">-->
-<!--          <form action="#" method="POST">-->
-<!--           <div class="row2 mb10 formds_loai">-->
-<!--           <table>-->
-<!--            <tr>-->
-<!--                <th>ID</th>-->
-<!--                <th>Nội dung</th>-->
-<!--                <th>Iduser</th>-->
-<!--                <th>IDpro</th>-->
-<!--                <th>Ngày bình luận</th>-->
-<!--            </tr>-->
-<!--            --><?php //
-//                foreach ($listbinhluan as $bl){
-//                    extract($bl);
-//                    echo'<tr>
-//                        <td>'.$id.'</td>
-//                        <td>'.$noidung.'</td>
-//                        <td>'.$iduser.'</td>
-//                        <td>'.$idpro.'</td>
-//                        <td>'.$ngaybinhluan.'</td>
-//                         </tr>';
-//                }
-//            ?>
-<!---->
-<!--           </table>-->
-<!--           </div>-->
-<!--          </form>-->
-<!--         </div>-->
-<!--        </div>-->
+<main class="main" style="width: 78%; margin: 0 auto;">
+    <br>
+    <br>
+    <div class="box_title" style="font-size: 25px">BÌNH LUẬN</div> <br>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-12">
+                <form action="#" method="POST">
+                    <div class="mb-3 formds_loai">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th class="text-center">ID</th>
+                                <th class="text-center">Tài khoản</th>
+                                <th class="text-center">ID sp</th>
+                                <th class="text-center">Đánh giá</th>
+                                <th class="text-center">Ngày bình luận</th>
+                                <th class="text-center">Cảm nhận</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach ($listbinhluan as $bl) : ?>
+                                <?php extract($bl); ?>
+                                <tr>
+                                    <td class="col-md-2 text-center"><?= $id ?></td>
+                                    <td class="col-md-2 text-center"><?= $taikhoan ?></td>
+                                    <td class="col-md-2 text-center"><?= $idsp ?></td>
+                                    <td class="col-md-2 text-center"><?= $danhgia ?></td>
+                                    <td class="col-md-2 text-center"><?= $ngaybinhluan ?></td>
+                                    <td class="col-md-2 text-center"><?= $camnhan ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>

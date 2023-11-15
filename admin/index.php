@@ -1,8 +1,13 @@
 <?php
-
+include ("../model/sanpham.php");
 include ("../model/danhmuc.php");
+include ("../model/khachang.php");
 include ("../model/pdo.php");
 include ("header.php");
+$listsp =product();
+$listdanhmuc = loadAll_danhmuc();
+$listmau = productp_color();
+$listsize =  productpro_size();
 if (isset($_GET['act'])){
     $act = $_GET['act'];
     switch ($act){
@@ -73,7 +78,6 @@ if (isset($_GET['act'])){
             if (isset($_POST['themmoi'])){
                 $ten_sach= $_POST['tensp'];
                 $gia_ca = $_POST['giasp'];
-                $so_luong = $_POST['soluong'];
                 $mo_ta = $_POST['mota'];
                 $id_danh_muc = $_POST['iddm'];
                 if(empty($_FILES['hinh']['name'])){
@@ -90,8 +94,8 @@ if (isset($_GET['act'])){
                         }
                     }
                 }
-                insert_sach($ten_sach,$gia_ca,$so_luong,$hinh_anh,$mo_ta,$id_danh_muc);
-                $thongbao = "thêm thành công";
+                insert_product($ten_sach,$hinh_anh,$mo_ta,$gia_ca,$id_danh_muc);
+                $thongbao3 = "Thêm sản phẩm mới thành công";
             }
             $listdanhmuc = loadAll_danhmuc();
             include ("sach/add.php");
@@ -105,7 +109,7 @@ if (isset($_GET['act'])){
                 $iddm = 0;
             }
             $listdanhmuc =loadAll_danhmuc();
-            $listsp = loatAll_sanpham($kyw, $iddm);
+            $listsp =  loatAll_sanpham($kyw,$iddm);
             include "sach/list.php";
             break;
         case 'xoasp':
@@ -117,7 +121,7 @@ if (isset($_GET['act'])){
             break;
         case 'suasp':
             if (isset($_GET['id'])){
-                $sp = loadone_sp($_GET['id']);
+                $sp = loadone_product($_GET['id']);
             }
             $listdanhmuc =loadAll_danhmuc();
             include ("sach/update.php");
@@ -127,7 +131,6 @@ if (isset($_GET['act'])){
                 $id = $_POST['id'];
                 $ten_sach = $_POST['tensp'];
                 $gia_ca = $_POST['giasp'];
-                $so_luong = $_POST['soluong'];
                 $mo_ta = $_POST['mota'];
                 $id_danh_muc = $_POST['iddm'];
                 if(empty($_FILES['hinh']['name'])){
@@ -144,12 +147,74 @@ if (isset($_GET['act'])){
                         }
                     }
                 }
-                update_sp($id,$ten_sach,$gia_ca,$so_luong,$hinh_anh,$mo_ta,$id_danh_muc);
-                $thongbao = "thêm thành công";
+                update_sp($id,$ten_sach,$gia_ca,$hinh_anh,$mo_ta,$id_danh_muc);
+                $thongbao6 = "thêm thành công";
             }
             $listdanhmuc = loadAll_danhmuc();
             $listsp = loatAll_sanpham("", 0);
             include ("sach/list.php");
+        case 'mau':
+            if (isset($_POST['gui'])) {
+                $mau = $_POST['mau'];
+                mau($mau);
+                $thongbao2 = "Thêm màu thành công";
+            }
+            include ("sach/add.php");
+            break;
+        case 'size':
+            if (isset($_POST['gui'])) {
+                $size = $_POST['size'];
+                size($size);
+                $thongbao1 = "Thêm size thành công";
+            }
+            include ("sach/add.php");
+            break;
+        case 'anh':
+            if (isset($_POST['gui'])) {
+                $id = $_POST['id'];
+                if(empty($_FILES['anh']['name'])){
+                    $anh="";
+                }else{
+                    if(!isset($_SESSION['imageError'])){
+                        // thư mục sẽ được lưu ảnh vào thư mục image
+                        $targettOir = "../upload/";
+                        // đường dẫn đến file được lưu
+                        $targetFile = $targettOir.$_FILES['anh']['name'];
+                        // tiếng hành upload file ảnh
+                        if(move_uploaded_file($_FILES['anh']['tmp_name'],$targetFile)){
+                            $anh = $targetFile ;
+                        }
+                    }
+                }
+                anh($id,$anh);
+                $thongbao4 = "Thêm ảnh phụ thành công";
+            }
+            include ("sach/add.php");
+            break;
+        case 'spbt':
+            if (isset($_POST['gui'])) {
+                $id = $_POST['id'];
+                $id1 = $_POST['id1'];
+                $id2 = $_POST['id2'];
+                $soluong = $_POST['soluong'];
+                spbt($id,$id1,$id2,$soluong);
+                $thongbao5 = "Thêm sản phẩm biến thể thành công";
+            }
+            include ("sach/add.php");
+            break;
+        case 'khachhang':
+                $listkhachhang = khachhang();
+            include ("khachhang/khachhang.php");
+            break;
+        case 'binhluan':
+            $listbinhluan = binhluan();
+            include ("binhluan.php");
+            break;
+        case 'thongke':
+            $listthongke = thongke();
+            include "thongke/thongke.php";
+            break;
+        default:
     }
 }else{
     include ("home.php");

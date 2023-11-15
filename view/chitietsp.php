@@ -113,7 +113,7 @@
                                 </div><!-- End .details-action-wrapper -->
                             </div><!-- End .product-details-action -->
                             <div class="product-details-footer">
-                             <span>Category:</span> 
+                             <span>Category : </span> 
                                 <div class="product-cat">
                                     ';
                                         $array = explode(',', $colorList);
@@ -138,8 +138,6 @@
                 </div><!-- End .row -->';
                 } ?>
             </div><!-- End .product-details-top -->
-
-
             <div class="product-details-tab">
                 <ul class="nav nav-pills justify-content-center" role="tablist">
                     <li class="nav-item">
@@ -156,38 +154,46 @@
                         <a class="nav-link" id="product-review-link" data-toggle="tab" href="#product-review-tab" role="tab" aria-controls="product-review-tab" aria-selected="false">Description</a>
                     </li>
                 </ul>
+                <style>
+                    /* Add your styles here */
+                    .review-container {
+                        height: 300px; /* Set the desired height */
+                        overflow-y: auto; /* Enable vertical scrollbar when content overflows */
+                        padding: 10px; /* Optional: Add padding for better spacing */
+                    }
+
+                </style>
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="product-desc-tab" role="tabpanel" aria-labelledby="product-desc-link">
                         <div class="reviews">
                             <h3>Đánh giá</h3>
-                            <div class="review">
-                                <?php foreach ($binhluan as $bl){
+                            <div class="review-container">
+                                <?php foreach ($binhluan as $bl) {
                                     extract($bl);
                                     echo '<div class="row no-gutters">
                                     <div class="col-auto">
-                                        <h4><a href="#">'.$taikhoan.'</a></h4>
+                                        <h4><a href="#" style=" font-size: 18px;">'.$taikhoan.'</a></h4>
                                         <div class="ratings-container">
                                             <div class="ratings">
                                                 <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
                                             </div><!-- End .ratings -->
                                         </div><!-- End .rating-container -->
-                                        <span class="review-date">'.$ngaybinhluan.'</span>
+                                        <span class="review-date" style=" font-size: 15px;">'.$ngaybinhluan.'</span>
                                     </div><!-- End .col -->
                                     <div class="col">
-                                        <h4>'.$camnhan.'</h4>
-
+                                        <h4 style=" font-size: 15px;">'.$camnhan.'</h4>
+                        
                                         <div class="review-content">
-                                            <p>'.$danhgia.'</p>
+                                            <p style=" font-size: 15px;">'.$danhgia.'</p>
                                         </div><!-- End .review-content -->
-
-                                        <div class="review-action">
-                                            <a href="#"><i class="icon-thumbs-up"></i>Helpful (0)</a>
-                                            <a href="#"><i class="icon-thumbs-down"></i>Unhelpful (0)</a>
-                                        </div><!-- End .review-action -->
+                        
+                                     
                                     </div><!-- End .col-auto -->
-                                </div><!-- End .row -->';
+                                </div><!-- End .row --><br>';
                                 } ?>
-                            </div><!-- End .review -->
+                            </div><!-- End .review-container -->
+                            <br>
+                            <br>
                             <div class="comment-form">
                                 <h3>
                                     Thêm một bình luận</h3>
@@ -301,11 +307,13 @@
                                 }
                             }
                         }'>
-                <div class="product product-7 text-center">
+                <?php foreach ($list8sp as $sp) {
+                    extract($sp);
+                    echo ' <div class="product product-7 text-center">
                     <figure class="product-media">
                         <span class="product-label label-new">New</span>
                         <a href="product.html">
-                            <img src="assets/images/products/product-4.jpg" alt="Product image" class="product-image">
+                            <img src="' . $img . '" alt="Product image" class="product-image">
                         </a>
 
                         <div class="product-action-vertical">
@@ -315,17 +323,23 @@
                         </div><!-- End .product-action-vertical -->
 
                         <div class="product-action">
-                            <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                            <a href="index.php?act=sanphamct&idpro='.$id.'" class="btn-product "><span>Xem chi tiết</span></a>
                         </div><!-- End .product-action -->
                     </figure><!-- End .product-media -->
 
                     <div class="product-body">
-                        <div class="product-cat">
-                            <a href="#">Women</a>
-                        </div><!-- End .product-cat -->
-                        <h3 class="product-title"><a href="product.html">Brown paperbag waist <br>pencil skirt</a></h3><!-- End .product-title -->
+                        ';
+                    foreach ($listdm as $dm) {
+                        extract($dm);
+                        if ($dm['id'] == $sp['id']) {
+                            $danhmuc = $dm['ten_danh_muc'];
+                            echo ' <a href="#">'.$danhmuc.'</a>';
+                        }
+                    }
+                    echo '
+                        <h3 class="product-title">'.$name.'</h3><!-- End .product-title -->
                         <div class="product-price">
-                            $60.00
+                            $ '.$price.'
                         </div><!-- End .product-price -->
                         <div class="ratings-container">
                             <div class="ratings">
@@ -333,172 +347,25 @@
                             </div><!-- End .ratings -->
                             <span class="ratings-text">( 2 Reviews )</span>
                         </div><!-- End .rating-container -->
-
-                        <div class="product-nav product-nav-thumbs">
-                            <a href="#" class="active">
-                                <img src="assets/images/products/product-4-thumb.jpg" alt="product desc">
-                            </a>
-                            <a href="#">
-                                <img src="assets/images/products/product-4-2-thumb.jpg" alt="product desc">
-                            </a>
-
-                            <a href="#">
-                                <img src="assets/images/products/product-4-3-thumb.jpg" alt="product desc">
-                            </a>
-                        </div><!-- End .product-nav -->
+                             <div class="product-nav product-nav-thumbs">
+                                ';
+                                    $limit = 3;
+                                    $count = 0;
+                                    $array = explode(',',$productImageList);
+                                    foreach ($array as $anh){
+                                        if ($count >= $limit) {
+                                            break;
+                                        }
+                                        echo ' <a href="#" class="active">
+                                                        <img src="' . $anh . '" alt="product desc">
+                                                    </a>';
+                                        $count++;
+                                    }
+                                echo '             
+                            </div><!-- End .product-nav -->
                     </div><!-- End .product-body -->
-                </div><!-- End .product -->
-
-                <div class="product product-7 text-center">
-                    <figure class="product-media">
-                        <span class="product-label label-out">Out of Stock</span>
-                        <a href="product.html">
-                            <img src="assets/images/products/product-6.jpg" alt="Product image" class="product-image">
-                        </a>
-
-                        <div class="product-action-vertical">
-                            <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
-                            <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                            <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                        </div><!-- End .product-action-vertical -->
-
-                        <div class="product-action">
-                            <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                        </div><!-- End .product-action -->
-                    </figure><!-- End .product-media -->
-
-                    <div class="product-body">
-                        <div class="product-cat">
-                            <a href="#">Jackets</a>
-                        </div><!-- End .product-cat -->
-                        <h3 class="product-title"><a href="product.html">Khaki utility boiler jumpsuit</a></h3><!-- End .product-title -->
-                        <div class="product-price">
-                            <span class="out-price">$120.00</span>
-                        </div><!-- End .product-price -->
-                        <div class="ratings-container">
-                            <div class="ratings">
-                                <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
-                            </div><!-- End .ratings -->
-                            <span class="ratings-text">( 6 Reviews )</span>
-                        </div><!-- End .rating-container -->
-                    </div><!-- End .product-body -->
-                </div><!-- End .product -->
-
-                <div class="product product-7 text-center">
-                    <figure class="product-media">
-                        <span class="product-label label-top">Top</span>
-                        <a href="product.html">
-                            <img src="assets/images/products/product-11.jpg" alt="Product image" class="product-image">
-                        </a>
-
-                        <div class="product-action-vertical">
-                            <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
-                            <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                            <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                        </div><!-- End .product-action-vertical -->
-
-                        <div class="product-action">
-                            <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                        </div><!-- End .product-action -->
-                    </figure><!-- End .product-media -->
-
-                    <div class="product-body">
-                        <div class="product-cat">
-                            <a href="#">Shoes</a>
-                        </div><!-- End .product-cat -->
-                        <h3 class="product-title"><a href="product.html">Light brown studded Wide fit wedges</a></h3><!-- End .product-title -->
-                        <div class="product-price">
-                            $110.00
-                        </div><!-- End .product-price -->
-                        <div class="ratings-container">
-                            <div class="ratings">
-                                <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
-                            </div><!-- End .ratings -->
-                            <span class="ratings-text">( 1 Reviews )</span>
-                        </div><!-- End .rating-container -->
-
-                        <div class="product-nav product-nav-thumbs">
-                            <a href="#" class="active">
-                                <img src="assets/images/products/product-11-thumb.jpg" alt="product desc">
-                            </a>
-                            <a href="#">
-                                <img src="assets/images/products/product-11-2-thumb.jpg" alt="product desc">
-                            </a>
-
-                            <a href="#">
-                                <img src="assets/images/products/product-11-3-thumb.jpg" alt="product desc">
-                            </a>
-                        </div><!-- End .product-nav -->
-                    </div><!-- End .product-body -->
-                </div><!-- End .product -->
-
-                <div class="product product-7 text-center">
-                    <figure class="product-media">
-                        <a href="product.html">
-                            <img src="assets/images/products/product-10.jpg" alt="Product image" class="product-image">
-                        </a>
-
-                        <div class="product-action-vertical">
-                            <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
-                            <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                            <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                        </div><!-- End .product-action-vertical -->
-
-                        <div class="product-action">
-                            <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                        </div><!-- End .product-action -->
-                    </figure><!-- End .product-media -->
-
-                    <div class="product-body">
-                        <div class="product-cat">
-                            <a href="#">Jumpers</a>
-                        </div><!-- End .product-cat -->
-                        <h3 class="product-title"><a href="product.html">Yellow button front tea top</a></h3><!-- End .product-title -->
-                        <div class="product-price">
-                            $56.00
-                        </div><!-- End .product-price -->
-                        <div class="ratings-container">
-                            <div class="ratings">
-                                <div class="ratings-val" style="width: 0%;"></div><!-- End .ratings-val -->
-                            </div><!-- End .ratings -->
-                            <span class="ratings-text">( 0 Reviews )</span>
-                        </div><!-- End .rating-container -->
-                    </div><!-- End .product-body -->
-                </div><!-- End .product -->
-
-                <div class="product product-7 text-center">
-                    <figure class="product-media">
-                        <a href="product.html">
-                            <img src="assets/images/products/product-7.jpg" alt="Product image" class="product-image">
-                        </a>
-
-                        <div class="product-action-vertical">
-                            <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
-                            <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                            <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                        </div><!-- End .product-action-vertical -->
-
-                        <div class="product-action">
-                            <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                        </div><!-- End .product-action -->
-                    </figure><!-- End .product-media -->
-
-                    <div class="product-body">
-                        <div class="product-cat">
-                            <a href="#">Jeans</a>
-                        </div><!-- End .product-cat -->
-                        <h3 class="product-title"><a href="product.html">Blue utility pinafore denim dress</a></h3><!-- End .product-title -->
-                        <div class="product-price">
-                            $76.00
-                        </div><!-- End .product-price -->
-                        <div class="ratings-container">
-                            <div class="ratings">
-                                <div class="ratings-val" style="width: 20%;"></div><!-- End .ratings-val -->
-                            </div><!-- End .ratings -->
-                            <span class="ratings-text">( 2 Reviews )</span>
-                        </div><!-- End .rating-container -->
-                    </div><!-- End .product-body -->
-                </div><!-- End .product -->
+                </div><!-- End .product -->';
+                }?>
             </div><!-- End .owl-carousel -->
         </div><!-- End .container -->
     </div><!-- End .page-content -->

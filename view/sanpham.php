@@ -89,7 +89,7 @@
                                             ' . $gia . '
                                         </div><!-- End .product-price -->
                                         <div class="product-nav product-nav-thumbs">';
-                                        $limit = 3; // Số lượng ảnh tối đa cần hiển thị
+                                        $limit = 3;
                                         $count = 0;
                                         $array = explode(',', $imagesphu);
                                         foreach ($array as $anh){
