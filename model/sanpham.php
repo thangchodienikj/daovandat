@@ -41,7 +41,7 @@ function productpro_size(){
     return $listsp ;
 }
 function anh($id,$anh){
-    $sql = "INSERT INTO productpro_image(idpro,img) VALUES ('$id','$anh')";
+    $sql = "INSERT INTO productpro_image(idpro,img1) VALUES ('$id','$anh')";
     pdo_execute($sql);
 }
 function spbt($id,$id1,$id2,$soluong){
@@ -58,7 +58,7 @@ SELECT
     sp.mieuta AS mieuta,
     sp.price AS gia,
     sp.loai AS loai,
-    GROUP_CONCAT(ip.img) AS imagesphu
+    GROUP_CONCAT(ip.img1) AS imagesphu
 FROM 
     product AS sp
 LEFT JOIN 
@@ -77,7 +77,7 @@ SELECT
     sp.mieuta AS mieuta,
     sp.price AS gia,
     sp.loai AS loai,
-    GROUP_CONCAT(ip.img) AS imagesphu
+    GROUP_CONCAT(ip.img1) AS imagesphu
 FROM 
     product AS sp
 LEFT JOIN 
@@ -101,7 +101,7 @@ SELECT
     sp.mieuta AS mieuta,
     sp.price AS gia,
     sp.loai AS loai,
-    GROUP_CONCAT(ip.img) AS imagesphu
+    GROUP_CONCAT(ip.img1) AS imagesphu
 FROM 
     product AS sp
 LEFT JOIN 
@@ -119,15 +119,17 @@ function loadone_sanpham($id){
     SELECT  *,
         p.id AS ProductID, 
         p.name AS ProductName, 
+        sum(soluong), 
         GROUP_CONCAT(DISTINCT ps.name_size) AS sizeList, 
         GROUP_CONCAT(DISTINCT pc.color_name) AS colorList, 
-        GROUP_CONCAT(DISTINCT pi.img) AS productImageList
+        GROUP_CONCAT(DISTINCT pi.img1) AS productImageList
     FROM product p 
     JOIN productp_variant pv ON p.id = pv.id_pro 
     JOIN productpro_size ps ON pv.id_size = ps.id 
     JOIN productp_color pc ON pv.id_color = pc.id 
     LEFT JOIN productpro_image pi ON p.id = pi.idpro 
     WHERE pv.id_pro = '$id'
+    group by pv.id_pro
     ";
     $listsp = pdo_query($sql);
     return $listsp;
@@ -141,7 +143,7 @@ function tang(){
     sp.mieuta AS mieuta,
     sp.price AS gia,
     sp.loai AS loai,
-    GROUP_CONCAT(ip.img) AS imagesphu
+    GROUP_CONCAT(ip.img1) AS imagesphu
 FROM 
     product AS sp
 LEFT JOIN 
@@ -161,7 +163,7 @@ function giam(){
     sp.mieuta AS mieuta,
     sp.price AS gia,
     sp.loai AS loai,
-    GROUP_CONCAT(ip.img) AS imagesphu
+    GROUP_CONCAT(ip.img1) AS imagesphu
 FROM 
     product AS sp
 LEFT JOIN 
@@ -189,7 +191,7 @@ function timkiem($timkiem){
     sp.mieuta AS mieuta,
     sp.price AS gia,
     sp.loai AS loai,
-    GROUP_CONCAT(ip.img) AS imagesphu
+    GROUP_CONCAT(ip.img1) AS imagesphu
 FROM 
     product AS sp
 LEFT JOIN 
@@ -203,7 +205,7 @@ GROUP BY
 }
 
 function soluong_sanpham($idpro){
-    $sql = "SELECT
+    $sql = "SELECT 
     id_pro,
     SUM(soluong) AS sl
 FROM
@@ -212,8 +214,7 @@ WHERE
     id_pro = '.$idpro.'
 GROUP BY
     id_pro;";
-    $soluongsp = pdo_query_one($sql);
-    return $soluongsp;
+    return pdo_query_one($sql);
 }
 function product(){
     return pdo_query("select * from product ");

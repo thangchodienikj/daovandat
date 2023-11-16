@@ -73,7 +73,7 @@
                                         </div><!-- End .header-menu -->
                                     </div>
                                 </li>
-                                <li><a href="#signin-modal" data-toggle="modal">Tôi</a></li>
+                                <li><a href="" data-toggle="modal">Tôi</a></li>
                             </ul>
                         </li>
                     </ul><!-- End .top-menu -->

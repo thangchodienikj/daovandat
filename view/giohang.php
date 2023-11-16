@@ -1,7 +1,7 @@
 <main class="main">
     <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
         <div class="container">
-            <h1 class="page-title">Shopping Cart<span>Shop</span></h1>
+            <h1 class="page-title">Cart<span></span></h1>
         </div><!-- End .container -->
     </div><!-- End .page-header -->
     <nav aria-label="breadcrumb" class="breadcrumb-nav">
@@ -22,12 +22,18 @@
                         <table class="table table-cart table-mobile">
                             <tbody>
                             <tr>
-                                <td>Tên sản phẩm</td>
-                                <td>Màu</td>
-                                <td>Size</td>
-                                <td>Giá</td>
-                                <td>Số lượng</td>
-                                <td>Thành tiền</td>
+                                <td>
+                                    Product's name</td>
+                                <td>
+                                    Color</td>
+                                <td>
+                                    Size</td>
+                                <td>
+                                    Price</td>
+                                <td>
+                                    Quantity</td>
+                                <td>
+                                    Into money</td>
                             </tr>
                             <?php $tong=0 ; foreach ($listgh as $gh) {
                                 extract($gh);
@@ -67,7 +73,7 @@
                             <div class="cart-discount">
                                 <form action="#">
                                     <div class="input-group">
-                                        <input type="text" class="form-control"  placeholder="Mã giảm giá">
+                                        <input type="text" class="form-control"  placeholder="Discount code">
                                         <div class="input-group-append">
                                             <button class="btn btn-outline-primary-2" type="submit"><i class="icon-long-arrow-right"></i></button>
                                         </div><!-- .End .input-group-append -->
@@ -78,11 +84,12 @@
                     </div><!-- End .col-lg-9 -->
                     <aside class="col-lg-3">
                         <div class="summary summary-cart">
-                            <h3 class="summary-title">Tổng giỏ hàng</h3><!-- End .summary-title -->
+                            <h3 class="summary-title">
+                                Total cart</h3><!-- End .summary-title -->
                             <table class="table table-summary">
                                 <tbody>
                                 <tr class="summary-subtotal">
-                                    <td>Tổng phụ:</td>
+                                    <td>Total amount:</td>
                                     <td id="subtotal"><?=$tong?> </td>
                                 </tr><!-- End .summary-subtotal -->
 

@@ -3,8 +3,8 @@
     <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
         <div class="container d-flex align-items-center">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Products</a></li>
+                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                <li class="breadcrumb-item"><a href="">Products</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Default</li>
             </ol>
 
@@ -21,19 +21,18 @@
                         <div class="product-gallery product-gallery-vertical">
                             <div class="row">
                                 <figure class="product-main-image">
-                                    <img id="product-zoom" src="'.$img.'" data-zoom-image="assets/images/products/single/1-big.jpg" alt="product image">
-
-                                    <a href="#" id="btn-product-gallery" class="btn-product-gallery">
-                                        <i class="icon-arrows"></i>
-                                    </a>
-                                </figure><!-- End .product-main-image -->
+                                <img id="product-zoom" src="'.$img.'" data-zoom-image="'.$img.'" alt="product image" data-action="zoom">
+                                <a href="#" id="btn-product-gallery" class="btn-product-gallery">
+                                    <i class="icon-arrows"></i>
+                                </a>
+                            </figure><!-- End .product-main-image -->
 
                                 <div id="product-zoom-gallery" class="product-image-gallery">
                                 ';
                                     $array = explode(',', $productImageList);
                                     foreach ($array as $anh){
                                         echo '
-                                             <a class="product-gallery-item " href="#" data-image="assets/images/products/single/1.jpg" data-zoom-image="assets/images/products/single/1-big.jpg">
+                                             <a class="product-gallery-item " href="#" data-image="'.$anh.'" data-zoom-image="'.$anh.'">
                                                 <img src="' . $anh . '" alt="product side">
                                             </a>';
                                     }
@@ -68,7 +67,7 @@
                                 ';
                                     $array = explode(',', $colorList);
                                         foreach ($array as $color) {
-                                            echo '<a href="javascript:void(0);" class="color-option" onclick="updateSelectedColor(\'' . $color . '\')"  style="width: 80px; height: 30px; text-align: center; display: inline-block; line-height: 31px; color: #747774;">
+                                            echo '<a href="javascript:void(0);" class="color-option" onclick="updateSelectedColor(\'' . $color . '\')"  style="width: 80px; height: 30px; text-align: center; display: inline-block; line-height: 27px; color: #747774;">
                                             ' . $color . '
                                       </a>';
                                     }
@@ -82,7 +81,7 @@
                                 ';
                                     $array = explode(',', $sizeList);
                                     foreach ($array as $size){
-                                        echo '<a href="javascript:void(0);" class="size-option" onclick="updateSelectedSize(\'' . $size . '\')" style="width: 80px; height: 30px; text-align: center; display: inline-block; line-height: 31px; color: #747774">
+                                        echo '<a href="javascript:void(0);" class="size-option" onclick="updateSelectedSize(\'' . $size . '\')" style="width: 80px; height: 30px; text-align: center; display: inline-block; line-height: 29px; color: #747774">
                                                 ' . $size . '
                                               </a>';
                                     }
@@ -91,26 +90,28 @@
                             </div><!-- End .details-filter-row -->
 
                             <div class="details-filter-row details-row-size">
-                                <label for="qty">Số lượng:</label>
-                        <form action="index.php?act=gh" method="post">
-                            <div class="product-details-quantity">
-                                <input type="number" name="soluong" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
-                            </div><!-- Kết thúc .product-details-quantity -->
+                                <label for="qty">Qty:</label>
+                                <form action="index.php?act=gh" method="post">
+                                <div class="product-details-quantity">
+                                    <input type="number" name="soluong" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
+                                </div><!-- Kết thúc .product-details-quantity -->
+                            </div><!-- End .details-filter-row -->
+                             <div class="details-filter-row details-row-size">
                             <!-- Thẻ </div> đóng mở trong mã của bạn, nên tôi đã xóa nó -->
-                            <input type="text" name="name" value="'.$ProductName.'">
-                            <input type="text" name="giaca" value="'.$price.'">
-                            <input type="text" name="mota" value="'.$mieuta.'">
-                            <input type="text" name="hinh" value="'.$img.'">
-                            <input type="text" name="selected_size" id="selectedSize" value="">
-                            <input type="text" name="selected_color" id="selectedColor" value="">
+                                    <input type="hidden" name="name" value="'.$ProductName.'">
+                                    <input type="hidden" name="giaca" value="'.$price.'">
+                                    <input type="hidden" name="mota" value="'.$mieuta.'">
+                                    <input type="hidden" name="hinh" value="'.$img.'">
+                                    <input type="hidden" name="selected_size" id="selectedSize" value="">
+                                    <input type="hidden" name="selected_color" id="selectedColor" value="">
                             <div class="product-details-action">
-                                <input type="submit" class="btn btn-cart btn-outline-primary" value="Thêm vào giỏ hàng" name="giohang" style="line-height: 10px;border: 1px solid #3399ff; font-size: 14px; font-family: inherit;">
-                            </div><!-- Kết thúc .product-details-action -->
-                        </form>
-                                <form action="index.php?act=binhluan&idpro='.$id.'" method="post">
+                                <input type="submit" class="btn btn-cart btn-outline-primary" value="Add to cart" name="giohang" style="line-height: 10px;border: 1px solid #3399ff; font-size: 14px; font-family: inherit;">
                                 <div class="details-action-wrapper">
                                     <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>
                                 </div><!-- End .details-action-wrapper -->
+                            </div><!-- Kết thúc .product-details-action -->
+                                </form>
+                                <form action="index.php?act=binhluan&idpro='.$id.'" method="post">
                             </div><!-- End .product-details-action -->
                             <div class="product-details-footer">
                              <span>Category : </span> 
@@ -142,7 +143,8 @@
                 <ul class="nav nav-pills justify-content-center" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="product-desc-link" data-toggle="tab" href="#product-desc-tab" role="tab" aria-controls="product-desc-tab" aria-selected="true">
-                            Đánh giá</a>
+
+                            Evaluate</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="product-info-link" data-toggle="tab" href="#product-info-tab" role="tab" aria-controls="product-info-tab" aria-selected="false">Additional information</a>
@@ -166,7 +168,8 @@
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="product-desc-tab" role="tabpanel" aria-labelledby="product-desc-link">
                         <div class="reviews">
-                            <h3>Đánh giá</h3>
+                            <h3>
+                                Evaluate</h3>
                             <div class="review-container">
                                 <?php foreach ($binhluan as $bl) {
                                     extract($bl);
@@ -196,7 +199,7 @@
                             <br>
                             <div class="comment-form">
                                 <h3>
-                                    Thêm một bình luận</h3>
+                                    Add a comment</h3>
                                 <!-- You can specify the actual form action attribute -->
                                 <?php if (isset($_SESSION['userxuong'])){
                                     extract($_SESSION['userxuong']);
@@ -205,29 +208,34 @@
                                 } ?>
 
                                 <div class="form-row">
-                                    <label class="form-group col-2 ">Đánh giá:</label><br>
+                                    <label class="form-group col-2 ">
+                                        Evaluate :</label><br>
                                     <div class="form-group col-8">
                                         <div class="form-check col-3 form-check-inline">
                                             <input type="radio" id="rating-good" name="rating" value="Tốt" class="form-check-input" required>
-                                            <label for="rating-good" class="form-check-label">Rất tuyệt</label>
+                                            <label for="rating-good" class="form-check-label">
+                                                Wonderful</label>
                                         </div>
                                         <div class="form-check col-3 form-check-inline">
                                             <input type="radio" id="rating-normal" name="rating" value="Bình thường" class="form-check-input" required>
-                                            <label for="rating-normal" class="form-check-label">Bình thường</label>
+                                            <label for="rating-normal" class="form-check-label">
+                                                Normal</label>
                                         </div>
                                         <div class="form-check col-3 form-check-inline">
                                             <input type="radio" id="rating-bad" name="rating" value="Tệ" class="form-check-input" required>
-                                            <label for="rating-bad" class="form-check-label">Tệ</label>
+                                            <label for="rating-bad" class="form-check-label">
+                                                Bad</label>
                                         </div>
                                     </div>
                                 </div>
-                                <label for="comment-text">Bình luận của bạn:</label>
+                                <label for="comment-text">
+                                    Your comment:</label>
                                 <div class="form-row">
                                     <div class="form-group col-10">
                                         <input id="comment-text" name="binhluan" class="form-control" required>
                                     </div>
                                     <div class="form-group col-0">
-                                        <input type="submit" class="btn btn-primary" value="Gửi bình luận" name="gui">
+                                        <input type="submit" class="btn btn-primary" value="Submit a comment" name="gui">
                                     </div>
                                 </div>
                                 </form>
@@ -279,7 +287,7 @@
             </div><!-- End .product-details-tab -->
 
             <h2 class="title text-center mb-4">
-                Bạn cũng có thể thích</h2><!-- End .title text-center -->
+                You May Also Like</h2><!-- End .title text-center -->
 
             <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
                  data-owl-options='{
@@ -307,6 +315,7 @@
                                 }
                             }
                         }'>
+
                 <?php foreach ($list8sp as $sp) {
                     extract($sp);
                     echo ' <div class="product product-7 text-center">
@@ -323,7 +332,8 @@
                         </div><!-- End .product-action-vertical -->
 
                         <div class="product-action">
-                            <a href="index.php?act=sanphamct&idpro='.$id.'" class="btn-product "><span>Xem chi tiết</span></a>
+                            <a href="index.php?act=sanphamct&idpro='.$id.'" class="btn-product "><span>
+See details</span></a>
                         </div><!-- End .product-action -->
                     </figure><!-- End .product-media -->
 
@@ -366,6 +376,7 @@
                     </div><!-- End .product-body -->
                 </div><!-- End .product -->';
                 }?>
+
             </div><!-- End .owl-carousel -->
         </div><!-- End .container -->
     </div><!-- End .page-content -->
@@ -378,3 +389,16 @@
         document.getElementById('selectedColor').value = color;
     }
 </script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/jquery.hoverIntent.min.js"></script>
+<script src="assets/js/jquery.waypoints.min.js"></script>
+<script src="assets/js/superfish.min.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script>
+<script src="assets/js/bootstrap-input-spinner.js"></script>
+<script src="assets/js/jquery.plugin.min.js"></script>
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
+<script src="assets/js/jquery.countdown.min.js"></script>
+<!-- Main JS File -->
+<script src="assets/js/main.js"></script>
+<script src="assets/js/demos/demo-4.js"></script>

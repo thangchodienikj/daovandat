@@ -10,15 +10,15 @@
                         <table class="table table-bordered">
                             <thead>
                             <tr>
-                                <th class="text-center">MÃ LOẠI</th>
-                                <th class="text-center">TÊN LOẠI</th>
-                                <th class="text-center">HÌNH ẢNH</th>
+                                <th class="text-center">Mã loại</th>
+                                <th class="text-center">Họ và tên</th>
+                                <th class="text-center">Hình ảnh</th>
                                 <th class="text-center">Thao tác</th>
-                                <th class="text-center">MÃ LOẠI</th>
-                                <th class="text-center">TÊN LOẠI</th>
-                                <th class="text-center">HÌNH ẢNH</th>
+                                <th class="text-center">Số điện thoại</th>
+                                <th class="text-center">Tài khoản</th>
+                                <th class="text-center">Mật khẩu</th>
 
-                                <th class="text-center">VAI TRÒ</th>
+                                <th class="text-center">Vai trò</th>
                                 <th class="text-center">Thao tác</th>
                             </tr>
                             </thead>
@@ -42,7 +42,17 @@
                                         <div class="d-flex justify-content-center align-items-center"><?= $taikhoan ?></div>
                                     </td>
                                     <td class="col-md-1 text-center"><?= $matkhau ?></td>
-                                    <td class="col-md-1 text-center"><?= $role ?></td>
+                                    <?php
+                                    switch ($role) {
+                                        case '1':
+                                            $tt = "Admin";
+                                            break;
+                                        case  '0':
+                                            $tt = "Khách hàng";
+                                            break;
+
+                                    }?>
+                                    <td class="col-md-1 text-center"><?= $tt ?></td>
                                     <td class="col-md-1 text-center">
                                         <a href="<?= $suadm ?>" class="btn btn-primary btn-block">Sửa</a>
                                         <a href="<?= $xoadm ?>" class="btn btn-danger btn-block">Xóa</a>

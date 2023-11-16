@@ -50,7 +50,8 @@ if (isset($_GET['aht'])){
                 if(isset($_SESSION['userxuong'])){
                     if (isset($_GET['idpro'])) {
                         $loadsp = loadone_sanpham($_GET['idpro']);
-                        $soluongsp = soluong_sanpham($_GET['idpro']);
+                        $soluongsp = soluong_sanpham(1);
+                        var_dump($soluongsp);
                     }
                     include("giaodien/header1.php");
                     $binhluan=binhluan($_GET['idpro']);
@@ -86,9 +87,8 @@ if (isset($_GET['aht'])){
                     echo '<script>
                         alert("Đăng ký thành công mời bạn đăng nhập")
                     </script>';
+                    header('Location:index.php?aht=dndk');
                 }
-                include("giaodien/header1.php");
-                include("giaodien/home.php");
                 break;
             case 'dangnhap' :
                 if ($_SERVER["REQUEST_METHOD"] == "POST" ){
@@ -183,9 +183,13 @@ if (isset($_GET['aht'])){
                     include("giaodien/header1.php");
                     include ("sanpham.php");
                 } else {
-                    include("header1.php");
+                    include("giaodien/header1.php");
                     include("home.php");
                 }
+                break;
+            case 'spyeuthich':
+                include("giaodien/header1.php");
+                include("spyeuthich.php");
                 break;
                  default;
         }
