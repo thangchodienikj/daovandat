@@ -21,7 +21,7 @@
                         <div class="product-gallery product-gallery-vertical">
                             <div class="row">
                                 <figure class="product-main-image">
-                                    <img id="product-zoom" src="'.$img.'" data-zoom-image="assets/images/products/single/1-big.jpg" alt="product image">
+                                    <img id="product-zoom" src="../upload/anh2.png" data-zoom-image="assets/images/products/product-1.jpg" alt="product image">
 
                                     <a href="#" id="btn-product-gallery" class="btn-product-gallery">
                                         <i class="icon-arrows"></i>
@@ -33,7 +33,7 @@
                                     $array = explode(',', $productImageList);
                                     foreach ($array as $anh){
                                         echo '
-                                             <a class="product-gallery-item " href="#" data-image="assets/images/products/single/1.jpg" data-zoom-image="assets/images/products/single/1-big.jpg">
+                                             <a class="product-gallery-item " href="#" data-image="$anh" data-zoom-image="$anh">
                                                 <img src="' . $anh . '" alt="product side">
                                             </a>';
                                     }

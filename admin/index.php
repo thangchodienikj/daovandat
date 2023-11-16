@@ -214,6 +214,10 @@ if (isset($_GET['act'])){
             $listthongke = thongke();
             include "thongke/thongke.php";
             break;
+        case 'donhang':
+            $listDH = loadall_giohang();
+            include "donhang/list.php";
+            break;
         default:
     }
 }else{
