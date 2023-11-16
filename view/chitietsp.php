@@ -21,18 +21,31 @@
                         <div class="product-gallery product-gallery-vertical">
                             <div class="row">
                                 <figure class="product-main-image">
+<<<<<<< HEAD
+                                    <img id="product-zoom" src="../upload/anh2.png" data-zoom-image="assets/images/products/product-1.jpg" alt="product image">
+
+                                    <a href="#" id="btn-product-gallery" class="btn-product-gallery">
+                                        <i class="icon-arrows"></i>
+                                    </a>
+                                </figure><!-- End .product-main-image -->
+=======
                                 <img id="product-zoom" src="'.$img.'" data-zoom-image="'.$img.'" alt="product image" data-action="zoom">
                                 <a href="#" id="btn-product-gallery" class="btn-product-gallery">
                                     <i class="icon-arrows"></i>
                                 </a>
                             </figure><!-- End .product-main-image -->
+>>>>>>> refs/remotes/origin/main
 
                                 <div id="product-zoom-gallery" class="product-image-gallery">
                                 ';
                                     $array = explode(',', $productImageList);
                                     foreach ($array as $anh){
                                         echo '
+<<<<<<< HEAD
+                                             <a class="product-gallery-item " href="#" data-image="$anh" data-zoom-image="$anh">
+=======
                                              <a class="product-gallery-item " href="#" data-image="'.$anh.'" data-zoom-image="'.$anh.'">
+>>>>>>> refs/remotes/origin/main
                                                 <img src="' . $anh . '" alt="product side">
                                             </a>';
                                     }
