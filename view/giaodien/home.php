@@ -15,14 +15,14 @@
                 <div class="container intro-content">
                     <div class="row justify-content-end">
                         <div class="col-auto col-sm-7 col-md-6 col-lg-5">
-                            <h3 class="intro-subtitle text-third">Thiên đường của sách</h3><!-- End .h3 intro-subtitle -->
-                            <h1 class="intro-title" style="font-size: 25px">Học nữa</h1>
-                            <h1 class="intro-title" style="font-size: 25px">Học mãi</h1><!-- End .intro-title -->
-
+                            <h3 class="intro-subtitle" style="color: #907777">New Arrival</h3><!-- End .h3 intro-subtitle -->
+                            <h1 class="intro-title" style="color: #e6837b">
+                                Super sale<br> Winter
+                            </h1>
                             <div class="intro-price">
-                                <sup class="intro-old-price">$349,95</sup>
-                                <span class="text-third">
-                                            $279<sup>.99</sup>
+                                <sup>Today:</sup>
+                                <span class="text-primary">
+                                            $999<sup>.99</sup>
                                         </span>
                             </div><!-- End .intro-price -->
 
@@ -39,9 +39,10 @@
                 <div class="container intro-content">
                     <div class="row justify-content-end">
                         <div class="col-auto col-sm-7 col-md-6 col-lg-5">
-                            <h3 class="intro-subtitle text-primary">New Arrival</h3><!-- End .h3 intro-subtitle -->
-                            <h1 class="intro-title">Apple iPad Pro <br>12.9 Inch, 64GB </h1><!-- End .intro-title -->
-
+                            <h3 class="intro-subtitle" style="color: #907777">New Arrival</h3><!-- End .h3 intro-subtitle -->
+                            <h1 class="intro-title" style="color: #e6837b">
+                                Super sale<br> Summer
+                            </h1>
                             <div class="intro-price">
                                 <sup>Today:</sup>
                                 <span class="text-primary">
@@ -61,9 +62,10 @@
                 <div class="container intro-content">
                     <div class="row justify-content-end">
                         <div class="col-auto col-sm-7 col-md-6 col-lg-5">
-                            <h3 class="intro-subtitle text-primary">New Arrival</h3><!-- End .h3 intro-subtitle -->
-                            <h1 class="intro-title">Apple iPad Pro <br>12.9 Inch, 64GB </h1><!-- End .intro-title -->
-
+                            <h3 class="intro-subtitle" style="color: #907777">New Arrival</h3><!-- End .h3 intro-subtitle -->
+                            <h1 class="intro-title" style="color: #e6837b">
+                                Super sale<br> New fashion
+                            </h1>
                             <div class="intro-price">
                                 <sup>Today:</sup>
                                 <span class="text-primary">
@@ -83,9 +85,10 @@
                 <div class="container intro-content">
                     <div class="row justify-content-end">
                         <div class="col-auto col-sm-7 col-md-6 col-lg-5">
-                            <h3 class="intro-subtitle text-primary">New Arrival</h3><!-- End .h3 intro-subtitle -->
-                            <h1 class="intro-title">Apple iPad Pro <br>12.9 Inch, 64GB </h1><!-- End .intro-title -->
-
+                            <<h3 class="intro-subtitle" style="color: #907777">New Arrival</h3><!-- End .h3 intro-subtitle -->
+                            <h1 class="intro-title" style="color: #e6837b">
+                                Super sale<br> Winter
+                            </h1>
                             <div class="intro-price">
                                 <sup>Today:</sup>
                                 <span class="text-primary">
@@ -107,7 +110,7 @@
     </div><!-- End .intro-slider-container -->
 
     <div class="container">
-        <h2 class="title text-center mb-4">Danh mục phổ biến</h2><!-- End .title text-center -->
+        <h2 class="title text-center mb-4">Explore Popular Categories</h2><!-- End .title text-center -->
 
         <div class="cat-blocks-container">
             <div class="row justify-content-center " >
@@ -142,9 +145,10 @@
                     </a>
 
                     <div class="banner-content">
-                        <h4 class="banner-subtitle"><a href="#">Ưu đãi thông minh</a></h4><!-- End .banner-subtitle -->
+                        <h4 class="banner-subtitle"><a href="#">
+Smart offers</a></h4><!-- End .banner-subtitle -->
                         <h3 class="banner-title"><a href="">Giá '.$price.' <strong>'.$name.'</strong></a></h3><!-- End .banner-title -->
-                        <a href="index.php?act=sanphamct&idpro='.$id.'" class="banner-link">Xem ngay<i class="icon-long-arrow-right"></i></a>
+                        <a href="index.php?act=sanphamct&idpro='.$id.'" class="banner-link">Shop Now<i class="icon-long-arrow-right"></i></a>
                     </div><!-- End .banner-content -->
                 </div><!-- End .banner -->
             </div>';
@@ -160,14 +164,15 @@
 
     <div class="container">
         <div class="cta cta-border mb-5" style="background-image: url(assets/images/demos/demo-4/bg-1.jpg);">
-            <img src="assets/images/demos/demo-4/camera.png" alt="camera" class="cta-img">
+            <img src="assets/images/anh11.png" alt="camera" class="cta-img" style="height: 150px; width: 150px;margin-top: 5px">
             <div class="row justify-content-center">
                 <div class="col-md-12">
                     <div class="cta-content">
                         <div class="cta-text text-right text-white">
-                            <p>Shop Today’s Deals <br><strong>Awesome Made Easy. HERO7 Black</strong></p>
+                            <p>Shop Today’s Deals <br><strong>Awesome Made Easy.
+                                    Hoodie again</strong></p>
                         </div><!-- End .cta-text -->
-                        <a href="#" class="btn btn-primary btn-round"><span>Shop Now - $429.99</span><i class="icon-long-arrow-right"></i></a>
+                        <a href="#" class="btn btn-primary btn-round"><span>Shop Now - $329</span><i class="icon-long-arrow-right"></i></a>
                     </div><!-- End .cta-content -->
                 </div><!-- End .col-md-12 -->
             </div><!-- End .row -->
@@ -177,13 +182,13 @@
     <div class="container">
         <div class="heading text-center mb-3">
             <h2 class="title">
-                Ưu đãi & Cửa hàng</h2><!-- End .title -->
-            <p class="title-desc">Ưu đãi hôm nay và hơn thế nữa</p><!-- End .title-desc -->
+                Deals & Outlet</h2><!-- End .title -->
+            <p class="title-desc">Today’s deal and more</p><!-- End .title-desc -->
         </div><!-- End .heading -->
 
         <div class="row">
             <div class="col-lg-6 deal-col">
-                <div class="deal" style="background-image: url('assets/images/demos/demo-4/deal/bg-1.jpg');">
+                <div class="deal" style="background-image: url('assets/images/anh13.png');">
                     <div class="deal-top">
                         <h2>Deal of the Day.</h2>
                         <h4>Limited quantities. </h4>
@@ -207,7 +212,7 @@
             </div><!-- End .col-lg-6 -->
 
             <div class="col-lg-6 deal-col">
-                <div class="deal" style="background-image: url('assets/images/demos/demo-4/deal/bg-2.jpg');">
+                <div class="deal" style="background-image: url('assets/images/anh15.png');">
                     <div class="deal-top">
                         <h2>Your Exclusive Offers.</h2>
                         <h4>Sign in to see amazing deals.</h4>
@@ -231,7 +236,7 @@
         </div><!-- End .row -->
 
         <div class="more-container text-center mt-1 mb-5">
-            <a href="#" class="btn btn-outline-dark-2 btn-round btn-more"><span>Mua thêm ưu đãi</span><i class="icon-long-arrow-right"></i></a>
+            <a href="#" class="btn btn-outline-dark-2 btn-round btn-more"><span>Shop more Outlet deals</span><i class="icon-long-arrow-right"></i></a>
         </div><!-- End .more-container -->
     </div><!-- End .container -->
 
@@ -291,11 +296,11 @@
     <div class="container for-you">
         <div class="heading heading-flex mb-3">
             <div class="heading-left">
-                <h2 class="title">Khuyến nghị dành cho bạn</h2><!-- End .title -->
+                <h2 class="title">Recommendation For You</h2><!-- End .title -->
             </div><!-- End .heading-left -->
 
             <div class="heading-right">
-                <a href="#" class="title-link">Xem tất cả đề xuất <i class="icon-long-arrow-right"></i></a>
+                <a href="#" class="title-link">View All Recommendadion  <i class="icon-long-arrow-right"></i></a>
             </div><!-- End .heading-right -->
         </div><!-- End .heading -->
 
@@ -316,7 +321,7 @@
                             </div><!-- End .product-action -->
 
                             <div class="product-action">
-                                <a href="#" class="btn-product" ><span>Xem chi tiết</span></a>
+                                <a href="#" class="btn-product" ><span>See details</span></a>
                             </div><!-- End .product-action -->
                         </figure><!-- End .product-media -->
                          <div class="product-body">

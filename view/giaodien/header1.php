@@ -5,11 +5,12 @@
         <ul>
             <?php if(isset($_SESSION['userxuong'])){ extract($_SESSION['userxuong']);
                 if ($role == '1'){?>
-                    <li><a href="../admin">Kênh bán hàng</a></li>
+                    <li><a href="../admin">
+                            Sales Channel</a></li>
                 <?php } }?>
             <li>
                 <div class="header-dropdown">
-                    <a href="#">Tiếng việt</a>
+                    <a href="#">English</a>
                     <div class="header-menu">
                         <ul>
                             <li><a href="#">English</a></li>
@@ -21,11 +22,17 @@
             <?php
             // Kiểm tra nếu người dùng đã đăng nhập
             if (isset($_SESSION['userxuong'])) {
-                // Hiển thị nút "Tôi" và liên kết đến trang cá nhân
-                echo '<li><a href="index.php?act=tkcuatoi">Tôi</a></li>';
+                extract($_SESSION['userxuong']);
+                // Hiển thị nút "Tôi" và liên kết đến trang cá nhâns
+                echo '<li><a href="index.php?act=tkcuatoi"><svg xmlns="http://www.w3.org/2000/svg"  width="19" height="19" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+</svg>  
+<p style="margin-left: 5px;margin-top: 4px">'.$name.'</p></a></li>';
             } else {
                 // Hiển thị nút "Đăng nhập / Đăng ký"
-                echo '<li><a href="index.php?aht=dndk">Đăng nhập / Đăng ký</a></li>';
+                echo '<li><a href="index.php?aht=dndk">
+Sign In / Sign Up</a></li>';
             }
             ?>
         </ul>
@@ -54,23 +61,22 @@
                 <form action="index.php?act=tim" method="post">
                     <div class="header-search-wrapper search-wrapper-wide">
                         <button class="btn btn-primary" name="timkiem" ><i class="icon-search"></i></button>
-                        <input type="text" class="form-control" name="tim1" placeholder="Nhập từ khóa tìm kiếm...">
+                        <input type="text" class="form-control" name="tim1" placeholder="Enter search keywords...">
                     </div><!-- End .header-search-wrapper -->
                 </form>
             </div><!-- End .header-search -->
         </div>
 
         <div class="header-right">
-
             <div class="wishlist">
-                <a href="wishlist.html" title="Wishlist">
+                <a href="index.php?act=spyeuthich" title="Wishlist">
                     <div class="icon">
                         <i class="icon-heart-o"></i>
                         <span class="wishlist-count badge">3</span>
                     </div>
-                    <p>Yêu thích</p>
+                    <p style="font-size: 13px">Wishlist</p>
                 </a>
-            </div><!-- End .Wishlist -->
+            </div><!-- End .compare-dropdown -->
             </div><!-- End .compare-dropdown -->
 
             <div class="dropdown cart-dropdown">
@@ -84,7 +90,7 @@
                             ?>
                         </span>
                     </div>
-                    <p style="font-family: Arial, sans-serif; font-size: 10px;">Giỏ hàng</p>
+                    <p style="font-size: 13px">Cart</p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <div class="dropdown-cart-products">
@@ -113,13 +119,14 @@
                         }
                         echo '</div><!-- End .cart-product -->
                         <div class="dropdown-cart-total">
-                            <span>Tổng tiền</span>
+                            <span>Total amount</span>
                             <span class="cart-total-price">'.$tong.'</span>
                         </div><!-- End .dropdown-cart-total -->';
                         ?>
 
                     <div class="dropdown-cart-action">
-                        <a href="index.php?act=gh" class="btn btn-primary" >Giỏ hàng</a>
+                        <a href="index.php?act=gh" class="btn btn-primary" >
+                            Cart</a>
                     </div><!-- End .dropdown-cart-total -->
                 </div><!-- End .dropdown-menu -->
             </div>
@@ -133,7 +140,7 @@
         <div class="header-left">
             <div class="dropdown category-dropdown">
                 <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" title="Browse Categories">
-                    Danh mục <i class="icon-angle-down"></i>
+                    Category <i class="icon-angle-down"></i>
                 </a>
                 <div class="dropdown-menu">
                     <nav class="side-nav">
@@ -150,31 +157,28 @@
             </div><!-- End .category-dropdown -->
         </div><!-- End .header-left -->
 
-        <div class="header-center">
-            <nav class="main-nav">
-                <ul class="menu sf-arrows">
-                    <li class="megamenu-container ">
-                        <a href="index.php" class="sf-with-ul">
-                            Trang chủ</a>
+        <div class="header-center justify-content-center">
+            <nav class="main-nav" style="width: 526px">
+                <ul class="menu sf-arrows d-flex justify-content-around">
+                    <li class="megamenu-container">
+                        <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="index.php?act=sanpham" class="sf-with-ul">
-                            Cửa hàng</a>
+                        <a href="index.php?act=sanpham">Shop</a>
                     </li>
                     <li>
-                        <a href="#" class="sf-with-ul">
-                            Sản phẩm</a>
+                        <a href="#">Product</a>
                     </li>
                     <li>
-                        <a href="#" class="sf-with-ul">Hỗ trợ</a>
+                        <a href="#">Support</a>
                     </li>
                     <li>
-                        <a href="#" class="sf-with-ul">Giải đáp</a>
+                        <a href="#">Answers</a>
                     </li>
-
                 </ul><!-- End .menu -->
             </nav><!-- End .main-nav -->
         </div><!-- End .header-center -->
+
 
         <div class="header-right">
             <i class="la la-lightbulb-o"></i><p>Clearance<span class="highlight">&nbsp;Up to 30% Off</span></p>
