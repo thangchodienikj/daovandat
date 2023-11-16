@@ -92,7 +92,7 @@
                             <div class="details-filter-row details-row-size">
                                 <label for="qty">Qty:</label>
                                 <form action="index.php?act=gh" method="post">
-                                <div class="product-details-quantity">
+                                 <div class="product-details-quantity">
                                     <input type="number" name="soluong" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
                                 </div><!-- Kết thúc .product-details-quantity -->
                             </div><!-- End .details-filter-row -->
@@ -389,16 +389,4 @@ See details</span></a>
         document.getElementById('selectedColor').value = color;
     }
 </script>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/jquery.hoverIntent.min.js"></script>
-<script src="assets/js/jquery.waypoints.min.js"></script>
-<script src="assets/js/superfish.min.js"></script>
-<script src="assets/js/owl.carousel.min.js"></script>
-<script src="assets/js/bootstrap-input-spinner.js"></script>
-<script src="assets/js/jquery.plugin.min.js"></script>
-<script src="assets/js/jquery.magnific-popup.min.js"></script>
-<script src="assets/js/jquery.countdown.min.js"></script>
-<!-- Main JS File -->
-<script src="assets/js/main.js"></script>
-<script src="assets/js/demos/demo-4.js"></script>
+

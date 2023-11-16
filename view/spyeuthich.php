@@ -27,23 +27,24 @@
                     <th></th>
                 </tr>
                 </thead>
-
                 <tbody>
-                <tr>
+                <?php foreach ($spyt as $yt){
+                    extract($yt);
+                    echo '<tr>
                     <td class="product-col">
                         <div class="product">
                             <figure class="product-media">
                                 <a href="#">
-                                    <img src="assets/images/products/table/product-1.jpg" alt="Product image">
+                                    <img src="'.$img.'" alt="Product image">
                                 </a>
                             </figure>
 
                             <h3 class="product-title">
-                                <a href="#">Beige knitted elastic runner shoes</a>
+                                <a href="#">'.$name.'</a>
                             </h3><!-- End .product-title -->
                         </div><!-- End .product -->
                     </td>
-                    <td class="price-col">$84.00</td>
+                    <td class="price-col">'.$price.'</td>
                     <td class="stock-col"><span class="in-stock">In stock</span></td>
                     <td class="action-col">
                         <div class="dropdown">
@@ -58,50 +59,9 @@
                             </div>
                         </div>
                     </td>
-                    <td class="remove-col"><button class="btn-remove"><i class="icon-close"></i></button></td>
-                </tr>
-                <tr>
-                    <td class="product-col">
-                        <div class="product">
-                            <figure class="product-media">
-                                <a href="#">
-                                    <img src="assets/images/products/table/product-2.jpg" alt="Product image">
-                                </a>
-                            </figure>
-
-                            <h3 class="product-title">
-                                <a href="#">Blue utility pinafore denim dress</a>
-                            </h3><!-- End .product-title -->
-                        </div><!-- End .product -->
-                    </td>
-                    <td class="price-col">$76.00</td>
-                    <td class="stock-col"><span class="in-stock">In stock</span></td>
-                    <td class="action-col">
-                        <button class="btn btn-block btn-outline-primary-2"><i class="icon-cart-plus"></i>Add to Cart</button>
-                    </td>
-                    <td class="remove-col"><button class="btn-remove"><i class="icon-close"></i></button></td>
-                </tr>
-                <tr>
-                    <td class="product-col">
-                        <div class="product">
-                            <figure class="product-media">
-                                <a href="#">
-                                    <img src="assets/images/products/table/product-3.jpg" alt="Product image">
-                                </a>
-                            </figure>
-
-                            <h3 class="product-title">
-                                <a href="#">Orange saddle lock front chain cross body bag</a>
-                            </h3><!-- End .product-title -->
-                        </div><!-- End .product -->
-                    </td>
-                    <td class="price-col">$52.00</td>
-                    <td class="stock-col"><span class="out-of-stock">Out of stock</span></td>
-                    <td class="action-col">
-                        <button class="btn btn-block btn-outline-primary-2 disabled">Out of Stock</button>
-                    </td>
-                    <td class="remove-col"><button class="btn-remove"><i class="icon-close"></i></button></td>
-                </tr>
+                    <td class="remove-col"><a href="index.php?act=xoaspyt&id='.$id.'"><button class="btn-remove"><i class="icon-close"></i></button></a></td>
+                </tr>';
+                } ?>
                 </tbody>
             </table><!-- End .table table-wishlist -->
             <div class="wishlist-share">

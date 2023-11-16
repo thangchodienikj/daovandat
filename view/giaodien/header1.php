@@ -72,7 +72,12 @@ Sign In / Sign Up</a></li>';
                 <a href="index.php?act=spyeuthich" title="Wishlist">
                     <div class="icon">
                         <i class="icon-heart-o"></i>
-                        <span class="wishlist-count badge">3</span>
+                        <span class="wishlist-count badge">
+                            <?php
+                            $length = sizeof($spyt);
+                            echo $length;
+                            ?>
+                        </span>
                     </div>
                     <p style="font-size: 13px">Wishlist</p>
                 </a>

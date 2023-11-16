@@ -225,6 +225,14 @@ function list3sp(){
     return $listdanhmuc;
 }
 
-
+function spyeuthich($img,$name,$price){
+    pdo_execute("INSERT INTO spyeuthich(img,name,price) VALUES ('$img','$name','$price')");
+}
+function loadall_spyt(){
+    return pdo_query("select * from spyeuthich");
+}
+function xoaspyt($id){
+    return pdo_query("DELETE FROM spyeuthich WHERE id = '$id'");
+}
 ?>
 

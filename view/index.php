@@ -13,6 +13,7 @@ $list8sp=load8_sanpham();
 $listsp=loadall_sanpham(0);
 $listdm = loadAll_danhmuc();
 $loadgh = loadall_giohang();
+$spyt=loadall_spyt();
 if (isset($_GET['aht'])){
     $aht = $_GET['aht'];
     switch ($aht) {
@@ -51,7 +52,6 @@ if (isset($_GET['aht'])){
                     if (isset($_GET['idpro'])) {
                         $loadsp = loadone_sanpham($_GET['idpro']);
                         $soluongsp = soluong_sanpham(1);
-                        var_dump($soluongsp);
                     }
                     include("giaodien/header1.php");
                     $binhluan=binhluan($_GET['idpro']);
@@ -188,10 +188,27 @@ if (isset($_GET['aht'])){
                 }
                 break;
             case 'spyeuthich':
+                if (isset($_GET['img']) && isset($_GET['name']) && isset($_GET['price'])) {
+                    $img = $_GET['img'];
+                    $name = $_GET['name'];
+                    $price = $_GET['price'];
+                    spyeuthich($img,$name,$price);
+                    header("location:index.php?act=spyeuthich");
+                }
                 include("giaodien/header1.php");
                 include("spyeuthich.php");
                 break;
+            case 'xoaspyt':
+                if (isset($_GET['id'])){
+                    xoaspyt($_GET['id']);
+                    header("location:index.php?act=spyeuthich");
+                }
+                include("giaodien/header1.php");
+                include("spyeuthich.php");
+
+                break;
                  default;
+
         }
     } else {
         include("giaodien/header1.php");

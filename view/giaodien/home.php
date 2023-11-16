@@ -317,7 +317,7 @@ Smart offers</a></h4><!-- End .banner-subtitle -->
                             </a>
 
                             <div class="product-action-vertical">
-                                <a href="#" class="btn-product-icon btn-wishlist" title="Yêu thích"></a>
+                                   <a  href="index.php?act=spyeuthich&id='.$id.'&img='.$img.'&name='.$name.'&price='.$price.'" class="btn-product-icon btn-wishlist" title="Yêu thích"></a>
                             </div><!-- End .product-action -->
 
                             <div class="product-action">
