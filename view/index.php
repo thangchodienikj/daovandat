@@ -211,6 +211,27 @@ if (isset($_GET['aht'])){
                 include("spyeuthich.php");
 
                 break;
+            case 'khoadon':
+                if (isset($_POST['dathang'])) {
+                    $name = $_POST['name'];
+                    $diachi = $_POST['diachi'];
+                    $email = $_POST['email'];
+                    $sdt = $_POST['sdt'];
+                    $ghichu = $_POST['ghichu'];
+                    $ptvc = $_POST['ptvc'];
+                    $pttt = $_POST['phuong_thuc_thanhtoan'];
+                    $ngaydathang = date('H:i:s d/m/Y');
+                    $id_don_hang = donhang($name, $diachi, $email, $sdt, $ghichu, $ngaydathang, $pttt, $ptvc);
+                    $listgh = loadall_giohang();
+                    foreach ($listgh as $gh) {
+                        donmua($gh['ten_sach'], $gh['so_luong'], $gh['gia_ca'], $gh['thanhtien'], $id_don_hang);
+                    }
+                    xoagh();
+                    header("Location: index.php");
+                }
+                include("header1.php");
+                include("home.php");
+                break;
                  default;
 
         }

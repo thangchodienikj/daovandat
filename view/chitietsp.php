@@ -21,31 +21,14 @@
                         <div class="product-gallery product-gallery-vertical">
                             <div class="row">
                                 <figure class="product-main-image">
-<<<<<<< HEAD
-                                    <img id="product-zoom" src="../upload/anh2.png" data-zoom-image="assets/images/products/product-1.jpg" alt="product image">
-
-                                    <a href="#" id="btn-product-gallery" class="btn-product-gallery">
-                                        <i class="icon-arrows"></i>
-                                    </a>
+                                    <img id="product-zoom" src="'.$img.'" alt="product image">
                                 </figure><!-- End .product-main-image -->
-=======
-                                <img id="product-zoom" src="'.$img.'" data-zoom-image="'.$img.'" alt="product image" data-action="zoom">
-                                <a href="#" id="btn-product-gallery" class="btn-product-gallery">
-                                    <i class="icon-arrows"></i>
-                                </a>
-                            </figure><!-- End .product-main-image -->
->>>>>>> refs/remotes/origin/main
-
                                 <div id="product-zoom-gallery" class="product-image-gallery">
                                 ';
                                     $array = explode(',', $productImageList);
                                     foreach ($array as $anh){
                                         echo '
-<<<<<<< HEAD
-                                             <a class="product-gallery-item " href="#" data-image="$anh" data-zoom-image="$anh">
-=======
-                                             <a class="product-gallery-item " href="#" data-image="'.$anh.'" data-zoom-image="'.$anh.'">
->>>>>>> refs/remotes/origin/main
+                                             <a class="product-gallery-item " href="#" data-image="'.$anh.'" >
                                                 <img src="' . $anh . '" alt="product side">
                                             </a>';
                                     }
@@ -111,7 +94,7 @@
                             </div><!-- End .details-filter-row -->
                              <div class="details-filter-row details-row-size">
                             <!-- Thẻ </div> đóng mở trong mã của bạn, nên tôi đã xóa nó -->
-                                    <input type="hidden" name="name" value="'.$ProductName.'">
+                                    <input type="hidden"  name="name" value="'.$ProductName.'">
                                     <input type="hidden" name="giaca" value="'.$price.'">
                                     <input type="hidden" name="mota" value="'.$mieuta.'">
                                     <input type="hidden" name="hinh" value="'.$img.'">
@@ -346,7 +329,7 @@
 
                         <div class="product-action">
                             <a href="index.php?act=sanphamct&idpro='.$id.'" class="btn-product "><span>
-See details</span></a>
+                                See details</span></a>
                         </div><!-- End .product-action -->
                     </figure><!-- End .product-media -->
 
