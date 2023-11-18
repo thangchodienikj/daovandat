@@ -106,7 +106,6 @@ FROM
     product AS sp
 LEFT JOIN 
     productpro_image AS ip ON sp.id = ip.idpro
-
 GROUP BY 
     sp.id
  LIMIT 8
@@ -225,11 +224,16 @@ function list3sp(){
     return $listdanhmuc;
 }
 
-function spyeuthich($img,$name,$price){
-    pdo_execute("INSERT INTO spyeuthich(img,name,price) VALUES ('$img','$name','$price')");
+function spyeuthich($idsp,$idtk,$img,$name,$price){
+    $check = pdo_query_one("select * from spyeuthich where idsp ='$idsp'");
+    if ($check){
+        pdo_execute("UPDATE spyeuthich SET  idtk = '$idtk' , img = '$img' ,name = '$name' ,price = '$price' where idsp ='$idsp' ");
+    }else {
+        pdo_execute("INSERT INTO spyeuthich(idsp,idtk,img,name,price) VALUES ('$idsp','$idtk','$img','$name','$price')");
+    }
 }
-function loadall_spyt(){
-    return pdo_query("select * from spyeuthich");
+function loadall_spyt($id){
+    return pdo_query("select * from spyeuthich where idtk = '$id'");
 }
 function xoaspyt($id){
     return pdo_query("DELETE FROM spyeuthich WHERE id = '$id'");

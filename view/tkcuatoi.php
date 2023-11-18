@@ -34,8 +34,11 @@
                                 <a class="nav-link" id="tab-account-link" data-toggle="tab" href="#tab-account" role="tab" aria-controls="tab-account" aria-selected="false">Account details only</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="index.php?act=dangxuat">
-                                    Log out</a>
+                                <form action="index.php?act=dangxuat" method="post">
+
+                                    <button class="nav-link" style="border: none ; background-color: white" type="submit">Log out</button>
+
+                                </form>
                             </li>
                         </ul>
                     </aside><!-- End .col-lg-3 -->
@@ -57,11 +60,15 @@
                                 <table class="table table-bordered">
                                     <thead>
                                     <tr>
-                                        <th scope="col" class="text-center">Mã đơn hàng</th>
-                                        <th scope="col" class="text-center">Ngày đặt hàng</th>
-                                        <th scope="col" class="text-center">Số lượng mặt hàng</th>
-                                        <th scope="col" class="text-center">Tổng khóa đơn</th>
-                                        <th scope="col" class="text-center">Tình trạng đơn hàng</th>
+                                        <th scope="col" class="text-center" colspan="2">
+                                            Product</th>
+                                        <th scope="col" class="text-center">
+                                            Price</th>
+                                        <th scope="col" class="text-center">
+                                            Total single key</th>
+                                        <th scope="col" class="text-center">
+                                            Order status</th>
+
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -70,32 +77,37 @@
                                         $ht = $cart['tinhtrangdh'];
                                         switch ($ht){
                                             case "0" :
-                                                $tt="Đơn hàng mới";
+                                                $tt="New orders";
                                                 break;
                                             case "1" :
-                                                $tt="Đang xử lí";
+                                                $tt="Order confirmation";
                                                 break;
                                             case "2" :
-                                                $tt="Đang giao hàng";
+                                                $tt="Delivering";
                                                 break;
                                             case "3" :
-                                                $tt="Đã giao hàng";
+                                                $tt="Delivered";
                                                 break;
                                             default:
                                                 break;
                                         }
                                         echo ' <tr>
-                                        <td class="text-center">'.$id.'</td>
-                                        <td class="text-center">'.$ngaydathang.'</td>
-                                        <td class="text-center">'.$soluong.'</td>
+                                    
+                                        <td colspan="2" class="text-center" >'.$name.' x'.$soluong.'</td>
+                                        <td class="text-center">'.$giaca.'</td>
                                         <td class="text-center">'.$tongtien.'</td>
                                         <td class="text-center">'.$tt.'</td>
+                                     
                                     </tr>';
                                     } ?>
 
                                     <!-- Các dòng khác có thể thêm tại đây và đặt lớp text-center tương tự -->
                                     </tbody>
                                 </table>
+                            <div class="col-md-8 col-lg-3">
+                                <a href="index.php?act=tinhtrang" class="btn btn-primary btn-block">
+                                    Order details</a>
+                            </div>
                             </div><!-- .End .tab-pane -->
 
 

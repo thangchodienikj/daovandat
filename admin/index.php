@@ -2,8 +2,10 @@
 include ("../model/sanpham.php");
 include ("../model/danhmuc.php");
 include ("../model/khachang.php");
+include ("../model/dathang.php");
 include ("../model/pdo.php");
 include ("header.php");
+$listdh1=ht_donhang();
 $listsp =product();
 $listdanhmuc = loadAll_danhmuc();
 $listmau = productp_color();
@@ -211,12 +213,20 @@ if (isset($_GET['act'])){
             include ("binhluan.php");
             break;
         case 'thongke':
-            $listthongke = thongke();
+            $listthongke=thongke();
             include "thongke/thongke.php";
             break;
         case 'donhang':
-            $listDH = loadall_giohang();
-            include "donhang/list.php";
+            $listdh1=ht_donhang();
+            include ("donhang/donhang.php");
+            break;
+        case 'tinhtrang':
+            if (isset($_POST['gui'])) {
+                $id=$_GET['id'];
+                $tinhtrang=$_POST['tinhtrang'];
+                capnhat($id,$tinhtrang);
+            }
+            include ("donhang/donhang.php");
             break;
         default:
     }

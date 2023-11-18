@@ -8,11 +8,6 @@ function loadAll_danhmuc(){
     $listdanhmuc = pdo_query($sql);
     return $listdanhmuc;
 }
-function loadAll_danhmuc_timkiem($id){
-    $sql = "select * from danh_muc where id = '$id'";
-    $listdanhmuc = pdo_query($sql);
-    return $listdanhmuc;
-}
 function xoa_danhmuc($id){
     $sql = "DELETE FROM danh_muc WHERE id = $id";
     pdo_execute($sql);

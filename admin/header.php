@@ -141,14 +141,14 @@
                                 <a href="index.php?act=binhluan" >Bình luận</a>
                             </li>
                             <li>
-                                <a href="index.php?act=thongke" >Thống kê</a>
+                                <a href="index.php?act=donhang" >Đơn hàng</a>
                             </li>
                         </ul><!-- End .menu -->
                     </nav><!-- End .main-nav -->
                 </div><!-- End .header-center -->
 
                 <div class="header-right">
-                    <i class="la la-lightbulb-o"></i><p>Clearance<span class="highlight">&nbsp;Up to 30% Off</span></p>
+                   <p><span class="highlight"> <a href="index.php?act=thongke" >Thống kê</a></span></p>
                 </div>
             </div><!-- End .container -->
         </div><!-- End .header-bottom -->

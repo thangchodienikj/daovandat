@@ -1,7 +1,7 @@
 <?php
 
-function loadall_giohang(){
-    $sql = "select * from giohang";
+function loadall_giohang($id){
+    $sql = "select * from giohang where idtk = '$id'";
     $listgiohang = pdo_query($sql);
     return $listgiohang;
 }
@@ -16,7 +16,7 @@ function update($ten_sach, $selected_color, $selected_size, $mo_ta, $gia_ca, $hi
             WHERE ten_sach = '$ten_sach' AND mau = '$selected_color' AND sizesp = '$selected_size'");
 }
 
-function update_giohang($ten_sach, $selected_color, $selected_size, $mo_ta, $gia_ca, $hinhload, $so_luong){
+function update_giohang($idtk,$ten_sach, $selected_color, $selected_size, $mo_ta, $gia_ca, $hinhload, $so_luong){
    $product= pdo_query_one("SELECT * FROM giohang WHERE ten_sach = '$ten_sach' AND mau = '$selected_color' AND sizesp = '$selected_size'");
 
    if($product){
@@ -27,7 +27,7 @@ function update_giohang($ten_sach, $selected_color, $selected_size, $mo_ta, $gia
    }
    else{
        $thanh_tien=$so_luong*$gia_ca;
-       pdo_execute("INSERT INTO giohang(ten_sach, mau, sizesp, mo_ta, gia_ca, hinh_anh, so_luong, thanhtien) VALUES ('$ten_sach', '$selected_color', '$selected_size', '$mo_ta', '$gia_ca', '$hinhload', '$so_luong', '$thanh_tien')");
+       pdo_execute("INSERT INTO giohang(idtk,ten_sach, mau, sizesp, mo_ta, gia_ca, hinh_anh, so_luong, thanhtien) VALUES ('$idtk','$ten_sach', '$selected_color', '$selected_size', '$mo_ta', '$gia_ca', '$hinhload', '$so_luong', '$thanh_tien')");
    }
 }
 

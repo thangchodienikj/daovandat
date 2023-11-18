@@ -308,16 +308,20 @@ Smart offers</a></h4><!-- End .banner-subtitle -->
             <div class="row ">
                 <?php foreach ($list8sp as $sp) {
                     extract($sp);
-                    echo ' <div class="col-6 col-md-4 col-lg-3">
+                    if (isset($_SESSION['userxuong'])) {
+                        extract($_SESSION['userxuong']);
+
+                        echo ' <div class="col-6 col-md-4 col-lg-3">
                     <div class="product product-2">
                         <figure class="product-media">
                             <span class="product-label label-circle label-sale">Sale</span>
-                            <a href="index.php?act=sanphamct&idpro='.$id.'">
-                                <img src="' . $img . '" alt="Product image" class="product-image">
+                            <a href="index.php?act=sanphamct&idpro=' . $sp['id'] . '">
+                                <img src="' . $sp['image'] . '" alt="Product image" class="product-image">
                             </a>
 
                             <div class="product-action-vertical">
-                                   <a  href="index.php?act=spyeuthich&id='.$id.'&img='.$img.'&name='.$name.'&price='.$price.'" class="btn-product-icon btn-wishlist" title="Yêu thích"></a>
+         
+                                    <a  href="index.php?act=spyeuthich&id='.$sp['id'].'&idtk='.$_SESSION['userxuong']['id'].'&img='.$sp['image'].'&name='.$sp['name'].'&price='.$sp['gia'].'" class="btn-product-icon btn-wishlist btn-expandable"><span>Favourite</span></a>
                             </div><!-- End .product-action -->
 
                             <div class="product-action">
@@ -327,6 +331,7 @@ Smart offers</a></h4><!-- End .banner-subtitle -->
                          <div class="product-body">
                             <div class="product-cat">
                          ';
+                    }
                             foreach ($listdm as $dm) {
                                 extract($dm);
                                 if ($dm['id'] == $sp['id']) {
@@ -336,9 +341,9 @@ Smart offers</a></h4><!-- End .banner-subtitle -->
                             }
                          echo '
                             </div><!-- End .product-cat -->
-                            <h3 class="product-title"><a href="product.html">'.$name.'</a></h3><!-- End .product-title -->
+                            <h3 class="product-title"><a href="product.html">'.$sp['name'].'</a></h3><!-- End .product-title -->
                             <div class="product-price">
-                                <span class="new-price"> $ '.$price.'</span>
+                                <span class="new-price"> $ '.$sp['gia'].'</span>
                                 <span class="old-price"></span>
                             </div><!-- End .product-price -->
                             <div class="ratings-container">

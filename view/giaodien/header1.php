@@ -90,7 +90,7 @@ Sign In / Sign Up</a></li>';
                         <i class="icon-shopping-cart"></i>
                         <span class="cart-count">
                             <?php
-                            $length = sizeof($loadgh);
+                            $length = sizeof($listgh);
                             echo $length;
                             ?>
                         </span>
@@ -101,7 +101,7 @@ Sign In / Sign Up</a></li>';
                     <div class="dropdown-cart-products">
                         <?php
                         $tong = 0;
-                        foreach ($loadgh as $gh) {
+                        foreach ($listgh as $gh) {
                             extract($gh);
                             echo ' <div class="product">
                             <div class="product-cart-details">

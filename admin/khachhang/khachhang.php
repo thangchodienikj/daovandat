@@ -10,14 +10,13 @@
                         <table class="table table-bordered">
                             <thead>
                             <tr>
-                                <th class="text-center">Mã loại</th>
+                                <th class="text-center">Id</th>
                                 <th class="text-center">Họ và tên</th>
-                                <th class="text-center">Hình ảnh</th>
-                                <th class="text-center">Thao tác</th>
+                                <th class="text-center">Địa chỉ</th>
+                                <th class="text-center">Email</th>
                                 <th class="text-center">Số điện thoại</th>
                                 <th class="text-center">Tài khoản</th>
                                 <th class="text-center">Mật khẩu</th>
-
                                 <th class="text-center">Vai trò</th>
                                 <th class="text-center">Thao tác</th>
                             </tr>

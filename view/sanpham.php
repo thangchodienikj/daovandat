@@ -58,16 +58,18 @@
                                     $mr ='';
                                 }
                                 extract($sp);
-                                echo ' <div class="col-6 col-md-4 col-lg-4" '.$mr.'>
+                            if (isset($_SESSION['userxuong'])) {
+                                extract($_SESSION['userxuong']);
+                                echo ' <div class="col-6 col-md-4 col-lg-4" ' . $mr . '>
                                 <div class="product product-7 text-center">
                                     <figure class="product-media">
                                         <span class="product-label label-new">New</span>
-                                        <a href="index.php?act=sanphamct&idpro='.$id.'">
+                                        <a href="index.php?act=sanphamct&idpro=' . $id . '">
                                             <img src="' . $image . '" alt="Product image" class="product-image">
                                         </a>
 
                                         <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>Yêu thích</span></a>
+                                            <a  href="index.php?act=spyeuthich&id=' . $sp['id'] . '&idtk=' . $_SESSION['userxuong']['id'] . '&img=' . $sp['image'] . '&name=' . $sp['name'] . '&price=' . $sp['gia'] . '" class="btn-product-icon btn-wishlist btn-expandable"><span>Favourite</span></a>
                                         </div><!-- End .product-action-vertical -->
 
                                         <div class="product-action">
@@ -78,6 +80,7 @@
                                     <div class="product-body">
                                         <div class="product-cat">
                                         ';
+                            }
                                             foreach ($listdm as $dm) {
                                                 extract($dm);
                                                 if ($dm['id'] == $sp['id']) {

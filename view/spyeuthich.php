@@ -34,13 +34,13 @@
                     <td class="product-col">
                         <div class="product">
                             <figure class="product-media">
-                                <a href="#">
+                                <a href="index.php?act=sanphamct&idpro='.$idsp.'">
                                     <img src="'.$img.'" alt="Product image">
                                 </a>
                             </figure>
 
                             <h3 class="product-title">
-                                <a href="#">'.$name.'</a>
+                                <a href="index.php?act=sanphamct&idpro='.$id.'">'.$name.'</a>
                             </h3><!-- End .product-title -->
                         </div><!-- End .product -->
                     </td>

@@ -60,10 +60,9 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <?php foreach ($loadgh as $gh){
+                                    <?php foreach ($listgh as $gh){
                                         extract($gh);
                                         echo '
-                                      
                                         <tr>
                                         <td><a href="#">'.$ten_sach.' x '.$so_luong.'</a></td>                                      
                                         <td>'.$gia_ca.'</td>
@@ -80,9 +79,30 @@
                                         <td><?php echo $tong?></td>
                                     </tr><!-- End .summary-subtotal -->
                                     <tr>
-                                        <td>PTVC:</td>
-                                    </tr>
+                                        <td>PTVC: </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><select class="form-select" name="phuong_thuc_vanchuyen" id="phuong_thuc_vanchuyen">
+                                                <option value="30000">Vận chuyển nhanh</option>
+                                                <option value="10000">Vận chuyển chậm</option>
+                                            </select></td>
+                                    </tr >
+                                    <tr >
+                                        <td>Phí vận chuyển :</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td id="phi_vanchuyen"><?php echo 30000; ?></td>
+                                    </tr><!-- End .summary-subtotal -->
+                                    <tr class="summary-subtotal">
+                                        <td>Tổng tiền:</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
 
+                                        <td id="tong_tien"><?php echo $tongtien=$tong+30000; ?></td>
+                                    </tr><!-- End .summary-subtotal -->
                                     </tbody>
                                 </table><!-- End .table table-summary -->
 
@@ -98,11 +118,21 @@
                                         </div><!-- End .custom-control -->
                                     </div><!-- End .card -->
                                     <input name="dathang" type="submit" class="btn btn-outline-primary-2 btn-order btn-block" value="Đặt hàng">
+                        </div><!-- End .summary -->
+                        </aside><!-- End .col-lg-3 -->
                 </form>
-            </div><!-- End .summary -->
-            </aside><!-- End .col-lg-3 -->
         </div><!-- End .row -->
     </div><!-- End .container -->
     </div><!-- End .checkout -->
     </div><!-- End .page-content -->
 </main><!-- End .main -->
+<script>
+    // Add a script to update the shipping cost and total amount when the shipping method changes
+    document.getElementById('phuong_thuc_vanchuyen').addEventListener('change', function () {
+        var shippingCost = parseInt(this.value);
+        document.getElementById('phi_vanchuyen').textContent = shippingCost;
+        var totalAmount = <?php echo $tong; ?> + shippingCost;
+        document.getElementById('tong_tien').textContent = totalAmount;
+
+    });
+</script>

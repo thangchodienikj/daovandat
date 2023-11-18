@@ -75,6 +75,7 @@
                                 <label for="size">Size:</label>
                                 <div class="product-nav product-nav-thumbs">
                                 ';
+
                                     $array = explode(',', $sizeList);
                                     foreach ($array as $size){
                                         echo '<a href="javascript:void(0);" class="size-option" onclick="updateSelectedSize(\'' . $size . '\')" style="width: 80px; height: 30px; text-align: center; display: inline-block; line-height: 29px; color: #747774">
@@ -94,6 +95,7 @@
                             </div><!-- End .details-filter-row -->
                              <div class="details-filter-row details-row-size">
                             <!-- Thẻ </div> đóng mở trong mã của bạn, nên tôi đã xóa nó -->
+                                    <input type="hidden"  name="idsp" value="'.$_SESSION['userxuong']['id'].'">
                                     <input type="hidden"  name="name" value="'.$ProductName.'">
                                     <input type="hidden" name="giaca" value="'.$price.'">
                                     <input type="hidden" name="mota" value="'.$mieuta.'">
@@ -314,6 +316,8 @@
 
                 <?php foreach ($list8sp as $sp) {
                     extract($sp);
+                if (isset($_SESSION['userxuong'])) {
+                    extract($_SESSION['userxuong']);
                     echo ' <div class="product product-7 text-center">
                     <figure class="product-media">
                         <span class="product-label label-new">New</span>
@@ -322,19 +326,18 @@
                         </a>
 
                         <div class="product-action-vertical">
-                            <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
-                            <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                            <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
+                           <a  href="index.php?act=spyeuthich&id=' . $sp['id'] . '&idtk=' . $_SESSION['userxuong']['id'] . '&img=' . $sp['image'] . '&name=' . $sp['name'] . '&price=' . $sp['gia'] . '" class="btn-product-icon btn-wishlist btn-expandable"><span>Favourite</span></a>
                         </div><!-- End .product-action-vertical -->
 
                         <div class="product-action">
-                            <a href="index.php?act=sanphamct&idpro='.$id.'" class="btn-product "><span>
+                            <a href="index.php?act=sanphamct&idpro=' . $id . '" class="btn-product "><span>
                                 See details</span></a>
                         </div><!-- End .product-action -->
                     </figure><!-- End .product-media -->
 
                     <div class="product-body">
                         ';
+                }
                     foreach ($listdm as $dm) {
                         extract($dm);
                         if ($dm['id'] == $sp['id']) {

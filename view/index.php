@@ -1,6 +1,7 @@
 <?php
 session_start();
 include ("../model/pdo.php");
+include ("../model/dathang.php");
 include ("../model/danhmuc.php");
 include ("../model/giohang.php");
 include ("../model/sanpham.php");
@@ -12,8 +13,20 @@ $list1dm = list2dm();
 $list8sp=load8_sanpham();
 $listsp=loadall_sanpham(0);
 $listdm = loadAll_danhmuc();
-$loadgh = loadall_giohang();
-$spyt=loadall_spyt();
+$listdh1=ht_donhang();
+if (isset($_SESSION['userxuong'])){
+    extract($_SESSION['userxuong']);
+    $listgh = loadall_giohang($_SESSION['userxuong']['id']);
+}else{
+    $listgh = loadall_giohang(0);
+}
+if (isset($_SESSION['userxuong'])){
+    extract($_SESSION['userxuong']);
+    $spyt=loadall_spyt($_SESSION['userxuong']['id']);
+}else{
+    $spyt=loadall_spyt(0);
+}
+
 if (isset($_GET['aht'])){
     $aht = $_GET['aht'];
     switch ($aht) {
@@ -47,7 +60,10 @@ if (isset($_GET['aht'])){
                 include "checkout.php";
                 break;
             case 'thanhtoan' :
-                $listgh = loadall_giohang();
+                if (isset($_SESSION['userxuong'])){
+                    extract($_SESSION['userxuong']);
+                    $listgh = loadall_giohang($_SESSION['userxuong']['id']);
+                }
                 include("giaodien/header1.php");
                 include ("thanhtoan.php");
                 break;
@@ -55,7 +71,6 @@ if (isset($_GET['aht'])){
                 if(isset($_SESSION['userxuong'])){
                     if (isset($_GET['idpro'])) {
                         $loadsp = loadone_sanpham($_GET['idpro']);
-                        $soluongsp = soluong_sanpham(1);
                     }
                     include("giaodien/header1.php");
                     $binhluan=binhluan($_GET['idpro']);
@@ -102,6 +117,7 @@ if (isset($_GET['aht'])){
                     if (is_array($check)){
                         $_SESSION['userxuong'] = $check;
                     }
+                    header("Location: index.php");
                 }
                 include("giaodien/header1.php");
                 include("giaodien/home.php");
@@ -111,25 +127,34 @@ if (isset($_GET['aht'])){
                 include("tkcuatoi.php");
                 break;
             case 'dangxuat' :
-                session_unset();
+                if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
+                    session_unset();
+                    header("Location: index.php");
+                }
                 include("giaodien/header1.php");
                 include("giaodien/home.php");
                 break;
-
             case 'gh':
-                if (isset($_POST['giohang']) && $_POST['giohang']) {
-                    $ten_sach = $_POST['name'];
-                    $gia_ca = $_POST['giaca'];
-                    $mo_ta = $_POST['mota'];
-                    $hinhload = $_POST['hinh'];
-                    $so_luong = $_POST['soluong'];
-                    $selected_size = $_POST['selected_size'];
-                    $selected_color = $_POST['selected_color'];
-                    update_giohang($ten_sach,$selected_color,$selected_size,$mo_ta,$gia_ca,$hinhload,$so_luong);
+                if (isset($_SESSION['userxuong'])){
+                    extract($_SESSION['userxuong']);
+                    $listgh = loadall_giohang($_SESSION['userxuong']['id']);
+                    if (isset($_POST['giohang']) && $_POST['giohang']) {
+                        $idtk = $_POST['idsp'];
+                        $ten_sach = $_POST['name'];
+                        $gia_ca = $_POST['giaca'];
+                        $mo_ta = $_POST['mota'];
+                        $hinhload = $_POST['hinh'];
+                        $so_luong = $_POST['soluong'];
+                        $selected_size = $_POST['selected_size'];
+                        $selected_color = $_POST['selected_color'];
+                        update_giohang($idtk,$ten_sach,$selected_color,$selected_size,$mo_ta,$gia_ca,$hinhload,$so_luong);
+                        header("Location: index.php?act=gh");
+                    }
+                    include("giaodien/header1.php");
+                    include("giohang.php");
+                }else{
+                    header('Location:index.php?aht=dndk');
                 }
-                $listgh = loadall_giohang();
-                include("giaodien/header1.php");
-                include("giohang.php");
                 break;
             case 'xet':
                 if (isset($_GET['id'])) {
@@ -166,7 +191,10 @@ if (isset($_GET['aht'])){
                     xoaspgh($_GET['id']);
                     header("Location: index.php?act=gh");
                 }
-                $listgh = loadall_giohang();
+                if (isset($_SESSION['userxuong'])){
+                    extract($_SESSION['userxuong']);
+                    $listgh = loadall_giohang($_SESSION['userxuong']['id']);
+                }
                 include("giaodien/header1.php");
                 include("giohang.php");
                 break;
@@ -192,15 +220,22 @@ if (isset($_GET['aht'])){
                 }
                 break;
             case 'spyeuthich':
-                if (isset($_GET['img']) && isset($_GET['name']) && isset($_GET['price'])) {
-                    $img = $_GET['img'];
-                    $name = $_GET['name'];
-                    $price = $_GET['price'];
-                    spyeuthich($img,$name,$price);
-                    header("location:index.php?act=spyeuthich");
+                if (isset($_SESSION['userxuong'])){
+                    extract($_SESSION['userxuong']);
+                    if (isset($_GET['img']) && isset($_GET['name']) && isset($_GET['price']) && isset($_GET['id']) && isset($_GET['idtk'])) {
+                        $idsp = $_GET['id'];
+                        $idtk = $_GET['idtk'];
+                        $img = $_GET['img'];
+                        $name = $_GET['name'];
+                        $price = $_GET['price'];
+                        spyeuthich($idsp,$idtk,$img,$name,$price);
+                        header("location:index.php?act=spyeuthich");
+                    }
+                    include("giaodien/header1.php");
+                    include("spyeuthich.php");
+                }else{
+                    header('Location:index.php?aht=dndk');
                 }
-                include("giaodien/header1.php");
-                include("spyeuthich.php");
                 break;
             case 'xoaspyt':
                 if (isset($_GET['id'])){
@@ -218,22 +253,27 @@ if (isset($_GET['aht'])){
                     $email = $_POST['email'];
                     $sdt = $_POST['sdt'];
                     $ghichu = $_POST['ghichu'];
-                    $ptvc = $_POST['ptvc'];
+                    $ptvc = $_POST['phuong_thuc_vanchuyen'];
                     $pttt = $_POST['phuong_thuc_thanhtoan'];
                     $ngaydathang = date('H:i:s d/m/Y');
-                    $id_don_hang = donhang($name, $diachi, $email, $sdt, $ghichu, $ngaydathang, $pttt, $ptvc);
-                    $listgh = loadall_giohang();
-                    foreach ($listgh as $gh) {
-                        donmua($gh['ten_sach'], $gh['so_luong'], $gh['gia_ca'], $gh['thanhtien'], $id_don_hang);
+                    $id_don_hang = donhang($name, $diachi, $email, $sdt, $ghichu, $ngaydathang , $ptvc, $pttt);
+                    if (isset($_SESSION['userxuong'])){
+                        extract($_SESSION['userxuong']);
+                        $listgh = loadall_giohang($_SESSION['userxuong']['id']);
+                        foreach ($listgh as $gh) {
+                            donmua($gh['idtk'],$gh['ten_sach'],$gh['mau'],$gh['sizesp'], $gh['so_luong'], $gh['gia_ca'], $gh['thanhtien'], $id_don_hang);
+                        }
                     }
                     xoagh();
                     header("Location: index.php");
                 }
-                include("header1.php");
-                include("home.php");
+                include("giaodien/header1.php");
+                include("giaodien/home.php");
                 break;
+            case 'tinhtrang':
+                include("giaodien/header1.php");
+                include ("donhang/chitietdonhang.php");
                  default;
-
         }
     } else {
         include("giaodien/header1.php");

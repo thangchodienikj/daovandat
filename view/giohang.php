@@ -37,10 +37,6 @@
                             </tr>
 
                             <?php
-                            if (isset($_SESSION['username'])){
-                                extract($_SESSION['username']);
-
-                            }
                             $tong=0 ; foreach ($listgh as $gh) {
                                 extract($gh);
                                 echo '
