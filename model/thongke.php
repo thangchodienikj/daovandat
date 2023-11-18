@@ -1,4 +1,4 @@
-<?
+<?php
 function thongke(){
     $sql="SELECT 
             danh_muc.id AS madm, 
@@ -16,7 +16,7 @@ function thongke(){
         ORDER BY 
             danh_muc.id DESC;
         ";
-    $listtk = pdo_query($sql);
-    return $listtk;
+    return pdo_query($sql);
+
 }
-?>
+

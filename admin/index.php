@@ -3,6 +3,7 @@ include ("../model/sanpham.php");
 include ("../model/danhmuc.php");
 include ("../model/khachang.php");
 include ("../model/dathang.php");
+include ("../model/thongke.php");
 include ("../model/pdo.php");
 include ("header.php");
 $listdh1=ht_donhang();
@@ -213,8 +214,8 @@ if (isset($_GET['act'])){
             include ("binhluan.php");
             break;
         case 'thongke':
-            $listthongke=thongke();
-            include "thongke/thongke.php";
+            $listtk=thongke();
+            include "thongke/thongkedm.php";
             break;
         case 'donhang':
             $listdh1=ht_donhang();
