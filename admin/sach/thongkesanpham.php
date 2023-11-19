@@ -10,28 +10,25 @@
                             <thead>
                             <tr>
                                 <th class="text-center col-md-1"></th>
-                                <th class="text-center col-md-1">Mã danh mục</th>
-                                <th class="text-center col-md-2">Tên danh mục</th>
-                                <th class="text-center col-md-2">Số sản phẩm</th>
-                                <th class="text-center col-md-2">Giá min</th>
-                                <th class="text-center col-md-2">Gía max</th>
-                                <th class="text-center col-md-1">Giá trung bình</th>
+                                <th class="text-center col-md-1">Mã sản phẩm</th>
+                                <th class="text-center col-md-2">Tên sản phẩm</th>
+                                <th class="text-center col-md-2">Lượt xem</th>
+                                <th class="text-center col-md-2">Lượt mua</th>
+                                <th class="text-center col-md-2">Lượt bình luận</th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php
-                            foreach ($listtk as $value){
+                            foreach ($thongkesp as $value){
                                 extract($value);
 
                                 echo'<tr>
                                             <td class="text-center col-md-1"><input type="checkbox" name="" id=""></td>
-                                            <td class="text-center col-md-1">'.$madm.'</td>
-                                            <td class="text-center col-md-2">'.$tendm.'</td>
-                                            <td class="text-center col-md-2 justify-content-cente">'.$countsp.'</td>
-                                            <td class="text-center col-md-2">'.$minprice.'</td>
-                                            <td class="text-center col-md-2">'.$maxprice.'</td>
-                                            <td class="text-center col-md-2">'.floatval($avgprice).'</td>
-                                            
+                                            <td class="text-center col-md-1">'.$idsp.'</td>
+                                            <td class="text-center col-md-2">'.$name.'</td>
+                                            <td class="text-center col-md-2 justify-content-cente">'.$luot_xem.'</td>
+                                            <td class="text-center col-md-2">'.$luot_mua.'</td>
+                                            <td class="text-center col-md-2">'.$luotbinhluan.'</td>
                                         </tr>';
                             }
                             ?>
@@ -43,7 +40,7 @@
             <div class="col-12">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Số sản phẩm</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Thống kê </h6>
                     </div>
                     <div class="card-body">
                         <div class="chart-bar">
@@ -60,8 +57,12 @@
 </main>
 <script>
     var dataFromPHP = <?php echo json_encode(thongke_sanpham()); ?>;
-    console.log(dataFromPHP);
-    console.log(dataFromPHP[0][1])
+    // console.log(dataFromPHP);
+    // console.log(dataFromPHP[0][1])
+    var productLabels =dataFromPHP.map(product => `Sản phẩm ${product.idsp}`);
+    var viewsData = dataFromPHP.map(product => product.luot_xem);
+    var purchasesData = dataFromPHP.map(product => product.luot_mua);
+    var reviewData = dataFromPHP.map(product => product.luotbinhluan)
 </script>
 <!-- Page level plugins -->
 <script src="vendor/chart.js/Chart.min.js"></script>

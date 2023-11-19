@@ -21,7 +21,10 @@ function thongke(){
 }
 
 function thongke_sanpham(){
-    $sql = "";
+    $sql = "select *,count(rv.id) as luotbinhluan from 
+             product p
+            join binhluan rv on rv.idsp = p.id ";
+
     return pdo_query($sql);
 }
 

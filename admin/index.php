@@ -120,6 +120,7 @@ if (isset($_GET['act'])){
             include "sach/list.php";
             break;
         case 'thongkesp':
+            $thongkesp = thongke_sanpham();
             include ("sach/thongkesanpham.php");
             break;
         case 'xoasp':
