@@ -20,3 +20,21 @@ function thongke(){
 
 }
 
+function thongke_sanpham(){
+    $sql = "";
+    return pdo_query($sql);
+}
+
+function thongke_donhang(){
+    $sql = "SELECT 
+                COUNT(*) AS totalOrders,
+                SUM(CASE WHEN tinhtrangdh = 3 THEN 1 ELSE 0 END) AS successfulOrders,
+                SUM(CASE WHEN tinhtrangdh = 0 THEN 1 ELSE 0 END) AS newOrders,
+                SUM(CASE WHEN tinhtrangdh = 1 THEN 1 ELSE 0 END) AS processingOrders,
+                SUM(CASE WHEN tinhtrangdh = 2 THEN 1 ELSE 0 END) AS deliveringOrders
+            FROM 
+                don_hang";
+
+    return pdo_query($sql);
+}
+

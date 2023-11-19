@@ -40,6 +40,10 @@ if (isset($_GET['act'])){
             $listdanhmuc = loadAll_danhmuc();
             include ("danhmuc/list.php");
             break;
+        case 'thongkedm':
+            $listtk=thongke();
+            include "danhmuc/thongkedm.php";
+            break;
         case 'xoadm':
             if (isset($_GET['id'])){
                 xoa_danhmuc($_GET['id']);
@@ -114,6 +118,9 @@ if (isset($_GET['act'])){
             $listdanhmuc =loadAll_danhmuc();
             $listsp =  loatAll_sanpham($kyw,$iddm);
             include "sach/list.php";
+            break;
+        case 'thongkesp':
+            include ("sach/thongkesanpham.php");
             break;
         case 'xoasp':
             if (isset($_GET['id'])){
@@ -213,13 +220,13 @@ if (isset($_GET['act'])){
             $listbinhluan = binhluan();
             include ("binhluan.php");
             break;
-        case 'thongke':
-            $listtk=thongke();
-            include "thongke/thongkedm.php";
-            break;
         case 'donhang':
             $listdh1=ht_donhang();
             include ("donhang/donhang.php");
+            break;
+        case "thongkedh":
+            $thongkedh = thongke_donhang();
+            include ("donhang/thongke.php");
             break;
         case 'tinhtrang':
             if (isset($_POST['gui'])) {
