@@ -34,25 +34,13 @@ var ctx = document.getElementById("myBarChart");
 var myBarChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: productLabels,
+    labels: dataFromPHP.map(item => item.tendm),
     datasets: [{
-      label: 'Lượt Xem',
-      backgroundColor: 'rgba(75, 192, 192, 0.2)',
-      borderColor: 'rgba(75, 192, 192, 1)',
-      borderWidth: 1,
-      data: viewsData,
-    },{
-      label: 'Lượt Mua',
-      backgroundColor: 'rgba(255, 99, 132, 0.2)',
-      borderColor: 'rgba(255, 99, 132, 1)',
-      borderWidth: 1,
-      data: purchasesData,
-    },{
-      label: 'Lượt Bình luận',
-      backgroundColor: 'rgba(255, 205, 86, 0.2)',
-      borderColor: 'rgba(255, 205, 86, 1)',
-      borderWidth: 1,
-      data: reviewData,
+      label: "Số sản phẩm",
+      backgroundColor: "rgba(78, 115, 223, 0.2)",
+      borderColor: "rgba(78, 115, 223, 1)",
+      data: dataFromPHP.map(item => item.countsp),
+      maxBarThickness: 30,
     }],
   },
   options: {
