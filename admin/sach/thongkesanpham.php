@@ -40,15 +40,15 @@
             <div class="col-12">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Thống kê </h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
                     </div>
                     <div class="card-body">
-                        <div class="chart-bar">
-                            <canvas id="myBarChart"></canvas>
+                        <div class="chart-area">
+                            <canvas id="myAreaChart"></canvas>
                         </div>
                         <hr>
-                        Styling for the bar chart can be found in the
-                        <code>/js/demo/chart-bar-demo.js</code> file.
+                        Styling for the area chart can be found in the
+                        <code>/js/demo/chart-area-demo.js</code> file.
                     </div>
                 </div>
             </div>
@@ -69,5 +69,5 @@
 
 <!-- Page level custom scripts -->
 
-<script src="js/demo/chart-bar-demo.js"></script>
+<script src="js/demo/chart-area-demo.js"></script>
 
