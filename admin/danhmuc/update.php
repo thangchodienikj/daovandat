@@ -7,7 +7,7 @@ if (is_file($loadhinh)){
     $hinh = "<img src='$loadhinh' height='80' width='80'>";
 }
 ?>
-<main class="main" style="width: 77%; margin: 0 auto;">
+<main class="main" style="width: 60%; margin: 0 auto;">
     <div class="container mt-3">
         <div class="row">
             <div class="col-12">

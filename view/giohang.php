@@ -63,7 +63,7 @@
                                         <input type="number" name="tang_so_luong" class="form-control pd-'.$id.'" value="'.$so_luong.'" min="1" max="10" step="1" data-decimals="0" required>
                                     </div><!-- End .cart-product-quantity -->
                                 </td>
-                                <td class="total-col pd-'.$id.'">'.$thanhtien.' </td>
+                                <td class="total-col pd-'.$id.'">'.$thanhtien.'$ </td>
                                 <td class="remove-col"><a href="index.php?act=xoaspgh&id='.$id.'"><i class="icon-close"></i></a></td>
                             </tr>
                             ';
@@ -92,7 +92,7 @@
                                 <tbody>
                                 <tr class="summary-subtotal">
                                     <td>Total amount:</td>
-                                    <td id="subtotal"><?=$tong?> </td>
+                                    <td id="subtotal"><?=$tong?> $</td>
                                 </tr><!-- End .summary-subtotal -->
 
 

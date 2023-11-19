@@ -73,7 +73,7 @@
                                         </div><!-- End .header-menu -->
                                     </div>
                                 </li>
-                                <li><a href="" data-toggle="modal">Tôi</a></li>
+                                <li><a href="" data-toggle="modal">I</a></li>
                             </ul>
                         </li>
                     </ul><!-- End .top-menu -->
@@ -118,7 +118,7 @@
                 <div class="header-left">
                     <div class="dropdown category-dropdown">
                         <a href="#" class="dropdown-toggle" >
-                           Trang quản trị
+                            Admin page
                         </a>
                     </div><!-- End .category-dropdown -->
                 </div><!-- End .header-left -->

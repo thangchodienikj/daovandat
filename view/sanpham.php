@@ -58,18 +58,22 @@
                                     $mr ='';
                                 }
                                 extract($sp);
-                            if (isset($_SESSION['userxuong'])) {
-                                extract($_SESSION['userxuong']);
                                 echo ' <div class="col-6 col-md-4 col-lg-4" ' . $mr . '>
                                 <div class="product product-7 text-center">
                                     <figure class="product-media">
                                         <span class="product-label label-new">New</span>
-                                        <a href="index.php?act=sanphamct&idpro=' . $id . '">
+                                        <a href="index.php?act=sanphamct&idpro=' . $sp['id'] . '">
                                             <img src="' . $image . '" alt="Product image" class="product-image">
                                         </a>
-
-                                        <div class="product-action-vertical">
+                                         <div class="product-action-vertical">
+                                        ';
+                                if (isset($_SESSION['userxuong'])) {
+                                    extract($_SESSION['userxuong']);
+                                    echo '
                                             <a  href="index.php?act=spyeuthich&id=' . $sp['id'] . '&idtk=' . $_SESSION['userxuong']['id'] . '&img=' . $sp['image'] . '&name=' . $sp['name'] . '&price=' . $sp['gia'] . '" class="btn-product-icon btn-wishlist btn-expandable"><span>Favourite</span></a>
+                                          ';
+                                }
+                                         echo '
                                         </div><!-- End .product-action-vertical -->
 
                                         <div class="product-action">
@@ -80,19 +84,18 @@
                                     <div class="product-body">
                                         <div class="product-cat">
                                         ';
-                            }
                                             foreach ($listdm as $dm) {
                                                 extract($dm);
-                                                if ($dm['id'] == $sp['id']) {
+                                                if ($dm['id'] == $sp['loai']) {
                                                     $danhmuc = $dm['ten_danh_muc'];
                                                     echo ' <a href="#">'.$danhmuc.'</a>';
                                                 }
                                             }
                                         echo' 
                                         </div><!-- End .product-cat -->
-                                        <h3 class="product-title"><a href="product.html">' . $name . '</a></h3><!-- End .product-title -->
+                                        <h3 class="product-title"><a href="product.html">' . $sp['name'] . '</a></h3><!-- End .product-title -->
                                         <div class="product-price">
-                                            ' . $gia . '
+                                           $ ' . $gia . '
                                         </div><!-- End .product-price -->
                                         <div class="product-nav product-nav-thumbs">';
                                         $limit = 3;

@@ -1,4 +1,4 @@
-<?
+<?php
 function thongke(){
     $sql="SELECT 
             danh_muc.id AS madm, 
@@ -16,7 +16,28 @@ function thongke(){
         ORDER BY 
             danh_muc.id DESC;
         ";
-    $listtk = pdo_query($sql);
-    return $listtk;
+    return pdo_query($sql);
+
 }
-?>
+
+function thongke_sanpham(){
+    $sql = "select *,count(rv.id) as luotbinhluan from 
+             product p
+            join binhluan rv on rv.idsp = p.id ";
+
+    return pdo_query($sql);
+}
+
+function thongke_donhang(){
+    $sql = "SELECT 
+                COUNT(*) AS totalOrders,
+                SUM(CASE WHEN tinhtrangdh = 3 THEN 1 ELSE 0 END) AS successfulOrders,
+                SUM(CASE WHEN tinhtrangdh = 0 THEN 1 ELSE 0 END) AS newOrders,
+                SUM(CASE WHEN tinhtrangdh = 1 THEN 1 ELSE 0 END) AS processingOrders,
+                SUM(CASE WHEN tinhtrangdh = 2 THEN 1 ELSE 0 END) AS deliveringOrders
+            FROM 
+                don_hang";
+
+    return pdo_query($sql);
+}
+

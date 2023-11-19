@@ -1,7 +1,7 @@
-<main class="main" style="width: 78%; margin: 0 auto;">
+<main class="main" style="width: 60%; margin: 0 auto;">
     <br>
     <br>
-    <div class="box_title" style="font-size: 25px">DANH SÁCH LOẠI HÀNG HÓA</div> <br>
+    <div class="box_title" style="font-size: 25px">Danh sách sản phẩm</div> <br>
     <div class="container mt-3">
         <div class="row">
             <div class="col-12">
@@ -36,10 +36,10 @@
                                     <th class="text-center col-md-1">ID</th>
                                     <th class="text-center col-md-2">SẢN PHẨM</th>
                                     <th class="text-center col-md-2">HÌNH ẢNH</th>
-                                    <th class="text-center col-md-2">MIÊU TẢ</th>
                                     <th class="text-center col-md-2">GIÁ</th>
+                                    <th class="text-center col-md-2">MIÊU TẢ</th>
                                     <th class="text-center col-md-2">LOẠI</th>
-                                    <th class="text-center col-md-1"></th>
+                                    <th class="text-center col-md-1">THAO TÁC</th>
                                 </tr>
                                 </thead>
                                 <tbody>

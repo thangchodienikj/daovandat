@@ -1,7 +1,7 @@
 <main class="main" style="width: 78%; margin: 0 auto;">
     <br>
     <br>
-    <div class="box_title" style="font-size: 25px">Chi tiết đơn hàng</div> <br>
+    <div class="box_title" style="font-size: 25px; text-align: center; margin-bottom: 10px;">Chi tiết đơn hàng</div> <br>
     <div class="container mt-3">
         <div class="row">
             <div class="col-12">
@@ -42,9 +42,9 @@
                                 <td class="col-md-1 text-center"><?= $tongtien ?></td>
                                 <td class="col-md-1 text-center"><?php
                                     if ($ptvc == 30000){
-                                        echo "Vận chuyển nhanh";
+                                        echo "Fast Shipping";
                                     }else{
-                                        echo "Vận chuyển chậm";
+                                        echo "Slow shipping";
                                     }
                                     ?> </td>
                                 <td class="col-md-1 text-center"><?= $phuong_thuc_thanhtoan ?></td>

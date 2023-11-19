@@ -21,7 +21,7 @@
                         <div class="product-gallery product-gallery-vertical">
                             <div class="row">
                                 <figure class="product-main-image">
-                                    <img id="product-zoom" src="'.$img.'" alt="product image">
+                                    <img id="product-zoom" src="'.$img.'" alt="product image" style="height: 549px">
                                 </figure><!-- End .product-main-image -->
                                 <div id="product-zoom-gallery" class="product-image-gallery">
                                 ';
@@ -50,7 +50,7 @@
                             </div><!-- End .rating-container -->
 
                             <div class="product-price">
-                                '.$price.'
+                              $  '.$price.'
                             </div><!-- End .product-price -->
 
                             <div class="product-content">
@@ -94,7 +94,6 @@
                                 </div><!-- Kết thúc .product-details-quantity -->
                             </div><!-- End .details-filter-row -->
                              <div class="details-filter-row details-row-size">
-                            <!-- Thẻ </div> đóng mở trong mã của bạn, nên tôi đã xóa nó -->
                                     <input type="hidden"  name="idsp" value="'.$_SESSION['userxuong']['id'].'">
                                     <input type="hidden"  name="name" value="'.$ProductName.'">
                                     <input type="hidden" name="giaca" value="'.$price.'">
@@ -109,7 +108,7 @@
                                 </div><!-- End .details-action-wrapper -->
                             </div><!-- Kết thúc .product-details-action -->
                                 </form>
-                                <form action="index.php?act=binhluan&idpro='.$id.'" method="post">
+                                <form action="index.php?act=binhluan&idpro='.$id_pro.'" method="post">
                             </div><!-- End .product-details-action -->
                             <div class="product-details-footer">
                              <span>Category : </span> 
@@ -210,17 +209,17 @@
                                         Evaluate :</label><br>
                                     <div class="form-group col-8">
                                         <div class="form-check col-3 form-check-inline">
-                                            <input type="radio" id="rating-good" name="rating" value="Tốt" class="form-check-input" required>
+                                            <input type="radio" id="rating-good" name="rating" value="Good" class="form-check-input" required>
                                             <label for="rating-good" class="form-check-label">
                                                 Wonderful</label>
                                         </div>
                                         <div class="form-check col-3 form-check-inline">
-                                            <input type="radio" id="rating-normal" name="rating" value="Bình thường" class="form-check-input" required>
+                                            <input type="radio" id="rating-normal" name="rating" value="Normal" class="form-check-input" required>
                                             <label for="rating-normal" class="form-check-label">
                                                 Normal</label>
                                         </div>
                                         <div class="form-check col-3 form-check-inline">
-                                            <input type="radio" id="rating-bad" name="rating" value="Tệ" class="form-check-input" required>
+                                            <input type="radio" id="rating-bad" name="rating" value="Bad" class="form-check-input" required>
                                             <label for="rating-bad" class="form-check-label">
                                                 Bad</label>
                                         </div>
@@ -316,37 +315,42 @@
 
                 <?php foreach ($list8sp as $sp) {
                     extract($sp);
-                if (isset($_SESSION['userxuong'])) {
-                    extract($_SESSION['userxuong']);
                     echo ' <div class="product product-7 text-center">
                     <figure class="product-media">
                         <span class="product-label label-new">New</span>
-                        <a href="product.html">
-                            <img src="' . $img . '" alt="Product image" class="product-image">
+                        <a href="index.php?act=sanphamct&idpro=' . $sp['id'] . '">
+                            <img src="' . $sp['image'] . '" alt="Product image" class="product-image">
                         </a>
 
                         <div class="product-action-vertical">
+                        ';
+                    if (isset($_SESSION['userxuong'])) {
+                        extract($_SESSION['userxuong']);
+                        echo '
                            <a  href="index.php?act=spyeuthich&id=' . $sp['id'] . '&idtk=' . $_SESSION['userxuong']['id'] . '&img=' . $sp['image'] . '&name=' . $sp['name'] . '&price=' . $sp['gia'] . '" class="btn-product-icon btn-wishlist btn-expandable"><span>Favourite</span></a>
+                           ';
+                    }
+                    echo'
                         </div><!-- End .product-action-vertical -->
 
                         <div class="product-action">
-                            <a href="index.php?act=sanphamct&idpro=' . $id . '" class="btn-product "><span>
+                            <a href="index.php?act=sanphamct&idpro=' . $sp['id'] . '" class="btn-product "><span>
                                 See details</span></a>
                         </div><!-- End .product-action -->
                     </figure><!-- End .product-media -->
 
                     <div class="product-body">
                         ';
-                }
+
                     foreach ($listdm as $dm) {
                         extract($dm);
-                        if ($dm['id'] == $sp['id']) {
+                        if ($dm['id'] == $sp['loai']) {
                             $danhmuc = $dm['ten_danh_muc'];
                             echo ' <a href="#">'.$danhmuc.'</a>';
                         }
                     }
                     echo '
-                        <h3 class="product-title">'.$name.'</h3><!-- End .product-title -->
+                        <h3 class="product-title">'.$sp['name'].'</h3><!-- End .product-title -->
                         <div class="product-price">
                             $ '.$price.'
                         </div><!-- End .product-price -->
@@ -360,13 +364,13 @@
                                 ';
                                     $limit = 3;
                                     $count = 0;
-                                    $array = explode(',',$productImageList);
+                                    $array = explode(',',$imagesphu);
                                     foreach ($array as $anh){
                                         if ($count >= $limit) {
                                             break;
                                         }
                                         echo ' <a href="#" class="active">
-                                                        <img src="' . $anh . '" alt="product desc">
+                                                        <img src="' . $anh . '" alt="product desc" style="width: 40px; height: 40px">
                                                     </a>';
                                         $count++;
                                     }

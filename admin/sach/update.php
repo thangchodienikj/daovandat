@@ -7,7 +7,7 @@ if(is_file($hinhload)){
     $hinh="<img src='".$hinhload."' height='80' width='80' >";
 }               
 ?>
-<main class="main" style="width: 78%; margin: 0 auto;">
+<main class="main" style="width: 60%; margin: 0 auto;">
     <div class="mb">
         <br>
         <div class="box_title" style="font-size: 25px">Cập nhập sản phẩm mới </div>
@@ -21,7 +21,7 @@ if(is_file($hinhload)){
                         <?php
                         foreach ($listdanhmuc as $danhmuc){
                             extract($danhmuc);
-                            $s = ($id_danh_muc == $id) ? 'selected' : '';
+                            $s = ($danhmuc['id'] == $sp['loai']) ? 'selected' : '';
                             echo '<option value="'.$id.'" '.$s.' >'.$ten_danh_muc.'</option>';
                         }
                         ?>

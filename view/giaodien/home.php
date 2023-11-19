@@ -26,10 +26,18 @@
                                         </span>
                             </div><!-- End .intro-price -->
 
-                            <a href="category.html" class="btn btn-primary btn-round">
+                            <?php   if (isset($_SESSION['userxuong'])) {
+                                echo '<a href="index.php?act=danhmuc" class="btn btn-primary btn-round">
+                                <span>Shop More</span>
+                                <i class="icon-long-arrow-right"></i>
+                            </a>';
+                            }else{
+                                echo '<a href="index.php?aht=dndk" class="btn btn-primary btn-round">
                                 <span>Shop More</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>
+                                ';
+                            } ?>
                         </div><!-- End .col-lg-11 offset-lg-1 -->
                     </div><!-- End .row -->
                 </div><!-- End .intro-content -->
@@ -50,10 +58,18 @@
                                         </span>
                             </div><!-- End .intro-price -->
 
-                            <a href="category.html" class="btn btn-primary btn-round">
+                            <?php   if (isset($_SESSION['userxuong'])) {
+                                echo '<a href="index.php?act=danhmuc" class="btn btn-primary btn-round">
+                                <span>Shop More</span>
+                                <i class="icon-long-arrow-right"></i>
+                            </a>';
+                            }else{
+                                echo '<a href="index.php?aht=dndk" class="btn btn-primary btn-round">
                                 <span>Shop More</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>
+                                ';
+                            } ?>
                         </div><!-- End .col-md-6 offset-md-6 -->
                     </div><!-- End .row -->
                 </div><!-- End .intro-content -->
@@ -73,10 +89,18 @@
                                         </span>
                             </div><!-- End .intro-price -->
 
-                            <a href="category.html" class="btn btn-primary btn-round">
+                            <?php   if (isset($_SESSION['userxuong'])) {
+                                echo '<a href="index.php?act=danhmuc" class="btn btn-primary btn-round">
+                                <span>Shop More</span>
+                                <i class="icon-long-arrow-right"></i>
+                            </a>';
+                            }else{
+                                echo '<a href="index.php?aht=dndk" class="btn btn-primary btn-round">
                                 <span>Shop More</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>
+                                ';
+                            } ?>
                         </div><!-- End .col-md-6 offset-md-6 -->
                     </div><!-- End .row -->
                 </div><!-- End .intro-content -->
@@ -95,11 +119,18 @@
                                             $999<sup>.99</sup>
                                         </span>
                             </div><!-- End .intro-price -->
-
-                            <a href="category.html" class="btn btn-primary btn-round">
+                            <?php   if (isset($_SESSION['userxuong'])) {
+                                echo '<a href="index.php?act=danhmuc" class="btn btn-primary btn-round">
+                                <span>Shop More</span>
+                                <i class="icon-long-arrow-right"></i>
+                            </a>';
+                            }else{
+                                echo '<a href="index.php?aht=dkdn" class="btn btn-primary btn-round">
                                 <span>Shop More</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>
+                                ';
+                            } ?>
                         </div><!-- End .col-md-6 offset-md-6 -->
                     </div><!-- End .row -->
                 </div><!-- End .intro-content -->
@@ -147,7 +178,7 @@
                     <div class="banner-content">
                         <h4 class="banner-subtitle"><a href="#">
 Smart offers</a></h4><!-- End .banner-subtitle -->
-                        <h3 class="banner-title"><a href="">Giá '.$price.' <strong>'.$name.'</strong></a></h3><!-- End .banner-title -->
+                        <h3 class="banner-title"><a href="">Price '.$price.' $ <br> <strong>'.$name.'</strong></a></h3><!-- End .banner-title -->
                         <a href="index.php?act=sanphamct&idpro='.$id.'" class="banner-link">Shop Now<i class="icon-long-arrow-right"></i></a>
                     </div><!-- End .banner-content -->
                 </div><!-- End .banner -->
@@ -172,7 +203,19 @@ Smart offers</a></h4><!-- End .banner-subtitle -->
                             <p>Shop Today’s Deals <br><strong>Awesome Made Easy.
                                     Hoodie again</strong></p>
                         </div><!-- End .cta-text -->
-                        <a href="#" class="btn btn-primary btn-round"><span>Shop Now - $329</span><i class="icon-long-arrow-right"></i></a>
+                        <?php   if (isset($_SESSION['userxuong'])) {
+                            echo '<a href="index.php?act=danhmuc" class="btn btn-primary btn-round">
+                                <span>Shop Now - $329</span>
+                                <i class="icon-long-arrow-right"></i>
+                            </a>';
+                        }else{
+                            echo '<a href="index.php?aht=dndk" class="btn btn-primary btn-round">
+                                <span>Shop Now - $329</span>
+                                <i class="icon-long-arrow-right"></i>
+                            </a>
+                                ';
+                        } ?>
+
                     </div><!-- End .cta-content -->
                 </div><!-- End .col-md-12 -->
             </div><!-- End .row -->
@@ -201,8 +244,18 @@ Smart offers</a></h4><!-- End .banner-subtitle -->
                             <span class="new-price">$129.00</span>
                             <span class="old-price">Was $150.99</span>
                         </div><!-- End .product-price -->
-
-                        <a href="product.html" class="btn btn-link"><span>Shop Now</span><i class="icon-long-arrow-right"></i></a>
+                        <?php   if (isset($_SESSION['userxuong'])) {
+                            echo '<a href="index.php?act=danhmuc" class="btn btn-link">
+                                <span>Shop More</span>
+                                <i class="icon-long-arrow-right"></i>
+                            </a>';
+                        }else{
+                            echo '<a href="index.php?aht=dndk" class="btn btn-link">
+                                <span>Shop More</span>
+                                <i class="icon-long-arrow-right"></i>
+                            </a>
+                                ';
+                        } ?>
                     </div><!-- End .deal-content -->
 
                     <div class="deal-bottom">
@@ -224,8 +277,18 @@ Smart offers</a></h4><!-- End .banner-subtitle -->
                         <div class="product-price">
                             <span class="new-price">$29.99</span>
                         </div><!-- End .product-price -->
-
-                        <a href="login.html" class="btn btn-link"><span>Sign In and Save money</span><i class="icon-long-arrow-right"></i></a>
+                        <?php   if (isset($_SESSION['userxuong'])) {
+                            echo '<a href="index.php?act=danhmuc" class="btn btn-link">
+                                <span>>Sign In and Save money</span>
+                                <i class="icon-long-arrow-right"></i>
+                            </a>';
+                        }else{
+                            echo '<a href="index.php?aht=dndk" class="btn btn-link">
+                                <span>>Sign In and Save money</span>
+                                <i class="icon-long-arrow-right"></i>
+                            </a>
+                                ';
+                        } ?>
                     </div><!-- End .deal-content -->
 
                     <div class="deal-bottom">
@@ -306,11 +369,8 @@ Smart offers</a></h4><!-- End .banner-subtitle -->
 
         <div class="products">
             <div class="row ">
-                <?php foreach ($list8sp as $sp) {
+                <?php foreach ($listsp as $sp) {
                     extract($sp);
-                    if (isset($_SESSION['userxuong'])) {
-                        extract($_SESSION['userxuong']);
-
                         echo ' <div class="col-6 col-md-4 col-lg-3">
                     <div class="product product-2">
                         <figure class="product-media">
@@ -320,21 +380,27 @@ Smart offers</a></h4><!-- End .banner-subtitle -->
                             </a>
 
                             <div class="product-action-vertical">
-         
-                                    <a  href="index.php?act=spyeuthich&id='.$sp['id'].'&idtk='.$_SESSION['userxuong']['id'].'&img='.$sp['image'].'&name='.$sp['name'].'&price='.$sp['gia'].'" class="btn-product-icon btn-wishlist btn-expandable"><span>Favourite</span></a>
+                            ';
+                            if (isset($_SESSION['userxuong'])) {
+                                extract($_SESSION['userxuong']);
+                                echo '
+                                    <a  href="index.php?act=spyeuthich&id=' . $sp['id'] . '&idtk=' . $_SESSION['userxuong']['id'] . '&img=' . $sp['image'] . '&name=' . $sp['name'] . '&price=' . $sp['gia'] . '" class="btn-product-icon btn-wishlist btn-expandable"><span>Favourite</span></a>
+                                    ';
+                            }
+                              echo '
                             </div><!-- End .product-action -->
 
                             <div class="product-action">
-                                <a href="#" class="btn-product" ><span>See details</span></a>
+                                <a href="index.php?aht=dndk" class="btn-product" ><span>See details</span></a>
                             </div><!-- End .product-action -->
                         </figure><!-- End .product-media -->
                          <div class="product-body">
                             <div class="product-cat">
                          ';
-                    }
+
                             foreach ($listdm as $dm) {
                                 extract($dm);
-                                if ($dm['id'] == $sp['id']) {
+                                if ($dm['id'] == $sp['loai']) {
                                     $danhmuc = $dm['ten_danh_muc'];
                                     echo ' <a href="#">'.$danhmuc.'</a>';
                                 }

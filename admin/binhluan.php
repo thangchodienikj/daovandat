@@ -1,7 +1,6 @@
-<main class="main" style="width: 78%; margin: 0 auto;">
-    <br>
-    <br>
-    <div class="box_title" style="font-size: 25px">BÌNH LUẬN</div> <br>
+<main class="main text-center" style="width: 78%; margin: 0 auto;">
+    <div class="mb-5"></div>
+    <div class="box_title" style="font-size: 25px">Bình luận</div> <br>
     <div class="container mt-3">
         <div class="row">
             <div class="col-12">

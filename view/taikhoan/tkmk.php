@@ -254,48 +254,51 @@
 <div class="container" id="container">
     <div class="form-container sign-up-container">
         <form action="index.php?act=dangky" method="post">
-            <h2>Đăng Ký Tài Khoản</h2>
+            <h2>Register an Account</h2>
             <div class="social-container">
                 <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                 <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
             </div>
-            <span>hoặc sử dụng email của bạn để đăng ký</span>
-            <input type="text" name="name" placeholder="Tên" />
+            <span>or use your email to sign up</span>
+            <input type="text" name="name" placeholder="Name" />
             <input type="email" name="email" placeholder="Email" />
-            <input type="text" name="diachi" placeholder="Địa chỉ" />
-            <input type="text" name="sdt" placeholder="Số điện thoại" />
-            <input type="text" name="taikhoan" placeholder="Tài khoản" />
-            <input type="password" name="matkhau" placeholder="Mật khẩu" />
-            <button type="submit">Đăng Ký</button>
+            <input type="text" name="diachi" placeholder="Address" />
+            <input type="text" name="sdt" placeholder="Phone number" />
+            <input type="text" name="taikhoan" placeholder="Account" />
+            <input type="password" name="matkhau" placeholder="Password" />
+            <button type="submit">
+                Register</button>
         </form>
     </div>
     <div class="form-container sign-in-container">
         <form action="index.php?act=dangnhap" method="post">
-            <h2>Đăng Nhập</h2>
+            <h2>Log in</h2>
             <div class="social-container">
                 <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                 <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
             </div>
-            <span>hoặc sử dụng tài khoản của bạn</span>
-            <input type="text" name="taikhoan" placeholder="Tài khoản" />
-            <input type="password" name="matkhau" placeholder="Mật khẩu" />
-            <a href="index.php?aht=quenmk">Quên mật khẩu của bạn?</a>
-            <button type="submit">Đăng Nhập</button>
+            <span>or use your account</span>
+            <input type="text" name="taikhoan" placeholder="Account" />
+            <input type="password" name="matkhau" placeholder="Password" />
+            <a href="index.php?aht=quenmk">
+                Forgot your password?</a>
+            <button type="submit">
+                Log in</button>
         </form>
     </div>
     <div class="overlay-container">
         <div class="overlay">
             <div class="overlay-panel overlay-left">
-                <h1>Chào mừng trở lại!</h1>
-                <p>Để duy trì kết nối với chúng tôi, vui lòng đăng nhập bằng thông tin cá nhân của bạn</p>
-                <button class="ghost" id="signIn">Đăng Nhập</button>
+                <h1>Welcome back!</h1>
+                <p>To stay connected with us, please log in with your personal information</p>
+                <button class="ghost" id="signIn">Log in</button>
             </div>
             <div class="overlay-panel overlay-right">
-                <h1>Xin chào, bạn!</h1>
-                <p>Nhập thông tin cá nhân của bạn và bắt đầu hành trình cùng chúng tôi</p>
-                <button class="ghost" id="signUp">Đăng Ký</button>
+                <h1>Hello!</h1>
+                <p>Enter your personal information and start your journey with us</p>
+                <button class="ghost" id="signUp">Register</button>
             </div>
         </div>
     </div>

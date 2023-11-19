@@ -225,9 +225,9 @@ function list3sp(){
 }
 
 function spyeuthich($idsp,$idtk,$img,$name,$price){
-    $check = pdo_query_one("select * from spyeuthich where idsp ='$idsp'");
+    $check = pdo_query_one("select * from spyeuthich where idsp ='$idsp' and  idtk='$idtk'");
     if ($check){
-        pdo_execute("UPDATE spyeuthich SET  idtk = '$idtk' , img = '$img' ,name = '$name' ,price = '$price' where idsp ='$idsp' ");
+        pdo_execute("UPDATE spyeuthich SET  idtk = '$idtk' , img = '$img' ,name = '$name' ,price = '$price' where idsp ='$idsp' and idtk='$idtk' ");
     }else {
         pdo_execute("INSERT INTO spyeuthich(idsp,idtk,img,name,price) VALUES ('$idsp','$idtk','$img','$name','$price')");
     }

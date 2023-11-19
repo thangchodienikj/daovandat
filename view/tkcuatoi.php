@@ -93,7 +93,7 @@
                                         }
                                         echo ' <tr>
                                     
-                                        <td colspan="2" class="text-center" >'.$name.' x'.$soluong.'</td>
+                                        <td colspan="2" class="text-center" >'.$tensach.' x'.$soluong.'</td>
                                         <td class="text-center">'.$giaca.'</td>
                                         <td class="text-center">'.$tongtien.'</td>
                                         <td class="text-center">'.$tt.'</td>

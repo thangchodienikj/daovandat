@@ -1,7 +1,7 @@
-<main class="main" style="width: 77%; margin: 0 auto;">
+<main class="main text-center" style="width: 60%; margin: 0 auto;">
     <div class="mb">
         <br>
-        <div class="box_title" style="font-size: 25px">THÊM DANH MỤC MỚI</div> <br>
+        <div class="box_title" style="font-size: 25px">Thêm danh mục mới</div> <br>
         <div class="box_content form_account">
             <form action="index.php?act=adddm" method="post" enctype="multipart/form-data">
                 <div class="form-group">

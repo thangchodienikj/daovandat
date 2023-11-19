@@ -2,6 +2,7 @@
 include ("../model/sanpham.php");
 include ("../model/danhmuc.php");
 include ("../model/khachang.php");
+include ("../model/thongke.php");
 include ("../model/dathang.php");
 include ("../model/pdo.php");
 include ("header.php");
@@ -212,9 +213,20 @@ if (isset($_GET['act'])){
             $listbinhluan = binhluan();
             include ("binhluan.php");
             break;
+        case 'thongkedm':
+            $listtk=thongke();
+            include "danhmuc/thongkedm.php";
+            break;
+        case "thongkedh":
+            $thongkedh = thongke_donhang();
+            include ("donhang/thongkedh.php");
+            break;
+        case 'thongkesp':
+            $thongkesp = thongke_sanpham();
+            include ("sach/thongkesanpham.php");
+            break;
         case 'thongke':
-            $listthongke=thongke();
-            include "thongke/thongke.php";
+            include ("thongke.php");
             break;
         case 'donhang':
             $listdh1=ht_donhang();
@@ -222,7 +234,7 @@ if (isset($_GET['act'])){
             break;
         case 'tinhtrang':
             if (isset($_POST['gui'])) {
-                $id=$_GET['id'];
+                $id=$_POST['id'];
                 $tinhtrang=$_POST['tinhtrang'];
                 capnhat($id,$tinhtrang);
             }

@@ -63,9 +63,13 @@ if (isset($_GET['aht'])){
                 if (isset($_SESSION['userxuong'])){
                     extract($_SESSION['userxuong']);
                     $listgh = loadall_giohang($_SESSION['userxuong']['id']);
+                    if (sizeof($listgh) == 0) {
+                        header('Location:index.php?act=sanpham');
+                    }else{
+                        include("giaodien/header1.php");
+                        include ("thanhtoan.php");
+                    }
                 }
-                include("giaodien/header1.php");
-                include ("thanhtoan.php");
                 break;
             case 'sanphamct' :
                 if(isset($_SESSION['userxuong'])){
@@ -121,6 +125,29 @@ if (isset($_GET['aht'])){
                 }
                 include("giaodien/header1.php");
                 include("giaodien/home.php");
+                break;
+            case 'capnhat':
+                if (isset($_POST['capnhat']) && $_POST['capnhat']) {
+                    $id = $_POST['id'];
+                    $name = $_POST['name'];
+                    $dia_chi = $_POST['diachi'];
+                    $email = $_POST['email'];
+                    $sdt = $_POST['sdt'];
+                    $taikhoan = $_POST['tk'];
+                    $matkhau = $_POST['mk'];
+                    update_tk($id, $name, $dia_chi, $email, $sdt, $taikhoan, $matkhau);
+                    $check = check($taikhoan, $matkhau);
+                    if (is_array($check)) {
+                        $_SESSION['userxuong'] = $check;
+                        echo ' <script>
+                        alert("Cập nhật thành công ");
+                    </script>';
+                        include("giaodien/header1.php");
+                        include("giaodien/home.php");
+                    }
+                }
+                include("giaodien/header1.php");
+                include("tkcuatoi.php");
                 break;
             case 'tkcuatoi' :
                 include("giaodien/header1.php");
@@ -179,12 +206,16 @@ if (isset($_GET['aht'])){
                 include("sanpham.php");
                 break;
             case 'danhmuc':
-                if (isset($_GET['idpro'])) {
-                    $listdm = loadAll_danhmuc();
-                    $listsp= loadall_sanpham($_GET['idpro']);
+                if (isset($_SESSION['userxuong'])) {
+                    if (isset($_GET['idpro'])) {
+                        $listdm = loadAll_danhmuc();
+                        $listsp = loadall_sanpham($_GET['idpro']);
+                    }
+                    include("giaodien/header1.php");
+                    include("sanpham.php");
+                }else{
+                    header("location:index.php?aht=dndk");
                 }
-                include("giaodien/header1.php");
-                include("sanpham.php");
                 break;
             case 'xoaspgh':
                 if (isset($_GET['id']) && $_GET['id']) {
@@ -244,7 +275,6 @@ if (isset($_GET['aht'])){
                 }
                 include("giaodien/header1.php");
                 include("spyeuthich.php");
-
                 break;
             case 'khoadon':
                 if (isset($_POST['dathang'])) {
@@ -263,8 +293,8 @@ if (isset($_GET['aht'])){
                         foreach ($listgh as $gh) {
                             donmua($gh['idtk'],$gh['ten_sach'],$gh['mau'],$gh['sizesp'], $gh['so_luong'], $gh['gia_ca'], $gh['thanhtien'], $id_don_hang);
                         }
+                        xoagh($_SESSION['userxuong']['id']);
                     }
-                    xoagh();
                     header("Location: index.php");
                 }
                 include("giaodien/header1.php");

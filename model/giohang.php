@@ -31,8 +31,8 @@ function update_giohang($idtk,$ten_sach, $selected_color, $selected_size, $mo_ta
    }
 }
 
-function xoagh(){
-    $sql = "DELETE FROM giohang";
+function xoagh($id){
+    $sql = "DELETE FROM giohang where idtk = '$id'";
     pdo_execute($sql);
 }
 ?>

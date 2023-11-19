@@ -108,11 +108,11 @@
 <div class="container">
     <div class="form-container forgot-password-container">
         <form action="index.php?aht=hienthi" method="post">
-            <h1>Quên Mật Khẩu</h1>
-            <a href="index.php?aht=dndk" class="back-button">Quay Lại Đăng Nhập</a>
-            <p>Nhập địa chỉ email của bạn để đặt lại mật khẩu</p>
+            <h1>Forgot password</h1>
+            <a href="index.php?aht=dndk" class="back-button">Back to Login</a>
+            <p>Enter your email address to reset your password</p>
             <input type="email" name="email" placeholder="Email"/>
-            <input type="submit" name="hienthi" class="reset-button" value="Đặt Lại Mật Khẩu" />
+            <input type="submit" name="hienthi" class="reset-button" value="Reset Password" />
         </form>
     </div>
 </div>
