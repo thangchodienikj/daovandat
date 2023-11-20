@@ -1,6 +1,10 @@
 <main class="main text-center" style="width: 78%; margin: 0 auto;">
     <div class="mb-5"></div>
+<<<<<<< HEAD
     <div class="box_title " style="font-size: 25px">Thống kê theo sản phẩm</div> <br>
+=======
+    <div class="box_title " style="font-size: 25px">DANH SÁCH LOẠI HÀNG HÓA</div> <br>
+>>>>>>> 89c29d2081fa8fe1da9e97c070f82bddcaf36573
     <div class="container mt-3">
         <div class="row form_content">
             <div class="col-12">
@@ -40,6 +44,7 @@
             <div class="col-12">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
+<<<<<<< HEAD
                         <h6 class="m-0 font-weight-bold text-primary">Thống kê </h6>
                     </div>
                     <div class="card-body">
@@ -49,6 +54,17 @@
                         <hr>
                         Styling for the bar chart can be found in the
                         <code>/js/demo/chart-bar-demo.js</code> file.
+=======
+                        <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="myAreaChart"></canvas>
+                        </div>
+                        <hr>
+                        Styling for the area chart can be found in the
+                        <code>/js/demo/chart-area-demo.js</code> file.
+>>>>>>> 89c29d2081fa8fe1da9e97c070f82bddcaf36573
                     </div>
                 </div>
             </div>
@@ -69,5 +85,9 @@
 
 <!-- Page level custom scripts -->
 
+<<<<<<< HEAD
 <script src="js/demo/chart-bar-demo.js"></script>
+=======
+<script src="js/demo/chart-area-demo.js"></script>
+>>>>>>> 89c29d2081fa8fe1da9e97c070f82bddcaf36573
 

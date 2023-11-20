@@ -21,6 +21,19 @@
                         <div class="toolbox-left">
                             <div class="toolbox-info">
                                 <?php
+
+                                // Lấy số trang hiện tại
+                                $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+
+                                // Số sản phẩm trên mỗi trang
+                                $productsPerPage = 2;
+
+                                // vị trí bắt đầu của sản phẩm trên trang hiện tại
+                                $start = ($page - 1) * $productsPerPage;
+
+                                // Lấy sản phẩm  theo trang hiện tại
+                                $displayedProducts = array_slice($listsp, $start, $productsPerPage);
+
                                 $length = sizeof($listsp);
                                 echo ' Showing  <span> '.$length.' </span> Products ';
                                 ?>
@@ -51,7 +64,7 @@
                     </div><!-- End .toolbox -->
                     <div class="products mb-3">
                         <div class="row">
-                            <?php $i=0;foreach ($listsp as $sp) {
+                            <?php $i=0;foreach ($displayedProducts as $sp) {
                                 if ( $i == 2 || $i== 5 || $i== 8){
                                     $mr = 'mr';
                                 }else{
@@ -118,24 +131,55 @@
         </div><!-- End .row -->
     </div><!-- End .products -->
 
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link page-link-prev" href="#" aria-label="Previous" tabindex="-1" aria-disabled="true">
-                    <span aria-hidden="true"><i class="icon-long-arrow-left"></i></span>Prev
-                </a>
-            </li>
-            <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item-total">of 6</li>
-            <li class="page-item">
-                <a class="page-link page-link-next" href="#" aria-label="Next">
-                    Next <span aria-hidden="true"><i class="icon-long-arrow-right"></i></span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+    <?php
+    $totalProducts = count($listsp);
+    $totalPages = ceil($totalProducts / $productsPerPage);
+    echo '<nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">';
+
+    // Nút "Prev"
+    echo '<li class="page-item ' . ($page == 1 ? 'disabled' : '') . '">
+        <a class="page-link page-link-prev" href="index.php?act=sanpham&page=' . ($page - 1) . '" aria-label="Previous" tabindex="-1" aria-disabled="true">
+            <span aria-hidden="true"><i class="icon-long-arrow-left"></i></span>Prev
+        </a>
+      </li>';
+
+    // Các nút trang
+    for ($i = 1; $i <= $totalPages; $i++) {
+        echo '<li class="page-item ' . ($page == $i ? 'active' : '') . '">
+            <a class="page-link" href="index.php?act=sanpham&page=' . $i . '">' . $i . '</a>
+          </li>';
+    }
+
+    // Nút "Next"
+    echo '<li class="page-item ' . ($page == $totalPages ? 'disabled' : '') . '">
+        <a class="page-link page-link-next" href="index.php?act=sanpham&page=' . ($page + 1) . '" aria-label="Next">
+            Next <span aria-hidden="true"><i class="icon-long-arrow-right"></i></span>
+        </a>
+      </li>';
+
+    echo '</ul>
+      </nav>';
+
+    ?>
+<!--    <nav aria-label="Page navigation">-->
+<!--        <ul class="pagination justify-content-center">-->
+<!--            <li class="page-item disabled">-->
+<!--                <a class="page-link page-link-prev" href="#" aria-label="Previous" tabindex="-1" aria-disabled="true">-->
+<!--                    <span aria-hidden="true"><i class="icon-long-arrow-left"></i></span>Prev-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>-->
+<!--            <li class="page-item"><a class="page-link" href="#">2</a></li>-->
+<!--            <li class="page-item"><a class="page-link" href="#">3</a></li>-->
+<!--            <li class="page-item-total">of 6</li>-->
+<!--            <li class="page-item">-->
+<!--                <a class="page-link page-link-next" href="#" aria-label="Next">-->
+<!--                    Next <span aria-hidden="true"><i class="icon-long-arrow-right"></i></span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </nav>-->
     </div><!-- End .col-lg-9 -->
     <aside class="col-lg-3 order-lg-first">
         <div class="sidebar sidebar-shop">

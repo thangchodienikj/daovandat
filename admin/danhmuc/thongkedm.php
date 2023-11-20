@@ -1,6 +1,10 @@
 <main class="main text-center" style="width: 78%; margin: 0 auto;">
     <div class="mb-5"></div>
+<<<<<<< HEAD
     <div class="box_title " style="font-size: 25px">Thống kê theo danh mục</div> <br>
+=======
+    <div class="box_title " style="font-size: 25px">DANH SÁCH LOẠI HÀNG HÓA</div> <br>
+>>>>>>> 89c29d2081fa8fe1da9e97c070f82bddcaf36573
     <div class="container mt-3">
         <div class="row form_content">
             <div class="col-12">

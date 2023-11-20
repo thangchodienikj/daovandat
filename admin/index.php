@@ -4,6 +4,7 @@ include ("../model/danhmuc.php");
 include ("../model/khachang.php");
 include ("../model/thongke.php");
 include ("../model/dathang.php");
+include ("../model/thongke.php");
 include ("../model/pdo.php");
 include ("header.php");
 $listdh1=ht_donhang();
@@ -39,6 +40,10 @@ if (isset($_GET['act'])){
         case 'listdm':
             $listdanhmuc = loadAll_danhmuc();
             include ("danhmuc/list.php");
+            break;
+        case 'thongkedm':
+            $listtk=thongke();
+            include "danhmuc/thongkedm.php";
             break;
         case 'xoadm':
             if (isset($_GET['id'])){
@@ -114,6 +119,10 @@ if (isset($_GET['act'])){
             $listdanhmuc =loadAll_danhmuc();
             $listsp =  loatAll_sanpham($kyw,$iddm);
             include "sach/list.php";
+            break;
+        case 'thongkesp':
+            $thongkesp = thongke_sanpham();
+            include ("sach/thongkesanpham.php");
             break;
         case 'xoasp':
             if (isset($_GET['id'])){
@@ -213,6 +222,7 @@ if (isset($_GET['act'])){
             $listbinhluan = binhluan();
             include ("binhluan.php");
             break;
+<<<<<<< HEAD
         case 'thongkedm':
             $listtk=thongke();
             include "danhmuc/thongkedm.php";
@@ -228,9 +238,15 @@ if (isset($_GET['act'])){
         case 'thongke':
             include ("thongke.php");
             break;
+=======
+>>>>>>> 89c29d2081fa8fe1da9e97c070f82bddcaf36573
         case 'donhang':
             $listdh1=ht_donhang();
             include ("donhang/donhang.php");
+            break;
+        case "thongkedh":
+            $thongkedh = thongke_donhang();
+            include ("donhang/thongke.php");
             break;
         case 'tinhtrang':
             if (isset($_POST['gui'])) {
