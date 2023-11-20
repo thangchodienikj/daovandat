@@ -369,7 +369,7 @@ Smart offers</a></h4><!-- End .banner-subtitle -->
 
         <div class="products">
             <div class="row ">
-                <?php foreach ($listsp as $sp) {
+                <?php foreach ($list8sp as $sp) {
                     extract($sp);
                         echo ' <div class="col-6 col-md-4 col-lg-3">
                     <div class="product product-2">

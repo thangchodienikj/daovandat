@@ -152,9 +152,16 @@ Sign In / Sign Up</a></li>';
                         <?php
                         foreach ($listdm as $sp) {
                             extract($sp);
-                            echo '<ul class="menu-vertical sf-arrows">
-                                    <li><a href="index.php?act=danhmuc&&id='.$id.'">'.$ten_danh_muc.'</a></li>
-                                </ul><!-- End .menu-vertical -->';
+                            if (isset($_SESSION['userxuong'])) {
+                                extract($_SESSION['userxuong']);
+                                echo '<ul class="menu-vertical sf-arrows">
+                                        <li><a href="index.php?act=danhmuc&&idpro=' . $sp['id'] . '">' . $ten_danh_muc . '</a></li>
+                                    </ul><!-- End .menu-vertical -->';
+                            }else{
+                                echo '<ul class="menu-vertical sf-arrows">
+                                        <li><a href="index.php?aht=dndk">' . $ten_danh_muc . '</a></li>
+                                    </ul><!-- End .menu-vertical -->';
+                            }
                         }
                         ?>
                     </nav><!-- End .side-nav -->

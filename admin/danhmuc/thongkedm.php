@@ -1,5 +1,6 @@
 <main class="main text-center" style="width: 78%; margin: 0 auto;">
     <div class="mb-5"></div>
+
     <div class="box_title " style="font-size: 25px">Thống kê theo danh mục</div> <br>
     <div class="container mt-3">
         <div class="row form_content">

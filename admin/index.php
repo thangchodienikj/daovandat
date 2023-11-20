@@ -2,8 +2,8 @@
 include ("../model/sanpham.php");
 include ("../model/danhmuc.php");
 include ("../model/khachang.php");
-include ("../model/thongke.php");
 include ("../model/dathang.php");
+include ("../model/thongke.php");
 include ("../model/pdo.php");
 include ("header.php");
 $listdh1=ht_donhang();
@@ -115,6 +115,7 @@ if (isset($_GET['act'])){
             $listsp =  loatAll_sanpham($kyw,$iddm);
             include "sach/list.php";
             break;
+
         case 'xoasp':
             if (isset($_GET['id'])){
                 xoa_sp($_GET['id']);

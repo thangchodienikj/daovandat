@@ -57,11 +57,11 @@ Enter discount code</span></label>
                                 <table class="table table-summary">
                                     <thead>
                                     <tr>
-                                        <th>Product</th>
-                                        <th>Price</th>
-                                        <th>Color</th>
-                                        <th>Size</th>
-                                        <th>Total</th>
+                                        <th class="col-lg-9" >Product</th>
+                                        <th class="col-lg-2">Price</th>
+                                        <th class="col-lg-2">Color</th>
+                                        <th class="col-lg-2">Size</th>
+                                        <th class="col-lg-2">Total</th>
                                     </tr>
                                     </thead>
                                     <tbody>
