@@ -6,11 +6,11 @@
             <?php if(isset($_SESSION['userxuong'])){ extract($_SESSION['userxuong']);
                 if ($role == '1'){?>
                     <li><a href="../admin">
-                            Sales Channel</a></li>
+                            Kênh bán hàng  </a></li>
                 <?php } }?>
             <li>
                 <div class="header-dropdown">
-                    <a href="#">English</a>
+                    <a href="#">Tiếng việt</a>
                     <div class="header-menu">
                         <ul>
                             <li><a href="#">English</a></li>
@@ -32,7 +32,7 @@
             } else {
                 // Hiển thị nút "Đăng nhập / Đăng ký"
                 echo '<li><a href="index.php?aht=dndk">
-Sign In / Sign Up</a></li>';
+Đăng nhập / Đăng ký</a></li>';
             }
             ?>
         </ul>
@@ -61,7 +61,7 @@ Sign In / Sign Up</a></li>';
                 <form action="index.php?act=tim" method="post">
                     <div class="header-search-wrapper search-wrapper-wide">
                         <button class="btn btn-primary" name="timkiem" ><i class="icon-search"></i></button>
-                        <input type="text" class="form-control" name="tim1" placeholder="Enter search keywords...">
+                        <input type="text" class="form-control" name="tim1" placeholder="Nhập từ khóa tìm kiếm...">
                     </div><!-- End .header-search-wrapper -->
                 </form>
             </div><!-- End .header-search -->
@@ -79,7 +79,7 @@ Sign In / Sign Up</a></li>';
                             ?>
                         </span>
                     </div>
-                    <p style="font-size: 13px">Wishlist</p>
+                    <p style="font-size: 13px">Yêu thích</p>
                 </a>
             </div><!-- End .compare-dropdown -->
             </div><!-- End .compare-dropdown -->
@@ -95,7 +95,7 @@ Sign In / Sign Up</a></li>';
                             ?>
                         </span>
                     </div>
-                    <p style="font-size: 13px">Cart</p>
+                    <p style="font-size: 13px">Giỏ hàng</p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <div class="dropdown-cart-products">
@@ -124,14 +124,14 @@ Sign In / Sign Up</a></li>';
                         }
                         echo '</div><!-- End .cart-product -->
                         <div class="dropdown-cart-total">
-                            <span>Total amount</span>
+                            <span>Tổng cộng</span>
                             <span class="cart-total-price">'.$tong.'</span>
                         </div><!-- End .dropdown-cart-total -->';
                         ?>
 
                     <div class="dropdown-cart-action">
                         <a href="index.php?act=gh" class="btn btn-primary" >
-                            Cart</a>
+                            Giỏ hàng</a>
                     </div><!-- End .dropdown-cart-total -->
                 </div><!-- End .dropdown-menu -->
             </div>
@@ -145,7 +145,7 @@ Sign In / Sign Up</a></li>';
         <div class="header-left">
             <div class="dropdown category-dropdown">
                 <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" title="Browse Categories">
-                    Category <i class="icon-angle-down"></i>
+                    Danh mục <i class="icon-angle-down"></i>
                 </a>
                 <div class="dropdown-menu">
                     <nav class="side-nav">
@@ -166,19 +166,19 @@ Sign In / Sign Up</a></li>';
             <nav class="main-nav" style="width: 526px">
                 <ul class="menu sf-arrows d-flex justify-content-around">
                     <li class="megamenu-container">
-                        <a href="index.php">Home</a>
+                        <a href="index.php">Trang chủ</a>
                     </li>
                     <li>
-                        <a href="index.php?act=sanpham">Shop</a>
+                        <a href="index.php?act=sanpham">Cửa hàng</a>
                     </li>
                     <li>
-                        <a href="#">Product</a>
+                        <a href="#">Sản phẩm</a>
                     </li>
                     <li>
-                        <a href="#">Support</a>
+                        <a href="#">Hỗ trợ</a>
                     </li>
                     <li>
-                        <a href="#">Answers</a>
+                        <a href="#">Giải đáp</a>
                     </li>
                 </ul><!-- End .menu -->
             </nav><!-- End .main-nav -->
@@ -186,7 +186,7 @@ Sign In / Sign Up</a></li>';
 
 
         <div class="header-right">
-            <i class="la la-lightbulb-o"></i><p>Clearance<span class="highlight">&nbsp;Up to 30% Off</span></p>
+            <i class="la la-lightbulb-o"></i><p>Giảm giá<span class="highlight">&nbsp;lên đến 30% </span></p>
         </div>
     </div><!-- End .container -->
 </div>

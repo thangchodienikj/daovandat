@@ -22,8 +22,8 @@
                     </div><!-- End .review-content -->
 
                     <div class="review-action">
-                        <a href="#"><i class="icon-thumbs-up"></i>Helpful (0)</a>
-                        <a href="#"><i class="icon-thumbs-down"></i>Unhelpful (0)</a>
+                        <a href="#"><i class="icon-thumbs-up"></i>Hữu ích (0)</a>
+                        <a href="#"><i class="icon-thumbs-down"></i>Không hữu ích (0)</a>
                     </div><!-- End .review-action -->
                 </div><!-- End .col-auto -->
             </div><!-- End .row -->';

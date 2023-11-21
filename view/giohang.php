@@ -1,15 +1,15 @@
 <main class="main">
     <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
         <div class="container">
-            <h1 class="page-title">Cart<span></span></h1>
+            <h1 class="page-title">Giỏ hàng<span></span></h1>
         </div><!-- End .container -->
     </div><!-- End .page-header -->
     <nav aria-label="breadcrumb" class="breadcrumb-nav">
         <div class="container">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Shop</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
+                <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="#">Của hàng</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Giỏ hàng</li>
             </ol>
         </div><!-- End .container -->
     </nav><!-- End .breadcrumb-nav -->
@@ -23,17 +23,17 @@
                             <tbody>
                             <tr>
                                 <td>
-                                    Product's name</td>
+                                    Tên sản phẩm</td>
                                 <td>
-                                    Color</td>
+                                    Màu</td>
                                 <td>
                                     Size</td>
                                 <td>
-                                    Price</td>
+                                    Giá</td>
                                 <td>
-                                    Quantity</td>
+                                    Số lượng</td>
                                 <td>
-                                    Into money</td>
+                                    Tổng tiền</td>
                             </tr>
 
                             <?php
@@ -44,7 +44,7 @@
                                 <td class="product-col">
                                     <div class="product">
                                         <figure class="product-media">
-                                            <a href="#">
+                                            <a href="index.php?act=sanphamct&idpro='.$idsp.'">
                                                 <img src="'.$hinh_anh.'" alt="Product image">
                                             </a>
                                         </figure>
@@ -75,23 +75,24 @@
                             <div class="cart-discount">
                                 <form action="#">
                                     <div class="input-group">
-                                        <input type="text" class="form-control"  placeholder="Discount code">
+                                        <input type="text" class="form-control"  placeholder="Mã giảm giá">
                                         <div class="input-group-append">
                                             <button class="btn btn-outline-primary-2" type="submit"><i class="icon-long-arrow-right"></i></button>
                                         </div><!-- .End .input-group-append -->
                                     </div><!-- End .input-group -->
                                 </form>
                             </div><!-- End .cart-discount -->
+                            <a href="index.php?act=sanpham" class="btn btn-outline-dark-2"><span>Sản phẩm</span><i class="icon-refresh"></i></a>
                         </div><!-- End .cart-bottom -->
                     </div><!-- End .col-lg-9 -->
                     <aside class="col-lg-3">
                         <div class="summary summary-cart">
                             <h3 class="summary-title">
-                                Total cart</h3><!-- End .summary-title -->
+                                Tổng số giỏ hàng</h3><!-- End .summary-title -->
                             <table class="table table-summary">
                                 <tbody>
                                 <tr class="summary-subtotal">
-                                    <td>Total amount:</td>
+                                    <td>Tổng cộng:</td>
                                     <td id="subtotal"><?=$tong?> $</td>
                                 </tr><!-- End .summary-subtotal -->
 

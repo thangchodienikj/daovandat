@@ -1,4 +1,4 @@
-<main class="main text-center" style="width: 60%; margin: 0 auto;">
+<main class="main text-center" style="width: 78%; margin: 0 auto;">
     <div class="mb">
         <br>
         <div class="box_title" style="font-size: 25px">Size sản phẩm </div> <br>

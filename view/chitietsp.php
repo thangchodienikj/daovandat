@@ -1,11 +1,10 @@
-
 <main class="main">
     <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
         <div class="container d-flex align-items-center">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                <li class="breadcrumb-item"><a href="">Products</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Default</li>
+                <li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="">Cửa hàng</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Sản phẩm chi tiết</li>
             </ol>
 
         </div><!-- End .container -->
@@ -58,7 +57,7 @@
                             </div><!-- End .product-content -->
 
                             <div class="details-filter-row details-row-size">
-                                <label>Color:</label>
+                                <label>Màu:</label>
                                 <div class="product-nav product-nav-thumbs" id="colorOptions" >
                                 ';
                                     $array = explode(',', $colorList);
@@ -87,14 +86,15 @@
                             </div><!-- End .details-filter-row -->
 
                             <div class="details-filter-row details-row-size">
-                                <label for="qty">Qty:</label>
+                                <label for="qty">Số lượng:</label>
                                 <form action="index.php?act=gh" method="post">
                                  <div class="product-details-quantity">
                                     <input type="number" name="soluong" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
                                 </div><!-- Kết thúc .product-details-quantity -->
                             </div><!-- End .details-filter-row -->
                              <div class="details-filter-row details-row-size">
-                                    <input type="hidden"  name="idsp" value="'.$_SESSION['userxuong']['id'].'">
+                                    <input type="hidden"  name="idsp" value="'.$ProductID.'">
+                                    <input type="hidden"  name="idtk" value="'.$_SESSION['userxuong']['id'].'">
                                     <input type="hidden"  name="name" value="'.$ProductName.'">
                                     <input type="hidden" name="giaca" value="'.$price.'">
                                     <input type="hidden" name="mota" value="'.$mieuta.'">
@@ -102,16 +102,16 @@
                                     <input type="hidden" name="selected_size" id="selectedSize" value="">
                                     <input type="hidden" name="selected_color" id="selectedColor" value="">
                             <div class="product-details-action">
-                                <input type="submit" class="btn btn-cart btn-outline-primary" value="Add to cart" name="giohang" style="line-height: 10px;border: 1px solid #3399ff; font-size: 14px; font-family: inherit;">
+                                <input type="submit" class="btn btn-cart btn-outline-primary" value="Thêm vào giỏ hàng" name="giohang" style="line-height: 10px;border: 1px solid #3399ff; font-size: 14px; font-family: inherit;">
                                 <div class="details-action-wrapper">
-                                    <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>
+                                    <a href="index.php?act=spyeuthich&id=' . $ProductID . '&idtk=' . $_SESSION['userxuong']['id'] . '&img=' . $img . '&name=' . $sp['name'] . '&price=' . $price . '" class="btn-product btn-wishlist" title="Wishlist"><span>Yêu thích</span></a>
                                 </div><!-- End .details-action-wrapper -->
                             </div><!-- Kết thúc .product-details-action -->
                                 </form>
                                 <form action="index.php?act=binhluan&idpro='.$id_pro.'" method="post">
                             </div><!-- End .product-details-action -->
                             <div class="product-details-footer">
-                             <span>Category : </span> 
+                             <span>Màu sắc : </span> 
                                 <div class="product-cat">
                                     ';
                                         $array = explode(',', $colorList);
@@ -124,7 +124,7 @@
                                 </div><!-- End .product-cat -->
 
                                 <div class="social-icons social-icons-sm">
-                                    <span class="social-label">Share:</span>
+                                    <span class="social-label">Chia sẻ:</span>
                                     <a href="#" class="social-icon" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
                                     <a href="#" class="social-icon" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
                                     <a href="#" class="social-icon" title="Instagram" target="_blank"><i class="icon-instagram"></i></a>
@@ -141,7 +141,7 @@
                     <li class="nav-item">
                         <a class="nav-link active" id="product-desc-link" data-toggle="tab" href="#product-desc-tab" role="tab" aria-controls="product-desc-tab" aria-selected="true">
 
-                            Evaluate</a>
+                            Bình luận </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="product-info-link" data-toggle="tab" href="#product-info-tab" role="tab" aria-controls="product-info-tab" aria-selected="false">Additional information</a>
@@ -166,7 +166,7 @@
                     <div class="tab-pane fade show active" id="product-desc-tab" role="tabpanel" aria-labelledby="product-desc-link">
                         <div class="reviews">
                             <h3>
-                                Evaluate</h3>
+                                Bình luận</h3>
                             <div class="review-container">
                                 <?php foreach ($binhluan as $bl) {
                                     extract($bl);
@@ -196,7 +196,7 @@
                             <br>
                             <div class="comment-form">
                                 <h3>
-                                    Add a comment</h3>
+                                    Thêm một bình luận</h3>
                                 <!-- You can specify the actual form action attribute -->
                                 <?php if (isset($_SESSION['userxuong'])){
                                     extract($_SESSION['userxuong']);
@@ -206,33 +206,33 @@
 
                                 <div class="form-row">
                                     <label class="form-group col-2 ">
-                                        Evaluate :</label><br>
+                                        Đánh giá :</label><br>
                                     <div class="form-group col-8">
                                         <div class="form-check col-3 form-check-inline">
-                                            <input type="radio" id="rating-good" name="rating" value="Good" class="form-check-input" required>
+                                            <input type="radio" id="rating-good" name="rating" value="Rất tuyệt" class="form-check-input" required>
                                             <label for="rating-good" class="form-check-label">
-                                                Wonderful</label>
+                                                Rất tuyệt</label>
                                         </div>
                                         <div class="form-check col-3 form-check-inline">
-                                            <input type="radio" id="rating-normal" name="rating" value="Normal" class="form-check-input" required>
+                                            <input type="radio" id="rating-normal" name="rating" value="Bình thường" class="form-check-input" required>
                                             <label for="rating-normal" class="form-check-label">
-                                                Normal</label>
+                                                Bình thường</label>
                                         </div>
                                         <div class="form-check col-3 form-check-inline">
-                                            <input type="radio" id="rating-bad" name="rating" value="Bad" class="form-check-input" required>
+                                            <input type="radio" id="rating-bad" name="rating" value="Tệ" class="form-check-input" required>
                                             <label for="rating-bad" class="form-check-label">
-                                                Bad</label>
+                                                Tệ</label>
                                         </div>
                                     </div>
                                 </div>
                                 <label for="comment-text">
-                                    Your comment:</label>
+                                    Bình luận của bạn:</label>
                                 <div class="form-row">
                                     <div class="form-group col-10">
                                         <input id="comment-text" name="binhluan" class="form-control" required>
                                     </div>
                                     <div class="form-group col-0">
-                                        <input type="submit" class="btn btn-primary" value="Submit a comment" name="gui">
+                                        <input type="submit" class="btn btn-primary" value="Đăng một bình luận" name="gui">
                                     </div>
                                 </div>
                                 </form>
@@ -284,7 +284,8 @@
             </div><!-- End .product-details-tab -->
 
             <h2 class="title text-center mb-4">
-                You May Also Like</h2><!-- End .title text-center -->
+
+                Bạn cũng có thể thích</h2><!-- End .title text-center -->
 
             <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
                  data-owl-options='{

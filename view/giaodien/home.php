@@ -15,25 +15,26 @@
                 <div class="container intro-content">
                     <div class="row justify-content-end">
                         <div class="col-auto col-sm-7 col-md-6 col-lg-5">
-                            <h3 class="intro-subtitle" style="color: #907777">New Arrival</h3><!-- End .h3 intro-subtitle -->
+                            <h3 class="intro-subtitle" style="color: #907777">
+                                Hàng mới về</h3><!-- End .h3 intro-subtitle -->
                             <h1 class="intro-title" style="color: #e6837b">
-                                Super sale<br> Winter
+                                Siêu bán<br> Mùa đông
                             </h1>
                             <div class="intro-price">
-                                <sup>Today:</sup>
+                                <sup>Hôm nay :</sup>
                                 <span class="text-primary">
-                                            $999<sup>.99</sup>
+                                            $234<sup>000</sup>
                                         </span>
                             </div><!-- End .intro-price -->
 
                             <?php   if (isset($_SESSION['userxuong'])) {
                                 echo '<a href="index.php?act=danhmuc" class="btn btn-primary btn-round">
-                                <span>Shop More</span>
+                                <span>Mua ngay</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>';
                             }else{
                                 echo '<a href="index.php?aht=dndk" class="btn btn-primary btn-round">
-                                <span>Shop More</span>
+                                <span>Mua ngay</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>
                                 ';
@@ -47,30 +48,31 @@
                 <div class="container intro-content">
                     <div class="row justify-content-end">
                         <div class="col-auto col-sm-7 col-md-6 col-lg-5">
-                            <h3 class="intro-subtitle" style="color: #907777">New Arrival</h3><!-- End .h3 intro-subtitle -->
+                            <h3 class="intro-subtitle" style="color: #907777">
+                                Hàng mới về</h3><!-- End .h3 intro-subtitle -->
                             <h1 class="intro-title" style="color: #e6837b">
-                                Super sale<br> Summer
+                                Siêu bán<br> Mùa hè
                             </h1>
                             <div class="intro-price">
-                                <sup>Today:</sup>
+                                <sup>Hôm nay :</sup>
                                 <span class="text-primary">
-                                            $999<sup>.99</sup>
+                                            $234<sup>000</sup>
                                         </span>
                             </div><!-- End .intro-price -->
 
                             <?php   if (isset($_SESSION['userxuong'])) {
                                 echo '<a href="index.php?act=danhmuc" class="btn btn-primary btn-round">
-                                <span>Shop More</span>
+                                <span>Mua ngay</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>';
                             }else{
                                 echo '<a href="index.php?aht=dndk" class="btn btn-primary btn-round">
-                                <span>Shop More</span>
+                                <span>Mua ngay</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>
                                 ';
                             } ?>
-                        </div><!-- End .col-md-6 offset-md-6 -->
+                        </div><!-- End .col-lg-11 offset-lg-1 -->
                     </div><!-- End .row -->
                 </div><!-- End .intro-content -->
             </div><!-- End .intro-slide -->
@@ -78,30 +80,31 @@
                 <div class="container intro-content">
                     <div class="row justify-content-end">
                         <div class="col-auto col-sm-7 col-md-6 col-lg-5">
-                            <h3 class="intro-subtitle" style="color: #907777">New Arrival</h3><!-- End .h3 intro-subtitle -->
+                            <h3 class="intro-subtitle" style="color: #907777">
+                                Hàng mới về</h3><!-- End .h3 intro-subtitle -->
                             <h1 class="intro-title" style="color: #e6837b">
-                                Super sale<br> New fashion
+                                Siêu bán<br> Mùa thu
                             </h1>
                             <div class="intro-price">
-                                <sup>Today:</sup>
+                                <sup>Hôm nay :</sup>
                                 <span class="text-primary">
-                                            $999<sup>.99</sup>
+                                            $234<sup>000</sup>
                                         </span>
                             </div><!-- End .intro-price -->
 
                             <?php   if (isset($_SESSION['userxuong'])) {
                                 echo '<a href="index.php?act=danhmuc" class="btn btn-primary btn-round">
-                                <span>Shop More</span>
+                                <span>Mua ngay</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>';
                             }else{
                                 echo '<a href="index.php?aht=dndk" class="btn btn-primary btn-round">
-                                <span>Shop More</span>
+                                <span>Mua ngay</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>
                                 ';
                             } ?>
-                        </div><!-- End .col-md-6 offset-md-6 -->
+                        </div><!-- End .col-lg-11 offset-lg-1 -->
                     </div><!-- End .row -->
                 </div><!-- End .intro-content -->
             </div><!-- End .intro-slide -->
@@ -109,29 +112,31 @@
                 <div class="container intro-content">
                     <div class="row justify-content-end">
                         <div class="col-auto col-sm-7 col-md-6 col-lg-5">
-                            <<h3 class="intro-subtitle" style="color: #907777">New Arrival</h3><!-- End .h3 intro-subtitle -->
+                            <h3 class="intro-subtitle" style="color: #907777">
+                                Hàng mới về</h3><!-- End .h3 intro-subtitle -->
                             <h1 class="intro-title" style="color: #e6837b">
-                                Super sale<br> Winter
+                                Siêu bán<br> Mùa đông
                             </h1>
                             <div class="intro-price">
-                                <sup>Today:</sup>
+                                <sup>Hôm nay :</sup>
                                 <span class="text-primary">
-                                            $999<sup>.99</sup>
+                                            $234<sup>000</sup>
                                         </span>
                             </div><!-- End .intro-price -->
+
                             <?php   if (isset($_SESSION['userxuong'])) {
                                 echo '<a href="index.php?act=danhmuc" class="btn btn-primary btn-round">
-                                <span>Shop More</span>
+                                <span>Mua ngay</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>';
                             }else{
-                                echo '<a href="index.php?aht=dkdn" class="btn btn-primary btn-round">
-                                <span>Shop More</span>
+                                echo '<a href="index.php?aht=dndk" class="btn btn-primary btn-round">
+                                <span>Mua ngay</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>
                                 ';
                             } ?>
-                        </div><!-- End .col-md-6 offset-md-6 -->
+                        </div><!-- End .col-lg-11 offset-lg-1 -->
                     </div><!-- End .row -->
                 </div><!-- End .intro-content -->
             </div><!-- End .intro-slide -->
@@ -141,7 +146,7 @@
     </div><!-- End .intro-slider-container -->
 
     <div class="container">
-        <h2 class="title text-center mb-4">Explore Popular Categories</h2><!-- End .title text-center -->
+        <h2 class="title text-center mb-4">Khám phá các danh mục phổ biến</h2><!-- End .title text-center -->
 
         <div class="cat-blocks-container">
             <div class="row justify-content-center " >
@@ -177,9 +182,9 @@
 
                     <div class="banner-content">
                         <h4 class="banner-subtitle"><a href="#">
-Smart offers</a></h4><!-- End .banner-subtitle -->
-                        <h3 class="banner-title"><a href="">Price '.$price.' $ <br> <strong>'.$name.'</strong></a></h3><!-- End .banner-title -->
-                        <a href="index.php?act=sanphamct&idpro='.$id.'" class="banner-link">Shop Now<i class="icon-long-arrow-right"></i></a>
+Ưu đãi thông minh</a></h4><!-- End .banner-subtitle -->
+                        <h3 class="banner-title"><a href="">Giá '.$price.' $ <br> <strong>'.$name.'</strong></a></h3><!-- End .banner-title -->
+                        <a href="index.php?act=sanphamct&idpro='.$id.'" class="banner-link">Mua ngay<i class="icon-long-arrow-right"></i></a>
                     </div><!-- End .banner-content -->
                 </div><!-- End .banner -->
             </div>';
@@ -200,17 +205,19 @@ Smart offers</a></h4><!-- End .banner-subtitle -->
                 <div class="col-md-12">
                     <div class="cta-content">
                         <div class="cta-text text-right text-white">
-                            <p>Shop Today’s Deals <br><strong>Awesome Made Easy.
-                                    Hoodie again</strong></p>
+                            <p>
+                                Mua sắm với ưu đãi hôm nay<br><strong>
+                                    Tuyệt vời được thực hiện dễ dàng.
+                                    Lại là áo hoodie</strong></p>
                         </div><!-- End .cta-text -->
                         <?php   if (isset($_SESSION['userxuong'])) {
                             echo '<a href="index.php?act=danhmuc" class="btn btn-primary btn-round">
-                                <span>Shop Now - $329</span>
+                                <span>Mua ngay - $329</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>';
                         }else{
                             echo '<a href="index.php?aht=dndk" class="btn btn-primary btn-round">
-                                <span>Shop Now - $329</span>
+                                <span>Mua ngay - $329</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>
                                 ';
@@ -224,34 +231,33 @@ Smart offers</a></h4><!-- End .banner-subtitle -->
 
     <div class="container">
         <div class="heading text-center mb-3">
-            <h2 class="title">
-                Deals & Outlet</h2><!-- End .title -->
-            <p class="title-desc">Today’s deal and more</p><!-- End .title-desc -->
+            <h2 class="title"> Ưu đãi & Cửa hàng</h2><!-- End .title -->
+            <p class="title-desc">Ưu đãi hôm nay và hơn thế nữa</p><!-- End .title-desc -->
         </div><!-- End .heading -->
 
         <div class="row">
             <div class="col-lg-6 deal-col">
                 <div class="deal" style="background-image: url('assets/images/anh13.png');">
                     <div class="deal-top">
-                        <h2>Deal of the Day.</h2>
-                        <h4>Limited quantities. </h4>
+                        <h2>Thỏa thuận trong ngày.</h2>
+                        <h4>Khối lượng hạn chế. </h4>
                     </div><!-- End .deal-top -->
 
                     <div class="deal-content">
-                        <h3 class="product-title"><a href="product.html">Home Smart Speaker with  Google Assistant</a></h3><!-- End .product-title -->
+                        <h3 class="product-title"><a href="product.html"> Áo phao nam 3 lớp mặc được 2 mặt dày dặn siêu ấm kiểu hàn quốc</a></h3><!-- End .product-title -->
 
                         <div class="product-price">
                             <span class="new-price">$129.00</span>
-                            <span class="old-price">Was $150.99</span>
+                            <span class="old-price">đã từng là $150.99</span>
                         </div><!-- End .product-price -->
                         <?php   if (isset($_SESSION['userxuong'])) {
                             echo '<a href="index.php?act=danhmuc" class="btn btn-link">
-                                <span>Shop More</span>
+                                <span>Mua sắm nhiều hơn</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>';
                         }else{
                             echo '<a href="index.php?aht=dndk" class="btn btn-link">
-                                <span>Shop More</span>
+                                <span>Mua sắm nhiều hơn</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>
                                 ';
@@ -267,24 +273,24 @@ Smart offers</a></h4><!-- End .banner-subtitle -->
             <div class="col-lg-6 deal-col">
                 <div class="deal" style="background-image: url('assets/images/anh15.png');">
                     <div class="deal-top">
-                        <h2>Your Exclusive Offers.</h2>
-                        <h4>Sign in to see amazing deals.</h4>
+                        <h2>Ưu đãi độc quyền của bạn.</h2>
+                        <h4>Đăng nhập để xem ưu đãi hấp dẫn.</h4>
                     </div><!-- End .deal-top -->
 
                     <div class="deal-content">
-                        <h3 class="product-title"><a href="product.html">Certified Wireless Charging  Pad for iPhone / Android</a></h3><!-- End .product-title -->
+                        <h3 class="product-title"><a href="product.html">Áo hoodie dây kéo unisex cho nam và nữ Cotton BRIERLY</a></h3><!-- End .product-title -->
 
                         <div class="product-price">
                             <span class="new-price">$29.99</span>
                         </div><!-- End .product-price -->
                         <?php   if (isset($_SESSION['userxuong'])) {
                             echo '<a href="index.php?act=danhmuc" class="btn btn-link">
-                                <span>>Sign In and Save money</span>
+                                <span>>Đăng nhập và tiết kiệm tiền</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>';
                         }else{
                             echo '<a href="index.php?aht=dndk" class="btn btn-link">
-                                <span>>Sign In and Save money</span>
+                                <span>>Đăng nhập và tiết kiệm tiền</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>
                                 ';
@@ -299,7 +305,7 @@ Smart offers</a></h4><!-- End .banner-subtitle -->
         </div><!-- End .row -->
 
         <div class="more-container text-center mt-1 mb-5">
-            <a href="#" class="btn btn-outline-dark-2 btn-round btn-more"><span>Shop more Outlet deals</span><i class="icon-long-arrow-right"></i></a>
+            <a href="#" class="btn btn-outline-dark-2 btn-round btn-more"><span>Mua thêm ưu đãi của Outlet</span><i class="icon-long-arrow-right"></i></a>
         </div><!-- End .more-container -->
     </div><!-- End .container -->
 
@@ -359,11 +365,12 @@ Smart offers</a></h4><!-- End .banner-subtitle -->
     <div class="container for-you">
         <div class="heading heading-flex mb-3">
             <div class="heading-left">
-                <h2 class="title">Recommendation For You</h2><!-- End .title -->
+                <h2 class="title">Khuyến nghị dành cho bạn</h2><!-- End .title -->
             </div><!-- End .heading-left -->
 
             <div class="heading-right">
-                <a href="#" class="title-link">View All Recommendadion  <i class="icon-long-arrow-right"></i></a>
+                <a href="#" class="title-link">
+                    Xem tất cả đề xuất  <i class="icon-long-arrow-right"></i></a>
             </div><!-- End .heading-right -->
         </div><!-- End .heading -->
 

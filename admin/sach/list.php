@@ -1,4 +1,4 @@
-<main class="main" style="width: 60%; margin: 0 auto;">
+<main class="main" style="width: 78%; margin: 0 auto;">
     <br>
     <br>
     <div class="box_title" style="font-size: 25px">Danh sách sản phẩm</div> <br>
@@ -44,27 +44,28 @@
                                 </thead>
                                 <tbody>
                                 <?php
-                                foreach ($listsp as $sanpham){
+                                foreach ($listsp as $sanpham) {
                                     extract($sanpham);
-                                    $suasp = "index.php?act=suasp&id=".$id;
-                                    $xoasp = "index.php?act=xoasp&id=".$id;
-                                    $hinhload="../upload/".$img;
-                                    if(is_file($hinhload)){
+                                    $suasp = "index.php?act=suasp&id=" . $id;
+                                    $xoasp = "index.php?act=xoasp&id=" . $id;
+                                    $hinhload = "../upload/" . $img;
+                                    if (is_file($hinhload)) {
                                         $hinh_anh = "<img src='" . $hinhload . "' height='120' width='120'>";
-                                    }
-                                    echo'<tr>
+
+                                        echo '<tr>
                                                 <td class="text-center col-md-1"><input type="checkbox" name="" id=""></td>
-                                                <td class="text-center col-md-1">'.$id.'</td>
-                                                <td class="text-center col-md-2">'.$name.'</td>
-                                                <td class="text-center col-md-2 justify-content-cente">'.$hinh_anh.'</td>
-                                                <td class="text-center col-md-2">'.$price.'</td>
-                                                <td class="text-center col-md-2">'.$mieuta.'</td>
-                                                <td class="text-center col-md-2">'.$loai.'</td>
+                                                <td class="text-center col-md-1">' . $id . '</td>
+                                                <td class="text-center col-md-2">' . $name . '</td>
+                                                <td class="text-center col-md-2 justify-content-cente">' . $hinh_anh . '</td>
+                                                <td class="text-center col-md-2">' . $price . '</td>
+                                                <td class="text-center col-md-2">' . $mieuta . '</td>
+                                                <td class="text-center col-md-2">' . $loai . '</td>
                                                 <td class="text-center col-md-1">
-                                                    <a href='.$suasp.' class="btn btn-primary btn-sm">Sửa</a>
-                                                    <a href='.$xoasp.' class="btn btn-danger btn-sm">Xóa</a>
+                                                    <a href=' . $suasp . ' class="btn btn-primary btn-sm">Sửa</a>
+                                                    <a href=' . $xoasp . ' class="btn btn-danger btn-sm">Xóa</a>
                                                 </td>
                                             </tr>';
+                                    }
                                 }
                                 ?>
                                 </tbody>

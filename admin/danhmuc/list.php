@@ -1,4 +1,4 @@
-<main class="main" style="width: 60%; margin: 0 auto;">
+<main class="main" style="width: 78%; margin: 0 auto;">
     <br>
     <br>
     <div class="box_title" style="font-size: 25px">Danh sách danh mục</div> <br>

@@ -10,19 +10,22 @@
                         <table class="table table-bordered">
                             <thead>
                             <tr>
-                                <th class="text-center">Name</th>
-                                <th class="text-center">Address</th>
-                                <th class="text-center">Phone number</th>
-                                <th class="text-center">Order date</th>
-                                <th class="text-center">Note</th>
-                                <th class="text-center">Product</th>
-                                <th class="text-center">Color</th>
+                                <th class="text-center">Tên</th>
+                                <th class="text-center">Địa chỉ</th>
+                                <th class="text-center">Số điện thoại</th>
+                                <th class="text-center">Ngày đặt hàng</th>
+                                <th class="text-center">Ghi chú</th>
+                                <th class="text-center">Sản phẩm</th>
+                                <th class="text-center">Màu</th>
                                 <th class="text-center">Size</th>
-                                <th class="text-center">Total amount</th>
-                                <th class="text-center">Shipping method</th>
-                                <th class="text-center">Payment methods</th>
-                                <th class="text-center">Into money</th>
-                                <th class="text-center"> Status</th>
+                                <th class="text-center">
+                                    Tổng cộng</th>
+                                <th class="text-center">
+                                    Phương pháp vận chuyển</th>
+                                <th class="text-center">Phương thức thanh toán</th>
+                                <th class="text-center">Tổng tiền</th>
+                                <th class="text-center">
+                                    Trạng thái</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -43,27 +46,27 @@
                                     <td class="col-md-1 text-center"><?= $tongtien ?></td>
                                     <td class="col-md-1 text-center"><?php
                                         if ($ptvc == 30000){
-                                            echo "Fast Shipping";
+                                            echo "Vận chuyển nhanh";
                                         }else{
-                                            echo "Slow shipping";
+                                            echo "Vận chuyển chậm";
                                         }
                                         ?> </td>
                                     <td class="col-md-1 text-center"><?= $phuong_thuc_thanhtoan ?></td>
                                     <td class="col-md-1 text-center"><?= $tt=$tongtien+$ptvc ?></td>
                                     <td class="col-md-1 text-center">
                                         <?php
-                                        switch ( $ht){
+                                        switch ($ht){
                                             case "0" :
-                                                echo "New orders";
+                                                echo "Chờ xác nhận";
                                                 break;
                                             case "1" :
-                                                echo"Order confirmation";
+                                                echo"Xác nhận đơn hàng";
                                                 break;
                                             case "2" :
-                                                echo "Delivering";
+                                                echo "Đang giao hàng";
                                                 break;
                                             case "3" :
-                                                echo "Delivered";
+                                                echo "Giao thành công";
                                                 break;
                                             default:
                                                 break;
@@ -71,12 +74,12 @@
                                         <form action="index.php?act=tinhtrang" method="post">
                                             <input type="hidden" name="id" id="id" value="<?=$id?>">
                                             <select name="tinhtrang">
-                                                <option value="0">New orders</option>
-                                                <option value="1">Order confirmation</option>
-                                                <option value="2">Delivering</option>
-                                                <option value="3">Delivered</option>
+                                                <option value="0">Chờ xác nhận</option>
+                                                <option value="1">Xác nhận đơn hàng</option>
+                                                <option value="2">Đang giao hàng</option>
+                                                <option value="3">Đã giao hàng</option>
                                             </select>
-                                            <input class="btn btn-primary btn-block" type="submit" name="gui" value="Update">
+                                            <input class="btn btn-primary btn-block" type="submit" name="gui" value="Cập nhật">
                                         </form>
                                     </td>
                                 </tr>

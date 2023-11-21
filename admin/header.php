@@ -41,7 +41,7 @@
         <div class="header-top">
             <div class="container">
                 <div class="header-left">
-                    <a href="tel:#"><i class="icon-phone"></i>Call: +0123 456 789</a>
+                    <a href="tel:#"><i class="icon-phone"></i>Gọi: +0123 456 789</a>
                 </div><!-- End .header-left -->
 
                 <div class="header-right">
@@ -52,7 +52,7 @@
                             <ul>
                                 <li>
                                     <div class="header-dropdown">
-                                        <a href="#">USD</a>
+                                        <a href="#">VND</a>
                                         <div class="header-menu">
                                             <ul>
                                                 <li><a href="#">Eur</a></li>
@@ -63,7 +63,7 @@
                                 </li>
                                 <li>
                                     <div class="header-dropdown">
-                                        <a href="#">English</a>
+                                        <a href="#">Tiếng việt</a>
                                         <div class="header-menu">
                                             <ul>
                                                 <li><a href="#">English</a></li>
@@ -99,7 +99,7 @@
                             <div class="header-search-wrapper search-wrapper-wide">
                                 <label for="q" class="sr-only">Search</label>
                                 <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
-                                <input type="search" class="form-control" name="q" id="q" placeholder="Search product ..." required>
+                                <input type="search" class="form-control" name="q" id="q" placeholder="Nhập từ khóa tìm kiếm ..." required>
                             </div><!-- End .header-search-wrapper -->
                         </form>
                     </div><!-- End .header-search -->
@@ -118,7 +118,7 @@
                 <div class="header-left">
                     <div class="dropdown category-dropdown">
                         <a href="#" class="dropdown-toggle" >
-                            Admin page
+                            Trang quản trị
                         </a>
                     </div><!-- End .category-dropdown -->
                 </div><!-- End .header-left -->

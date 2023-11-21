@@ -152,6 +152,7 @@ if (isset($_GET['aht'])){
             case 'tkcuatoi' :
                 include("giaodien/header1.php");
                 include("tkcuatoi.php");
+
                 break;
             case 'dangxuat' :
                 if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
@@ -166,7 +167,8 @@ if (isset($_GET['aht'])){
                     extract($_SESSION['userxuong']);
                     $listgh = loadall_giohang($_SESSION['userxuong']['id']);
                     if (isset($_POST['giohang']) && $_POST['giohang']) {
-                        $idtk = $_POST['idsp'];
+                        $idsp = $_POST['idsp'];
+                        $idtk = $_POST['idtk'];
                         $ten_sach = $_POST['name'];
                         $gia_ca = $_POST['giaca'];
                         $mo_ta = $_POST['mota'];
@@ -174,7 +176,7 @@ if (isset($_GET['aht'])){
                         $so_luong = $_POST['soluong'];
                         $selected_size = $_POST['selected_size'];
                         $selected_color = $_POST['selected_color'];
-                        update_giohang($idtk,$ten_sach,$selected_color,$selected_size,$mo_ta,$gia_ca,$hinhload,$so_luong);
+                        update_giohang($idsp,$idtk,$ten_sach,$selected_color,$selected_size,$mo_ta,$gia_ca,$hinhload,$so_luong);
                         header("Location: index.php?act=gh");
                     }
                     include("giaodien/header1.php");
@@ -291,18 +293,18 @@ if (isset($_GET['aht'])){
                         extract($_SESSION['userxuong']);
                         $listgh = loadall_giohang($_SESSION['userxuong']['id']);
                         foreach ($listgh as $gh) {
-                            donmua($gh['idtk'],$gh['ten_sach'],$gh['mau'],$gh['sizesp'], $gh['so_luong'], $gh['gia_ca'], $gh['thanhtien'], $id_don_hang);
+                            donmua($gh['idtk'],$gh['hinh_anh'],$gh['ten_sach'],$gh['mau'],$gh['sizesp'], $gh['so_luong'], $gh['gia_ca'], $gh['thanhtien'], $id_don_hang);
                         }
                         xoagh($_SESSION['userxuong']['id']);
                     }
-                    header("Location: index.php");
                 }
                 include("giaodien/header1.php");
-                include("giaodien/home.php");
+                include ("checkout.php");
                 break;
             case 'tinhtrang':
                 include("giaodien/header1.php");
                 include ("donhang/chitietdonhang.php");
+                break;
                  default;
         }
     } else {

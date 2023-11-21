@@ -1,14 +1,14 @@
 <main class="main">
     <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
         <div class="container">
-            <h1 class="page-title">Shop<span></span></h1>
+            <h1 class="page-title">Cửa hàng<span></span></h1>
         </div><!-- End .container -->
     </div><!-- End .page-header -->
     <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
         <div class="container">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                <li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="#">Cửa hàng</a></li>
             </ol>
         </div><!-- End .container -->
     </nav><!-- End .breadcrumb-nav -->
@@ -26,7 +26,7 @@
                                 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
                                 // Số sản phẩm trên mỗi trang
-                                $productsPerPage = 2;
+                                $productsPerPage = 9;
 
                                 // vị trí bắt đầu của sản phẩm trên trang hiện tại
                                 $start = ($page - 1) * $productsPerPage;
@@ -35,7 +35,7 @@
                                 $displayedProducts = array_slice($listsp, $start, $productsPerPage);
 
                                 $length = sizeof($listsp);
-                                echo ' Showing  <span> '.$length.' </span> Products ';
+                                echo ' Đang hiển thị  <span> '.$length.' </span> Các sản phẩm ';
                                 ?>
 
                             </div><!-- End .toolbox-info -->
@@ -43,19 +43,20 @@
                         <div class="toolbox-right">
                             <div class="toolbox-sort">
                                 <label for="sortby">
-                                    Sort by price :</label>
+                                    Sắp xếp theo giá:</label>
                             </div>
                             <div class="toolbox-sort">
                                 <form action="index.php?act=xet" method="post" id="sortForm">
                                     <div class="select-custom">
                                         <select name="sortby" id="sortby" class="form-control" onchange="submitForm()">
                                             <option value="0" >
-                                                Select</option>
-                                            <option value="1" >All</option>
+                                                Chọn</option>
+                                            <option value="1" >
+                                                Tất cả</option>
                                             <option value="2">
-                                                From high to low</option>
+                                                Từ cao đến thấp</option>
                                             <option value="3">
-                                                From low to high</option>
+                                                Từ thấp đến cao</option>
                                         </select>
                                     </div>
                                 </form>
@@ -154,7 +155,7 @@
     // Nút "Next"
     echo '<li class="page-item ' . ($page == $totalPages ? 'disabled' : '') . '">
         <a class="page-link page-link-next" href="index.php?act=sanpham&page=' . ($page + 1) . '" aria-label="Next">
-            Next <span aria-hidden="true"><i class="icon-long-arrow-right"></i></span>
+            Kế tiếp <span aria-hidden="true"><i class="icon-long-arrow-right"></i></span>
         </a>
       </li>';
 
@@ -162,36 +163,18 @@
       </nav>';
 
     ?>
-<!--    <nav aria-label="Page navigation">-->
-<!--        <ul class="pagination justify-content-center">-->
-<!--            <li class="page-item disabled">-->
-<!--                <a class="page-link page-link-prev" href="#" aria-label="Previous" tabindex="-1" aria-disabled="true">-->
-<!--                    <span aria-hidden="true"><i class="icon-long-arrow-left"></i></span>Prev-->
-<!--                </a>-->
-<!--            </li>-->
-<!--            <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>-->
-<!--            <li class="page-item"><a class="page-link" href="#">2</a></li>-->
-<!--            <li class="page-item"><a class="page-link" href="#">3</a></li>-->
-<!--            <li class="page-item-total">of 6</li>-->
-<!--            <li class="page-item">-->
-<!--                <a class="page-link page-link-next" href="#" aria-label="Next">-->
-<!--                    Next <span aria-hidden="true"><i class="icon-long-arrow-right"></i></span>-->
-<!--                </a>-->
-<!--            </li>-->
-<!--        </ul>-->
-<!--    </nav>-->
     </div><!-- End .col-lg-9 -->
     <aside class="col-lg-3 order-lg-first">
         <div class="sidebar sidebar-shop">
             <div class="widget widget-clean">
-                <label>Filters:</label>
-                <a href="#" class="sidebar-filter-clear">Clean All</a>
+                <label>Bộ lọc:</label>
+                <a href="#" class="sidebar-filter-clear">Làm sạch tất cả</a>
             </div><!-- End .widget widget-clean -->
 
             <div class="widget widget-collapsible">
                 <h3 class="widget-title">
                     <a data-toggle="collapse" href="#widget-1" role="button" aria-expanded="true" aria-controls="widget-1">
-                        Category
+                        Danh mục
                     </a>
                 </h3><!-- End .widget-title -->
 

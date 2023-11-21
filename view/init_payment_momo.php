@@ -1,7 +1,6 @@
 <?php
 header('Content-type: text/html; charset=utf-8');
 
-
 function execPostRequest($url, $data)
 {
     $ch = curl_init($url);

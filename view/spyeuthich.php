@@ -2,15 +2,14 @@
     <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
         <div class="container">
             <h1 class="page-title">
-                Favorite product<span></span></h1>
+                Sản phẩm yêu thích<span></span></h1>
         </div><!-- End .container -->
     </div><!-- End .page-header -->
     <nav aria-label="breadcrumb" class="breadcrumb-nav">
         <div class="container">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Shop</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Wishlist</li>
+                <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Sản phẩm yêu thích</li>
             </ol>
         </div><!-- End .container -->
     </nav><!-- End .breadcrumb-nav -->
@@ -20,9 +19,9 @@
             <table class="table table-wishlist table-mobile">
                 <thead>
                 <tr>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Stock Status</th>
+                    <th>Sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Tình trạng tồn kho</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -45,17 +44,17 @@
                         </div><!-- End .product -->
                     </td>
                     <td class="price-col">'.$price.'</td>
-                    <td class="stock-col"><span class="in-stock">In stock</span></td>
+                    <td class="stock-col"><span class="in-stock">Trong kho</span></td>
                     <td class="action-col">
                         <div class="dropdown">
                             <button class="btn btn-block btn-outline-primary-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="icon-list-alt"></i>Select Options
+                                <i class="icon-list-alt"></i>Lựa chọn các phương án
                             </button>
 
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">First option</a>
-                                <a class="dropdown-item" href="#">Another option</a>
-                                <a class="dropdown-item" href="#">The best option</a>
+                                <a class="dropdown-item" href="#">Lựa chọn đầu tiên</a>
+                                <a class="dropdown-item" href="#">Một lựa chọn khác</a>
+                                <a class="dropdown-item" href="#">Sự lựa chọn tốt nhất</a>
                             </div>
                         </div>
                     </td>
@@ -66,7 +65,8 @@
             </table><!-- End .table table-wishlist -->
             <div class="wishlist-share">
                 <div class="social-icons social-icons-sm mb-2">
-                    <label class="social-label">Share on:</label>
+                    <label class="social-label">
+                        Chia sẻ:</label>
                     <a href="#" class="social-icon" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
                     <a href="#" class="social-icon" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
                     <a href="#" class="social-icon" title="Instagram" target="_blank"><i class="icon-instagram"></i></a>

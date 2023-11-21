@@ -114,15 +114,16 @@
         <?php
             if (is_array($thongtin)) {
                 extract($thongtin);
-                echo '<h1>Account information</h1>
-            <p>Account name: ' . $taikhoan . '</p>
-            <p>Name Password: ' . $matkhau . '</p>
+                echo '<h1>Thông tin tài khoản</h1>
+            <p>Tên tài khoản: ' . $taikhoan . '</p>
+            <p>Tên Mật khẩu: ' . $matkhau . '</p>
             <p>Email: ' . $email . '</p>';
             } else {
                 echo 'Dữ liệu không hợp lệ.';
             }
         ?>
-        <button  onclick="window.location.href='index.php?aht=dndk'">Back to Login</button>
+        <button  onclick="window.location.href='index.php?aht=dndk'">
+            Quay lại đăng nhập</button>
     </div>
 </div>
 

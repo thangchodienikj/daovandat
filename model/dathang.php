@@ -4,9 +4,9 @@ function  donhang($name,$diachi,$email,$sdt,$ghichu,$ngaydathang,$ptvc,$pttt){
     values ('$name','$diachi','$email','$sdt','$ghichu','$ngaydathang','$ptvc','$pttt')";
     return pdo_execute_return_last($sql);
 }
-function donmua($idtk,$tensach,$mau,$size,$soluong,$giaca,$tongtien,$id_don_hang){
-    $sql = "insert into don_mua(idtk,tensach,mau,size,soluong,giaca,tongtien,id_don_mua) 
-    values ('$idtk','$tensach','$mau','$size','$soluong','$giaca','$tongtien','$id_don_hang')";
+function donmua($idtk,$img,$tensach,$mau,$size,$soluong,$giaca,$tongtien,$id_don_hang){
+    $sql = "insert into don_mua(idtk,img,tensach,mau,size,soluong,giaca,tongtien,id_don_mua) 
+    values ('$idtk','$img','$tensach','$mau','$size','$soluong','$giaca','$tongtien','$id_don_hang')";
     return pdo_execute($sql);
 }
 
