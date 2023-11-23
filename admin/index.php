@@ -110,6 +110,7 @@ if (isset($_SESSION['userxuong'])) {
                     }
                     insert_product($ten_sach, $hinh_anh, $mo_ta, $gia_ca, $id_danh_muc);
                     $thongbao3 = "Thêm sản phẩm mới thành công";
+                    echo '<script> window.location.href = "index.php?act=addsp" </script>';
                 }
                 $listdanhmuc = loadAll_danhmuc();
                 include("sach/add.php");
@@ -244,6 +245,7 @@ if (isset($_SESSION['userxuong'])) {
                     $id = $_POST['id'];
                     $tinhtrang = $_POST['tinhtrang'];
                     capnhat($id, $tinhtrang);
+                    echo '<script> window.location.href = "index.php?act=donhang" </script>';
                 }
                 include("donhang/donhang.php");
                 break;
