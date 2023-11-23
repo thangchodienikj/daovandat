@@ -18,7 +18,6 @@ function update($ten_sach, $selected_color, $selected_size, $mo_ta, $gia_ca, $hi
 
 function update_giohang($idsp,$idtk,$ten_sach, $selected_color, $selected_size, $mo_ta, $gia_ca, $hinhload, $so_luong){
    $product= pdo_query_one("SELECT * FROM giohang WHERE ten_sach = '$ten_sach' AND mau = '$selected_color' AND sizesp = '$selected_size'");
-
    if($product){
        $so_luong_moi=$so_luong+$product['so_luong'];
        $thanh_tien_moi=$so_luong_moi*$gia_ca;

@@ -152,7 +152,6 @@ if (isset($_GET['aht'])){
             case 'tkcuatoi' :
                 include("giaodien/header1.php");
                 include("tkcuatoi.php");
-
                 break;
             case 'dangxuat' :
                 if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
@@ -286,16 +285,20 @@ if (isset($_GET['aht'])){
                     $sdt = $_POST['sdt'];
                     $ghichu = $_POST['ghichu'];
                     $ptvc = $_POST['phuong_thuc_vanchuyen'];
-                    $pttt = $_POST['phuong_thuc_thanhtoan'];
                     $ngaydathang = date('H:i:s d/m/Y');
-                    $id_don_hang = donhang($name, $diachi, $email, $sdt, $ghichu, $ngaydathang , $ptvc, $pttt);
-                    if (isset($_SESSION['userxuong'])){
-                        extract($_SESSION['userxuong']);
-                        $listgh = loadall_giohang($_SESSION['userxuong']['id']);
-                        foreach ($listgh as $gh) {
-                            donmua($gh['idtk'],$gh['hinh_anh'],$gh['ten_sach'],$gh['mau'],$gh['sizesp'], $gh['so_luong'], $gh['gia_ca'], $gh['thanhtien'], $id_don_hang);
+                    $pttt = $_POST['phuong_thuc_thanhtoan'];
+                    if ($pttt == "momo"){
+                            echo '<script> window.location.href = "init_payment_momo.php" </script>';
+                    }else{
+                        $id_don_hang = donhang($name, $diachi, $email, $sdt, $ghichu, $ngaydathang, $ptvc, $pttt);
+                        if (isset($_SESSION['userxuong'])) {
+                            extract($_SESSION['userxuong']);
+                            $listgh = loadall_giohang($_SESSION['userxuong']['id']);
+                            foreach ($listgh as $gh) {
+                                donmua($gh['idtk'], $gh['hinh_anh'], $gh['ten_sach'], $gh['mau'], $gh['sizesp'], $gh['so_luong'], $gh['gia_ca'], $gh['thanhtien'], $id_don_hang);
+                            }
+                            xoagh($_SESSION['userxuong']['id']);
                         }
-                        xoagh($_SESSION['userxuong']['id']);
                     }
                 }
                 include("giaodien/header1.php");
