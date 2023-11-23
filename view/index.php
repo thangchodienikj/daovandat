@@ -286,9 +286,9 @@ if (isset($_GET['aht'])){
                     $ghichu = $_POST['ghichu'];
                     $ptvc = $_POST['phuong_thuc_vanchuyen'];
                     $ngaydathang = date('H:i:s d/m/Y');
-                    $pttt = $_POST['phuong_thuc_thanhtoan'];
+                    $pttt = $_POST['redirect'];
                     if ($pttt == "momo"){
-                            echo '<script> window.location.href = "init_payment_momo.php" </script>';
+                            echo '<script> window.location.href = "init_payment_vnpay.php" </script>';
                     }else{
                         $id_don_hang = donhang($name, $diachi, $email, $sdt, $ghichu, $ngaydathang, $ptvc, $pttt);
                         if (isset($_SESSION['userxuong'])) {

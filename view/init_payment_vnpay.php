@@ -1,15 +1,15 @@
 <?php
 
 $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-$vnp_Returnurl = "https://localhost/duan1_new/daovandat/index.php?act=checkout";
+$vnp_Returnurl = "http://localhost/duan1_new/daovandat/view/index.php?act=checkout";
 $vnp_TmnCode = "X5J5PKUF";//Mã website tại VNPAY
 $vnp_HashSecret = "KPEGZTROJZCYKBRENSZJNBGMTIYMABBI"; //Chuỗi bí mật
 
 $vnp_TxnRef = rand(0,10000); //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
 $vnp_OrderInfo = 'Thanh toán đơn hàng';
-$vnp_OrderType = 'billpayment';
-$vnp_Amount = 10000 * 100;
-$vnp_Locale = 'vn';
+$vnp_OrderType = 'BarBer Shop';
+$vnp_Amount = 200000 * 100;
+$vnp_Locale = 'VN';
 $vnp_BankCode = 'NCB';
 $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
 //Add Params of 2.0.1 Version
@@ -97,10 +97,7 @@ if (isset($vnp_HashSecret)) {
 $returnData = array('code' => '00'
 , 'message' => 'success'
 , 'data' => $vnp_Url);
-if (isset($_POST['phuong-thuc-thanh-toan'])) {
+
     header('Location: ' . $vnp_Url);
     die();
-} else {
-    echo json_encode($returnData);
-}
 // vui lòng tham khảo thêm tại code demo

@@ -118,15 +118,12 @@
                                 <div class="accordion-summary" id="accordion-payment">
                                     <div class="card">
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" name="phuong_thuc_thanhtoan" class="custom-control-input" value="Chuyển khoản trực tiếp" id="nhanh" >
-
-                                            <input type="radio" name="phuong_thuc_thanhtoan" class="custom-control-input" value="momo" id="nhanh" >
-
+                                            <input type="radio" name="redirect" class="custom-control-input" value="momo" id="nhanh" >
                                             <label class="custom-control-label" for="nhanh">
                                                 Mo mo</label>
                                         </div><!-- End .custom-control -->
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" name="phuong_thuc_thanhtoan" class="custom-control-input" value="Thanh toán khi nhận hàng" id="cham">
+                                            <input type="radio" name="redirect" class="custom-control-input" value="Thanh toán khi nhận hàng" id="cham">
                                             <label class="custom-control-label" for="cham">
                                                 Thanh toán khi nhận hàng </label>
                                         </div><!-- End .custom-control -->
