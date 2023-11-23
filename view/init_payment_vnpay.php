@@ -97,7 +97,7 @@ if (isset($vnp_HashSecret)) {
 $returnData = array('code' => '00'
 , 'message' => 'success'
 , 'data' => $vnp_Url);
-if (isset($_POST['redirect'])) {
+if (isset($_POST['phuong-thuc-thanh-toan'])) {
     header('Location: ' . $vnp_Url);
     die();
 } else {
