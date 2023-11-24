@@ -120,7 +120,7 @@
                                         <div class="custom-control custom-radio">
                                             <input type="radio" name="redirect" class="custom-control-input" value="momo" id="nhanh" >
                                             <label class="custom-control-label" for="nhanh">
-                                                Mo mo</label>
+                                                VnPay</label>
                                         </div><!-- End .custom-control -->
                                         <div class="custom-control custom-radio">
                                             <input type="radio" name="redirect" class="custom-control-input" value="Thanh toán khi nhận hàng" id="cham">

@@ -68,6 +68,9 @@
                                             case "3" :
                                                 echo "Giao thành công";
                                                 break;
+                                            case "4" :
+                                                echo "Đơn đã hủy";
+                                                break;
                                             default:
                                                 break;
                                         } ?>

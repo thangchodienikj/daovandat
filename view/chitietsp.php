@@ -94,6 +94,9 @@
                             </div><!-- End .details-filter-row -->
                              <div class="details-filter-row details-row-size">
                                     <input type="hidden"  name="idsp" value="'.$ProductID.'">
+                                    ';
+                                    if (isset($_SESSION['userxuong'])){
+                                    echo'
                                     <input type="hidden"  name="idtk" value="'.$_SESSION['userxuong']['id'].'">
                                     <input type="hidden"  name="name" value="'.$ProductName.'">
                                     <input type="hidden" name="giaca" value="'.$price.'">
@@ -108,6 +111,18 @@
                                 </div><!-- End .details-action-wrapper -->
                             </div><!-- Kết thúc .product-details-action -->
                                 </form>
+                                ';
+                                    }else{
+                                        echo ' 
+                            <div class="product-details-action">
+                                <input type="submit" class="btn btn-cart btn-outline-primary" value="Thêm vào giỏ hàng" name="giohang" style="line-height: 10px;border: 1px solid #3399ff; font-size: 14px; font-family: inherit;">
+                                <div class="details-action-wrapper">
+                                    <a href="index.php?act=spyeuthich" class="btn-product btn-wishlist" title="Wishlist"><span>Yêu thích</span></a>
+                                </div><!-- End .details-action-wrapper -->
+                            </div><!-- Kết thúc .product-details-action -->
+                                </form>';
+                                    }
+                              echo'
                                 <form action="index.php?act=binhluan&idpro='.$id_pro.'" method="post">
                             </div><!-- End .product-details-action -->
                             <div class="product-details-footer">
@@ -144,13 +159,14 @@
                             Bình luận </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="product-info-link" data-toggle="tab" href="#product-info-tab" role="tab" aria-controls="product-info-tab" aria-selected="false">Additional information</a>
+                        <a class="nav-link" id="product-info-link" data-toggle="tab" href="#product-info-tab" role="tab" aria-controls="product-info-tab" aria-selected="false">Thông tin thêm</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="product-shipping-link" data-toggle="tab" href="#product-shipping-tab" role="tab" aria-controls="product-shipping-tab" aria-selected="false">Shipping & Returns</a>
+                        <a class="nav-link" id="product-shipping-link" data-toggle="tab" href="#product-shipping-tab" role="tab" aria-controls="product-shipping-tab" aria-selected="false">
+                            Vận chuyển & Trả hàng</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="product-review-link" data-toggle="tab" href="#product-review-tab" role="tab" aria-controls="product-review-tab" aria-selected="false">Description</a>
+                        <a class="nav-link" id="product-review-link" data-toggle="tab" href="#product-review-tab" role="tab" aria-controls="product-review-tab" aria-selected="false">Sự miêu tả</a>
                     </li>
                 </ul>
                 <style>
@@ -232,7 +248,12 @@
                                         <input id="comment-text" name="binhluan" class="form-control" required>
                                     </div>
                                     <div class="form-group col-0">
-                                        <input type="submit" class="btn btn-primary" value="Đăng một bình luận" name="gui">
+                                        <?php if (isset($_SESSION['userxuong'])){
+                                            extract($_SESSION['userxuong']);
+                                            echo '<input type="submit" class="btn btn-primary" value="Đăng một bình luận" name="gui">';
+                                        }else{
+                                            echo '<input type="submit" class="btn btn-primary disabled" value="Đăng một bình luận" name="gui">';
+                                        } ?>
                                     </div>
                                 </div>
                                 </form>
@@ -242,29 +263,30 @@
                     </div><!-- .End .tab-pane -->
                     <div class="tab-pane fade" id="product-info-tab" role="tabpanel" aria-labelledby="product-info-link">
                         <div class="product-desc-content">
-                            <h3>Information</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. </p>
+                            <h3>Thông tin</h3>
+                            <p>Sản phẩm với thiết kế mới phụ hợp với cả nam và nữ, mang lại cảm nhác mới là và thích thú cho cách phối đồ chuẩn hàn quốc</p>
 
-                            <h3>Fabric & care</h3>
+                            <h3>Chất liệu & chăm sóc</h3>
                             <ul>
-                                <li>Faux suede fabric</li>
-                                <li>Gold tone metal hoop handles.</li>
-                                <li>RI branding</li>
-                                <li>Snake print trim interior </li>
-                                <li>Adjustable cross body strap</li>
-                                <li> Height: 31cm; Width: 32cm; Depth: 12cm; Handle Drop: 61cm</li>
+                                <li>Vải faux suede</li>
+                                <li>Tay nắm kim loại màu vàng</li>
+                                <li>Thương hiệu RI</li>
+                                <li>Lớp lót in họa tiết da rắn bên trong</li>
+                                <li>Dây đeo chéo có thể điều chỉnh</li>
+                                <li>Chiều cao: 31cm; Chiều rộng: 32cm; Độ sâu: 12cm; Chiều dài tay nắm: 61cm</li>
                             </ul>
 
-                            <h3>Size</h3>
-                            <p>one size</p>
-                        </div><!-- End .product-desc-content -->
+                            <h3>Kích thước</h3>
+                            <p>size duy nhất</p>
+                        </div><!-- Kết thúc .product-desc-content -->
+
                     </div><!-- .End .tab-pane -->
                     <div class="tab-pane fade" id="product-shipping-tab" role="tabpanel" aria-labelledby="product-shipping-link">
                         <div class="product-desc-content">
-                            <h3>Delivery & returns</h3>
-                            <p>We deliver to over 100 countries around the world. For full details of the delivery options we offer, please view our <a href="#">Delivery information</a><br>
-                                We hope you’ll love every purchase, but if you ever need to return an item you can do so within a month of receipt. For full details of how to make a return, please view our <a href="#">Returns information</a></p>
-                        </div><!-- End .product-desc-content -->
+                            <h3>Giao hàng & đổi trả</h3>
+                            <p>Chúng tôi giao hàng đến hơn 100 quốc gia trên toàn thế giới. Để biết đầy đủ chi tiết về các tùy chọn giao hàng mà chúng tôi cung cấp, vui lòng xem thông tin <a href="#">Giao hàng</a><br>
+                                Chúng tôi hy vọng bạn sẽ yêu thích mỗi đơn đặt hàng, nhưng nếu bạn cần trả lại một sản phẩm, bạn có thể làm điều đó trong vòng một tháng kể từ ngày nhận hàng. Để biết đầy đủ chi tiết về cách thức đổi trả, vui lòng xem thông tin <a href="#">Đổi trả</a></p>
+                        </div><!-- Kết thúc .product-desc-content -->
                     </div><!-- .End .tab-pane -->
                     <div class="tab-pane fade" id="product-review-tab" role="tabpanel" aria-labelledby="product-review-link">
                         <div class="product-desc-content">
@@ -282,11 +304,7 @@
                     </div><!-- .End .tab-pane -->
                 </div><!-- End .tab-content -->
             </div><!-- End .product-details-tab -->
-
-            <h2 class="title text-center mb-4">
-
-                Bạn cũng có thể thích</h2><!-- End .title text-center -->
-
+            <h2 class="title text-center mb-4">Bạn cũng có thể thích</h2><!-- End .title text-center -->
             <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
                  data-owl-options='{
                             "nav": false,
@@ -313,7 +331,6 @@
                                 }
                             }
                         }'>
-
                 <?php foreach ($list8sp as $sp) {
                     extract($sp);
                     echo ' <div class="product product-7 text-center">
@@ -322,7 +339,6 @@
                         <a href="index.php?act=sanphamct&idpro=' . $sp['id'] . '">
                             <img src="' . $sp['image'] . '" alt="Product image" class="product-image">
                         </a>
-
                         <div class="product-action-vertical">
                         ';
                     if (isset($_SESSION['userxuong'])) {
@@ -336,13 +352,12 @@
 
                         <div class="product-action">
                             <a href="index.php?act=sanphamct&idpro=' . $sp['id'] . '" class="btn-product "><span>
-                                See details</span></a>
+                                Xem chi tiết</span></a>
                         </div><!-- End .product-action -->
                     </figure><!-- End .product-media -->
 
                     <div class="product-body">
                         ';
-
                     foreach ($listdm as $dm) {
                         extract($dm);
                         if ($dm['id'] == $sp['loai']) {

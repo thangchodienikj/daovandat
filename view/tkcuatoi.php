@@ -66,6 +66,8 @@
                                             Tổng tiền</th>
                                         <th scope="col" class="text-center">
                                            Trang thái</th>
+                                        <th scope="col" class="text-center">
+                                            Thao tác</th>
 
                                     </tr>
                                     </thead>
@@ -86,16 +88,33 @@
                                             case "3" :
                                                 $tt="Đã giao hàng";
                                                 break;
+                                            case "4" :
+                                                $tt="Hủy đơn hàng";
+                                                break;
                                             default:
                                                 break;
                                         }
                                         $hinhanh = '<img src="'.$img.'" alt="Mô tả hình ảnh">';
                                         echo ' <tr>
-                                        <td class="text-center" style="width: 100px;height: 100px">'.$hinhanh.'</td>
+                                        <td class="text-center" style="width: 100px;height: 100px"><a href="index.php?act=sanphamct&idpro='.$id.'">'.$hinhanh.'</a></td>
                                         <td colspan="2" class="text-center" >'.$tensach.' x'.$soluong.'</td>
                                         <td class="text-center">'.$giaca.'</td>
                                         <td class="text-center">'.$tongtien.'</td>
                                         <td class="text-center">'.$tt.'</td>
+                                        <td class="col-md-1 text-center">
+                                             ';
+                                            if ( $cart['tinhtrangdh'] == 0){
+                                                echo'   <a href="index.php?act=tinhtrang&id='.$id.'&tinhtrang=4" class="btn btn-danger btn-block">Hủy đơn</a>';
+                                            }else {
+                                                echo '<a href="index.php?act=tinhtrang&id='.$id.'&tinhtrang=4" class="btn btn-primary btn-block disabled" >Hủy đơn</a>';
+                                            }
+                                            if ( $cart['tinhtrangdh'] == 2){
+                                                echo'   <a href="index.php?act=tinhtrang&id=' . $id . '&tinhtrang=3" class="btn btn-danger btn-block ">Đã nhận</a>';
+                                            }else {
+                                                echo '<a href="index.php?act=tinhtrang&id=' . $id . '&tinhtrang=3" class="btn btn-primary btn-block disabled">Đã nhận</a>';
+                                            }
+                                            echo'
+                                        </td>
                                      
                                     </tr>';
                                     } ?>
@@ -104,7 +123,7 @@
                                     </tbody>
                                 </table>
                             <div class="col-md-8 col-lg-3">
-                                <a href="index.php?act=tinhtrang" class="btn btn-primary btn-block">
+                                <a href="index.php?act=chitiet" class="btn btn-primary btn-block">
                                     Xem chi tiết đơn hàng</a>
                             </div>
                             </div><!-- .End .tab-pane -->

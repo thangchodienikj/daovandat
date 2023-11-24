@@ -91,7 +91,7 @@
                                         </div><!-- End .product-action-vertical -->
 
                                         <div class="product-action">
-                                            <a href="#" class="btn-product "><span>See details</span></a>
+                                            <a href="#" class="btn-product "><span>Xem chi tiết</span></a>
                                         </div><!-- End .product-action -->
                                     </figure><!-- End .product-media -->
 

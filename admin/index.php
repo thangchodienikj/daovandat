@@ -115,6 +115,15 @@ if (isset($_SESSION['userxuong'])) {
                 $listdanhmuc = loadAll_danhmuc();
                 include("sach/add.php");
                 break;
+            case 'add1':
+                include("sach/add1.php");
+                break;
+            case 'add2':
+                include("sach/add2.php");
+                break;
+            case 'add3':
+                include("sach/add3.php");
+                break;
             case 'listsp':
                 if (isset($_POST['listok']) && $_POST['listok']) {
                     $kyw = $_POST['kyw'];
@@ -178,7 +187,7 @@ if (isset($_SESSION['userxuong'])) {
                     mau($mau);
                     $thongbao2 = "Thêm màu thành công";
                 }
-                include("sach/add.php");
+                include("sach/add1.php");
                 break;
             case 'size':
                 if (isset($_POST['gui'])) {
@@ -186,7 +195,7 @@ if (isset($_SESSION['userxuong'])) {
                     size($size);
                     $thongbao1 = "Thêm size thành công";
                 }
-                include("sach/add.php");
+                include("sach/add1.php");
                 break;
             case 'anh':
                 if (isset($_POST['gui'])) {
@@ -208,7 +217,7 @@ if (isset($_SESSION['userxuong'])) {
                     anh($id, $anh);
                     $thongbao4 = "Thêm ảnh phụ thành công";
                 }
-                include("sach/add.php");
+                include("sach/add2.php");
                 break;
             case 'spbt':
                 if (isset($_POST['gui'])) {
@@ -219,7 +228,7 @@ if (isset($_SESSION['userxuong'])) {
                     spbt($id, $id1, $id2, $soluong);
                     $thongbao5 = "Thêm sản phẩm biến thể thành công";
                 }
-                include("sach/add.php");
+                include("sach/add3.php");
                 break;
             case 'khachhang':
                 $listkhachhang = khachhang();
@@ -248,6 +257,12 @@ if (isset($_SESSION['userxuong'])) {
                     echo '<script> window.location.href = "index.php?act=donhang" </script>';
                 }
                 include("donhang/donhang.php");
+                break;
+            case 'dangxuat' :
+                if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
+                    session_unset();
+                    echo '<script> window.location.href = "../view" </script>';
+                }
                 break;
             default:
         }

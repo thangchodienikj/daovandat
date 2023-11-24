@@ -23,16 +23,19 @@
             // Kiểm tra nếu người dùng đã đăng nhập
             if (isset($_SESSION['userxuong'])) {
                 extract($_SESSION['userxuong']);
-                // Hiển thị nút "Tôi" và liên kết đến trang cá nhâns
-                echo '<li><a href="index.php?act=tkcuatoi"><svg xmlns="http://www.w3.org/2000/svg"  width="19" height="19" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-</svg>  
-<p style="margin-left: 5px;margin-top: 4px">'.$name.'</p></a></li>';
+                if ($role == '1') {
+                    echo '<script> window.location.href = "../admin" </script>';
+                }else{
+                    echo '<li><a href="index.php?act=tkcuatoi"><svg xmlns="http://www.w3.org/2000/svg"  width="19" height="19" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                      <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                    </svg>  
+                    <p style="margin-left: 5px;margin-top: 4px">' . $name . '</p></a></li>';
+                }
             } else {
-                // Hiển thị nút "Đăng nhập / Đăng ký"
+
                 echo '<li><a href="index.php?aht=dndk">
-Đăng nhập / Đăng ký</a></li>';
+                        Đăng nhập / Đăng ký</a></li>';
             }
             ?>
         </ul>
@@ -153,7 +156,7 @@
                         foreach ($listdm as $sp) {
                             extract($sp);
                             echo '<ul class="menu-vertical sf-arrows">
-                                    <li><a href="index.php?act=danhmuc&&id='.$id.'">'.$ten_danh_muc.'</a></li>
+                                    <li><a href="index.php?act=danhmuc&&idpro='.$id.'">'.$ten_danh_muc.'</a></li>
                                 </ul><!-- End .menu-vertical -->';
                         }
                         ?>

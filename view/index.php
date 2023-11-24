@@ -55,10 +55,6 @@ if (isset($_GET['aht'])){
                 include("giaodien/header1.php");
                 include ("sanpham.php");
                 break;
-            case 'checkout':
-                include("giaodien/header1.php");
-                include "checkout.php";
-                break;
             case 'thanhtoan' :
                 if (isset($_SESSION['userxuong'])){
                     extract($_SESSION['userxuong']);
@@ -72,16 +68,12 @@ if (isset($_GET['aht'])){
                 }
                 break;
             case 'sanphamct' :
-                if(isset($_SESSION['userxuong'])){
                     if (isset($_GET['idpro'])) {
                         $loadsp = loadone_sanpham($_GET['idpro']);
                     }
                     include("giaodien/header1.php");
                     $binhluan=binhluan($_GET['idpro']);
                     include ("chitietsp.php");
-                }else{
-                    header('Location:index.php?aht=dndk');
-                }
                 break;
             case 'binhluan':
                 if (isset($_POST['gui']) && $_POST['gui']) {
@@ -207,16 +199,12 @@ if (isset($_GET['aht'])){
                 include("sanpham.php");
                 break;
             case 'danhmuc':
-                if (isset($_SESSION['userxuong'])) {
                     if (isset($_GET['idpro'])) {
                         $listdm = loadAll_danhmuc();
                         $listsp = loadall_sanpham($_GET['idpro']);
                     }
                     include("giaodien/header1.php");
                     include("sanpham.php");
-                }else{
-                    header("location:index.php?aht=dndk");
-                }
                 break;
             case 'xoaspgh':
                 if (isset($_GET['id']) && $_GET['id']) {
@@ -304,7 +292,17 @@ if (isset($_GET['aht'])){
                 include("giaodien/header1.php");
                 include ("checkout.php");
                 break;
+            case 'chitiet':
+                include("giaodien/header1.php");
+                include ("donhang/chitietdonhang.php");
+                break;
             case 'tinhtrang':
+                if (isset($_GET['tinhtrang'])) {
+                    $id = $_GET['id'];
+                    $tinhtrang = $_GET['tinhtrang'];
+                    capnhat($id, $tinhtrang);
+                    header("location:index.php?act=tkcuatoi");
+                }
                 include("giaodien/header1.php");
                 include ("donhang/chitietdonhang.php");
                 break;

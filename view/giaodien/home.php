@@ -26,19 +26,10 @@
                                             $234<sup>000</sup>
                                         </span>
                             </div><!-- End .intro-price -->
-
-                            <?php   if (isset($_SESSION['userxuong'])) {
-                                echo '<a href="index.php?act=danhmuc" class="btn btn-primary btn-round">
-                                <span>Mua ngay</span>
-                                <i class="icon-long-arrow-right"></i>
-                            </a>';
-                            }else{
-                                echo '<a href="index.php?aht=dndk" class="btn btn-primary btn-round">
+                           <a href="index.php?act=danhmuc" class="btn btn-primary btn-round">
                                 <span>Mua ngay</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>
-                                ';
-                            } ?>
                         </div><!-- End .col-lg-11 offset-lg-1 -->
                     </div><!-- End .row -->
                 </div><!-- End .intro-content -->
@@ -60,18 +51,10 @@
                                         </span>
                             </div><!-- End .intro-price -->
 
-                            <?php   if (isset($_SESSION['userxuong'])) {
-                                echo '<a href="index.php?act=danhmuc" class="btn btn-primary btn-round">
-                                <span>Mua ngay</span>
-                                <i class="icon-long-arrow-right"></i>
-                            </a>';
-                            }else{
-                                echo '<a href="index.php?aht=dndk" class="btn btn-primary btn-round">
+                            <a href="index.php?act=danhmuc" class="btn btn-primary btn-round">
                                 <span>Mua ngay</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>
-                                ';
-                            } ?>
                         </div><!-- End .col-lg-11 offset-lg-1 -->
                     </div><!-- End .row -->
                 </div><!-- End .intro-content -->
@@ -92,18 +75,10 @@
                                         </span>
                             </div><!-- End .intro-price -->
 
-                            <?php   if (isset($_SESSION['userxuong'])) {
-                                echo '<a href="index.php?act=danhmuc" class="btn btn-primary btn-round">
-                                <span>Mua ngay</span>
-                                <i class="icon-long-arrow-right"></i>
-                            </a>';
-                            }else{
-                                echo '<a href="index.php?aht=dndk" class="btn btn-primary btn-round">
+                            <a href="index.php?act=danhmuc" class="btn btn-primary btn-round">
                                 <span>Mua ngay</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>
-                                ';
-                            } ?>
                         </div><!-- End .col-lg-11 offset-lg-1 -->
                     </div><!-- End .row -->
                 </div><!-- End .intro-content -->
@@ -124,18 +99,10 @@
                                         </span>
                             </div><!-- End .intro-price -->
 
-                            <?php   if (isset($_SESSION['userxuong'])) {
-                                echo '<a href="index.php?act=danhmuc" class="btn btn-primary btn-round">
-                                <span>Mua ngay</span>
-                                <i class="icon-long-arrow-right"></i>
-                            </a>';
-                            }else{
-                                echo '<a href="index.php?aht=dndk" class="btn btn-primary btn-round">
+                            <a href="index.php?act=danhmuc" class="btn btn-primary btn-round">
                                 <span>Mua ngay</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>
-                                ';
-                            } ?>
                         </div><!-- End .col-lg-11 offset-lg-1 -->
                     </div><!-- End .row -->
                 </div><!-- End .intro-content -->
@@ -181,8 +148,7 @@
                     </a>
 
                     <div class="banner-content">
-                        <h4 class="banner-subtitle"><a href="#">
-Ưu đãi thông minh</a></h4><!-- End .banner-subtitle -->
+                        <h4 class="banner-subtitle"><a href="#">Ưu đãi thông minh</a></h4><!-- End .banner-subtitle -->
                         <h3 class="banner-title"><a href="">Giá '.$price.' $ <br> <strong>'.$name.'</strong></a></h3><!-- End .banner-title -->
                         <a href="index.php?act=sanphamct&idpro='.$id.'" class="banner-link">Mua ngay<i class="icon-long-arrow-right"></i></a>
                     </div><!-- End .banner-content -->
@@ -193,9 +159,6 @@
     </div><!-- End .container -->
 
     <div class="mb-3"></div><!-- End .mb-5 -->
-
-
-
     <div class="mb-6"></div><!-- End .mb-6 -->
 
     <div class="container">
@@ -210,19 +173,10 @@
                                     Tuyệt vời được thực hiện dễ dàng.
                                     Lại là áo hoodie</strong></p>
                         </div><!-- End .cta-text -->
-                        <?php   if (isset($_SESSION['userxuong'])) {
-                            echo '<a href="index.php?act=danhmuc" class="btn btn-primary btn-round">
-                                <span>Mua ngay - $329</span>
-                                <i class="icon-long-arrow-right"></i>
-                            </a>';
-                        }else{
-                            echo '<a href="index.php?aht=dndk" class="btn btn-primary btn-round">
+                       <a href="index.php?act=danhmuc" class="btn btn-primary btn-round">
                                 <span>Mua ngay - $329</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>
-                                ';
-                        } ?>
-
                     </div><!-- End .cta-content -->
                 </div><!-- End .col-md-12 -->
             </div><!-- End .row -->
@@ -250,18 +204,10 @@
                             <span class="new-price">$129.00</span>
                             <span class="old-price">đã từng là $150.99</span>
                         </div><!-- End .product-price -->
-                        <?php   if (isset($_SESSION['userxuong'])) {
-                            echo '<a href="index.php?act=danhmuc" class="btn btn-link">
-                                <span>Mua sắm nhiều hơn</span>
-                                <i class="icon-long-arrow-right"></i>
-                            </a>';
-                        }else{
-                            echo '<a href="index.php?aht=dndk" class="btn btn-link">
+                        <a href="index.php?act=danhmuc" class="btn btn-link">
                                 <span>Mua sắm nhiều hơn</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>
-                                ';
-                        } ?>
                     </div><!-- End .deal-content -->
 
                     <div class="deal-bottom">
@@ -283,18 +229,10 @@
                         <div class="product-price">
                             <span class="new-price">$29.99</span>
                         </div><!-- End .product-price -->
-                        <?php   if (isset($_SESSION['userxuong'])) {
-                            echo '<a href="index.php?act=danhmuc" class="btn btn-link">
-                                <span>>Đăng nhập và tiết kiệm tiền</span>
-                                <i class="icon-long-arrow-right"></i>
-                            </a>';
-                        }else{
-                            echo '<a href="index.php?aht=dndk" class="btn btn-link">
+                       <a href="index.php?act=danhmuc" class="btn btn-link">
                                 <span>>Đăng nhập và tiết kiệm tiền</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>
-                                ';
-                        } ?>
                     </div><!-- End .deal-content -->
 
                     <div class="deal-bottom">
@@ -376,7 +314,7 @@
 
         <div class="products">
             <div class="row ">
-                <?php foreach ($listsp as $sp) {
+                <?php foreach ($list8sp as $sp) {
                     extract($sp);
                         echo ' <div class="col-6 col-md-4 col-lg-3">
                     <div class="product product-2">
@@ -398,7 +336,7 @@
                             </div><!-- End .product-action -->
 
                             <div class="product-action">
-                                <a href="index.php?aht=dndk" class="btn-product" ><span>See details</span></a>
+                                <a href="index.php?aht=dndk" class="btn-product" ><span>Xem chi tiết</span></a>
                             </div><!-- End .product-action -->
                         </figure><!-- End .product-media -->
                          <div class="product-body">

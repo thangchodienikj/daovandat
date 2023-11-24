@@ -108,7 +108,7 @@ LEFT JOIN
     productpro_image AS ip ON sp.id = ip.idpro
 GROUP BY 
     sp.id
- LIMIT 8
+ LIMIT 12
 ";
     $listsp = pdo_query($sql);
     return $listsp ;
