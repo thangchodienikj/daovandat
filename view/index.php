@@ -70,7 +70,6 @@ if (isset($_GET['aht'])){
             case 'sanphamct' :
                     if (isset($_GET['idpro'])) {
                         $loadsp = loadone_sanpham($_GET['idpro']);
-                        $soluong = soluongsp($_GET['idpro']);
                     }
                     include("giaodien/header1.php");
                     $binhluan=binhluan($_GET['idpro']);
