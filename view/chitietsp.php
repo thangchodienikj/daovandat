@@ -62,7 +62,7 @@
                                 ';
                                     $array = explode(',', $colorList);
                                         foreach ($array as $color) {
-                                            echo '<a href="javascript:void(0);" class="color-option" onclick="updateSelectedColor(\'' . $color . '\')"  style="width: 80px; height: 30px; text-align: center; display: inline-block; line-height: 27px; color: #747774;">
+                                            echo '<a href="javascript:void(0);" class="color-option" onclick="updateSelectedColor(\'' . $color . '\')"  style="width: 80px; height: 30px; text-align: center; display: inline-block; line-height: 27px; color: #747774;background-color: #eaeaea;">
                                             ' . $color . '
                                       </a>';
                                     }
@@ -77,14 +77,14 @@
 
                                     $array = explode(',', $sizeList);
                                     foreach ($array as $size){
-                                        echo '<a href="javascript:void(0);" class="size-option" onclick="updateSelectedSize(\'' . $size . '\')" style="width: 80px; height: 30px; text-align: center; display: inline-block; line-height: 29px; color: #747774">
+                                        echo '<a href="javascript:void(0);" class="size-option" onclick="updateSelectedSize(\'' . $size . '\')" style="width: 80px; height: 30px; text-align: center; display: inline-block; line-height: 29px; color: #747774 ;background-color: #eaeaea">
                                                 ' . $size . '
                                               </a>';
                                     }
                                 echo'
                                 </div><!-- End .select-custom -->
                             </div><!-- End .details-filter-row -->
-
+    
                             <div class="details-filter-row details-row-size">
                                 <label for="qty">Số lượng:</label>
                                 <form action="index.php?act=gh" method="post">
@@ -109,22 +109,24 @@
                                 <div class="details-action-wrapper">
                                     <a href="index.php?act=spyeuthich&id=' . $ProductID . '&idtk=' . $_SESSION['userxuong']['id'] . '&img=' . $img . '&name=' . $sp['name'] . '&price=' . $price . '" class="btn-product btn-wishlist" title="Wishlist"><span>Yêu thích</span></a>
                                 </div><!-- End .details-action-wrapper -->
-                            </div><!-- Kết thúc .product-details-action -->
+                            </div><!-- Kết thúc .product-details-action --> 
                                 </form>
                                 ';
                                     }else{
                                         echo ' 
-                            <div class="product-details-action">
-                                <input type="submit" class="btn btn-cart btn-outline-primary" value="Thêm vào giỏ hàng" name="giohang" style="line-height: 10px;border: 1px solid #3399ff; font-size: 14px; font-family: inherit;">
-                                <div class="details-action-wrapper">
-                                    <a href="index.php?act=spyeuthich" class="btn-product btn-wishlist" title="Wishlist"><span>Yêu thích</span></a>
-                                </div><!-- End .details-action-wrapper -->
-                            </div><!-- Kết thúc .product-details-action -->
+                                <div class="product-details-action">
+                                    <input type="submit" class="btn btn-cart btn-outline-primary" value="Thêm vào giỏ hàng" name="giohang" style="line-height: 10px;border: 1px solid #3399ff; font-size: 14px; font-family: inherit;">
+                                    <div class="details-action-wrapper">
+                                        <a href="index.php?act=spyeuthich" class="btn-product btn-wishlist" title="Wishlist"><span>Yêu thích</span></a>
+                                    </div><!-- End .details-action-wrapper -->
+                                </div><!-- Kết thúc .product-details-action -->
                                 </form>';
                                     }
                               echo'
                                 <form action="index.php?act=binhluan&idpro='.$id_pro.'" method="post">
-                            </div><!-- End .product-details-action -->
+                            </div><!-- End .product-details-action -->       
+                                             
+                        
                             <div class="product-details-footer">
                              <span>Màu sắc : </span> 
                                 <div class="product-cat">
@@ -344,10 +346,11 @@
                     if (isset($_SESSION['userxuong'])) {
                         extract($_SESSION['userxuong']);
                         echo '
-                           <a  href="index.php?act=spyeuthich&id=' . $sp['id'] . '&idtk=' . $_SESSION['userxuong']['id'] . '&img=' . $sp['image'] . '&name=' . $sp['name'] . '&price=' . $sp['gia'] . '" class="btn-product-icon btn-wishlist btn-expandable"><span>Favourite</span></a>
+                           <a  href="index.php?act=spyeuthich&id=' . $sp['id'] . '&idtk=' . $_SESSION['userxuong']['id'] . '&img=' . $sp['image'] . '&name=' . $sp['name'] . '&price=' . $sp['gia'] . '" class="btn-product-icon btn-wishlist btn-expandable"><span>Yêu thích</span></a>
                            ';
                     }
                     echo'
+
                         </div><!-- End .product-action-vertical -->
 
                         <div class="product-action">

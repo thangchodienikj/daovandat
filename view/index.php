@@ -70,6 +70,7 @@ if (isset($_GET['aht'])){
             case 'sanphamct' :
                     if (isset($_GET['idpro'])) {
                         $loadsp = loadone_sanpham($_GET['idpro']);
+                        $soluong = soluongsp($_GET['idpro']);
                     }
                     include("giaodien/header1.php");
                     $binhluan=binhluan($_GET['idpro']);
@@ -283,7 +284,7 @@ if (isset($_GET['aht'])){
                             extract($_SESSION['userxuong']);
                             $listgh = loadall_giohang($_SESSION['userxuong']['id']);
                             foreach ($listgh as $gh) {
-                                donmua($gh['idtk'], $gh['hinh_anh'], $gh['ten_sach'], $gh['mau'], $gh['sizesp'], $gh['so_luong'], $gh['gia_ca'], $gh['thanhtien'], $id_don_hang);
+                                donmua($gh['idtk'],$gh['idsp'], $gh['hinh_anh'], $gh['ten_sach'], $gh['mau'], $gh['sizesp'], $gh['so_luong'], $gh['gia_ca'], $gh['thanhtien'], $id_don_hang);
                             }
                             xoagh($_SESSION['userxuong']['id']);
                         }
