@@ -70,7 +70,6 @@
                                                 break;
                                             case "4" :
                                                 echo "Đơn đã hủy";
-                                                break;
                                             default:
                                                 break;
                                         } ?>
@@ -80,7 +79,7 @@
                                                 <option value="0">Chờ xác nhận</option>
                                                 <option value="1">Xác nhận đơn hàng</option>
                                                 <option value="2">Đang giao hàng</option>
-                                                <option value="3">Đã giao hàng</option>
+                                                <option value="3">Giao thành công</option>
                                             </select>
                                             <input class="btn btn-primary btn-block" type="submit" name="gui" value="Cập nhật">
                                         </form>

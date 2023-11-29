@@ -89,7 +89,6 @@ if (isset($_GET['aht'])){
                 $binhluan=binhluan($_GET['idpro']);
                 include("giaodien/header1.php");
                 include ("chitietsp.php");
-                include ("binhluan1.php");
                 break;
             case 'dangky' :
                 if ($_SERVER["REQUEST_METHOD"] == "POST" ){

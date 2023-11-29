@@ -2,19 +2,16 @@
     <div class="mb-5"></div>
     <div class="box_title " style="font-size: 25px">Thống kê theo sản phẩm</div> <br>
     <div class="mb-3">
-        <form action="index.php?act=thongketg" method="post">
-            <select class="form-select" id="tg" name="tg">
+        <form action="index.php?act=thongketg" method="post" >
+            <select class="form-select" id="tg" name="tg" style="width: 200px;height: 37px">
                 <option value="0" selected>Chọn khoảng thời gian</option>
                 <option value="1">1 tuần trước</option>
                 <option value="2">1 tháng trước</option>
                 <option value="3">6 tháng trước</option>
                 <option value="4">1 năm trước</option>
             </select>
-            <input type="submit" name="gui" value="Gửi">
+            <input type="submit" name="gui" class="btn btn-primary value="Gửi">
         </form>
-    </div>
-    <div class="mb-3">
-        <a href="#">Biểu đồ</a>
     </div>
     <div class="container mt-3">
         <div class="row form_content">
