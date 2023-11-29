@@ -21,11 +21,11 @@
                     <aside class="col-md-4 col-lg-3">
                         <ul class="nav nav-dashboard flex-column mb-3 mb-md-0" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="tab-dashboard-link" data-toggle="tab" href="#tab-dashboard" role="tab" aria-controls="tab-dashboard" aria-selected="true">
+                                <a class="nav-link  " id="tab-dashboard-link" data-toggle="tab" href="#tab-dashboard" role="tab" aria-controls="tab-dashboard" aria-selected="false">
                                     Bảng điều khiển</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="tab-orders-link" data-toggle="tab" href="#tab-orders" role="tab" aria-controls="tab-orders" aria-selected="false">Đơn hàng</a>
+                            <li class="nav-item active">
+                                <a class="nav-link" id="tab-orders-link" data-toggle="tab" href="#tab-orders" role="tab" aria-controls="tab-orders" aria-selected="true">Đơn hàng</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="tab-address-link" data-toggle="tab" href="#tab-address" role="tab" aria-controls="tab-address" aria-selected="false">
@@ -46,14 +46,33 @@
 
                     <div class="col-md-8 col-lg-9">
                         <div class="tab-content">
-                            <div class="tab-pane fade show active" id="tab-dashboard" role="tabpanel" aria-labelledby="tab-dashboard-link">
+                            <div class="tab-pane fade " id="tab-dashboard" role="tabpanel" aria-labelledby="tab-dashboard-link">
                                 <p>
                                     Xin chào  <span class="font-weight-normal text-dark"><?php if (isset($_SESSION['userxuong'])){ extract($_SESSION['userxuong']); echo $name ;} ?></span>
                                     <br>Bảng điều khiển tài khoản của bạn, bạn có thể xem <a href="#tab-orders" class="tab-trigger-link link-underline">những đơn đặt hàng gần đây </a>, người quản lý của bạn<a href="#tab-address" class="tab-trigger-link">
                                     địa chỉ giao hàng và thanh toán</a>, và <a href="#tab-account" class="tab-trigger-link">Chỉnh sửa mật khẩu và chi tiết tài khoản của bạn</a>.</p>
                             </div><!-- .End .tab-pane -->
 
-                            <div class="tab-pane fade" id="tab-orders" role="tabpanel" aria-labelledby="tab-orders-link">
+                            <div class="tab-pane fade show active" id="tab-orders" role="tabpanel" aria-labelledby="tab-orders-link">
+                                <div class="d-flex justify-content-between">
+                                    <a href="index.php?act=chitiet" class="btn btn-primary">
+                                        Xem chi tiết đơn hàng
+                                    </a>
+                                    <a href="index.php?act=choxacnhan" class="btn btn-primary">
+                                        Chờ xác nhận
+                                    </a>
+                                    <a href="index.php?act=danggiao" class="btn btn-primary">
+                                        Đang giao hàng
+                                    </a>
+                                    <a href="index.php?act=giaothanhcong" class="btn btn-primary">
+                                        Giao thành công
+                                    </a>
+                                    <a href="index.php?act=donhuy" class="btn btn-primary">
+                                        Đơn hủy
+                                    </a>
+                                </div>
+
+
                                 <table class="table table-bordered">
                                     <thead>
                                     <tr><th scope="col" class="text-center" >
@@ -105,13 +124,12 @@
                                              ';
                                             if ( $cart['tinhtrangdh'] == 0){
                                                 echo'   <a href="index.php?act=tinhtrang&id='.$id.'&tinhtrang=4" class="btn btn-danger btn-block">Hủy đơn</a>';
-                                            }else {
-                                                echo '<a href="index.php?act=tinhtrang&id='.$id.'&tinhtrang=4" class="btn btn-primary btn-block disabled" >Hủy đơn</a>';
                                             }
                                             if ( $cart['tinhtrangdh'] == 2){
-                                                echo'   <a href="index.php?act=tinhtrang&id=' . $id . '&tinhtrang=3" class="btn btn-danger btn-block ">Đã nhận</a>';
-                                            }else {
-                                                echo '<a href="index.php?act=tinhtrang&id=' . $id . '&tinhtrang=3" class="btn btn-primary btn-block disabled">Đã nhận</a>';
+                                                echo'   <a href="index.php?act=tinhtrang&id=' . $id . '&tinhtrang=3" class="btn btn-primary btn-block ">Đã nhận</a>';
+                                            }
+                                            if ($cart['tinhtrangdh'] == 3){
+                                                echo'   <a href="" class="btn btn-primary btn-block ">Chi tiết</a>';
                                             }
                                             echo'
                                         </td>
@@ -122,10 +140,6 @@
                                     <!-- Các dòng khác có thể thêm tại đây và đặt lớp text-center tương tự -->
                                     </tbody>
                                 </table>
-                            <div class="col-md-8 col-lg-3">
-                                <a href="index.php?act=chitiet" class="btn btn-primary btn-block">
-                                    Xem chi tiết đơn hàng</a>
-                            </div>
                             </div><!-- .End .tab-pane -->
 
 

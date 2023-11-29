@@ -137,7 +137,14 @@ if (isset($_SESSION['userxuong'])) {
                 include "sach/list.php";
                 break;
             case 'thongkesp':
-                $thongkesp = thongke_sanpham();
+                $thongkesp = thongke_sanpham(0);
+                include("sach/thongkesanpham.php");
+                break;
+            case 'thongketg':
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $tg = $_POST["tg"];
+                    $thongkesp = thongke_sanpham($tg);
+                }
                 include("sach/thongkesanpham.php");
                 break;
             case 'xoasp':

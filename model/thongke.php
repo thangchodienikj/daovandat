@@ -20,11 +20,68 @@ function thongke(){
 
 }
 
-function thongke_sanpham(){
-    $sql = "select *,count(rv.id) as luotbinhluan from 
-             product p
-            join binhluan rv on rv.idsp = p.id ";
-
+function thongke_sanpham($tg){
+    if ($tg == 0) {
+        $sql = "SELECT p.price, p.id, p.name, p.luotxem,
+        COUNT(DISTINCT bl.id) as binhluan,
+        SUM(DISTINCT dm.soluong) as luotmua
+        FROM product as p
+        LEFT JOIN binhluan as bl ON bl.idsp = p.id
+        LEFT JOIN don_mua as dm ON p.id = dm.idsp
+        LEFT JOIN don_hang as dh ON dh.id = dm.id_don_mua
+        GROUP BY p.id, p.price, p.name, p.luotxem
+        ORDER BY luotmua DESC, luotxem DESC, binhluan DESC;
+        ";
+    } else if ($tg == 1) {
+        $sql="SELECT p.price, p.id, p.name, p.luotxem,
+        COUNT(DISTINCT bl.id) as binhluan,
+        SUM(DISTINCT dm.soluong) as luotmua
+        FROM product as p
+        LEFT JOIN binhluan as bl ON bl.idsp = p.id
+        LEFT JOIN don_mua as dm ON p.id = dm.idsp
+        LEFT JOIN don_hang as dh ON dh.id = dm.id_don_mua
+         WHERE dh.ngaydathang BETWEEN DATE_SUB(NOW(), INTERVAL 1 WEEK) AND NOW()
+         GROUP BY p.id, p.price, p.name, p.luotxem
+         ORDER BY luotmua DESC, luotxem DESC, binhluan DESC;
+        ";
+    } else if ($tg == 2) {
+        $sql = "SELECT p.price, p.id, p.name, p.luotxem,
+        COUNT(DISTINCT bl.id) as binhluan,
+        SUM(DISTINCT dm.soluong) as luotmua,
+        COUNT(DISTINCT dh.id) as sodonmua
+        FROM product as p
+        LEFT JOIN binhluan as bl ON bl.idsp = p.id
+        LEFT JOIN don_mua as dm ON p.id = dm.idsp
+        LEFT JOIN don_hang as dh ON dh.id = dm.id_don_mua
+        WHERE dh.ngaydathang BETWEEN DATE_SUB(NOW(), INTERVAL 1 MONTH) AND NOW()
+        GROUP BY p.id, p.price, p.name, p.luotxem
+        ORDER BY luotmua DESC, luotxem DESC, binhluan DESC;
+        ";
+    } else if ($tg == 3) {
+        $sql = "SELECT p.price, p.id, p.name, p.luotxem,
+        COUNT(DISTINCT bl.id) as binhluan,
+        SUM(DISTINCT dm.soluong) as luotmua
+        FROM product as p
+        LEFT JOIN binhluan as bl ON bl.idsp = p.id
+        LEFT JOIN don_mua as dm ON p.id = dm.idsp
+        LEFT JOIN don_hang as dh ON dh.id = dm.id_don_mua
+        WHERE dh.ngaydathang BETWEEN DATE_SUB(NOW(), INTERVAL 6 MONTH) AND NOW()
+        GROUP BY p.id, p.price, p.name, p.luotxem
+        ORDER BY luotmua DESC, luotxem DESC, binhluan DESC;
+        ";
+    } else if ($tg == 4) {
+        $sql = "SELECT p.price, p.id, p.name, p.luotxem,
+        COUNT(DISTINCT bl.id) as binhluan,
+        SUM(DISTINCT dm.soluong) as luotmua
+        FROM product as p
+        JOIN binhluan as bl ON bl.idsp = p.id
+        JOIN don_mua as dm ON p.id = dm.idsp
+        JOIN don_hang as dh ON dh.id = dm.id_don_mua
+        WHERE dh.ngaydathang BETWEEN DATE_SUB(NOW(), INTERVAL 1 YEAR) AND NOW()
+        GROUP BY p.id, p.price, p.name, p.luotxem
+        ORDER BY luotmua DESC, luotxem DESC, binhluan DESC;
+        ";
+    }
     return pdo_query($sql);
 }
 

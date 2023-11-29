@@ -10,11 +10,25 @@ function donmua($idtk,$idsp,$img,$tensach,$mau,$size,$soluong,$giaca,$tongtien,$
     return pdo_execute($sql);
 }
 
+function luotmua($idpro,$soluong){
+    $sql = "UPDATE product SET luotmua = luotmua + $soluong WHERE id = $idpro";
+    return pdo_execute($sql);
+}
+function luotxem($idpro){
+    $sql = "UPDATE product SET luotxem = luotxem + 1 WHERE id = $idpro;";
+    return pdo_execute($sql);
+}
 function ht_donhang() {
     $sql = "SELECT * FROM don_mua JOIN don_hang ON don_hang.id = don_mua.id_don_mua;";
     $donhang = pdo_query($sql);
     return $donhang;
 }
+function tinhtrangdh($tinhtrang) {
+    $sql = "SELECT * FROM don_mua JOIN don_hang ON don_hang.id = don_mua.id_don_mua WHERE don_hang.tinhtrangdh = $tinhtrang;";
+    $donhang = pdo_query($sql);
+    return $donhang;
+}
+
 function capnhat($id,$tinhtrang){
     $sql = "UPDATE don_hang SET tinhtrangdh = '$tinhtrang'
     WHERE id = '$id';";

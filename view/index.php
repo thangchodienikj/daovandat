@@ -70,6 +70,7 @@ if (isset($_GET['aht'])){
             case 'sanphamct' :
                     if (isset($_GET['idpro'])) {
                         $loadsp = loadone_sanpham($_GET['idpro']);
+                        luotxem($_GET['idpro']);
                     }
                     include("giaodien/header1.php");
                     $binhluan=binhluan($_GET['idpro']);
@@ -273,10 +274,19 @@ if (isset($_GET['aht'])){
                     $sdt = $_POST['sdt'];
                     $ghichu = $_POST['ghichu'];
                     $ptvc = $_POST['phuong_thuc_vanchuyen'];
-                    $ngaydathang = date('H:i:s d/m/Y');
+                    date_default_timezone_set('Asia/Ho_Chi_Minh');
+                    $ngaydathang = date('Y-m-d H:i:s');
                     $pttt = $_POST['redirect'];
                     if ($pttt == "momo"){
                             echo '<script> window.location.href = "init_payment_vnpay.php" </script>';
+                            if (isset($_SESSION['userxuong'])) {
+                                extract($_SESSION['userxuong']);
+                                $listgh = loadall_giohang($_SESSION['userxuong']['id']);
+                                foreach ($listgh as $gh) {
+                                    donmua($gh['idtk'],$gh['idsp'], $gh['hinh_anh'], $gh['ten_sach'], $gh['mau'], $gh['sizesp'], $gh['so_luong'], $gh['gia_ca'], $gh['thanhtien'], $id_don_hang);
+                                }
+                                xoagh($_SESSION['userxuong']['id']);
+                            }
                     }else{
                         $id_don_hang = donhang($name, $diachi, $email, $sdt, $ghichu, $ngaydathang, $ptvc, $pttt);
                         if (isset($_SESSION['userxuong'])) {
@@ -305,6 +315,26 @@ if (isset($_GET['aht'])){
                 }
                 include("giaodien/header1.php");
                 include ("donhang/chitietdonhang.php");
+                break;
+            case 'choxacnhan':
+                $listdh=tinhtrangdh(0);
+                include("giaodien/header1.php");
+                include ("donhang/choxacnhan.php");
+                break;
+            case 'danggiao':
+                $listdh=tinhtrangdh(2);
+                include("giaodien/header1.php");
+                include ("donhang/danggiao.php");
+                break;
+            case 'giaothanhcong':
+                $listdh=tinhtrangdh(3);
+                include("giaodien/header1.php");
+                include ("donhang/thanhcong.php");
+                break;
+            case 'donhuy':
+                $listdh=tinhtrangdh(4);
+                include("giaodien/header1.php");
+                include ("donhang/donhuy.php");
                 break;
                  default;
         }

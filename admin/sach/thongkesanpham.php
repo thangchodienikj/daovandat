@@ -1,6 +1,21 @@
 <main class="main text-center" style="width: 78%; margin: 0 auto;">
     <div class="mb-5"></div>
     <div class="box_title " style="font-size: 25px">Thống kê theo sản phẩm</div> <br>
+    <div class="mb-3">
+        <form action="index.php?act=thongketg" method="post">
+            <select class="form-select" id="tg" name="tg">
+                <option value="0" selected>Chọn khoảng thời gian</option>
+                <option value="1">1 tuần trước</option>
+                <option value="2">1 tháng trước</option>
+                <option value="3">6 tháng trước</option>
+                <option value="4">1 năm trước</option>
+            </select>
+            <input type="submit" name="gui" value="Gửi">
+        </form>
+    </div>
+    <div class="mb-3">
+        <a href="#">Biểu đồ</a>
+    </div>
     <div class="container mt-3">
         <div class="row form_content">
             <div class="col-12">
@@ -15,20 +30,21 @@
                                 <th class="text-center col-md-2">Lượt xem</th>
                                 <th class="text-center col-md-2">Lượt mua</th>
                                 <th class="text-center col-md-2">Lượt bình luận</th>
+                                <th class="text-center col-md-2">Danh thu</th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php
                             foreach ($thongkesp as $value){
                                 extract($value);
-
                                 echo'<tr>
                                             <td class="text-center col-md-1"><input type="checkbox" name="" id=""></td>
-                                            <td class="text-center col-md-1">'.$idsp.'</td>
+                                            <td class="text-center col-md-1">'.$id.'</td>
                                             <td class="text-center col-md-2">'.$name.'</td>
-                                            <td class="text-center col-md-2 justify-content-cente">'.$luot_xem.'</td>
-                                            <td class="text-center col-md-2">'.$luot_mua.'</td>
-                                            <td class="text-center col-md-2">'.$luotbinhluan.'</td>
+                                            <td class="text-center col-md-2 justify-content-cente">'.$luotxem.'</td>
+                                            <td class="text-center col-md-2">'.$luotmua.'</td>
+                                            <td class="text-center col-md-2">'.$binhluan.'</td>
+                                             <td class="text-center col-md-2">'.$luotmua * $price.'</td>
                                         </tr>';
                             }
                             ?>
@@ -37,50 +53,43 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12">
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
+            <div id="piechart"></div>
 
-                        <h6 class="m-0 font-weight-bold text-primary">Thống kê </h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="chart-bar">
-                            <canvas id="myBarChart"></canvas>
-                        </div>
-                        <hr>
-                        Styling for the bar chart can be found in the
-                        <code>/js/demo/chart-bar-demo.js</code> file.
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-                        <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="chart-area">
-                            <canvas id="myAreaChart"></canvas>
-                        </div>
-                        <hr>
-                        Styling for the area chart can be found in the
-                        <code>/js/demo/chart-area-demo.js</code> file.
+            <script type="text/javascript">
+                // Load google charts
+                google.charts.load('current', {'packages':['corechart']});
+                google.charts.setOnLoadCallback(drawChart);
 
-                    </div>
-                </div>
-            </div>
+                // Draw the chart and set the chart values
+                function drawChart() {
+                    var data = google.visualization.arrayToDataTable([
+                        ['Tên danh mục', 'Doanh số'],
+                        <?php
+                        $tongdm=count($thongkesp);
+                        $i=1;
+                        foreach ($thongkesp as $tk){
+                            extract($tk);
+                            echo "['".$name."',".$luotmua * $price."],\n";
+                            $i+=1;
+                        }
+                        ?>
+                    ]);
+
+                    // Optional; add a title and set the width and height of the chart
+                    var options = {'title':'Thống kêu doanh số bán hàng', 'width':1500, 'height':500};
+
+                    // Display the chart inside the <div> element with id="piechart"
+                    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                    chart.draw(data, options);
+                }
+            </script>
         </div>
     </div>
 </main>
-<script>
-    var dataFromPHP = <?php echo json_encode(thongke_sanpham()); ?>;
-    var productLabels =dataFromPHP.map(product => `Sản phẩm ${product.idsp}`);
-    var viewsData = dataFromPHP.map(product => product.luot_xem);
-    var purchasesData = dataFromPHP.map(product => product.luot_mua);
-    var reviewData = dataFromPHP.map(product => product.luotbinhluan)
-</script>
-<!-- Page level plugins -->
-<script src="vendor/chart.js/Chart.min.js"></script>
 
-<!-- Page level custom scripts -->
 
-<script src="js/demo/chart-bar-demo.js"></script>
 
-<script src="js/demo/chart-area-demo.js"></script>
 
 
