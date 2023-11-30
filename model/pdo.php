@@ -81,4 +81,30 @@ function pdo_query_one($sql){
         unset($conn);
     }
 }
+//function pdo_query_one($sql) {
+//    $sql_args = array_slice(func_get_args(), 1);
+//
+//    try {
+//        $conn = pdo_get_connection();
+//        $stmt = $conn->prepare($sql);
+//        $stmt->execute($sql_args);
+//
+//        // Kiểm tra xem có dòng dữ liệu nào được trả về hay không
+//        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+//        if ($row !== false) {
+//            return $row;
+//        } else {
+//            // Không có dữ liệu phù hợp
+//            return null;
+//        }
+//    } catch (PDOException $e) {
+//        // Xử lý lỗi
+//        // Thay vì throw, bạn có thể ghi log, thông báo lỗi, hoặc thực hiện các hành động cần thiết
+//        error_log("Error in pdo_query_one: " . $e->getMessage());
+//        return false;
+//    } finally {
+//        unset($conn);
+//    }
+//}
+
 ?>

@@ -1,4 +1,15 @@
 <?php
+function get_product_quantity($id,$color,$size){
+    $sql = "SELECT pv.soluong
+FROM productp_variant pv
+INNER JOIN productpro_size ps ON pv.id_size = ps.id
+INNER JOIN productp_color pc ON pv.id_color = pc.id
+WHERE pv.id_pro = $id
+AND pc.color_name = '$size'
+AND ps.name_size = '$color';
+";
+    return pdo_query_one($sql);
+}
 function update_sp($id,$ten_sach,$gia_ca,$hinh_anh,$mo_ta,$id_danh_muc){
     if ($hinh_anh != '') {
         $sql = "update product set name='$ten_sach',price='$gia_ca',img='$hinh_anh',mieuta='$mo_ta',loai='$id_danh_muc' where id = '$id' ";
@@ -238,5 +249,19 @@ function loadall_spyt($id){
 function xoaspyt($id){
     return pdo_query("DELETE FROM spyeuthich WHERE id = '$id'");
 }
+
+if (isset($_POST['action'])) {
+    $action = $_POST['action'];
+    include ("../model/pdo.php");
+
+    if ($action == 'get_product_quantity') {
+        $id= $_POST['idpro'];
+        $color = $_POST['mau'];
+        $size = $_POST['size'];
+        $result = get_product_quantity($id,$color,$size);
+        echo json_encode(array('quantity' => $result));
+    }
+}
 ?>
+
 

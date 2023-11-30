@@ -62,7 +62,7 @@
                                 ';
                                     $array = explode(',', $colorList);
                                         foreach ($array as $color) {
-                                            echo '<a href="javascript:void(0);" class="color-option" onclick="updateSelectedColor(\'' . $color . '\')"  style="width: 80px; height: 30px; text-align: center; display: inline-block; line-height: 27px; color: #747774;background-color: #eaeaea;">
+                                            echo '<a href="javascript:void(0);" class="color-option" onclick="get_quantity(\'' . $color . '\',null)"  style="width: 80px; height: 30px; text-align: center; display: inline-block; line-height: 27px; color: #747774;background-color: #eaeaea;">
                                             ' . $color . '
                                       </a>';
                                     }
@@ -77,19 +77,27 @@
 
                                     $array = explode(',', $sizeList);
                                     foreach ($array as $size){
-                                        echo '<a href="javascript:void(0);" class="size-option" onclick="updateSelectedSize(\'' . $size . '\')" style="width: 80px; height: 30px; text-align: center; display: inline-block; line-height: 29px; color: #747774 ;background-color: #eaeaea">
+                                        echo '<a href="javascript:void(0);" class="size-option" onclick="get_quantity(null,\'' . $size . '\')" style="width: 80px; height: 30px; text-align: center; display: inline-block; line-height: 29px; color: #747774 ;background-color: #eaeaea">
                                                 ' . $size . '
                                               </a>';
                                     }
+
                                 echo'
                                 </div><!-- End .select-custom -->
                             </div><!-- End .details-filter-row -->
-    
+                            ';
+
+                                echo '<div class="details-filter-row details-row-size" >
+                                <label> Số lượng  : </label>
+                                <p  id="quantity"></p> 
+                            </div><!-- End .details-filter-row -->';
+
+                                    echo'
                             <div class="details-filter-row details-row-size">
                                 <label for="qty">Số lượng:</label>
                                 <form action="index.php?act=gh" method="post">
                                  <div class="product-details-quantity">
-                                    <input type="number" name="soluong" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
+                                    <input type="number" name="soluong" class="form-control" value="1" min="1" max="" step="1" data-decimals="0" required>
                                 </div><!-- Kết thúc .product-details-quantity -->
                             </div><!-- End .details-filter-row -->
                              <div class="details-filter-row details-row-size">
@@ -404,11 +412,43 @@
     </div><!-- End .page-content -->
 </main><!-- End .main -->
 <script>
-    function updateSelectedSize(size) {
-        document.getElementById('selectedSize').value = size;
-    }
-    function updateSelectedColor(color) {
-        document.getElementById('selectedColor').value = color;
+    let curSize=document.getElementById('selectedSize').value;
+    let curColor=document.getElementById('selectedColor').value
+    function get_quantity(sizeId,colorId){
+        const urlParams = new URLSearchParams(window.location.search);
+        const idproValue = urlParams.get('idpro');
+        if (sizeId!==null){
+            curSize=sizeId
+        }
+        if (colorId!==null){
+           curColor = colorId;
+        }
+        if (curSize && curColor){
+            $.ajax({
+                type: "POST",
+                url: "../model/sanpham.php",
+                data: {
+                    action:"get_product_quantity",
+                    idpro:idproValue,
+                    mau: curColor,
+                    size: curSize,
+                },
+                success: function(response) {
+                    console.log(response);
+
+                    // Chuyển đổi chuỗi JSON thành đối tượng JavaScript
+                    let responseObject = JSON.parse(response);
+
+                    // Lấy giá trị soluong từ đối tượng JavaScript
+                    let quantityValue = responseObject.quantity.soluong;
+                    document.getElementById('quantity').innerText = quantityValue;
+                    $('input[name="soluong"]').attr('max',quantityValue );
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log("Lỗi");
+                }
+            });
+        }
     }
 </script>
 

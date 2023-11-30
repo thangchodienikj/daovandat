@@ -228,6 +228,7 @@ if (isset($_GET['aht'])){
                     update($ten_sach, $selected_color, $selected_size, '', $gia_ca, '', $so_luong);
                 }
                 break;
+
             case 'tim':
                 if (isset($_POST['timkiem'])) {
                     $timkiem = $_POST['tim1'];
