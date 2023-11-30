@@ -411,9 +411,10 @@
         </div><!-- End .container -->
     </div><!-- End .page-content -->
 </main><!-- End .main -->
+
 <script>
     let curSize=document.getElementById('selectedSize').value;
-    let curColor=document.getElementById('selectedColor').value
+    let curColor=document.getElementById('selectedColor').value;
     function get_quantity(sizeId,colorId){
         const urlParams = new URLSearchParams(window.location.search);
         const idproValue = urlParams.get('idpro');
@@ -434,12 +435,7 @@
                     size: curSize,
                 },
                 success: function(response) {
-                    console.log(response);
-
-                    // Chuyển đổi chuỗi JSON thành đối tượng JavaScript
                     let responseObject = JSON.parse(response);
-
-                    // Lấy giá trị soluong từ đối tượng JavaScript
                     let quantityValue = responseObject.quantity.soluong;
                     document.getElementById('quantity').innerText = quantityValue;
                     $('input[name="soluong"]').attr('max',quantityValue );
@@ -450,6 +446,22 @@
             });
         }
     }
+</script>
+<script>
+    document.querySelectorAll('.size-option').forEach(function(option) {
+        option.addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('selectedSize').value = event.target.innerText;
+        });
+    });
+
+    document.querySelectorAll('.color-option').forEach(function(option) {
+        option.addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('selectedColor').value = event.target.innerText;
+        });
+    });
+
 </script>
 
 

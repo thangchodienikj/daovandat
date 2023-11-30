@@ -1,12 +1,22 @@
 <?php
+function  capnhatsl($idpro,$idsize,$idcolor,$soluong){
+    $sql = "UPDATE productp_variant pv
+    INNER JOIN productpro_size ps ON pv.id_size = ps.id
+    INNER JOIN productp_color pc ON pv.id_color = pc.id
+    SET pv.soluong = pv.soluong - $soluong
+    WHERE pv.id_pro = $idpro
+    AND pc.color_name = '$idcolor'
+    AND ps.name_size = '$idsize';";
+    pdo_execute($sql);
+}
 function get_product_quantity($id,$color,$size){
     $sql = "SELECT pv.soluong
-FROM productp_variant pv
-INNER JOIN productpro_size ps ON pv.id_size = ps.id
-INNER JOIN productp_color pc ON pv.id_color = pc.id
-WHERE pv.id_pro = $id
-AND pc.color_name = '$size'
-AND ps.name_size = '$color';
+    FROM productp_variant pv
+    INNER JOIN productpro_size ps ON pv.id_size = ps.id
+    INNER JOIN productp_color pc ON pv.id_color = pc.id
+    WHERE pv.id_pro = $id
+    AND pc.color_name = '$size'
+    AND ps.name_size = '$color';
 ";
     return pdo_query_one($sql);
 }

@@ -284,6 +284,7 @@ if (isset($_GET['aht'])){
                                 $listgh = loadall_giohang($_SESSION['userxuong']['id']);
                                 foreach ($listgh as $gh) {
                                     donmua($gh['idtk'],$gh['idsp'], $gh['hinh_anh'], $gh['ten_sach'], $gh['mau'], $gh['sizesp'], $gh['so_luong'], $gh['gia_ca'], $gh['thanhtien'], $id_don_hang,1);
+                                    capnhatsl($gh['idsp'],$gh['sizesp'],$gh['mau'],$gh['so_luong']);
                                 }
                                 xoagh($_SESSION['userxuong']['id']);
                             }
@@ -294,6 +295,7 @@ if (isset($_GET['aht'])){
                             $listgh = loadall_giohang($_SESSION['userxuong']['id']);
                             foreach ($listgh as $gh) {
                                 donmua($gh['idtk'],$gh['idsp'], $gh['hinh_anh'], $gh['ten_sach'], $gh['mau'], $gh['sizesp'], $gh['so_luong'], $gh['gia_ca'], $gh['thanhtien'], $id_don_hang,0);
+                                capnhatsl($gh['idsp'],$gh['sizesp'],$gh['mau'],$gh['so_luong']);
                             }
                             xoagh($_SESSION['userxuong']['id']);
                         }
