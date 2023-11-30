@@ -8,7 +8,7 @@ if (isset($_SESSION['userxuong'])) {
     include("../model/thongke.php");
     include("../model/pdo.php");
     include("header.php");
-    $listdh1 = ht_donhang();
+    $listdh1 = ht_donhang(1);
     $listsp = product();
     $listdanhmuc = loadAll_danhmuc();
     $listmau = productp_color();
@@ -253,14 +253,13 @@ if (isset($_SESSION['userxuong'])) {
                 include("thongke.php");
                 break;
             case 'donhang':
-                $listdh1 = ht_donhang();
+                $listdh1 = ht_donhang(1);
                 include("donhang/donhang.php");
                 break;
             case 'tinhtrang':
                 if (isset($_POST['gui'])) {
                     $id = $_POST['id'];
-                    $tinhtrang = $_POST['tinhtrang'];
-                    capnhat($id, $tinhtrang);
+                    capnhatdh($id, $_POST['tinhtrangdh']);
                     echo '<script> window.location.href = "index.php?act=donhang" </script>';
                 }
                 include("donhang/donhang.php");

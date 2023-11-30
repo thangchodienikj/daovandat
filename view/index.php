@@ -13,7 +13,7 @@ $list1dm = list2dm();
 $list8sp=load8_sanpham();
 $listsp=loadall_sanpham(0);
 $listdm = loadAll_danhmuc();
-$listdh1=ht_donhang();
+$listdh1=ht_donhang(1);
 if (isset($_SESSION['userxuong'])){
     extract($_SESSION['userxuong']);
     $listgh = loadall_giohang($_SESSION['userxuong']['id']);
@@ -282,7 +282,7 @@ if (isset($_GET['aht'])){
                                 extract($_SESSION['userxuong']);
                                 $listgh = loadall_giohang($_SESSION['userxuong']['id']);
                                 foreach ($listgh as $gh) {
-                                    donmua($gh['idtk'],$gh['idsp'], $gh['hinh_anh'], $gh['ten_sach'], $gh['mau'], $gh['sizesp'], $gh['so_luong'], $gh['gia_ca'], $gh['thanhtien'], $id_don_hang);
+                                    donmua($gh['idtk'],$gh['idsp'], $gh['hinh_anh'], $gh['ten_sach'], $gh['mau'], $gh['sizesp'], $gh['so_luong'], $gh['gia_ca'], $gh['thanhtien'], $id_don_hang,1);
                                 }
                                 xoagh($_SESSION['userxuong']['id']);
                             }
@@ -292,7 +292,7 @@ if (isset($_GET['aht'])){
                             extract($_SESSION['userxuong']);
                             $listgh = loadall_giohang($_SESSION['userxuong']['id']);
                             foreach ($listgh as $gh) {
-                                donmua($gh['idtk'],$gh['idsp'], $gh['hinh_anh'], $gh['ten_sach'], $gh['mau'], $gh['sizesp'], $gh['so_luong'], $gh['gia_ca'], $gh['thanhtien'], $id_don_hang);
+                                donmua($gh['idtk'],$gh['idsp'], $gh['hinh_anh'], $gh['ten_sach'], $gh['mau'], $gh['sizesp'], $gh['so_luong'], $gh['gia_ca'], $gh['thanhtien'], $id_don_hang,0);
                             }
                             xoagh($_SESSION['userxuong']['id']);
                         }
@@ -302,18 +302,26 @@ if (isset($_GET['aht'])){
                 include ("checkout.php");
                 break;
             case 'chitiet':
+                if (isset($_GET['id'])){
+                    $listdh1=ht_donhang($_GET['id']);
+                }
                 include("giaodien/header1.php");
                 include ("donhang/chitietdonhang.php");
                 break;
             case 'tinhtrang':
-                if (isset($_GET['tinhtrang'])) {
+                if (isset($_GET['id'])) {
                     $id = $_GET['id'];
-                    $tinhtrang = $_GET['tinhtrang'];
-                    capnhat($id, $tinhtrang);
+                    capnhatdh($id,$_GET['tinhtrangdh']);
+                    capnhatdm($id,$_GET['tinhtrangdm']);
                     header("location:index.php?act=tkcuatoi");
                 }
                 include("giaodien/header1.php");
                 include ("donhang/chitietdonhang.php");
+                break;
+            case 'xacnhandon':
+                $listdh=tinhtrangdh(1);
+                include("giaodien/header1.php");
+                include ("donhang/xacnhandon.php");
                 break;
             case 'choxacnhan':
                 $listdh=tinhtrangdh(0);

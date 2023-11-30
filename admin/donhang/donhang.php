@@ -32,7 +32,8 @@
                             <?php foreach ($listdh1 as $dh) : ?>
                                 <?php
                                 extract($dh);
-                                $ht = $dh['tinhtrangdh']
+                                $trdh = $dh['tinhtrangdh'];
+                                $trtt = $dh['tinhtrangthanhtoan'];
                                 ?>
                                 <tr>
                                     <td class="col-md-1 text-center"><?= $name ?></td>
@@ -55,7 +56,7 @@
                                     <td class="col-md-1 text-center"><?= $tt=$tongtien+$ptvc ?></td>
                                     <td class="col-md-1 text-center">
                                         <?php
-                                        switch ($ht){
+                                        switch ($trdh){
                                             case "0" :
                                                 echo "Chờ xác nhận";
                                                 break;
@@ -72,10 +73,12 @@
                                                 echo "Đơn đã hủy";
                                             default:
                                                 break;
-                                        } ?>
+                                        }
+
+                                        ?>
                                         <form action="index.php?act=tinhtrang" method="post">
                                             <input type="hidden" name="id" id="id" value="<?=$id?>">
-                                            <select name="tinhtrang">
+                                            <select name="tinhtrangdh">
                                                 <option value="0">Chờ xác nhận</option>
                                                 <option value="1">Xác nhận đơn hàng</option>
                                                 <option value="2">Đang giao hàng</option>
@@ -83,6 +86,18 @@
                                             </select>
                                             <input class="btn btn-primary btn-block" type="submit" name="gui" value="Cập nhật">
                                         </form>
+                                        <?php
+                                        switch ($trtt){
+                                            case "0" :
+                                                echo " Chưa thanh toán";
+                                                break;
+                                            case "1" :
+                                                echo " Đã thanh toán";
+                                                break;
+                                            default:
+                                                break;
+                                        }
+                                        ?>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

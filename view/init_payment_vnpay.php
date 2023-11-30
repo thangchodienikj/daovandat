@@ -2,8 +2,8 @@
 
 $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
 $vnp_Returnurl = "http://localhost/duan1_new/daovandat/view/index.php?act=checkout";
-$vnp_TmnCode = "X5J5PKUF";//Mã website tại VNPAY
-$vnp_HashSecret = "KPEGZTROJZCYKBRENSZJNBGMTIYMABBI"; //Chuỗi bí mật
+$vnp_TmnCode = "CYJUJXQZ";//Mã website tại VNPAY
+$vnp_HashSecret = "LSKSQTRMHQEWLDGIAIKBYYLXXQAHKWRE"; //Chuỗi bí mật
 
 $vnp_TxnRef = rand(0,10000); //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
 $vnp_OrderInfo = 'Thanh toán đơn hàng';
@@ -98,6 +98,6 @@ $returnData = array('code' => '00'
 , 'message' => 'success'
 , 'data' => $vnp_Url);
 
-    header('Location: ' . $vnp_Url);
-    die();
+header('Location: ' . $vnp_Url);
+die();
 // vui lòng tham khảo thêm tại code demo

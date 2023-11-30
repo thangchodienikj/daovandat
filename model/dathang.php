@@ -4,9 +4,9 @@ function  donhang($name,$diachi,$email,$sdt,$ghichu,$ngaydathang,$ptvc,$pttt){
     values ('$name','$diachi','$email','$sdt','$ghichu','$ngaydathang','$ptvc','$pttt')";
     return pdo_execute_return_last($sql);
 }
-function donmua($idtk,$idsp,$img,$tensach,$mau,$size,$soluong,$giaca,$tongtien,$id_don_hang){
-    $sql = "insert into don_mua(idtk,idsp,img,tensach,mau,size,soluong,giaca,tongtien,id_don_mua) 
-    values ('$idtk','$idsp','$img','$tensach','$mau','$size','$soluong','$giaca','$tongtien','$id_don_hang')";
+function donmua($idtk,$idsp,$img,$tensach,$mau,$size,$soluong,$giaca,$tongtien,$id_don_hang,$tinhtrangthanhtoan){
+    $sql = "insert into don_mua(idtk,idsp,img,tensach,mau,size,soluong,giaca,tongtien,id_don_mua,tinhtrangthanhtoan) 
+    values ('$idtk','$idsp','$img','$tensach','$mau','$size','$soluong','$giaca','$tongtien','$id_don_hang','$tinhtrangthanhtoan')";
     return pdo_execute($sql);
 }
 
@@ -18,8 +18,12 @@ function luotxem($idpro){
     $sql = "UPDATE product SET luotxem = luotxem + 1 WHERE id = $idpro;";
     return pdo_execute($sql);
 }
-function ht_donhang() {
-    $sql = "SELECT * FROM don_mua JOIN don_hang ON don_hang.id = don_mua.id_don_mua;";
+function ht_donhang($id) {
+    if ($id == 1) {
+        $sql = "SELECT * FROM don_mua JOIN don_hang ON don_hang.id = don_mua.id_don_mua ";
+    }else{
+        $sql = "SELECT * FROM don_mua JOIN don_hang ON don_hang.id = don_mua.id_don_mua where don_mua.id_don_mua = $id ;";
+    }
     $donhang = pdo_query($sql);
     return $donhang;
 }
@@ -28,10 +32,15 @@ function tinhtrangdh($tinhtrang) {
     $donhang = pdo_query($sql);
     return $donhang;
 }
-
-function capnhat($id,$tinhtrang){
-    $sql = "UPDATE don_hang SET tinhtrangdh = '$tinhtrang'
+function capnhatdh($id,$tinhtrangdh){
+    $sql = "UPDATE don_hang SET tinhtrangdh = '$tinhtrangdh'
     WHERE id = '$id';";
     return pdo_execute($sql);
 }
+function capnhatdm($id,$tinhtrangdm){
+    $sql = "UPDATE don_mua SET tinhtrangthanhtoan = '$tinhtrangdm'
+    WHERE id = '$id';";
+    return pdo_execute($sql);
+}
+
 ?>

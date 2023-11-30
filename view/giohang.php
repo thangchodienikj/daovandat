@@ -132,7 +132,6 @@
                     $.ajax({
                         type: "POST",
                         url: "index.php?act=themsl",
-                        // url: "../model/giohang.php",
                         data: {
                             action: "update_giohang",
                             quantity: newValue,

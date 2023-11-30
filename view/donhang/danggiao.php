@@ -51,15 +51,26 @@
                                         <td class="text-center" style="width: 100px;height: 100px"><a href="index.php?act=sanphamct&idpro='.$cart['idsp'].'">'.$hinhanh.'</a></td>
                                         <td colspan="2" class="text-center" >'.$tensach.' x'.$soluong.'</td>
                                         <td class="text-center">'.$giaca.'</td>
-                                        <td class="text-center">'.$tongtien.'</td>
+                                        <td class="text-center">'.$t=$tongtien+$ptvc.'</td>
                                         <td class="text-center">'.$tt.'</td>
                                         <td class="col-md-1 text-center">
                                              ';
                             if ( $cart['tinhtrangdh'] == 0){
-                                echo'   <a href="index.php?act=tinhtrang&id='.$id.'&tinhtrang=4" class="btn btn-danger btn-block">Hủy đơn</a>';
+                                echo'   <a href="index.php?act=tinhtrang&id='.$id.'&tinhtrangdh=4" class="btn btn-danger btn-block">Hủy đơn</a>
+                                                        <a href="index.php?act=chitiet&id='.$id.'" class="btn btn-primary btn-block ">Chi tiết</a>';
+                            }
+                            if ( $cart['tinhtrangdh'] == 1){
+                                echo'<a href="index.php?act=chitiet&id='.$id.'" class="btn btn-primary btn-block ">Chi tiết</a>';
                             }
                             if ( $cart['tinhtrangdh'] == 2){
-                                echo'   <a href="index.php?act=tinhtrang&id=' . $id . '&tinhtrang=3" class="btn btn-primary btn-block ">Đã nhận</a>';
+                                echo'   <a href="index.php?act=tinhtrang&id=' . $id . '&tinhtrangdh=3&tinhtrangdm=1" class="btn btn-primary btn-block ">Đã nhận</a>
+                                                        <a href="index.php?act=chitiet&id='.$id.'" class="btn btn-primary btn-block ">Chi tiết</a>';
+                            }
+                            if ( $cart['tinhtrangdh'] == 3){
+                                echo'   <a href="index.php?act=chitiet&id='.$id.'" class="btn btn-primary btn-block ">Chi tiết</a>';
+                            }
+                            if ( $cart['tinhtrangdh'] == 4){
+                                echo' <a href="index.php?act=chitiet&id='.$id.'" class="btn btn-primary btn-block ">Chi tiết</a>';
                             }
                             echo'
                                         </td>

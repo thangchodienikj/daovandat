@@ -26,9 +26,9 @@ function thongke_sanpham($tg){
         COUNT(DISTINCT bl.id) as binhluan,
         SUM(DISTINCT dm.soluong) as luotmua
         FROM product as p
-        LEFT JOIN binhluan as bl ON bl.idsp = p.id
-        LEFT JOIN don_mua as dm ON p.id = dm.idsp
-        LEFT JOIN don_hang as dh ON dh.id = dm.id_don_mua
+        JOIN binhluan as bl ON bl.idsp = p.id
+        JOIN don_mua as dm ON p.id = dm.idsp
+        JOIN don_hang as dh ON dh.id = dm.id_don_mua
         GROUP BY p.id, p.price, p.name, p.luotxem
         ORDER BY luotmua DESC, luotxem DESC, binhluan DESC;
         ";
@@ -40,9 +40,9 @@ function thongke_sanpham($tg){
         LEFT JOIN binhluan as bl ON bl.idsp = p.id
         LEFT JOIN don_mua as dm ON p.id = dm.idsp
         LEFT JOIN don_hang as dh ON dh.id = dm.id_don_mua
-         WHERE dh.ngaydathang BETWEEN DATE_SUB(NOW(), INTERVAL 1 WEEK) AND NOW()
-         GROUP BY p.id, p.price, p.name, p.luotxem
-         ORDER BY luotmua DESC, luotxem DESC, binhluan DESC;
+        WHERE dh.ngaydathang BETWEEN DATE_SUB(NOW(), INTERVAL 1 WEEK) AND NOW()
+        GROUP BY p.id, p.price, p.name, p.luotxem
+        ORDER BY luotmua DESC, luotxem DESC, binhluan DESC;
         ";
     } else if ($tg == 2) {
         $sql = "SELECT p.price, p.id, p.name, p.luotxem,
