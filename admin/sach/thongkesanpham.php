@@ -32,18 +32,31 @@
                             </thead>
                             <tbody>
                             <?php
-                            foreach ($thongkesp as $value){
+                            <?php
+                            $totalRevenue = 0;
+                            foreach ($thongkesp as $value) {
                                 extract($value);
-                                echo'<tr>
-                                            <td class="text-center col-md-1"><input type="checkbox" name="" id=""></td>
-                                            <td class="text-center col-md-1">'.$id.'</td>
-                                            <td class="text-center col-md-2">'.$name.'</td>
-                                            <td class="text-center col-md-2 justify-content-cente">'.$luotxem.'</td>
-                                            <td class="text-center col-md-2">'.$luotmua.'</td>
-                                            <td class="text-center col-md-2">'.$binhluan.'</td>
-                                             <td class="text-center col-md-2">'.$luotmua * $price.'</td>
-                                        </tr>';
+                                $totalRevenue += ($luotmua * $price);
                             }
+                            $i = 0;
+                            foreach ($thongkesp as $value) {
+                                extract($value);
+                                echo '<tr>
+                                <td class="text-center col-md-1"><input type="checkbox" name="" id=""></td>
+                                <td class="text-center col-md-1">' . $id . '</td>
+                                <td class="text-center col-md-2">' . $name . '</td>
+                                <td class="text-center col-md-2 justify-content-cente">' . $luotxem . '</td>
+                                <td class="text-center col-md-2">' . $luotmua . '</td>
+                                <td class="text-center col-md-2">' . $binhluan . '</td>
+                                <td class="text-center col-md-2">' . ($luotmua * $price) . '</td>
+                                <td></td>
+                            </tr>';$i += ($luotmua * $price);}
+                                echo '<tr>
+                                <td colspan="6" class="text-right"><strong>Tổng tiền : </strong></td>
+                                <td class="text-center">' . $totalRevenue . '</td>
+                                <td></td>
+                            </tr>';
+                            ?>
                             ?>
                             </tbody>
                         </table>
@@ -70,8 +83,7 @@
                     foreach ($thongkesp as $tk){
                         extract($tk);
                         echo "['".$name."',".$luotmua * $price."],\n";
-                        $i+=1;
-                    }
+                        cv
                     ?>
                 ]);
 

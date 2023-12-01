@@ -76,5 +76,4 @@
             </div><!-- End .wishlist-share -->
         </div><!-- End .container -->
     </div><!-- End .page-content -->
-</main><!-- End .main -->
-dasdda
+</main><!-- End .main
