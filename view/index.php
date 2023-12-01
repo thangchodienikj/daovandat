@@ -279,26 +279,16 @@ if (isset($_GET['aht'])){
                     $pttt = $_POST['redirect'];
                     if ($pttt == "momo"){
                             echo '<script> window.location.href = "init_payment_vnpay.php" </script>';
-                            if (isset($_SESSION['userxuong'])) {
-                                extract($_SESSION['userxuong']);
-                                $listgh = loadall_giohang($_SESSION['userxuong']['id']);
-                                foreach ($listgh as $gh) {
-                                    donmua($gh['idtk'],$gh['idsp'], $gh['hinh_anh'], $gh['ten_sach'], $gh['mau'], $gh['sizesp'], $gh['so_luong'], $gh['gia_ca'], $gh['thanhtien'], $id_don_hang,1);
-                                    capnhatsl($gh['idsp'],$gh['sizesp'],$gh['mau'],$gh['so_luong']);
-                                }
-                                xoagh($_SESSION['userxuong']['id']);
-                            }
                     }else{
-                        $id_don_hang = donhang($name, $diachi, $email, $sdt, $ghichu, $ngaydathang, $ptvc, $pttt);
-                        if (isset($_SESSION['userxuong'])) {
-                            extract($_SESSION['userxuong']);
-                            $listgh = loadall_giohang($_SESSION['userxuong']['id']);
-                            foreach ($listgh as $gh) {
-                                donmua($gh['idtk'],$gh['idsp'], $gh['hinh_anh'], $gh['ten_sach'], $gh['mau'], $gh['sizesp'], $gh['so_luong'], $gh['gia_ca'], $gh['thanhtien'], $id_don_hang,0);
-                                capnhatsl($gh['idsp'],$gh['sizesp'],$gh['mau'],$gh['so_luong']);
-                            }
-                            xoagh($_SESSION['userxuong']['id']);
+                    } $id_don_hang = donhang($name, $diachi, $email, $sdt, $ghichu, $ngaydathang, $ptvc, $pttt);
+                    if (isset($_SESSION['userxuong'])) {
+                        extract($_SESSION['userxuong']);
+                        $listgh = loadall_giohang($_SESSION['userxuong']['id']);
+                        foreach ($listgh as $gh) {
+                            donmua($gh['idtk'],$gh['idsp'], $gh['hinh_anh'], $gh['ten_sach'], $gh['mau'], $gh['sizesp'], $gh['so_luong'], $gh['gia_ca'], $gh['thanhtien'], $id_don_hang,0);
+                            capnhatsl($gh['idsp'],$gh['sizesp'],$gh['mau'],$gh['so_luong']);
                         }
+                        xoagh($_SESSION['userxuong']['id']);
                     }
                 }
                 include("giaodien/header1.php");
