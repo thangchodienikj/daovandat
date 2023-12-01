@@ -83,7 +83,8 @@
                     foreach ($thongkesp as $tk){
                         extract($tk);
                         echo "['".$name."',".$luotmua * $price."],\n";
-                        cv
+                        $i+=1;
+                    }
                     ?>
                 ]);
 
