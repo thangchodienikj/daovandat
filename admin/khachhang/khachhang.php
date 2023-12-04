@@ -25,8 +25,8 @@
                             <?php foreach ($listkhachhang as $khachhang) : ?>
                                 <?php
                                 extract($khachhang);
-                                $suadm = "index.php?act=suadm&id=" . $id;
-                                $xoadm = "index.php?act=xoadm&id=" . $id;
+                                $suadm = "#" . $id;
+                                $xoadm = "#" . $id;
                                 ?>
                                 <tr>
                                     <td class="col-md-1 text-center"><?= $id ?></td>
@@ -60,21 +60,6 @@
                             <?php endforeach; ?>
                             </tbody>
                         </table>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-md-3">
-                            <input class="btn btn-primary btn-block" type="button" value="CHỌN TẤT CẢ">
-                        </div>
-                        <div class="col-md-3">
-                            <input class="btn btn-secondary btn-block" type="button" value="BỎ CHỌN TẤT CẢ">
-                        </div>
-                        <div class="col-md-3">
-                            <a href="index.php?act=adddm" class="btn btn-success btn-block">NHẬP THÊM</a>
-                        </div>
-                        <!-- Thêm cột mới -->
-                        <div class="col-md-3">
-                            <!-- Nút hoặc nội dung cho cột thứ tư -->
-                        </div>
                     </div>
                 </form>
             </div>

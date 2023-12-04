@@ -116,8 +116,8 @@
                                         $hinhanh = '<img src="'.$img.'" alt="Mô tả hình ảnh">';
                                         echo ' <tr>
                                         <td class="text-center" style="width: 100px;height: 100px"><a href="index.php?act=sanphamct&idpro='.$cart['idsp'].'">'.$hinhanh.'</a></td>
-                                        <td colspan="2" class="text-center" >'.$tensach.' x '.$soluong.'</td>
-                                        <td class="text-center">'.$giaca.'</td>
+                                        <td colspan="2" class="text-center" >'.$name.' x '.$soluong.'</td>
+                                        <td class="text-center">'.$price.'</td>
                                         <td class="text-center">'.$t=$tongtien+$ptvc.'</td>
                                         <td class="text-center">'.$tt.'</td>
                                         <td class="col-md-1 text-center">

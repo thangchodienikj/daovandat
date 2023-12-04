@@ -9,7 +9,7 @@ if (isset($_SESSION['userxuong'])) {
     include("../model/pdo.php");
     include("header.php");
     $listdh1 = ht_donhang(1);
-    $listsp = product();
+    $listsp1 = product();
     $listdanhmuc = loadAll_danhmuc();
     $listmau = productp_color();
     $listsize = productpro_size();

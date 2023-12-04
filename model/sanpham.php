@@ -237,7 +237,7 @@ GROUP BY
     return pdo_query_one($sql);
 }
 function product(){
-    return pdo_query("select * from product ");
+    return pdo_query("SELECT *,sp.img as hinhanh FROM product AS sp JOIN danh_muc as dm on dm.id = sp.loai GROUP BY sp.id;");
 }
 function list3sp(){
     $sql = "SELECT * FROM product  LIMIT 3  ";
@@ -245,16 +245,18 @@ function list3sp(){
     return $listdanhmuc;
 }
 
-function spyeuthich($idsp,$idtk,$img,$name,$price){
+function spyeuthich($idsp,$idtk){
     $check = pdo_query_one("select * from spyeuthich where idsp ='$idsp' and  idtk='$idtk'");
     if ($check){
-        pdo_execute("UPDATE spyeuthich SET  idtk = '$idtk' , img = '$img' ,name = '$name' ,price = '$price' where idsp ='$idsp' and idtk='$idtk' ");
+        pdo_execute("UPDATE spyeuthich SET  idtk = '$idtk'  where idsp ='$idsp' and idtk='$idtk' ");
     }else {
-        pdo_execute("INSERT INTO spyeuthich(idsp,idtk,img,name,price) VALUES ('$idsp','$idtk','$img','$name','$price')");
+        pdo_execute("INSERT INTO spyeuthich(idsp,idtk) VALUES ('$idsp','$idtk')");
     }
 }
 function loadall_spyt($id){
-    return pdo_query("select * from spyeuthich where idtk = '$id'");
+    return pdo_query("SELECT sp.idsp, pr.name, pr.img, pr.price
+FROM spyeuthich sp
+INNER JOIN product pr ON sp.idsp = pr.id where idtk = '$id'");
 }
 function xoaspyt($id){
     return pdo_query("DELETE FROM spyeuthich WHERE id = '$id'");

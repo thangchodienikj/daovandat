@@ -25,7 +25,9 @@
                                 <th class="text-center">Phương thức thanh toán</th>
                                 <th class="text-center">Tổng tiền</th>
                                 <th class="text-center">
-                                    Trạng thái</th>
+                                    Trạng thái đơn hàng</th>
+                                <th class="text-center">
+                                    Trạng thái thanh toán</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -86,7 +88,8 @@
                                             </select>
                                             <input class="btn btn-primary btn-block" type="submit" name="gui" value="Cập nhật">
                                         </form>
-                                        <?php
+                                    </td>
+                                    <td class="col-md-1 text-center"><?php
                                         switch ($trtt){
                                             case "0" :
                                                 echo " Chưa thanh toán";
@@ -97,8 +100,7 @@
                                             default:
                                                 break;
                                         }
-                                        ?>
-                                    </td>
+                                        ?></td>
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>

@@ -39,7 +39,7 @@
                             </figure>
 
                             <h3 class="product-title">
-                                <a href="index.php?act=sanphamct&idpro='.$id.'">'.$name.'</a>
+                                <a href="index.php?act=sanphamct&idpro='.$idsp.'">'.$name.'</a>
                             </h3><!-- End .product-title -->
                         </div><!-- End .product -->
                     </td>

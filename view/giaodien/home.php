@@ -329,7 +329,7 @@
                             if (isset($_SESSION['userxuong'])) {
                                 extract($_SESSION['userxuong']);
                                 echo '
-                                    <a  href="index.php?act=spyeuthich&id=' . $sp['id'] . '&idtk=' . $_SESSION['userxuong']['id'] . '&img=' . $sp['image'] . '&name=' . $sp['name'] . '&price=' . $sp['gia'] . '" class="btn-product-icon btn-wishlist btn-expandable"><span>Yêu thích</span></a>
+                                    <a  href="index.php?act=spyeuthich&id=' . $sp['id'] . '&idtk=' . $_SESSION['userxuong']['id'] . '" class="btn-product-icon btn-wishlist btn-expandable"><span>Yêu thích</span></a>
                                     ';
                             }
                               echo '

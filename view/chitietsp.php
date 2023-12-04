@@ -115,7 +115,7 @@
                             <div class="product-details-action">
                                 <input type="submit" class="btn btn-cart btn-outline-primary" value="Thêm vào giỏ hàng" name="giohang" style="line-height: 10px;border: 1px solid #3399ff; font-size: 14px; font-family: inherit;">
                                 <div class="details-action-wrapper">
-                                    <a href="index.php?act=spyeuthich&id=' . $ProductID . '&idtk=' . $_SESSION['userxuong']['id'] . '&img=' . $img . '&name=' . $sp['name'] . '&price=' . $price . '" class="btn-product btn-wishlist" title="Wishlist"><span>Yêu thích</span></a>
+                                    <a href="index.php?act=spyeuthich&id=' . $ProductID . '&idtk=' . $_SESSION['userxuong']['id'] . '" class="btn-product btn-wishlist" title="Wishlist"><span>Yêu thích</span></a>
                                 </div><!-- End .details-action-wrapper -->
                             </div><!-- Kết thúc .product-details-action --> 
                                 </form>
@@ -461,7 +461,6 @@
             document.getElementById('selectedColor').value = event.target.innerText;
         });
     });
-
 </script>
 
 

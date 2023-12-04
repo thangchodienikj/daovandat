@@ -243,13 +243,10 @@ if (isset($_GET['aht'])){
             case 'spyeuthich':
                 if (isset($_SESSION['userxuong'])){
                     extract($_SESSION['userxuong']);
-                    if (isset($_GET['img']) && isset($_GET['name']) && isset($_GET['price']) && isset($_GET['id']) && isset($_GET['idtk'])) {
+                    if (isset($_GET['id']) && isset($_GET['idtk'])) {
                         $idsp = $_GET['id'];
                         $idtk = $_GET['idtk'];
-                        $img = $_GET['img'];
-                        $name = $_GET['name'];
-                        $price = $_GET['price'];
-                        spyeuthich($idsp,$idtk,$img,$name,$price);
+                        spyeuthich($idsp,$idtk);
                         header("location:index.php?act=spyeuthich");
                     }
                     include("giaodien/header1.php");
@@ -285,7 +282,7 @@ if (isset($_GET['aht'])){
                         extract($_SESSION['userxuong']);
                         $listgh = loadall_giohang($_SESSION['userxuong']['id']);
                         foreach ($listgh as $gh) {
-                            donmua($gh['idtk'],$gh['idsp'], $gh['hinh_anh'], $gh['ten_sach'], $gh['mau'], $gh['sizesp'], $gh['so_luong'], $gh['gia_ca'], $gh['thanhtien'], $id_don_hang,0);
+                            donmua($gh['idtk'],$gh['idsp'],  $gh['mau'], $gh['sizesp'], $gh['so_luong'],$gh['thanhtien'], $id_don_hang,0);
                             capnhatsl($gh['idsp'],$gh['sizesp'],$gh['mau'],$gh['so_luong']);
                         }
                         xoagh($_SESSION['userxuong']['id']);

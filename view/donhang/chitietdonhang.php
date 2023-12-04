@@ -24,22 +24,25 @@
                             <th class="text-center">Phương thức thanh toán</th>
                             <th class="text-center">Tổng tiền</th>
                             <th class="text-center">
-                                Trạng thái</th>
+                                Trạng thái đơn hàng</th>
+                            <th class="text-center">
+                                Trạng thái thanh toán</th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php foreach ($listdh1 as $dh) : ?>
                             <?php
                             extract($dh);
-                            $ht = $dh['tinhtrangdh']
+                            $ht = $dh['tinhtrangdh'];
+                            $trtt = $dh['tinhtrangthanhtoan'];
                             ?>
                             <tr>
-                                <td class="col-md-1 text-center"><?= $name ?></td>
+                                <td class="col-md-1 text-center"><?= $ten ?></td>
                                 <td class="col-md-1 text-center"><?= $diachi  ?></td>
                                 <td class="col-md-1 text-center"><?= $sdt ?></td>
                                 <td class="col-md-1 text-center"><?= $ngaydathang ?></td>
                                 <td class="col-md-1 text-center"><?= $ghichu ?></td>
-                                <td class="col-md-1 text-center"><?= $tensach ?></td>
+                                <td class="col-md-1 text-center"><?= $name ?></td>
                                 <td class="col-md-1 text-center"><?= $mau ?></td>
                                 <td class="col-md-1 text-center"><?= $size ?></td>
                                 <td class="col-md-1 text-center"><?= $tongtien ?></td>
@@ -74,6 +77,18 @@
                                             break;
                                     } ?>
                                 </td>
+                                <td class="col-md-1 text-center"><?php
+                                    switch ($trtt){
+                                        case "0" :
+                                            echo " Chưa thanh toán";
+                                            break;
+                                        case "1" :
+                                            echo " Đã thanh toán";
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                    ?></td>
                             </tr>
                         <?php endforeach; ?>
                         </tbody>

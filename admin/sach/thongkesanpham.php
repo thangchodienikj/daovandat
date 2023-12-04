@@ -51,7 +51,7 @@
                                 <td></td>
                             </tr>';$i += ($luotmua * $price);}
                                 echo '<tr>
-                                <td colspan="6" class="text-right"><strong>Tổng tiền : </strong></td>
+                                <td colspan="6" class="text-center"><strong>Tổng doanh thu sản phẩm</strong></td>
                                 <td class="text-center">' . $totalRevenue . '</td>
                                 <td></td>
                             </tr>';
