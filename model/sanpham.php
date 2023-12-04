@@ -254,7 +254,7 @@ function spyeuthich($idsp,$idtk){
     }
 }
 function loadall_spyt($id){
-    return pdo_query("SELECT sp.idsp, pr.name, pr.img, pr.price
+    return pdo_query("SELECT sp.id as idyt , sp.idsp, pr.name, pr.img, pr.price
 FROM spyeuthich sp
 INNER JOIN product pr ON sp.idsp = pr.id where idtk = '$id'");
 }

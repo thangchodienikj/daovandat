@@ -58,7 +58,7 @@
                             </div>
                         </div>
                     </td>
-                    <td class="remove-col"><a href="index.php?act=xoaspyt&id='.$id.'"><button class="btn-remove"><i class="icon-close"></i></button></a></td>
+                    <td class="remove-col"><a href="index.php?act=xoaspyt&id='.$idyt.'"><button class="btn-remove"><i class="icon-close"></i></button></a></td>
                 </tr>';
                 } ?>
                 </tbody>

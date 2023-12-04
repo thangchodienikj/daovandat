@@ -23,10 +23,7 @@ if (isset($_SESSION['userxuong'])){
 if (isset($_SESSION['userxuong'])){
     extract($_SESSION['userxuong']);
     $spyt=loadall_spyt($_SESSION['userxuong']['id']);
-}else{
-    $spyt=loadall_spyt(0);
 }
-
 if (isset($_GET['aht'])){
     $aht = $_GET['aht'];
     switch ($aht) {
