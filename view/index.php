@@ -91,32 +91,88 @@ if (isset($_GET['aht'])){
                 include ("chitietsp.php");
                 break;
             case 'dangky' :
-                if ($_SERVER["REQUEST_METHOD"] == "POST" ){
+                if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
                     $name = $_POST['name'];
                     $email = $_POST['email'];
                     $dia_chi = $_POST['diachi'];
                     $sdt = $_POST['sdt'];
                     $taikhoan = $_POST['taikhoan'];
                     $matkhau = $_POST['matkhau'];
-                    dangky($name,$dia_chi,$email,$sdt,$taikhoan,$matkhau);
-                    echo '<script>
-                        alert("Đăng ký thành công mời bạn đăng nhập")
-                    </script>';
-                    header('Location:index.php?aht=dndk');
+
+                    // Thêm kiểm tra điều kiện rỗng cho các trường
+                    if (empty($name)) {
+                        $_SESSION['error']['name'] = 'Vui lòng nhập họ và tên';
+                    }
+                    if (empty($email)) {
+                        $_SESSION['error']['email'] = 'Vui lòng nhập email';
+                    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                        $_SESSION['error']['email'] = 'Email không hợp lệ';
+                    }
+
+                    if (empty($dia_chi)) {
+                        $_SESSION['error']['diachi'] = 'Vui lòng nhập địa chỉ';
+                    }
+
+                    // Kiểm tra số điện thoại Việt Nam
+                    if (empty($sdt)) {
+                        $_SESSION['error']['sdt'] = 'Vui lòng nhập số điện thoại';
+                    } elseif (!preg_match("/^(0[1-9][0-9]{8}|84[1-9][0-9]{8})$/", $sdt)) {
+                        $_SESSION['error']['sdt'] = 'Số điện thoại không hợp lệ';
+                    }
+
+                    if (empty($taikhoan)) {
+                        $_SESSION['error']['taikhoandk'] = 'Vui lòng nhập tài khoản';
+                    }
+                    if (empty($matkhau)) {
+                        $_SESSION['error']['matkhaudk'] = 'Vui lòng nhập mật khẩu';
+                    }
+
+                    if (!isset($_SESSION['error'])) {
+                        dangky($name, $dia_chi, $email, $sdt, $taikhoan, $matkhau);
+                        echo '<script>
+                                 alert("Đăng ký thành công mời bạn đăng nhập")
+                                 window.location.href = "index.php?aht=dndk"
+                              </script>';
+                    }else{
+                        echo '<script>
+                                 alert("Có vẻ bạn đang để trống 1 vài ô nào đó")
+                                  window.location.href = "index.php?aht=dndk"
+                              </script>';
+
+                    }
                 }
                 break;
             case 'dangnhap' :
-                if ($_SERVER["REQUEST_METHOD"] == "POST" ){
+                if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
                     $taikhoan = $_POST['taikhoan'];
                     $matkhau = $_POST['matkhau'];
-                    $check = check($taikhoan,$matkhau);
-                    if (is_array($check)){
-                        $_SESSION['userxuong'] = $check;
+
+                    // Thêm kiểm tra điều kiện rỗng cho tài khoản và mật khẩu
+                    if(empty($taikhoan)){
+                        $_SESSION['error']['taikhoan'] = 'Vui lòng nhập tài khoản';
                     }
-                    header("Location: index.php");
+                    if(empty($matkhau)){
+                        $_SESSION['error']['matkhau'] = 'Vui lòng nhập mật khẩu';
+                    }
+
+                    if(!isset($_SESSION['error'])){
+                        $check = check($taikhoan, $matkhau);
+                        if (is_array($check)){
+                            $_SESSION['userxuong'] = $check;
+                            echo '<script>
+                                 alert("Đăng nhập thành công")
+                                  window.location.href = "index.php"
+                              </script>';
+                        }
+                    }else{
+                        echo '<script>
+                                 alert("Có vẻ như tài khoản hoặc mật khẩu của bạn sai")
+                                  window.location.href = "index.php?aht=dndk"
+                              </script>';
+
+                    }
+
                 }
-                include("giaodien/header1.php");
-                include("giaodien/home.php");
                 break;
             case 'capnhat':
                 if (isset($_POST['capnhat']) && $_POST['capnhat']) {
@@ -143,6 +199,7 @@ if (isset($_GET['aht'])){
                 break;
             case 'tkcuatoi' :
                 include("giaodien/header1.php");
+                echo $_SESSION['userxuong']['id'];
                 include("tkcuatoi.php");
                 break;
             case 'dangxuat' :
@@ -274,22 +331,64 @@ if (isset($_GET['aht'])){
                     date_default_timezone_set('Asia/Ho_Chi_Minh');
                     $ngaydathang = date('Y-m-d H:i:s');
                     $pttt = $_POST['redirect'];
-                    if ($pttt == "momo"){
-                            echo '<script> window.location.href = "init_payment_vnpay.php" </script>';
+
+                    if (empty($_POST['name'])) {
+                        $_SESSION['error']['name'] = 'Vui lòng nhập Họ và tên';
+                    }
+
+                    // Kiểm tra Địa chỉ
+                    if (empty($_POST['diachi'])) {
+                        $_SESSION['error']['diachi'] = 'Vui lòng nhập Địa chỉ';
+                    }
+
+                    // Kiểm tra Email
+                    if (empty($_POST['email'])) {
+                        $_SESSION['error']['email'] = 'Vui lòng nhập Email';
+                    } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                        $_SESSION['error']['email'] = 'Email không hợp lệ';
+                    }
+
+                    // Kiểm tra Số điện thoại
+                    if (empty($_POST['sdt'])) {
+                        $_SESSION['error']['sdt'] = 'Vui lòng nhập Số điện thoại';
+                    } elseif (!preg_match("/^[0-9]{10,11}$/", $_POST['sdt'])) {
+                        $_SESSION['error']['sdt'] = 'Số điện thoại không hợp lệ';
+                    }
+
+                    if (empty($pttt)) {
+                        $_SESSION['error']['pttt'] = 'Vui lòng chọn phương thức thanh toán';
+                    }
+
+                    if (empty($ptvc)) {
+                        $_SESSION['error']['ptvc'] = 'Vui lòng chọn phương thức vận chuyển';
+                    }
+
+                    // Nếu có lỗi, chuyển hướng người dùng và kết thúc
+                    if (!empty($_SESSION['error'])) {
+                        echo '<script>
+                                    alert("Có lỗi xảy ra. Vui lòng kiểm tra thông tin và thử lại.");
+                                    window.location.href = "index.php?act=thanhtoan"  
+                              </script>';
+                        break;
                     }else{
-                    } $id_don_hang = donhang($name, $diachi, $email, $sdt, $ghichu, $ngaydathang, $ptvc, $pttt);
-                    if (isset($_SESSION['userxuong'])) {
-                        extract($_SESSION['userxuong']);
-                        $listgh = loadall_giohang($_SESSION['userxuong']['id']);
-                        foreach ($listgh as $gh) {
-                            donmua($gh['idtk'],$gh['idsp'],  $gh['mau'], $gh['sizesp'], $gh['so_luong'],$gh['thanhtien'], $id_don_hang,0);
-                            capnhatsl($gh['idsp'],$gh['sizesp'],$gh['mau'],$gh['so_luong']);
+                        if ($pttt == "momo"){
+                            echo '<script> window.location.href = "init_payment_vnpay.php" </script>';
+                        }else{
+                            $id_don_hang = donhang($name, $diachi, $email, $sdt, $ghichu, $ngaydathang, $ptvc, $pttt);
+                            if (isset($_SESSION['userxuong'])) {
+                                extract($_SESSION['userxuong']);
+                                $listgh = loadall_giohang($_SESSION['userxuong']['id']);
+                                foreach ($listgh as $gh) {
+                                    donmua($gh['idtk'], $gh['idsp'], $gh['mau'], $gh['sizesp'], $gh['so_luong'], $gh['thanhtien'], $id_don_hang, 0);
+                                    capnhatsl($gh['idsp'], $gh['sizesp'], $gh['mau'], $gh['so_luong']);
+                                }
+                                xoagh($_SESSION['userxuong']['id']);
+                                include("giaodien/header1.php");
+                                include("checkout.php");
+                            }
                         }
-                        xoagh($_SESSION['userxuong']['id']);
                     }
                 }
-                include("giaodien/header1.php");
-                include ("checkout.php");
                 break;
             case 'chitiet':
                 if (isset($_GET['id'])){

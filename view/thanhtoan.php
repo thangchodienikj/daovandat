@@ -31,21 +31,38 @@
                             <?php if (isset($_SESSION['userxuong'])){
                                 extract($_SESSION['userxuong']);
                                 ?>
-                                <label>Họ và tên</label>
-                                <input type="text" class="form-control" value="<?=$name?>" name="name" required>
+                                <div class="form-group">
+                                    <label for="name">Họ và tên</label>
+                                    <input type="text" class="form-control" value="<?= $name ?>" name="name">
+                                    <!-- Hiển thị thông báo lỗi -->
+                                    <span class="error-message"><?= isset($_SESSION['error']['name']) ? $_SESSION['error']['name'] : '' ?></span>
+                                </div>
 
-                                <label>Địa chỉ</label>
-                                <input type="text" class="form-control" value="<?=$dia_chi?>" name="diachi" required>
+                                <div class="form-group">
+                                    <label for="diachi">Địa chỉ</label>
+                                    <input type="text" class="form-control" value="<?= $dia_chi ?>" name="diachi">
+                                    <!-- Hiển thị thông báo lỗi -->
+                                    <span class="error-message"><?= isset($_SESSION['error']['diachi']) ? $_SESSION['error']['diachi'] : '' ?></span>
+                                </div>
 
-                                <label>Email</label>
-                                <input type="email" class="form-control" value="<?=$email?>" name="email" required>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" value="<?= $email ?>" name="email">
+                                    <!-- Hiển thị thông báo lỗi -->
+                                    <span class="error-message"><?= isset($_SESSION['error']['email']) ? $_SESSION['error']['email'] : '' ?></span>
+                                </div>
 
-                                <label>Số điện thoại</label>
-                                <input type="text" class="form-control"  value="<?=$sdt?>" name="sdt" required>
+                                <div class="form-group">
+                                    <label for="sdt">Số điện thoại</label>
+                                    <input type="text" class="form-control" value="<?= $sdt ?>" name="sdt">
+                                    <!-- Hiển thị thông báo lỗi -->
+                                    <span class="error-message"><?= isset($_SESSION['error']['sdt']) ? $_SESSION['error']['sdt'] : '' ?></span>
+
+                                    <label for="ghichu">Ghi chú</label>
+                                    <textarea name="ghichu" class="form-control" cols="30" rows="4" placeholder="Ghi chú về đơn đặt hàng của bạn, ví dụ: lưu ý đặc biệt khi giao hàng"></textarea>
+                                </div>
                                 <?php
                             } ?>
-                            <label> Ghi chú</label>
-                            <textarea name="ghichu" class="form-control" cols="30" rows="4" placeholder="Ghi chú về đơn đặt hàng của bạn, ví dụ: lưu ý đặc biệt khi giao hàng"></textarea>
                         </div><!-- End .col-lg-9 -->
                         <aside class="col-lg-8">
                             <div class="summary">

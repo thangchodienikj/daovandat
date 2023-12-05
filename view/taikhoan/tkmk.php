@@ -104,7 +104,7 @@
             overflow: hidden;
             width: 768px;
             max-width: 100%;
-            min-height: 580px;
+            min-height: 800px;
         }
 
         .form-container {
@@ -261,15 +261,46 @@
                 <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <span>hoặc sử dụng email của bạn để đăng ký</span>
-            <input type="text" name="name" placeholder="Họ và tên" />
-            <input type="email" name="email" placeholder="Email" />
-            <input type="text" name="diachi" placeholder="Địa chỉ" />
-            <input type="text" name="sdt" placeholder="Số điện thoại" />
-            <input type="text" name="taikhoan" placeholder="Tài khoản" />
-            <input type="password" name="matkhau" placeholder="Mật khẩu" />
-            <button type="submit">
-                Đăng ký</button>
+
+            <div class="form-group">
+                <label for="name">Họ và tên</label>
+                <input type="text" name="name" placeholder="Họ và tên"  />
+                <span class="form-message"><?= isset($_SESSION['error']['name']) ? $_SESSION['error']['name'] : '' ?></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" placeholder="Email"  />
+                <span class="form-message"><?= isset($_SESSION['error']['email']) ? $_SESSION['error']['email'] : '' ?></span>
+            </div>
+
+            <div class="form-group">
+                <label for="diachi">Địa chỉ</label>
+                <input type="text" name="diachi" placeholder="Địa chỉ"  />
+                <span class="form-message"><?= isset($_SESSION['error']['diachi']) ? $_SESSION['error']['diachi'] : '' ?></span>
+            </div>
+
+            <div class="form-group">
+                <label for="sdt">Số điện thoại</label>
+                <input type="text" name="sdt" placeholder="Số điện thoại"  />
+                <span class="form-message"><?= isset($_SESSION['error']['sdt']) ? $_SESSION['error']['sdt'] : '' ?></span>
+            </div>
+
+            <div class="form-group">
+                <label for="taikhoan">Tài khoản</label>
+                <input type="text" name="taikhoan" placeholder="Tài khoản"  />
+                <span class="form-message"><?= isset($_SESSION['error']['taikhoandk']) ? $_SESSION['error']['taikhoandk'] : '' ?></span>
+            </div>
+
+            <div class="form-group">
+                <label for="matkhau">Mật khẩu</label>
+                <input type="password" name="matkhau" placeholder="Mật khẩu"  />
+                <span class="form-message"><?= isset($_SESSION['error']['matkhaudk']) ? $_SESSION['error']['matkhaudk'] : '' ?></span>
+            </div>
+
+            <button type="submit">Đăng ký</button>
         </form>
+
     </div>
     <div class="form-container sign-in-container">
         <form action="index.php?act=dangnhap" method="post">
@@ -280,8 +311,17 @@
                 <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <span>hoặc sử dụng tài khoản của bạn</span>
-            <input type="text" name="taikhoan" placeholder="Tài khoản" />
-            <input type="password" name="matkhau" placeholder="Mật khẩu" />
+            <div class="form-group">
+                <label for="taikhoan">Tài khoản</label>
+                <input type="text" name="taikhoan" placeholder="Tài khoản" />
+                <span class="form-message"><?= isset($_SESSION['error']['taikhoan']) ? $_SESSION['error']['taikhoan'] : '' ?></span>
+            </div>
+
+            <div class="form-group">
+                <label for="matkhau">Mật khẩu</label>
+                <input type="password" name="matkhau" placeholder="Mật khẩu" />
+                <span class="form-message"><?= isset($_SESSION['error']['matkhau']) ? $_SESSION['error']['matkhau'] : '' ?></span>
+            </div>
             <a href="index.php?aht=quenmk">Quên mật khẩu?</a>
             <button type="submit">Đăng nhập</button>
         </form>
@@ -316,3 +356,4 @@
 </script>
 </body>
 </html>
+<?php unset($_SESSION['error'])?>
