@@ -66,6 +66,7 @@
                                             ' . $color . '
                                       </a>';
                                     }
+                                    echo isset($_SESSION['error']['mau']) ? '<p class="color-option" style="width: 80px" le>' . $_SESSION['error']['mau'] . '</p>' : '';
                                     echo'
                                 </div><!-- End .product-nav -->
                             </div><!-- End .details-filter-row -->
@@ -81,7 +82,7 @@
                                                 ' . $size . '
                                               </a>';
                                     }
-
+                                     echo isset($_SESSION['error']['size']) ? '<p class="color-option" style="width: 80px" >' . $_SESSION['error']['size'] . '</p>' : '';
                                 echo'
                                 </div><!-- End .select-custom -->
                             </div><!-- End .details-filter-row -->

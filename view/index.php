@@ -201,21 +201,17 @@ if (isset($_GET['aht'])){
                         $check = check($taikhoan, $matkhau);
                         if (is_array($check)){
                             $_SESSION['userxuong'] = $check;
-                            echo '<script>
-                                 alert("Đăng nhập thành công")
+                            echo '<script> 
                                   window.location.href = "index.php"
                               </script>';
                         }
                     }else{
                         echo '<script>
-                                 alert("Có vẻ như tài khoản hoặc mật khẩu của bạn sai")
                                   window.location.href = "index.php?aht=dndk"
                               </script>';
                         }
                     }
                 break;
-
-
             case 'capnhat':
                 if (isset($_POST['capnhat']) && $_POST['capnhat']) {
                     $id = $_POST['id'];
@@ -266,8 +262,17 @@ if (isset($_GET['aht'])){
                         $so_luong = $_POST['soluong'];
                         $selected_size = $_POST['selected_size'];
                         $selected_color = $_POST['selected_color'];
-                        update_giohang($idsp,$idtk,$ten_sach,$selected_color,$selected_size,$mo_ta,$gia_ca,$hinhload,$so_luong);
-                        header("Location: index.php?act=gh");
+                        if (empty($selected_size) || empty($selected_color)) {
+                            $_SESSION['error']['size'] = "Chọn size";
+                            $_SESSION['error']['mau'] = "Chọn Màu";
+                            echo ' <script>
+                                alert("Chọn màu và size");
+                                window.location.replace("index.php?act=sanphamct&idpro=' . $idsp . '");               
+                            </script>';
+                        }else {
+                            update_giohang($idsp, $idtk, $ten_sach, $selected_color, $selected_size, $mo_ta, $gia_ca, $hinhload, $so_luong);
+                            header("Location: index.php?act=gh");
+                        }
                     }
                     include("giaodien/header1.php");
                     include("giohang.php");
