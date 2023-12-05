@@ -208,13 +208,8 @@ if (isset($_GET['aht'])){
                                  alert("Có vẻ như tài khoản hoặc mật khẩu của bạn sai")
                                   window.location.href = "index.php?aht=dndk"
                               </script>';
-
-                            header("Location: index.php");
                         }
-                    }else{
-                        echo "<script> alert('Sai rồi'); window.location.href = 'index.php?aht=dndk' </script>";
                     }
-
                 break;
 
 

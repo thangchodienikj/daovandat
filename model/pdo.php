@@ -5,7 +5,7 @@ if (!function_exists('pdo_get_connection')) {
         $host = "localhost";
         $username = "root";
         $password = "";
-        $dbname = "duan1";
+        $dbname = "duan2";
         try {
             $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
