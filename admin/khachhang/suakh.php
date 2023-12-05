@@ -5,7 +5,7 @@ if (is_array($listkhachhang)){
 <main class="main" style="width: 60%; margin: 0 auto;">
     <div class="mb">
         <br>
-        <div class="box_title" style="font-size: 25px">Cập nhập sản phẩm mới </div>
+        <div class="box_title" style="font-size: 25px">Thay đổi tài khoản </div>
         <br>
         <div class="box_content form_account">
             <form action="index.php?act=updk" method="post" enctype="multipart/form-data">
