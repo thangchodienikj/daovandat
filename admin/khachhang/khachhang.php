@@ -25,8 +25,8 @@
                             <?php foreach ($listkhachhang as $khachhang) : ?>
                                 <?php
                                 extract($khachhang);
-                                $suadm = "#" . $id;
-                                $xoadm = "#" . $id;
+                                $suadm = "index.php?act=suakh&id=".$id ;
+                                $xoadm = "index.php?act=xoakh&id=".$id ;
                                 ?>
                                 <tr>
                                     <td class="col-md-1 text-center"><?= $id ?></td>

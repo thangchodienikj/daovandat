@@ -105,6 +105,8 @@
             width: 768px;
             max-width: 100%;
             min-height: 800px;
+            min-height: 700px;
+
         }
 
         .form-container {
@@ -250,6 +252,7 @@
         }
     </style>
 </head>
+
 <body>
 <div class="container" id="container">
     <div class="form-container sign-up-container">
@@ -357,3 +360,5 @@
 </body>
 </html>
 <?php unset($_SESSION['error'])?>
+
+

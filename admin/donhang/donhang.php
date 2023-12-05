@@ -38,12 +38,12 @@
                                 $trtt = $dh['tinhtrangthanhtoan'];
                                 ?>
                                 <tr>
-                                    <td class="col-md-1 text-center"><?= $name ?></td>
+                                    <td class="col-md-1 text-center"><?= $ten ?></td>
                                     <td class="col-md-1 text-center"><?= $diachi  ?></td>
                                     <td class="col-md-1 text-center"><?= $sdt ?></td>
                                     <td class="col-md-1 text-center"><?= $ngaydathang ?></td>
                                     <td class="col-md-1 text-center"><?= $ghichu ?></td>
-                                    <td class="col-md-1 text-center"><?= $tensach ?></td>
+                                    <td class="col-md-1 text-center"><?= $name ?></td>
                                     <td class="col-md-1 text-center"><?= $mau ?></td>
                                     <td class="col-md-1 text-center"><?= $size ?></td>
                                     <td class="col-md-1 text-center"><?= $tongtien ?></td>

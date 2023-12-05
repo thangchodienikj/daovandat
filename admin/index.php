@@ -4,6 +4,7 @@ if (isset($_SESSION['userxuong'])) {
     include("../model/sanpham.php");
     include("../model/danhmuc.php");
     include("../model/khachang.php");
+    include("../model/taikhoan.php");
     include("../model/dathang.php");
     include("../model/thongke.php");
     include("../model/pdo.php");
@@ -238,7 +239,34 @@ if (isset($_SESSION['userxuong'])) {
                 include("sach/add3.php");
                 break;
             case 'khachhang':
-                $listkhachhang = khachhang();
+                $listkhachhang = khachhang(0);
+                include("khachhang/khachhang.php");
+                break;
+            case 'suakh':
+                if (isset($_GET['id'])) {
+                    $listkhachhang = khachhang($_GET['id']);
+                }
+                include("khachhang/suakh.php");
+                break;
+            case 'updk':
+                if (isset($_POST['capnhat'])) {
+                    $name = $_POST['name'];
+                    $diachi = $_POST['diachi'];
+                    $email = $_POST['email'];
+                    $tk = $_POST['tk'];
+                    $mk = $_POST['mk'];
+                    $id = $_POST['id'];
+                    $sdt = $_POST['sdt'];
+                    update_tk($id,$name,$diachi,$email,$sdt,$tk,$mk);
+                }
+                $listkhachhang = khachhang(0);
+                include("khachhang/khachhang.php");
+                break;
+            case 'xoakh':
+                if (isset($_GET['id'])) {
+                    xoakh($_GET['id']);
+                }
+                $listkhachhang = khachhang(0);
                 include("khachhang/khachhang.php");
                 break;
             case 'binhluan':
