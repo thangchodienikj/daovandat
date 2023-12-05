@@ -52,7 +52,8 @@
                                     <br>Bảng điều khiển tài khoản của bạn, bạn có thể xem <a href="#tab-orders" class="tab-trigger-link link-underline">những đơn đặt hàng gần đây </a>, người quản lý của bạn<a href="#tab-address" class="tab-trigger-link">
                                     địa chỉ giao hàng và thanh toán</a>, và <a href="#tab-account" class="tab-trigger-link">Chỉnh sửa mật khẩu và chi tiết tài khoản của bạn</a>.</p>
                             </div><!-- .End .tab-pane -->
-
+                            <?php if (isset($_SESSION['userxuong'])){
+                            extract($_SESSION['userxuong']); ?>
                             <div class="tab-pane fade show active" id="tab-orders" role="tabpanel" aria-labelledby="tab-orders-link">
                                 <div class="d-flex justify-content-between">
                                     <a href="index.php?act=choxacnhan" class="btn btn-primary">
@@ -71,7 +72,7 @@
                                         Đơn hủy
                                     </a>
                                 </div>
-
+                                <?php } ?>
 
                                 <table class="table table-bordered">
                                     <thead>

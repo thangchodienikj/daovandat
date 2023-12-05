@@ -9,7 +9,6 @@ if (isset($_SESSION['userxuong'])) {
     include("../model/thongke.php");
     include("../model/pdo.php");
     include("header.php");
-    $listdh1 = ht_donhang(1);
     $listsp1 = product();
     $listdanhmuc = loadAll_danhmuc();
     $listmau = productp_color();
@@ -281,7 +280,7 @@ if (isset($_SESSION['userxuong'])) {
                 include("thongke.php");
                 break;
             case 'donhang':
-                $listdh1 = ht_donhang(1);
+                $listdh1 = ht_donhangadmin();
                 include("donhang/donhang.php");
                 break;
             case 'tinhtrang':

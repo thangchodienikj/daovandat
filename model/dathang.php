@@ -14,23 +14,36 @@ function luotxem($idpro){
     $sql = "UPDATE product SET luotxem = luotxem + 1 WHERE id = $idpro;";
     return pdo_execute($sql);
 }
-function ht_donhang($id) {
-    if ($id == 1) {
+function ht_donhangadmin(){
+    $sql = "SELECT dm.id, sp.name, sp.img ,sp.price ,dm.idsp ,dm.idtk,dm.tinhtrangthanhtoan,dm.id_don_mua,dm.size,dm.mau,dm.tongtien,dm.soluong , dh.name as ten ,dh.diachi,dh.email,dh.sdt,dh.ghichu,dh.ngaydathang,dh.ptvc,dh.phuong_thuc_thanhtoan,dh.tinhtrangdh
+                FROM don_mua as dm 
+                JOIN don_hang as dh ON dh.id = dm.id_don_mua 
+                JOIN product as sp ON sp.id=dm.idsp
+               ";
+    $donhang = pdo_query($sql);
+    return $donhang;
+}
+function ht_donhang($id,$idtk) {
+    if ($id == 0) {
         $sql = "SELECT dm.id, sp.name, sp.img ,sp.price ,dm.idsp ,dm.idtk,dm.tinhtrangthanhtoan,dm.id_don_mua,dm.size,dm.mau,dm.tongtien,dm.soluong , dh.name as ten ,dh.diachi,dh.email,dh.sdt,dh.ghichu,dh.ngaydathang,dh.ptvc,dh.phuong_thuc_thanhtoan,dh.tinhtrangdh
                 FROM don_mua as dm 
                 JOIN don_hang as dh ON dh.id = dm.id_don_mua 
-                JOIN product as sp ON sp.id=dm.idsp;";
+                JOIN product as sp ON sp.id=dm.idsp
+                where dm.idtk = $idtk ;";
     }else{
         $sql = "SELECT dm.id, sp.name, sp.img ,sp.price ,dm.idsp ,dm.idtk,dm.tinhtrangthanhtoan,dm.id_don_mua,dm.size,dm.mau,dm.tongtien,dm.soluong , dh.name as ten ,dh.diachi,dh.email,dh.sdt,dh.ghichu,dh.ngaydathang,dh.ptvc,dh.phuong_thuc_thanhtoan,dh.tinhtrangdh
                 FROM don_mua as dm 
                 JOIN don_hang as dh ON dh.id = dm.id_don_mua 
-                JOIN product as sp ON sp.id=dm.idsp where dm.id_don_mua = $id ;";
+                JOIN product as sp ON sp.id=dm.idsp where dm.id_don_mua = $id and  dm.idtk = $idtk ;";
     }
     $donhang = pdo_query($sql);
     return $donhang;
 }
-function tinhtrangdh($tinhtrang) {
-    $sql = "SELECT * FROM don_mua JOIN don_hang ON don_hang.id = don_mua.id_don_mua WHERE don_hang.tinhtrangdh = $tinhtrang;";
+function tinhtrangdh($tinhtrang,$id) {
+    $sql = "SELECT dm.id, sp.name, sp.img ,sp.price ,dm.idsp ,dm.idtk,dm.tinhtrangthanhtoan,dm.id_don_mua,dm.size,dm.mau,dm.tongtien,dm.soluong , dh.name as ten ,dh.diachi,dh.email,dh.sdt,dh.ghichu,dh.ngaydathang,dh.ptvc,dh.phuong_thuc_thanhtoan,dh.tinhtrangdh
+                FROM don_mua as dm 
+                JOIN don_hang as dh ON dh.id = dm.id_don_mua 
+                JOIN product as sp ON sp.id=dm.idsp where dh.tinhtrangdh = $tinhtrang and  dm.idtk = $id;";
     $donhang = pdo_query($sql);
     return $donhang;
 }

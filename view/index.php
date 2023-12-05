@@ -13,7 +13,10 @@ $list1dm = list2dm();
 $list8sp=load8_sanpham();
 $listsp=loadall_sanpham(0);
 $listdm = loadAll_danhmuc();
-$listdh1=ht_donhang(1);
+if (isset($_SESSION['userxuong'])){
+    extract($_SESSION['userxuong']);
+    $listdh1=ht_donhang(0,$_SESSION['userxuong']['id']);
+}
 if (isset($_SESSION['userxuong'])){
     extract($_SESSION['userxuong']);
     $listgh = loadall_giohang($_SESSION['userxuong']['id']);
@@ -291,7 +294,10 @@ if (isset($_GET['aht'])){
                 break;
             case 'chitiet':
                 if (isset($_GET['id'])){
-                    $listdh1=ht_donhang($_GET['id']);
+                    if (isset($_SESSION['userxuong'])){
+                        extract($_SESSION['userxuong']);
+                        $listdh1=ht_donhang($_GET['id'],$_SESSION['userxuong']['id']);
+                    }
                 }
                 include("giaodien/header1.php");
                 include ("donhang/chitietdonhang.php");
@@ -307,27 +313,42 @@ if (isset($_GET['aht'])){
                 include ("donhang/chitietdonhang.php");
                 break;
             case 'xacnhandon':
-                $listdh=tinhtrangdh(1);
+                if (isset($_SESSION['userxuong'])){
+                    extract($_SESSION['userxuong']);
+                    $listdh=tinhtrangdh(1,$_SESSION['userxuong']['id']);
+                }
                 include("giaodien/header1.php");
                 include ("donhang/xacnhandon.php");
                 break;
             case 'choxacnhan':
-                $listdh=tinhtrangdh(0);
+                if (isset($_SESSION['userxuong'])){
+                    extract($_SESSION['userxuong']);
+                    $listdh=tinhtrangdh(0,$_SESSION['userxuong']['id']);
+                }
                 include("giaodien/header1.php");
                 include ("donhang/choxacnhan.php");
                 break;
             case 'danggiao':
-                $listdh=tinhtrangdh(2);
+                if (isset($_SESSION['userxuong'])){
+                    extract($_SESSION['userxuong']);
+                    $listdh=tinhtrangdh(2,$_SESSION['userxuong']['id']);
+                }
                 include("giaodien/header1.php");
                 include ("donhang/danggiao.php");
                 break;
             case 'giaothanhcong':
-                $listdh=tinhtrangdh(3);
+                if (isset($_SESSION['userxuong'])){
+                    extract($_SESSION['userxuong']);
+                    $listdh=tinhtrangdh(3,$_SESSION['userxuong']['id']);
+                }
                 include("giaodien/header1.php");
                 include ("donhang/thanhcong.php");
                 break;
             case 'donhuy':
-                $listdh=tinhtrangdh(4);
+                if (isset($_SESSION['userxuong'])){
+                    extract($_SESSION['userxuong']);
+                    $listdh=tinhtrangdh(4,$_SESSION['userxuong']['id']);
+                }
                 include("giaodien/header1.php");
                 include ("donhang/donhuy.php");
                 break;
