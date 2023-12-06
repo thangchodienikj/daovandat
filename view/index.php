@@ -400,35 +400,52 @@ if (isset($_GET['aht'])){
                     $ngaydathang = date('Y-m-d H:i:s');
                     $pttt = $_POST['redirect'];
 
-                    if (empty($_POST['name'])) {
+                    $_SESSION['order']['pttt'] = $pttt;
+                    $_SESSION['order']['ptvc'] = $ptvc;
+                    $_SESSION['order']['ngaydathang'] = $ngaydathang;
+                    $_SESSION['order']['ghichu'] = $ghichu;
+
+                    if (empty($name)) {
                         $_SESSION['error']['name'] = 'Vui lòng nhập Họ và tên';
+                    }else{
+                        $_SESSION['order']['name'] = $name;
                     }
 
                     // Kiểm tra Địa chỉ
-                    if (empty($_POST['diachi'])) {
+                    if (empty($diachi)) {
                         $_SESSION['error']['diachi'] = 'Vui lòng nhập Địa chỉ';
+                    }else{
+                        $_SESSION['order']['diachi'] = $diachi;
                     }
 
                     // Kiểm tra Email
-                    if (empty($_POST['email'])) {
+                    if (empty($email)) {
                         $_SESSION['error']['email'] = 'Vui lòng nhập Email';
                     } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                         $_SESSION['error']['email'] = 'Email không hợp lệ';
+                    }else{
+                        $_SESSION['order']['email'] = $email;
                     }
 
                     // Kiểm tra Số điện thoại
-                    if (empty($_POST['sdt'])) {
+                    if (empty($sdt)) {
                         $_SESSION['error']['sdt'] = 'Vui lòng nhập Số điện thoại';
-                    } elseif (!preg_match("/^[0-9]{10,11}$/", $_POST['sdt'])) {
+                    } elseif (!preg_match("/^[0-9]{10,11}$/", $sdt)) {
                         $_SESSION['error']['sdt'] = 'Số điện thoại không hợp lệ';
+                    }else{
+                        $_SESSION['order']['sdt'] = $sdt;
                     }
 
                     if (empty($pttt)) {
                         $_SESSION['error']['pttt'] = 'Vui lòng chọn phương thức thanh toán';
+                    }else{
+                        $_SESSION['order']['pttt'] = $pttt;
                     }
 
                     if (empty($ptvc)) {
                         $_SESSION['error']['ptvc'] = 'Vui lòng chọn phương thức vận chuyển';
+                    }else{
+                        $_SESSION['order']['ptvc'] = $ptvc;
                     }
 
                     // Nếu có lỗi, chuyển hướng người dùng và kết thúc
@@ -442,7 +459,6 @@ if (isset($_GET['aht'])){
                         if ($pttt == "vnpay"){
                             echo '<script> window.location.href = "init_payment_vnpay.php" </script>';
                         }else{
-                            $id_don_hang = donhang($name, $diachi, $email, $sdt, $ghichu, $ngaydathang, $ptvc, $pttt);
                             if (isset($_SESSION['userxuong'])) {
                                 extract($_SESSION['userxuong']);
                                 $listgh = loadall_giohang($_SESSION['userxuong']['id']);
@@ -456,10 +472,8 @@ if (isset($_GET['aht'])){
                             }
                         }
                     }
-                }
-
-                if(isset($_GET['vnp_TransactionStatus']) and $_GET['vnp_TransactionStatus'] = 00){
-                    $id_don_hang = donhang($name, $diachi, $email, $sdt, $ghichu, $ngaydathang, $ptvc, $pttt);
+                }else if($_GET['vnp_TransactionStatus'] == 00){
+                    $id_don_hang = donhang($_SESSION['order']['name'], $_SESSION['order']['diachi'], $_SESSION['order']['email'],$_SESSION['order']['sdt'], $_SESSION['order']['ghichu'], $_SESSION['order']['ngaydathang'], $_SESSION['order']['ptvc'], $_SESSION['order']['pttt']);
                     if (isset($_SESSION['userxuong'])) {
                         extract($_SESSION['userxuong']);
                         $listgh = loadall_giohang($_SESSION['userxuong']['id']);
@@ -468,10 +482,11 @@ if (isset($_GET['aht'])){
                             capnhatsl($gh['idsp'], $gh['sizesp'], $gh['mau'], $gh['so_luong']);
                         }
                         xoagh($_SESSION['userxuong']['id']);
+                        unset($_SESSION['order']);
                         include("giaodien/header1.php");
                         include("checkout.php");
                     }
-                }else{
+                }else if($_GET['vnp_TransactionStatus'] == 02){
                     echo '<script> 
                             alert("Thanh toán thất bại, trở về trang giỏ hàng");
                             window.location.href = "index.php?act=gh"
