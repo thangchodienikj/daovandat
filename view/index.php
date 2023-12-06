@@ -14,6 +14,13 @@ $list1dm = list2dm();
 $list8sp=load8_sanpham();
 $listsp=loadall_sanpham(0);
 $listdm = loadAll_danhmuc();
+function addError($field, $message) {
+    if (!isset($_SESSION['error'])) {
+        $_SESSION['error'] = [];
+    }
+    $_SESSION['error'][$field] = $message;
+}
+
 if (isset($_SESSION['userxuong'])){
     extract($_SESSION['userxuong']);
     $listdh1=ht_donhang(0,$_SESSION['userxuong']['id']);
@@ -104,10 +111,11 @@ if (isset($_GET['aht'])){
                     $taikhoan = $_POST['taikhoan'];
                     $matkhau = $_POST['matkhau'];
 
-                    // Thêm kiểm tra điều kiện rỗng cho các trường
+
                     if (empty($name)) {
                         $_SESSION['error']['name'] = 'Vui lòng nhập họ và tên';
                     }
+
                     if (empty($email)) {
                         $_SESSION['error']['email'] = 'Vui lòng nhập email';
                     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -118,7 +126,6 @@ if (isset($_GET['aht'])){
                         $_SESSION['error']['diachi'] = 'Vui lòng nhập địa chỉ';
                     }
 
-                    // Kiểm tra số điện thoại Việt Nam
                     if (empty($sdt)) {
                         $_SESSION['error']['sdt'] = 'Vui lòng nhập số điện thoại';
                     } elseif (!preg_match("/^(0[1-9][0-9]{8}|84[1-9][0-9]{8})$/", $sdt)) {
@@ -145,42 +152,6 @@ if (isset($_GET['aht'])){
                               </script>';
 
                     }
-
-                    if(empty($name)){
-                        $_SESSION['error']['name'] = 'Vui lòng nhập họ và tên';
-                    }
-                    if(empty($email)){
-                        $_SESSION['error']['email'] = 'Vui lòng nhập email';
-                    }
-                    if(empty($dia_chi)){
-                        $_SESSION['error']['diachi'] = 'Vui lòng nhập địa chỉ';
-                    }
-                    if(empty($sdt)){
-                        $_SESSION['error']['sdt'] = 'Vui lòng nhập số điện thoại';
-                    } elseif(!preg_match("/^(0[1-9][0-9]{8}|84[1-9][0-9]{8})$/", $sdt)) {
-                        $_SESSION['error']['sdt'] = 'Số điện thoại không hợp lệ';
-                    }
-
-                    if(empty($taikhoan)){
-                        $_SESSION['error']['taikhoandk'] = 'Vui lòng nhập tài khoản';
-                    }
-                    if(empty($matkhau)){
-                        $_SESSION['error']['matkhaudk'] = 'Vui lòng nhập mật khẩu';
-                    }
-
-                    if(!isset($_SESSION['error'])){
-                        dangky($name, $dia_chi, $email, $sdt, $taikhoan, $matkhau);
-                        echo '<script>
-                    alert("Đăng ký thành công mời bạn đăng nhập")
-                </script>';
-                        header('Location:index.php?aht=dndk');
-                    }else{
-                        echo "<script> alert('Sai rồi'); window.location.href = 'index.php?aht=dndk' </script>";
-
-                    }
-
-                    // Reset $_SESSION['error'] sau khi kiểm tra xong
-
                 }
                 break;
 
@@ -221,19 +192,63 @@ if (isset($_GET['aht'])){
                     $sdt = $_POST['sdt'];
                     $taikhoan = $_POST['tk'];
                     $matkhau = $_POST['mk'];
-                    update_tk($id, $name, $dia_chi, $email, $sdt, $taikhoan, $matkhau);
-                    $check = check($taikhoan, $matkhau);
-                    if (is_array($check)) {
-                        $_SESSION['userxuong'] = $check;
-                        echo ' <script>
-                        alert("Cập nhật thành công ");
-                    </script>';
-                        include("giaodien/header1.php");
-                        include("giaodien/home.php");
+
+                    // Thực hiện kiểm tra và thêm lỗi vào $_SESSION['error']
+
+                    if (empty($matkhau)) {
+                        addError('mk', 'Vui lòng nhập Mật khẩu.');
                     }
+
+                    if (empty($taikhoan)) {
+                        addError('tk', 'Vui lòng nhập Mật khẩu.');
+                    }
+
+                    if (empty($name)) {
+                        addError('name', 'Vui lòng nhập Họ và tên.');
+                    }
+
+                    if (empty($dia_chi)) {
+                        addError('diachi', 'Vui lòng nhập Địa chỉ.');
+                    }
+
+                    if (empty($sdt)) {
+                        addError('sdt', 'Vui lòng nhập Số điện thoại.');
+                    } else if (!is_numeric($sdt)) {
+                        addError('sdt', 'Số điện thoại phải là số.');
+                    }else if (!preg_match('/^(0[0-9]{9}|84[0-9]{9})$/', $sdt)) {
+                        addError('sdt', 'Vui lòng nhập số điện thoại hợp lệ của Việt Nam.');
+                    }
+
+                    if (empty($email)) {
+                        addError('email', 'Vui lòng nhập Email.');
+                    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                        addError('email', 'Email không hợp lệ.');
+                    }
+
+                    // Kiểm tra xem có lỗi nào hay không
+                    if (!isset($_SESSION['error'])) {
+                        // Nếu không có lỗi, thực hiện cập nhật và chuyển hướng hoặc hiển thị thông báo
+                        update_tk($id, $name, $dia_chi, $email, $sdt, $taikhoan, $matkhau);
+                        $check = check($taikhoan, $matkhau);
+
+                        if (is_array($check)) {
+                            $_SESSION['userxuong'] = $check;
+                            echo '<script>
+                        alert("Cập nhật thành công ");
+                        window.location.href = "index.php?act=tkcuatoi";
+                    </script>';
+                        }
+                    } else {
+                        // Nếu có lỗi, chuyển hướng về trang cập nhật và hiển thị thông báo
+                        echo '<script>
+                    alert("Có vẻ đang có lỗi ở đâu đó");
+                    window.location.href = "index.php?act=tkcuatoi";
+                </script>';
+                    }
+                } else {
+                    include "giaodien/header1.php";
+                    include "tkcuatoi.php";
                 }
-                include("giaodien/header1.php");
-                include("tkcuatoi.php");
                 break;
             case 'tkcuatoi' :
                 include("giaodien/header1.php");
@@ -417,7 +432,7 @@ if (isset($_GET['aht'])){
                               </script>';
                         break;
                     }else{
-                        if ($pttt == "momo"){
+                        if ($pttt == "vnpay"){
                             echo '<script> window.location.href = "init_payment_vnpay.php" </script>';
                         }else{
                             $id_don_hang = donhang($name, $diachi, $email, $sdt, $ghichu, $ngaydathang, $ptvc, $pttt);
@@ -434,6 +449,27 @@ if (isset($_GET['aht'])){
                             }
                         }
                     }
+                }
+
+                if(isset($_GET['vnp_TransactionStatus']) and $_GET['vnp_TransactionStatus'] = 00){
+                    $id_don_hang = donhang($name, $diachi, $email, $sdt, $ghichu, $ngaydathang, $ptvc, $pttt);
+                    if (isset($_SESSION['userxuong'])) {
+                        extract($_SESSION['userxuong']);
+                        $listgh = loadall_giohang($_SESSION['userxuong']['id']);
+                        foreach ($listgh as $gh) {
+                            donmua($gh['idtk'], $gh['idsp'], $gh['mau'], $gh['sizesp'], $gh['so_luong'], $gh['thanhtien'], $id_don_hang, 0);
+                            capnhatsl($gh['idsp'], $gh['sizesp'], $gh['mau'], $gh['so_luong']);
+                        }
+                        xoagh($_SESSION['userxuong']['id']);
+                        include("giaodien/header1.php");
+                        include("checkout.php");
+                    }
+                }else{
+                    echo '<script> 
+                            alert("Thanh toán thất bại, trở về trang giỏ hàng");
+                            window.location.href = "index.php?act=gh"
+                          </script>';
+
                 }
                 break;
             case 'chitiet':

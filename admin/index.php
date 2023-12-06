@@ -13,12 +13,23 @@ if (isset($_SESSION['userxuong'])) {
     $listdanhmuc = loadAll_danhmuc();
     $listmau = productp_color();
     $listsize = productpro_size();
+    function addError($field, $message) {
+        if (!isset($_SESSION['error'])) {
+            $_SESSION['error'] = [];
+        }
+        $_SESSION['error'][$field] = $message;
+    }
     if (isset($_GET['act'])) {
         $act = $_GET['act'];
         switch ($act) {
             case 'adddm':
                 if (isset($_POST['themmoi'])) {
                     $tendanhmuc = $_POST['tenloai'];
+
+                    if (empty($tendanhmuc)) {
+                        addError('tenloai', 'Vui lòng nhập Tên Loại.');
+                    }
+
                     if (empty($_FILES['hinh']['name'])) {
                         $hinh = "";
                     } else {
@@ -33,10 +44,28 @@ if (isset($_SESSION['userxuong'])) {
                             }
                         }
                     }
-                    insert_danhmuc($tendanhmuc, $hinh);
-                    $thongbao = "thêm thành công";
+
+                    if (empty($hinh)) {
+                        addError('hinh', 'Vui lòng chọn Ảnh danh mục.');
+                    }
+                    if (!isset($_SESSION['error'])) {
+                        insert_danhmuc($tendanhmuc, $hinh);
+                        echo '<script> 
+                                alert("Thêm thành công danh mục");
+                                window.location.href = "index.php?act=listdm"
+                                </script>';
+
+                    }else{
+                        echo '<script> 
+                                alert("Vui lòng nhập hết các trường đi nhé");
+                                window.location.href = "index.php?act=adddm"
+                                </script>';
+                    }
+                }else{
+                    include "danhmuc/add.php";
                 }
-                include("danhmuc/add.php");
+
+
                 break;
             case 'listdm':
                 if (isset($_SESSION['userxuong'])) {
@@ -48,7 +77,6 @@ if (isset($_SESSION['userxuong'])) {
             case 'thongkedm':
                 $listtk = thongke();
                 include "danhmuc/thongkedm.php";
-
                 break;
             case 'xoadm':
                 if (isset($_GET['id'])) {
@@ -56,7 +84,6 @@ if (isset($_SESSION['userxuong'])) {
                 }
                 $listdanhmuc = loadAll_danhmuc();
                 include("danhmuc/list.php");
-
                 break;
             case 'suadm':
                 if (isset($_GET['id'])) {

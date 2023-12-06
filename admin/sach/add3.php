@@ -49,13 +49,6 @@
                 <a href="index.php?act=addsp" class="btn btn-info">Sản phẩm</a>
             </form>
             <br>
-            <p class="notification">
-                <?php
-                if(isset($thongbao5) && $thongbao5 !== ""){
-                    echo $thongbao5;
-                }
-                ?>
-            </p>
             <br/>
         </div>
     </div>

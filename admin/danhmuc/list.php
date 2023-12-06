@@ -31,7 +31,7 @@
                                     <td class="ol-md-3 text-center d-flex justify-content-center align-items-center"><?= $imgTag ?></td>
                                     <td class="col-md-3 text-center">
                                         <a href=<?= $suadm ?> class="btn btn-primary btn-block">Sửa</a>
-                                        <a href=<?= $xoadm ?> class="btn btn-danger btn-block">Xóa</a>
+                                        <a href="#" class="btn btn-danger btn-block" onclick="confirmAndRedirect('<?= $xoadm ?>')">Xóa</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -59,3 +59,10 @@
     </div>
 
 </main>
+<script>
+    function confirmAndRedirect(url) {
+        if (confirm('Bạn có chắc chắn muốn xóa không?')) {
+            window.location.href = url;
+        }
+    }
+</script>

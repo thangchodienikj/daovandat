@@ -22,7 +22,7 @@
                 </div>
                 <br>
                 <br>
-                <a href="index.php?act=addsp" class="btn btn-info">Sản phẩm</a>
+                <a href="index.php?act=addsp" class="btn btn-info">Thêm sản phẩm</a>
                 <button type="submit" class="btn btn-primary" name="gui">Thêm Ảnh</button>
                 <button type="reset" class="btn btn-secondary">Nhập lại</button>
                 <a href="index.php?act=add3" class="btn btn-info">Sản phẩm biến thể</a>

@@ -158,14 +158,14 @@
                                     <div class="col-lg-6">
                                         <div class="card card-dashboard">
                                             <div class="card-body">
-                                                <h3 class="card-title">Địa chỉ thanh toán</h3><!-- End .card-title -->
+                                                <h3 class="card-title">Địa chỉ giao hàng</h3><!-- End .card-title -->
                                                 <?php if (isset($_SESSION['userxuong'])){ extract($_SESSION['userxuong']); ?>
                                                 <p><?= $name ?><br>
                                                     <?= $sdt ?><br>
                                                     <?= $email ?><br>
                                                     <?php } ?>
                                                     <a href="#">
-                                                        Biên tập viên<i class="icon-edit"></i></a></p>
+                                                        Chỉnh sửa<i class="icon-edit"></i></a></p>
                                             </div><!-- End .card-body -->
                                         </div><!-- End .card-dashboard -->
                                     </div><!-- End .col-lg-6 -->
@@ -181,7 +181,7 @@
                                                     Bạn chưa thiết lập loại địa chỉ này.<br>
                                                     <a href="#">
 
-                                                        Biên tập viên <i class="icon-edit"></i></a></p>
+                                                        Chỉnh sửa <i class="icon-edit"></i></a></p>
                                             </div><!-- End .card-body -->
                                         </div><!-- End .card-dashboard -->
                                     </div><!-- End .col-lg-6 -->
@@ -195,27 +195,37 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <label>Tài khoản</label>
-                                            <input type="text" class="form-control" value="<?=$taikhoan?>" name="tk" readonly >
+                                            <input type="text" class="form-control mb-2" value="<?=$taikhoan?>" name="tk">
+                                            <span style="color: red;"><?php echo isset($_SESSION['error']['tk']) ? $_SESSION['error']['tk'] : ''; ?></span>
                                         </div><!-- End .col-sm-6 -->
 
                                         <div class="col-sm-6">
                                             <label>Mật khẩu</label>
-                                            <input type="text" class="form-control" value="<?=$matkhau?>" name="mk" required>
+                                            <input type="password" class="form-control mb-2" value="<?=$matkhau?>" name="mk">
+                                            <span style="color: red;"><?php echo isset($_SESSION['error']['mk']) ? $_SESSION['error']['mk'] : ''; ?></span>
                                         </div><!-- End .col-sm-6 -->
                                     </div><!-- End .row -->
 
-                                    <label>Họ và tên</label>
-                                    <input type="text" class="form-control mb-2" value="<?=$name?>" name="name" >
-
-                                    <label>Địa chỉ</label>
-                                    <input type="text" class="form-control mb-2" value="<?=$dia_chi?>" name="diachi">
-
-                                    <label>
-                                       Số điện thoại</label>
-                                    <input type="text" class="form-control mb-2" value="<?=$sdt?>" name="sdt">
-
-                                    <label>Email</label>
-                                    <input type="email" class="form-control mb-2" value="<?=$email?>" name="email">
+                                    <div class="form-group">
+                                        <label for="name">Họ và tên:</label>
+                                        <input type="text" class="form-control mb-2" value="<?=$name?>" name="name" >
+                                        <span style="color: red;"><?php echo isset($_SESSION['error']['name']) ? $_SESSION['error']['name'] : ''; ?></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="diachi">Địa chỉ:</label>
+                                        <input type="text" class="form-control mb-2" value="<?=$dia_chi?>" name="diachi">
+                                        <span style="color: red;"><?php echo isset($_SESSION['error']['diachi']) ? $_SESSION['error']['diachi'] : ''; ?></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="sdt">Số điện thoại:</label>
+                                        <input type="text" class="form-control mb-2" value="<?=$sdt?>" name="sdt">
+                                        <span style="color: red;"><?php echo isset($_SESSION['error']['sdt']) ? $_SESSION['error']['sdt'] : ''; ?></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email:</label>
+                                        <input type="email" class="form-control mb-2" value="<?=$email?>" name="email">
+                                        <span style="color: red;"><?php echo isset($_SESSION['error']['email']) ? $_SESSION['error']['email'] : ''; ?></span>
+                                    </div>
 
                                     <input type="submit" class="btn btn-outline-primary-2" value="Cập nhật" name="capnhat">
                                 </form>
@@ -228,3 +238,4 @@
         </div><!-- End .dashboard -->
     </div><!-- End .page-content -->
 </main><!-- End .main -->
+<?php unset($_SESSION['error'])?>

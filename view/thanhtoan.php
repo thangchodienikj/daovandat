@@ -111,6 +111,7 @@
                                                 <option value="30000">Vận chuyển nhanh</option>
                                                 <option value="10000">Vận chuyển chậm</option>
                                             </select></td>
+                                        <span style="color: red"><?=isset($_SESSION['error']['pttt']) ?$_SESSION['error']['pttt'] : ''?></span>
                                     </tr >
                                     <tr >
                                         <td>Phí vận chuyển:</td>
@@ -135,7 +136,7 @@
                                 <div class="accordion-summary" id="accordion-payment">
                                     <div class="card">
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" name="redirect" class="custom-control-input" value="momo" id="nhanh" >
+                                            <input type="radio" name="redirect" class="custom-control-input" value="vnpay" id="nhanh" >
                                             <label class="custom-control-label" for="nhanh">
                                                 VnPay</label>
                                         </div><!-- End .custom-control -->
@@ -164,3 +165,4 @@
 
     });
 </script>
+<?php unset($_SESSION['error'])?>
