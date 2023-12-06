@@ -61,30 +61,30 @@ if (isset($_GET['aht'])){
         $act = $_GET['act'];
         switch ($act) {
             case 'sanpham' :
-                $listsp=loadall_sanpham(0);
+                $listsp = loadall_sanpham(0);
                 include("giaodien/header1.php");
-                include ("sanpham.php");
+                include("sanpham.php");
                 break;
             case 'thanhtoan' :
-                if (isset($_SESSION['userxuong'])){
+                if (isset($_SESSION['userxuong'])) {
                     extract($_SESSION['userxuong']);
                     $listgh = loadall_giohang($_SESSION['userxuong']['id']);
                     if (sizeof($listgh) == 0) {
                         header('Location:index.php?act=sanpham');
-                    }else{
+                    } else {
                         include("giaodien/header1.php");
-                        include ("thanhtoan.php");
+                        include("thanhtoan.php");
                     }
                 }
                 break;
             case 'sanphamct' :
-                    if (isset($_GET['idpro'])) {
-                        $loadsp = loadone_sanpham($_GET['idpro']);
-                        luotxem($_GET['idpro']);
-                    }
-                    include("giaodien/header1.php");
-                    $binhluan=binhluan($_GET['idpro']);
-                    include ("chitietsp.php");
+                if (isset($_GET['idpro'])) {
+                    $loadsp = loadone_sanpham($_GET['idpro']);
+                    luotxem($_GET['idpro']);
+                }
+                include("giaodien/header1.php");
+                $binhluan = binhluan($_GET['idpro']);
+                include("chitietsp.php");
                 break;
             case 'binhluan':
                 if (isset($_POST['gui']) && $_POST['gui']) {
@@ -95,15 +95,15 @@ if (isset($_GET['aht'])){
                     $ngaybinhluan = date('h:i:sa d/m/Y');
                     isert_bl($idsp, $rating, $binhluan, $name, $ngaybinhluan);
                 }
-                $loadsp= loadone_sanpham($_GET['idpro']);
-                $binhluan=binhluan($_GET['idpro']);
+                $loadsp = loadone_sanpham($_GET['idpro']);
+                $binhluan = binhluan($_GET['idpro']);
                 include("giaodien/header1.php");
-                include ("chitietsp.php");
+                include("chitietsp.php");
                 break;
             // ... (mã đã có)
 
             case 'dangky' :
-                if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $name = $_POST['name'];
                     $email = $_POST['email'];
                     $dia_chi = $_POST['diachi'];
@@ -145,7 +145,7 @@ if (isset($_GET['aht'])){
                                  alert("Đăng ký thành công mời bạn đăng nhập")
                                  window.location.href = "index.php?aht=dndk"
                               </script>';
-                    }else{
+                    } else {
                         echo '<script>
                                  alert("Có vẻ bạn đang để trống 1 vài ô nào đó")
                                   window.location.href = "index.php?aht=dndk"
@@ -156,32 +156,39 @@ if (isset($_GET['aht'])){
                 break;
 
             case 'dangnhap' :
-                if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $taikhoan = $_POST['taikhoan'];
                     $matkhau = $_POST['matkhau'];
 
                     // Thêm kiểm tra điều kiện rỗng cho tài khoản và mật khẩu
-                    if(empty($taikhoan)){
+                    if (empty($taikhoan)) {
                         $_SESSION['error']['taikhoan'] = 'Vui lòng nhập tài khoản';
                     }
-                    if(empty($matkhau)){
+                    if (empty($matkhau)) {
                         $_SESSION['error']['matkhau'] = 'Vui lòng nhập mật khẩu';
                     }
 
-                    if(!isset($_SESSION['error'])){
+                    if (!isset($_SESSION['error'])) {
                         $check = check($taikhoan, $matkhau);
-                        if (is_array($check)){
+                        if(!$check){
+                            echo '<script> 
+                                    alert("Tài khoản hoặc mật khẩu không đúng")
+                                  window.location.href = "index.php?aht=dndk"
+                              </script>';
+                        }else if (is_array($check)) {
                             $_SESSION['userxuong'] = $check;
                             echo '<script> 
+                                    alert("Đăng nhập thành công")
                                   window.location.href = "index.php"
                               </script>';
                         }
-                    }else{
+                    }else {
                         echo '<script>
+                                    alert("Không đuợc để trống")
                                   window.location.href = "index.php?aht=dndk"
                               </script>';
-                        }
                     }
+                }
                 break;
             case 'capnhat':
                 if (isset($_POST['capnhat']) && $_POST['capnhat']) {

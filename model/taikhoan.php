@@ -5,8 +5,7 @@ function  dangky($name,$dia_chi,$email,$sdt,$taikhoan,$matkhau){
 }
 function check($taikhoan,$matkhau){
     $sql = " select * from tai_khoan where taikhoan='$taikhoan' and matkhau='$matkhau'";
-    $tk = pdo_query_one($sql);
-    return $tk;
+    return pdo_query_one($sql);
 }
 function update_tk($id,$name,$dia_chi,$email,$sdt,$taikhoan,$matkhau){
     $sql="UPDATE tai_khoan SET name='$name', dia_chi='$dia_chi', email='$email', sdt='$sdt', taikhoan='$taikhoan', matkhau='$matkhau' WHERE id='$id';";

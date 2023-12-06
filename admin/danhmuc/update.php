@@ -12,7 +12,7 @@ if (is_file($loadhinh)){
         <div class="row">
             <div class="col-12">
                 <div class="mb">
-                    <div class="box_title" style="font-size: 25px">Cập nhật sản phẩm mới</div>
+                    <div class="box_title text-center" style="font-size: 25px">Cập nhật danh mục</div>
                     <div class="box_content form_account">
                         <form action="index.php?act=update" method="post" enctype="multipart/form-data">
                             <input type="hidden" name="id" value="<?=$id?>">
@@ -20,6 +20,7 @@ if (is_file($loadhinh)){
                             <div class="mb-3">
                                 <label for="tenloai" class="form-label">Tên Loại:</label>
                                 <input type="text" class="form-control" name="tenloai" id="tenloai" value="<?=$ten_danh_muc?>">
+                                <span style="color: red"><?= isset($_SESSION['error']['tendm']) ? $_SESSION['error']['tendm'] : '' ?></span>
                             </div>
 
                             <div class="mb-3">

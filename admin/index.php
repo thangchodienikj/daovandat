@@ -13,6 +13,7 @@ if (isset($_SESSION['userxuong'])) {
     $listdanhmuc = loadAll_danhmuc();
     $listmau = productp_color();
     $listsize = productpro_size();
+    $listsp=loadall_sanpham(0);
     function addError($field, $message) {
         if (!isset($_SESSION['error'])) {
             $_SESSION['error'] = [];
@@ -32,6 +33,7 @@ if (isset($_SESSION['userxuong'])) {
 
                     if (empty($_FILES['hinh']['name'])) {
                         $hinh = "";
+                        addError('hinh', 'Vui lòng chọn Ảnh danh mục.');
                     } else {
                         if (!isset($_SESSION['imageError'])) {
                             // thư mục sẽ được lưu ảnh vào thư mục image
@@ -45,9 +47,6 @@ if (isset($_SESSION['userxuong'])) {
                         }
                     }
 
-                    if (empty($hinh)) {
-                        addError('hinh', 'Vui lòng chọn Ảnh danh mục.');
-                    }
                     if (!isset($_SESSION['error'])) {
                         insert_danhmuc($tendanhmuc, $hinh);
                         echo '<script> 
@@ -64,8 +63,6 @@ if (isset($_SESSION['userxuong'])) {
                 }else{
                     include "danhmuc/add.php";
                 }
-
-
                 break;
             case 'listdm':
                 if (isset($_SESSION['userxuong'])) {
@@ -95,9 +92,12 @@ if (isset($_SESSION['userxuong'])) {
                 if (isset($_POST['capnhat'])) {
                     $id = $_POST['id'];
                     $tendanhmuc = $_POST['tenloai'];
+                    if(empty($tendanhmuc)){
+                        addError('tendm','Vui lòng nhập trường này');
+                    }
                     if (empty($_FILES['hinh']['name'])) {
                         $hinh = "";
-                    } else {
+                    }else {
                         if (!isset($_SESSION['imageError'])) {
                             // thư mục sẽ được lưu ảnh vào thư mục image
                             $targettOir = "../upload/";
@@ -109,11 +109,23 @@ if (isset($_SESSION['userxuong'])) {
                             }
                         }
                     }
-                    update_danhmuc($id, $tendanhmuc, $hinh);
-                    $thongbao = "thêm thành công";
+                    if(!isset($_SESSION['error'])){
+                        update_danhmuc($id, $tendanhmuc, $hinh);
+                        echo '<script> 
+                                alert("Sửa danh mục thành công")
+                                window.location.href = "index.php?act=listdm"
+                                </script>';
+                    }else{
+                        echo '<script> 
+                                alert("Bạn đang để trống 1 vài trường nào đó ")
+                                window.location.href = "index.php?act=listdm"
+                                </script>';
+                    }
+
+                }else{
+                    $listdanhmuc = loadAll_danhmuc();
+                    include("danhmuc/list.php");
                 }
-                $listdanhmuc = loadAll_danhmuc();
-                include("danhmuc/list.php");
                 break;
             case 'addsp':
                 if (isset($_POST['themmoi'])) {
@@ -138,9 +150,10 @@ if (isset($_SESSION['userxuong'])) {
                     insert_product($ten_sach, $hinh_anh, $mo_ta, $gia_ca, $id_danh_muc);
                     $thongbao3 = "Thêm sản phẩm mới thành công";
                     echo '<script> window.location.href = "index.php?act=addsp" </script>';
+                }else{
+                    $listdanhmuc = loadAll_danhmuc();
+                    include("sach/add.php");
                 }
-                $listdanhmuc = loadAll_danhmuc();
-                include("sach/add.php");
                 break;
             case 'add1':
                 include("sach/add1.php");
@@ -255,14 +268,46 @@ if (isset($_SESSION['userxuong'])) {
                 break;
             case 'spbt':
                 if (isset($_POST['gui'])) {
-                    $id = $_POST['id'];
+                    $id = $_POST['sanpham'];
                     $id1 = $_POST['id1'];
                     $id2 = $_POST['id2'];
                     $soluong = $_POST['soluong'];
-                    spbt($id, $id1, $id2, $soluong);
-                    $thongbao5 = "Thêm sản phẩm biến thể thành công";
+
+                    if (empty($id)) {
+                        addError('sanpham', 'Vui lòng nhập sản phẩm');
+                    }
+
+                    if (empty($id1)) {
+                        addError('size', 'Vui lòng nhập size.');
+                    }
+
+                    if (empty($id2)) {
+                        addError('mau', 'Vui lòng nhập màu');
+                    }
+
+                    if (empty($id2)) {
+                        addError('soluong', 'Vui lòng nhập số lượng');
+                    }else if($soluong < 0 ){
+                        addError('soluong', 'Số lượng phải lớn hơn 0');
+
+                    }
+
+                    if (!isset($_SESSION['error'])) {
+                        spbt($id, $id1, $id2, $soluong);
+                        echo '<script> 
+                            alert("Thêm thành công sản phẩm biến thể");
+                            window.location.href = "index.php?act=listsp"
+                            </script>';
+
+                    }else {
+                        echo '<script> 
+                            alert("Vui lòng nhập hết các trường đi nhé");
+                            window.location.href = "index.php?act=add3"
+                            </script>';
+                    }
+                }else {
+                    include("sach/add3.php");
                 }
-                include("sach/add3.php");
                 break;
             case 'khachhang':
                 $listkhachhang = khachhang(0);
