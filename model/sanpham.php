@@ -237,7 +237,7 @@ GROUP BY
     return pdo_query_one($sql);
 }
 function product(){
-    return pdo_query("SELECT *,sp.img as hinhanh FROM product AS sp JOIN danh_muc as dm on dm.id = sp.loai GROUP BY sp.id;");
+    return pdo_query("SELECT *,sp.img as hinhanh  ,sp.id as tensp  FROM product AS sp JOIN danh_muc as dm on dm.id = sp.loai GROUP BY sp.id;");
 }
 function list3sp(){
     $sql = "SELECT * FROM product  LIMIT 3  ";

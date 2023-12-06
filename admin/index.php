@@ -215,13 +215,16 @@ if (isset($_SESSION['userxuong'])) {
             case 'xoasp':
                 if (isset($_GET['id'])) {
                     xoa_sp($_GET['id']);
+                    echo '<script> 
+                            window.location.href = "index.php?act=listsp"
+                            </script>';
                 }
                 $listsp = loatAll_sanpham("", 0);
                 include("sach/list.php");
                 break;
             case 'suasp':
                 if (isset($_GET['id'])) {
-                    $sp = loadone_product($_GET['id']);
+                    $sp1 = loadone_product($_GET['id']);
                 }
                 $listdanhmuc = loadAll_danhmuc();
                 include("sach/update.php");
@@ -249,6 +252,9 @@ if (isset($_SESSION['userxuong'])) {
                     }
                     update_sp($id, $ten_sach, $gia_ca, $hinh_anh, $mo_ta, $id_danh_muc);
                     $thongbao6 = "thêm thành công";
+                    echo '<script> 
+                            window.location.href = "index.php?act=listsp"
+                            </script>';
                 }
                 $listdanhmuc = loadAll_danhmuc();
                 $listsp = loatAll_sanpham("", 0);
