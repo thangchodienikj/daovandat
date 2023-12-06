@@ -64,3 +64,4 @@ if(is_file($hinhload)){
 
 </div>
 </main>
+<?php unset($_SESSION['error'])?>

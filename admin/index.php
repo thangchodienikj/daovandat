@@ -133,8 +133,23 @@ if (isset($_SESSION['userxuong'])) {
                     $gia_ca = $_POST['giasp'];
                     $mo_ta = $_POST['mota'];
                     $id_danh_muc = $_POST['iddm'];
+                    if(empty($ten_sach)){
+                        addError('tensach','Vui lòng nhập tên sản phẩm');
+                    }
+                    if(empty($gia_ca)){
+                        addError('giaca','Vui lòng nhập giá cả');
+                    }else if($gia_ca < 0){
+                        addError('giaca', 'Giá cả phải lớn hơn 0');
+                    }
+                    if(empty($mota)){
+                        addError('mota','Vui lòng nhập mota');
+                    }
+                    if(empty($id_danh_muc)){
+                        addError('iddm','Vui lòng nhập danh mục');
+                    }
                     if (empty($_FILES['hinh']['name'])) {
                         $hinh_anh = "";
+                        addError('hinh','Vui lòng nhập ảnh');
                     } else {
                         if (!isset($_SESSION['imageError'])) {
                             // thư mục sẽ được lưu ảnh vào thư mục image
@@ -147,9 +162,19 @@ if (isset($_SESSION['userxuong'])) {
                             }
                         }
                     }
-                    insert_product($ten_sach, $hinh_anh, $mo_ta, $gia_ca, $id_danh_muc);
-                    $thongbao3 = "Thêm sản phẩm mới thành công";
-                    echo '<script> window.location.href = "index.php?act=addsp" </script>';
+
+                    if(!isset($_SESSION['error'])){
+                        insert_product($ten_sach, $hinh_anh, $mo_ta, $gia_ca, $id_danh_muc);
+                        echo '<script> 
+                                alert("Thêm sản phẩm thành công")
+                                window.location.href = "index.php?act=listsp" 
+                            </script>';
+                    }else{
+                        echo '<script> 
+                                alert("Có vẻ bạn quên 1 vài trường nào đó")
+                                window.location.href = "index.php?act=addsp" 
+                            </script>';
+                    }
                 }else{
                     $listdanhmuc = loadAll_danhmuc();
                     include("sach/add.php");

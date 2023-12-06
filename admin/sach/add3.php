@@ -79,3 +79,4 @@
         });
     });
 </script>
+<?php unset($_SESSION['error'])?>
