@@ -79,7 +79,7 @@
 
                                         ?>
                                         <form action="index.php?act=tinhtrang" method="post">
-                                            <input type="hidden" name="id" id="id" value="<?=$id?>">
+                                            <input type="hidden" name="id" id="id" value="<?=$id_don_mua?>">
                                             <select name="tinhtrangdh">
                                                 <option value="0">Chờ xác nhận</option>
                                                 <option value="1">Xác nhận đơn hàng</option>

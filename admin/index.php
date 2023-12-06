@@ -141,7 +141,7 @@ if (isset($_SESSION['userxuong'])) {
                     }else if($gia_ca < 0){
                         addError('giaca', 'Giá cả phải lớn hơn 0');
                     }
-                    if(empty($mota)){
+                    if(empty($mo_ta)){
                         addError('mota','Vui lòng nhập mota');
                     }
                     if(empty($id_danh_muc)){

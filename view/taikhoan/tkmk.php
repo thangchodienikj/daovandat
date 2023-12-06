@@ -46,9 +46,9 @@
 
         a {
             color: #333;
-            font-size: 14px;
+            font-size: 12px;
             text-decoration: none;
-            margin: 15px 0;
+            margin: 10px 0;
         }
 
         button {
@@ -95,17 +95,14 @@
             margin: 8px 0;
             width: 100%;
         }
-
         .container {
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
             position: relative;
             overflow: hidden;
-            width: 768px;
-            max-width: 100%;
-            min-height: 800px;
-
+            width: 700px;
+            height: 680px;
         }
         .form-message{
             color: red;
@@ -252,6 +249,20 @@
             color: #3c97bf;
             text-decoration: none;
         }
+        .form-group label {
+            display: block;
+
+            font-size: 13px;
+        }
+        .form-group input {
+            width: 100%; /* Optional: Adjust the width as needed */
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
     </style>
 </head>
 
@@ -266,7 +277,7 @@
                 <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <span>hoặc sử dụng email của bạn để đăng ký</span>
-
+            <br>
             <div class="form-group">
                 <label for="name">Họ và tên</label>
                 <input type="text" name="name" placeholder="Họ và tên"  />
@@ -316,6 +327,7 @@
                 <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <span>hoặc sử dụng tài khoản của bạn</span>
+            <br>
             <div class="form-group">
                 <label for="taikhoan">Tài khoản</label>
                 <input type="text" name="taikhoan" placeholder="Tài khoản" />

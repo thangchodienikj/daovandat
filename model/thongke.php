@@ -91,7 +91,7 @@ function thongke_donhang(){
                 SUM(CASE WHEN tinhtrangdh = 3 THEN 1 ELSE 0 END) AS successfulOrders,
                 SUM(CASE WHEN tinhtrangdh = 0 THEN 1 ELSE 0 END) AS newOrders,
                 SUM(CASE WHEN tinhtrangdh = 1 THEN 1 ELSE 0 END) AS processingOrders,
-                SUM(CASE WHEN tinhtrangdh = 2 THEN 1 ELSE 0 END) AS deliveringOrders
+                SUM(CASE WHEN tinhtrangdh = 4 THEN 1 ELSE 0 END) AS deliveringOrders
             FROM 
                 don_hang";
 
