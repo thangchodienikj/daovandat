@@ -216,6 +216,7 @@ if (isset($_SESSION['userxuong'])) {
                 if (isset($_GET['id'])) {
                     xoa_sp($_GET['id']);
                     echo '<script> 
+                            alert("Xóa sản phẩm thành công")
                             window.location.href = "index.php?act=listsp"
                             </script>';
                 }
@@ -236,29 +237,60 @@ if (isset($_SESSION['userxuong'])) {
                     $gia_ca = $_POST['giasp'];
                     $mo_ta = $_POST['mota'];
                     $id_danh_muc = $_POST['iddm'];
-                    if (empty($_FILES['hinh']['name'])) {
-                        $hinh_anh = "";
-                    } else {
-                        if (!isset($_SESSION['imageError'])) {
-                            // thư mục sẽ được lưu ảnh vào thư mục image
-                            $targettOir = "../upload/";
-                            // đường dẫn đến file được lưu
-                            $targetFile = $targettOir . $_FILES['hinh']['name'];
-                            // tiếng hành upload file ảnh
-                            if (move_uploaded_file($_FILES['hinh']['tmp_name'], $targetFile)) {
-                                $hinh_anh = $targetFile;
+                    if(empty($ten_sach)){
+                        addError('tensp','Vui lòng nhập trường này');
+                    }
+
+                    if(empty($gia_ca)){
+                        addError('gia_ca','Vui lòng nhập trường này');
+                    }
+                    if($gia_ca <= 0 ){
+                        addError('gia_ca','Giá phải lớn hơn hoặc bằng 1');
+                    }
+                    if(!is_numeric($gia_ca)){
+                        addError('gia_ca','Giá phải là số');
+                    }
+
+                    if(empty($mo_ta)){
+                        addError('mota','Vui lòng nhập trường này');
+                    }
+
+                    if(empty($id_danh_muc)){
+                        addError('iddm','Vui lòng nhập trường này');
+                    }
+
+                    if(!isset($_SESSION['error'])){
+                        if (empty($_FILES['hinh']['name'])) {
+                            $hinh_anh = "";
+                        } else {
+                            if (!isset($_SESSION['imageError'])) {
+                                // thư mục sẽ được lưu ảnh vào thư mục image
+                                $targettOir = "../upload/";
+                                // đường dẫn đến file được lưu
+                                $targetFile = $targettOir . $_FILES['hinh']['name'];
+                                // tiếng hành upload file ảnh
+                                if (move_uploaded_file($_FILES['hinh']['tmp_name'], $targetFile)) {
+                                    $hinh_anh = $targetFile;
+                                }
                             }
                         }
-                    }
-                    update_sp($id, $ten_sach, $gia_ca, $hinh_anh, $mo_ta, $id_danh_muc);
-                    $thongbao6 = "thêm thành công";
-                    echo '<script> 
+                        update_sp($id, $ten_sach, $gia_ca, $hinh_anh, $mo_ta, $id_danh_muc);
+                        echo '<script> 
+                            alert("Sửa sản phẩm thành công")
                             window.location.href = "index.php?act=listsp"
                             </script>';
+                    }else{
+                        echo "<script> 
+                            alert('Có vẻ đang có lỗi gì đó')
+                            window.location.href = 'index.php?act=suasp&id=$id'
+                            </script>";
+                    }
+                }else{
+                    $listdanhmuc = loadAll_danhmuc();
+                    $listsp = loatAll_sanpham("", 0);
+                    include("sach/list.php");
                 }
-                $listdanhmuc = loadAll_danhmuc();
-                $listsp = loatAll_sanpham("", 0);
-                include("sach/list.php");
+               break;
             case 'mau':
                 if (isset($_POST['gui'])) {
                     $mau = $_POST['mau'];
