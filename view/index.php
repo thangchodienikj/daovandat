@@ -448,7 +448,6 @@ if (isset($_GET['aht'])){
                         $_SESSION['order']['ptvc'] = $ptvc;
                     }
 
-                    // Nếu có lỗi, chuyển hướng người dùng và kết thúc
                     if (!empty($_SESSION['error'])) {
                         echo '<script>
                                     alert("Có lỗi xảy ra. Vui lòng kiểm tra thông tin và thử lại.");
@@ -459,6 +458,7 @@ if (isset($_GET['aht'])){
                         if ($pttt == "vnpay"){
                             echo '<script> window.location.href = "init_payment_vnpay.php" </script>';
                         }else{
+                            $id_don_hang = donhang($name, $diachi, $email, $sdt, $ghichu, $ngaydathang, $ptvc, $pttt);
                             if (isset($_SESSION['userxuong'])) {
                                 extract($_SESSION['userxuong']);
                                 $listgh = loadall_giohang($_SESSION['userxuong']['id']);
