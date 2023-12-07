@@ -412,7 +412,7 @@
         </div><!-- End .container -->
     </div><!-- End .page-content -->
 </main><!-- End .main -->
-
+<?php unset($_SESSION['error'])?>
 <script>
     let curSize=document.getElementById('selectedSize').value;
     let curColor=document.getElementById('selectedColor').value;

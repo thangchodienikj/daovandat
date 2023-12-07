@@ -1,4 +1,4 @@
-<main class="main" style="width: 78%; margin: 0 auto;">
+<main class="main text-center" style="width: 78%; margin: 0 auto;">
     <br>
     <br>
     <div class="box_title" style="font-size: 25px">Danh sách sản phẩm</div> <br>
@@ -46,14 +46,14 @@
                                 <?php
                                 foreach ($listsp1 as $sanpham) {
                                     extract($sanpham);
-                                    $suasp = "index.php?act=suasp&id=" . $id;
-                                    $xoasp = "index.php?act=xoasp&id=" . $id;
+                                    $suasp = "index.php?act=suasp&id=" . $tensp;
+                                    $xoasp = "index.php?act=xoasp&id=" . $tensp;
                                     $hinhload = "../upload/" . $hinhanh;
                                     if (is_file($hinhload)) {
                                         $hinh_anh = "<img src='" . $hinhload . "' height='120' width='120'>";
                                         echo '<tr>
                                                 <td class="text-center col-md-1"><input type="checkbox" name="" id=""></td>
-                                                <td class="text-center col-md-1">' . $id . '</td>
+                                                <td class="text-center col-md-1">' . $tensp . '</td>
                                                 <td class="text-center col-md-2">' . $name . '</td>
                                                 <td class="text-center col-md-2 justify-content-cente">' . $hinh_anh . '</td>
                                                 <td class="text-center col-md-2">' . $price . '</td>

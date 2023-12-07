@@ -1,13 +1,13 @@
 <?php 
-if(is_array($sp)){
-    extract($sp); // sử dụng để chuyển các phần tử trong một mảng thành các biến động
+if(is_array($sp1)){
+    extract($sp1); // sử dụng để chuyển các phần tử trong một mảng thành các biến động
 }
 $hinhload="../upload/".$img;
 if(is_file($hinhload)){
     $hinh="<img src='".$hinhload."' height='80' width='80' >";
 }               
 ?>
-<main class="main" style="width: 60%; margin: 0 auto;">
+<main class="main text-center" style="width: 60%; margin: 0 auto;">
     <div class="mb">
         <br>
         <div class="box_title" style="font-size: 25px">Cập nhập sản phẩm mới </div>
@@ -21,13 +21,13 @@ if(is_file($hinhload)){
                         <?php
                         foreach ($listdanhmuc as $danhmuc){
                             extract($danhmuc);
-                            $s = ($danhmuc['id'] == $sp['loai']) ? 'selected' : '';
+                            $s = ($danhmuc['id'] == $sp1['loai']) ? 'selected' : '';
                             echo '<option value="'.$id.'" '.$s.' >'.$ten_danh_muc.'</option>';
                         }
                         ?>
                     </select>
                 </div>
-                <input type="hidden" name="id" id="id" value="<?=$sp['id']?>">
+                <input type="hidden" name="id" id="id" value="<?=$sp1['id']?>">
                 <div class="mb-3">
                     <label for="tensp" class="form-label">Tên sản phẩm:</label>
                     <input type="text" name="tensp" id="tensp" class="form-control" value="<?=$name?>">
@@ -60,8 +60,5 @@ if(is_file($hinhload)){
             </p>
         </div>
     </div>
-</main>
-
-</div>
 </main>
 <?php unset($_SESSION['error'])?>
